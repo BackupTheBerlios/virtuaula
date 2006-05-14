@@ -1,0 +1,136 @@
+.botones {
+    clear: both;
+    padding: 10px 2px 3px 2px;
+    display: inline;
+}
+
+.botones a {
+    font-family: Verdana;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 12px 36px 12px 36px;
+    margin: 0.1em 0em 0em 0em;
+    color: #000099;
+    background-image: url(../img/bf.gif);
+    background-repeat: repeat-x;
+    background-position: 0 0px;
+/*    background: #E9E9F9; */
+    border-top: 1px solid #6666CC;
+    border-bottom: 1px solid #9999CC;
+    border-left: 1px solid #6666CC;
+    border-right: 1px solid #9999CC;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+}
+.botones a:hover {
+    font-family: Verdana;
+    font-size: 9px;
+    font-weight: bold;
+    text-decoration: none;
+    background-image: url(../img/bf.gif);
+    background-repeat: repeat-x;
+    background-position: 0 0px;
+    background-position: 0 -40px;
+/*    background: #F9F6D9; */
+    border-top: 1px solid #CC9900;
+    border-bottom: 1px solid #CC9900;
+    border-left: 1px solid #CC9900;
+    border-right: 1px solid #CC9900;
+    color: #996600;
+    -moz-border-radius: 5px;
+}
+
+
+/*
+Ejemplos de uso:
+<div align="center">
+  <div class="botones">
+    <a href="javascript:void(Aceptar())">Aceptar</a>
+    <a href="javascript:void(Riniciar())">Reset</a>
+  </div>
+</div>
+*/
+
+
+.botonesSubMenu {
+    clear: both;
+    padding: 0px 10px 0px 10px;
+    display: inline;
+}
+
+.botonesSubMenu a {
+	font-family:Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	padding:0px 30px 0px 30px;	
+	color:#000099;
+	background-image:url(../img/f_Boton.gif);
+	background-repeat:repeat-x;
+	text-decoration: none;
+	border-width:1px;
+	border-color:#CFCFCF;
+	height:21px;
+	letter-spacing:0.1em;
+	border-width:1px;
+	border-style:solid;
+	/*-moz-border-radius: 5px;*/
+
+}
+
+.botonesSubMenu a:hover {
+	background-image:url(../img/f_Boton_s.gif);
+	background-repeat:no-repeat;
+	background-repeat:repeat-x;
+	font-family:Verdana;
+	font-size: 11px;
+	font-weight:bold;
+	letter-spacing:0.1em;
+	padding:0px 30px 0px 30px;
+	border-width:1px;
+	border-style:solid;
+	border-color:#0ECDE4;
+	color:#000099;
+	height:21px;
+	/*-moz-border-radius: 5px;*/
+}
+
+/*
+Ejemplos de uso:
+	<div align="center">
+	  <div class="botonesSubMenu">
+		<a href="javascript:void(Aceptar())">Aceptar</a>
+		<a href="javascript:void(Riniciar())">Reset</a>
+	  </div>
+	</div>
+*/
+
+
+span.iconoAlert a {
+    padding: 0px 10px 0px 0px;
+    margin: 0 2px 0 0;
+    color: transparent;
+	background-image:url(../img/exclamacion.jpg);
+    background-position: 0 0px;
+}
+
+
+.lineaSep {
+	height:1px;
+	background-color: #EAEDF0;
+}
+
+
+
+.botonSimple {
+	font-size:10px;
+	font-family:Verdana,Helvetica;
+    font-weight:bold;
+    color:white;
+	padding: 0px 0px 0px 0px;
+    background:#638cb5;
+    border:0px;
+    width:70px;
+    height:15px;
+	cursor:hand;
+}
+
