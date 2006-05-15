@@ -778,6 +778,40 @@ public class BBDDFachada {
 		return avisos;
 	}
 	
+	/**
+	 * Dado un alumno y un curso nos devuele la ficha correspondiente.
+	 * @param alumno que guia la busqueda
+	 * @param curso que guia la busqueda
+	 * @return
+	 */
+	public ObjetoBean dameFichaAlumnoCurso(ObjetoBean alumno, ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean critCursoAlumno = creadorBean.crear(creadorBean.CursoHasAlumno);
+		critCursoAlumno.cambiaValor(Constantes. ID_HAS_ISCURSO_IDISCURSO, curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		critCursoAlumno.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI, alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+		ObjetoBean cursoAlumno= this.consultar(critCursoAlumno).dameObjeto(0);
+		ObjetoBean critFicha= creadorBean.crear(creadorBean.Ficha);
+		critFicha.cambiaValor(Constantes.ID_ISFICHA,cursoAlumno.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
+		ObjetoBean ficha= this.consultar(critFicha).dameObjeto(0);
+		return ficha;
+		
+	}
+	
+	
+	//prueba de dameFichaAlumnoCurso
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean curso =creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		ObjetoBean alumno =creador.crear(creador.Alumno);
+		alumno.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI,"50");
+		ObjetoBean aula=mia.dameFichaAlumnoCurso(alumno,curso);
+		System.out.println(aula.dameValor(Constantes.FICHA_ANOTACIONES));
+		
+		
+		
+	}*/
 	
 	//prueba dameAvisosUsuario
 	/*public static void main(String[] args) {
