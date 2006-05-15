@@ -31,9 +31,15 @@ public class Profesorado {
 		return ga.consultaAreas();
 	}
 	
-	public ListaObjetoBean consultaprofesor(ObjetoBean beanProfesor) {
+	public ListaObjetoBean consultaProfesor(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l = bdf.consultar(beanProfesor);
+		return l;
+	}
+	
+	public ListaObjetoBean consultaCursosProfesor(ObjetoBean beanProfesor) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		ListaObjetoBean l = bdf.dameCursosProfesor(beanProfesor);
 		return l;
 	}
 
