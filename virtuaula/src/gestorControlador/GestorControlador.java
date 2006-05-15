@@ -1,6 +1,7 @@
 package gestorControlador;
 import controlador.Controlador;
-import controlPasaPag.ControladorPasaPag;
+import controlador.controlPasaPag.ControladorPasaPag;
+
 import javax.servlet.http.*;
 import java.util.Hashtable;
 /**

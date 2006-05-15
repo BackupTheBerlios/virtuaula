@@ -1,4 +1,4 @@
-package controlPasaPag;
+package controlador.controlPasaPag;
 
 
 import controlador.Controlador;

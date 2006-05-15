@@ -1,4 +1,4 @@
-package controlConexiones;
+package controlador.controlConexiones;
 
 import controlador.Controlador;
 

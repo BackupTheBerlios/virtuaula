@@ -3,9 +3,9 @@ package gestorControlador;
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
-import controlPasaPag.ControladorPasaPag;
-import controlConexiones.ControladorDesconectar;
 import controlador.Controlador;
+import controlador.controlConexiones.ControladorDesconectar;
+import controlador.controlPasaPag.ControladorPasaPag;
 
 public class GestorControladorSecretaria extends GestorControlador{
 	/**

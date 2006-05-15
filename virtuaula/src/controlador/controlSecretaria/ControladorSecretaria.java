@@ -1,4 +1,4 @@
-package controlSecretaria;
+package controlador.controlSecretaria;
 
 
 

@@ -2,7 +2,8 @@ package gestorControlador;
 
 
 import controlador.Controlador;
-import controlConsulProf.Cons_Prof;
+import controlador.controlConsulProf.Cons_Prof;
+
 import javax.servlet.http.HttpSession;
 
 public class GestorControladorConsultaProf extends GestorControladorSecretaria{
