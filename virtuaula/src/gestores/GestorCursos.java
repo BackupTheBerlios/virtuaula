@@ -28,6 +28,17 @@ public class GestorCursos {
 		return (Horario)bdf.dameHorarioCurso(beanCurso);
 	}
 	
+	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.dameAlumnosCurso(beanCurso);
+	}
+	
+	public ListaObjetoBean consultaCursosActivos(ObjetoBean beanProfesor) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.dameCursosActivos(beanProfesor);
+	}
+	
+	
 	public Aula consultaAulaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return (Aula)bdf.dameAulaCurso(beanCurso);

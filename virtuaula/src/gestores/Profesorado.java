@@ -46,6 +46,27 @@ public class Profesorado {
 		return l;
 	}
 	
+	public ListaObjetoBean consultaFichaDeAlumno(ObjetoBean beanAlumno) {
+		GestorFichas gf = new GestorFichas();
+		return gf.consultaFichaDeAlumno(beanAlumno);
+	}
+	
+	public boolean editarFicha(ObjetoBean beanFicha){
+		GestorFichas gf = new GestorFichas();
+		return gf.editarFicha(beanFicha);
+	}
+	
+	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
+		GestorCursos gc = new GestorCursos();
+		return gc.consultaAlumnosDeCurso(beanCurso);
+	}
+	
+	public ListaObjetoBean consultaCursosActivos(ObjetoBean beanProfesor) {
+		GestorCursos gc = new GestorCursos();
+		return gc.consultaCursosActivos(beanProfesor);
+	}
+
+	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();
