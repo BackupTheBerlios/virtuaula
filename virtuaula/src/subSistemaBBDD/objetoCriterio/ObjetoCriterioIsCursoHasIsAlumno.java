@@ -76,8 +76,8 @@ public class ObjetoCriterioIsCursoHasIsAlumno extends ObjetoCriterio{
 	public ObjetoCriterio convertir (ObjetoBBDD obj){
 		for(int i=0;i<Campos.length;i++){
 			String s = obj.dameValor(Campos[i]);
-			if (!s.equals("null")) {
-				if (s!=null){
+			if (s!=null) {
+				if (!s.equals("")){
 					listaCampos.add((String) Campos[i]);
 					listaValores.add((String)s);
 					numCampos++;

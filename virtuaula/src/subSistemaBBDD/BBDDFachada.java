@@ -598,6 +598,56 @@ public class BBDDFachada {
 		}
 	}
 	
+	/**
+	 * Dado un curso te devuelve los alumnos que están matriculados en él.
+	 * @param curso, curso en cuestión.
+	 * @return lista de alumnos matriculados en el curso.
+	 */
+	
+	//busco en la tabla que relaciona cursos y alumnos
+	public ListaObjetoBean dameAlumnosCurso(ObjetoBean curso){
+		CreadorObjetoBBDD creadorObjetoBBDD= this.creador.getCreadorObjetoBBDD();			
+		ObjetoBBDD cursoAlumno = creadorObjetoBBDD.crear(creadorObjetoBBDD.IscursoHasIsalumno);
+		cursoAlumno.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO, curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ObjetoCriterio critCursoAlumno = this.creador.getCreadorObjetoCriterio().crear(this.creador.getCreadorObjetoCriterio().ObjetoCriterioIscursoHasIsalumno);
+		
+		critCursoAlumno.convertir(cursoAlumno);
+		CreadorEsquemaBBDD creadorTablas = this.creador.getCreadorEsquema();
+		EsquemaBBDD tablaCursoAlumno= creadorTablas.crear(creadorTablas.EsqIscursoHasIsalumno);
+		//Obtengo una lista de beans de tipo CursoHasAlumno que me relacionan los id de los alumno que están matriculados en el curso dado.
+		ListaObjetoBean alumnosCurso = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaCursoAlumno).consultar(critCursoAlumno));
+		//Por cada elemento de alumnosCurso hago una consulta en la tabla isalumno guiada por el idAlumno de alumnosCurso
+		ListaObjetoBean resultado= new ListaObjetoBean();
+		for (int i=0; i<alumnosCurso.tamaño();i++){
+			ObjetoBBDD alumno = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isalumno);
+			alumno.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI,alumnosCurso.dameObjeto(i).dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
+			ObjetoCriterio critAlumno = this.creador.getCreadorObjetoCriterio().crear(this.creador.getCreadorObjetoCriterio().ObjetoCriterioIsalumno); 
+			critAlumno.convertir(alumno);
+			EsquemaBBDD tablaAlumno = creadorTablas.crear(creadorTablas.EsqIsalumno);
+			ListaObjetoBean alumnoResult = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaAlumno).consultar(critAlumno));
+			resultado.insertar(resultado.tamaño(),alumnoResult.dameObjeto(0));		
+		}
+		return resultado;
+	}
+	
+	
+	/**
+	 * No sirve para hallar los cursos que imparte el profesor pasado como parámetro y que tienen estado activo.
+	 * @param profesor, el profesor en cuestion.
+	 * @return una lista de todos los cursos activos que imparte profesor.
+	 */
+	public ListaObjetoBean dameCursosActivos(ObjetoBean profesor){
+		CreadorObjetoBBDD creadorObjetoBBDD= this.creador.getCreadorObjetoBBDD();			
+		ObjetoBBDD curso = creadorObjetoBBDD.crear(creadorObjetoBBDD.Iscurso);
+		curso.cambiaValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI, profesor.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI));
+		curso.cambiaValor(Constantes.CURSO_ESTADO,"activo");
+		ObjetoCriterio critCurso = this.creador.getCreadorObjetoCriterio().crear(this.creador.getCreadorObjetoCriterio().ObjetoCriterioIscurso);
+		critCurso.convertir(curso);
+		CreadorEsquemaBBDD creadorTablas = this.creador.getCreadorEsquema();
+		EsquemaBBDD tablaCurso= creadorTablas.crear(creadorTablas.EsqIscurso);
+		ListaObjetoBean cursosActivosProfesor = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaCurso).consultar(critCurso));
+		return cursosActivosProfesor;
+	}
 	
 	
 	/*public Vector consultarNotasAlumnos(Bean profesor){
@@ -606,7 +656,35 @@ public class BBDDFachada {
 		ListaBeans cursosProfesor= this.consultar()
 		
 	}*/
-	//Prueba dameAulasLibres
+	
+	
+	//prueba dameAlumnosCurso
+	public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean profesor =creador.crear(creador.Profesor);
+		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,"50000000");
+		ListaObjetoBean listaCursos = mia.dameCursosActivos(profesor);
+		for (int i=0;i<listaCursos.tamaño();i++){
+			System.out.println(listaCursos.dameObjeto(i).dameValor(Constantes.ALUMNO_NOMBRE));
+		}
+		
+	}
+	
+	//prueba dameAlumnosCurso
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean curso =creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		ListaObjetoBean listaAlumnos = mia.dameAlumnosCurso(curso);
+		for (int i=0;i<listaAlumnos.tamaño();i++){
+			System.out.println(listaAlumnos.dameObjeto(i).dameValor(Constantes.ALUMNO_NOMBRE));
+		}
+		
+	}*/
+	
+	/*Prueba dameAulasLibres
 	public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
@@ -615,7 +693,7 @@ public class BBDDFachada {
 		ListaObjetoBean listaprofesLibres = mia.dameProfesoresLibres(horario);
 		for (int i=0;i<listaprofesLibres.tamaño();i++)
 		System.out.println(listaprofesLibres.dameObjeto(i).dameValor(Constantes.PROFESOR_NOMBRE));
-	}
+	}*/
 	
 	/*public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
