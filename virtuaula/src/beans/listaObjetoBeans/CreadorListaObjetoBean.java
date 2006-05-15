@@ -6,7 +6,7 @@ package beans.listaObjetoBeans;
  * usamos el patron prototype. 
  * Tenemos un atributo static que se genererara una vez, cuando no se haya creado antes,
  * si no se ha creado se genera una nueva a partir de la que se generaran los clones.
- */
+ */ 
 public class CreadorListaObjetoBean {
 	static private ListaObjetoBean lista;
     /**

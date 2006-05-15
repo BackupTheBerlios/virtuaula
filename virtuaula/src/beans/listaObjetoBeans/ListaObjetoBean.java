@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import beans.ObjetoBean;
 
 
-
 /**
  * 
  * @author Alberto Macho
@@ -84,8 +83,9 @@ public class ListaObjetoBean extends ListaObjetoBeanAbs{
      * 
      * @return devuelve el tamaño de la lista.
      */
-    public int tamanio(){
+    public int tamaño(){
 		return lista.size();
 	}
 
 }
+

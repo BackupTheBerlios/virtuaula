@@ -31,6 +31,7 @@ abstract public class ListaObjetoBeanAbs {
 	 * @param pos posición del objeto a eliminar
 	 */
 	abstract public void eliminar(int pos);
+	abstract public int tamaño();
 }
 
 
