@@ -65,6 +65,11 @@ public class Profesorado {
 		GestorCursos gc = new GestorCursos();
 		return gc.consultaCursosActivos(beanProfesor);
 	}
+	
+	public boolean PublicarNota(ObjetoBean beanCurso){
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.publicarNota(beanCurso);
+	}
 
 	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
