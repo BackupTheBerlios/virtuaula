@@ -20,22 +20,22 @@ public class GestorCursos {
 	
 	public Area consultaAreaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameAreaCurso(beanCurso);
+		return (Area)bdf.dameAreaCurso(beanCurso);
 	}
 	
 	public Horario consultaHorarioDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameHorarioCurso(beanCurso);
+		return (Horario)bdf.dameHorarioCurso(beanCurso);
 	}
 	
 	public Aula consultaAulaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameAulaCurso(beanCurso);
+		return (Aula)bdf.dameAulaCurso(beanCurso);
 	}
 	
 	public Profesor consultaProfesorDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameProfesorCurso(beanCurso);
+		return (Profesor)bdf.dameProfesorCurso(beanCurso);
 	}
 	
 	public ListaObjetoBean consultaProfesores(){
