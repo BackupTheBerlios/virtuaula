@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class GestorPaginas {
 
 	private HashMap mapSecretaria;
+	private HashMap mapProfesor;
 	
 	
 	/**
@@ -17,6 +18,7 @@ public class GestorPaginas {
 	 */
 	public GestorPaginas() {
 		mapSecretaria = new HashMap ();
+		mapProfesor = new HashMap ();
 	}
 	
 	
@@ -33,6 +35,10 @@ public class GestorPaginas {
 		String paginaSig = "";		
 		if (tipoUsuario.equals("secretaria")) {
 			paginaSig = (String) this.mapSecretaria.get(operacion.concat(operacionResultado));
+		}
+		
+		if (tipoUsuario.equals("profesor")) {
+			paginaSig = (String) this.mapProfesor.get(operacion.concat(operacionResultado));
 		}
 		
 		return paginaSig;
@@ -53,6 +59,10 @@ public class GestorPaginas {
 		
 		if (tipoUsuario.equals("secretaria")) {
 			this.mapSecretaria.put(operacion.concat(operacionResultado), paginaSig);
+		}
+		
+		if (tipoUsuario.equals("profesor")) {
+			this.mapProfesor.put(operacion.concat(operacionResultado), paginaSig);
 		}
 	}
 }
