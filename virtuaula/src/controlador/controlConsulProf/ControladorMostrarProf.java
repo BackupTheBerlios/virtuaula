@@ -1,5 +1,6 @@
 package controlador.controlConsulProf;
 
+import controlador.Controlador;
 import beans.Profesor;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import gestores.Profesorado;
@@ -28,6 +29,11 @@ public class ControladorMostrarProf extends ControladorConsProf{
 		
 		
 		
+	}
+
+	public Controlador clonar()
+	{
+		return new ControladorMostrarProf();
 	}
 
 }
