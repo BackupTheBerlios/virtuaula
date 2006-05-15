@@ -1,10 +1,19 @@
 package controlador.controlConsulProf;
 
 
-import beans.ObjetoBean;
+import gestores.Profesorado;
+import controlador.Controlador;
 import beans.listaObjetoBeans.ListaObjetoBean;
-import subSistemaBBDD.BBDDFachada;
 
+import beans.ObjetoBean;
+/**
+ * 
+ * @author Alberto Macho
+ * Este controlador controla la navegación entre dos paginas
+ * en la consulta de un profesor. En este paso consultará las areas disponibles en
+ * el sistema para poder mostrarlas en la pagina siguiente.
+ *
+ */
 public class Cons_Prof extends ControladorConsProf{
 
 	
@@ -15,27 +24,41 @@ public class Cons_Prof extends ControladorConsProf{
  */
 	public void procesarEvento() {
 		
-		
+		Profesorado profesorado = new Profesorado();
 		ListaObjetoBean lista;
+		//=clis.crear();
+		//beanProf pasara a llamarse bean
 		ObjetoBean beanprof = (ObjetoBean)this.getSesion().getAttribute("beanProf");
 		//Aqui accederiamos a la base de datos para consultar el profesor y me lo devolveria en
 		//beanprof. Luego lo meteriamos en la lista
 		//lista=consulta en la base de datos.
-		BBDDFachada BD=BBDDFachada.getInstance();
-		lista=BD.consultar(beanprof);
+		//BBDDFachada BD=BBDDFachada.getInstance();
+		
+		lista=profesorado.consultaProfesor(beanprof);
+		//ListaObjetoBean listacur=BD.consultarCursosProfesor(beanprof);
+		//ListaObjetoBean listacur=profesorado.consultarCursosProfesor(beanprof);
 		//Si la consulta no ha dado error entonces la lista sera distinta de null
 		//entonces resultadooperacion sera OK sino sera ERROR
 		this.sesion.setAttribute("RdoControlador",lista);
-		if (lista!=null){
+		//this.sesion.setAttribute("cursosprofesor",listacur);
+		//if (!lista.esVacio())
+		if ((lista!=null) ){  //|| (listacur!=null)
 			this.setResuladooperacion("OK");
 			}
-		else{
+		else if ((lista==null) )// || (listacur==null)
+		{
 			this.setResuladooperacion("ERROR");	
 		}
-	
+			
+			
 		this.sesion.removeAttribute("beanProf");
 		
 	
 	}
+	public Controlador clonar()
+	{
+		return new Cons_Prof();
+	}
 
 }
+
