@@ -12,9 +12,8 @@ public class GestorAvisos {
 
 	public ListaObjetoBean consultaAvisos(ObjetoBean beanUsuario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		//ListaObjetoBean l = bdf.dameAvisos(beanUsuario);
-		//return l;
-		return null;
+		ListaObjetoBean l = bdf.dameAvisosUsuario(beanUsuario);
+		return l;
 	}
 	
 	public boolean borraAviso(ObjetoBean beanAviso){
