@@ -377,7 +377,7 @@ public class GestorCursos {
 					return result;
 				}
 			} else {
-				if (false){//cursoYaExiste(beanCurso){
+				if (bdf.cursoYaExiste(beanCurso)){
 					String mensaje = "El curso introducido ya existe";
 					Error error = (Error) cBean.crear(14);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
