@@ -211,7 +211,8 @@ public class EsqIsCursoHasIsAlumno extends EsquemaBBDD {
 					while (obj.camposig()) {
 						sQuery += "," + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 					}
-					sQuery += " where "+Constantes.ID_HAS_ISCURSO_IDISCURSO+"="+obj.dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO) ; 
+					sQuery += " where "+Constantes.ID_HAS_ISCURSO_IDISCURSO+"="+obj.dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO)+
+					" AND "+ Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI+"="+obj.dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI); 
 				}
 				
 				//cierro la sentencia

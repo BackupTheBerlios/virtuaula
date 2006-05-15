@@ -687,16 +687,17 @@ public class BBDDFachada {
 			ListaObjetoBean fichaCurso = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaFicha).consultar(critFicha));
 			//solo habrá una ficha en fichaCurso puesto que el criterio de busqueda era la clave de la tabla isficha
 			ObjetoBean fichaBean = fichaCurso.dameObjeto(0);
-			if(fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS)!=""){
+			System.out.println("el valor del campo notasejercicios es "+ fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
+			if(!fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS).equals(null)){
 				float nota_ejercicios= Float.parseFloat(fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
-				fichaBean.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,Float.toString(nota_ejercicios));
+				cursoAlumnoFicha.dameObjeto(i).cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,Float.toString(nota_ejercicios));
 				if(exito)
-					exito=this.editar(fichaBean);
+					exito=this.editar(cursoAlumnoFicha.dameObjeto(i));
 			}
 			else{
-				fichaBean.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,"-1");
+				cursoAlumnoFicha.dameObjeto(i).cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,"-1");
 				if(exito)
-					exito=this.editar(fichaBean);
+					exito=this.editar(cursoAlumnoFicha.dameObjeto(i));
 			}
 			
 			
@@ -704,6 +705,37 @@ public class BBDDFachada {
 			
 		}
 		return exito;
+	}
+	
+	
+	public ObjetoBean dameAreaCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean area= creadorBean.crear(creadorBean.Area);
+		area.cambiaValor(Constantes.ID_ISAREA,curso.dameValor(Constantes.CURSO_ISAREA_IDISAREA));
+		ListaObjetoBean areasCurso=this.consultar(area);
+		ObjetoBean areaCurso = areasCurso.dameObjeto(0);
+		System.out.println("salen "+ areasCurso.tamanio());
+		return areaCurso;
+		
+	}
+	//dameAulaCurso(ObjetoBean curso);
+	//dameProfesorCurso(ObjetoBean curso);
+	//dameHorarioCurso(ObjetoBean curso);
+
+	
+	
+	
+	public static void main(String[] args) {
+	BBDDFachada mia = BBDDFachada.getInstance();
+	CreadorBean creador = new CreadorBean();
+	ObjetoBean curso =creador.crear(creador.Curso);
+	curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+	ObjetoBean cursos = mia.consultar(curso).dameObjeto(0);
+	ObjetoBean area=mia.dameAreaCurso(cursos);
+	System.out.println(area.dameValor(Constantes.AREA_NOMBRE));
+	System.out.println(area.dameValor(Constantes.ID_ISAREA));
+	
+	
 	}
 	
 	
@@ -718,14 +750,12 @@ public class BBDDFachada {
 	/*public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
-		ObjetoBean profesor =creador.crear(creador.Profesor);
-		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,"50000000");
-		ListaObjetoBean listaCursos = mia.dameCursosActivos(profesor);
-		for (int i=0;i<listaCursos.tamanio();i++){
-			System.out.println(listaCursos.dameObjeto(i).dameValor(Constantes.ALUMNO_NOMBRE));
-		}
+		ObjetoBean curso =creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		boolean result = mia.publicarNota(curso);
+		System.out.println(result);
 		
-	}^*/
+	}*/
 	
 	
 	//prueba dameCursosActivos
