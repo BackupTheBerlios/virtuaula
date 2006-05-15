@@ -74,25 +74,32 @@
         					<th class="FormLiteral"><b>Segundo Apellido</th>
         					<th class="FormLiteral"><b>Teléfono</th>
         					<th class="FormLiteral"><b>Correo electrónico</th>
+        					<th class="FormLiteral"><b>Área</th>
         				</tr>
         				
         				
         			<%
                     HttpSession sesion=request.getSession();
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
-	if(listaObjetoBean!=null){
                     Integer posicionLista =((Integer)sesion.getAttribute("posProf"));
                   	Profesor profesor;	
-                    profesor = (Profesor) listaObjetoBean.dameObjeto(posicionLista.intValue());
-	                  out.println("<tr>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"</td>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("NOMBRE"))+"</td>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO1"))+"</td>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO2"))+"</td>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("TELEFONO"))+"</td>");
-	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("EMAIL"))+"</td>");	                    	                   	                    
-	                  out.println("</tr>");
-	                  
+                  	
+                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+                  	
+                    	if (posicionLista != null) {
+                    	
+                        profesor = (Profesor) listaObjetoBean.dameObjeto(posicionLista.intValue());
+    	                  out.println("<tr>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("NOMBRE"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO1"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO2"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("TELEFONO"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("EMAIL"))+"</td>");
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISAREA_IDISAREA"))+"</td>");	                    	                   	                    
+    	                  out.println("</tr>");
+  	                  
+                      }
                     }
                     //ELIMINAR DE SESSION LA LISTA Y LA POSICION
                     //sesion.removeAttribute("RdoControlador");

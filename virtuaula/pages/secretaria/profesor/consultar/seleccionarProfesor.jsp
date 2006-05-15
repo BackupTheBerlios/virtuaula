@@ -66,67 +66,59 @@
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-             
-        				
         				
         				<%
 	
                     HttpSession sesion=request.getSession();
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
-	      if(listaObjetoBean!=null){
                   	Profesor profesor;
-		    if (!(listaObjetoBean.esVacio())){
-		          out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
-		          out.println("<tr>");
-       		          out.println("	<th class='FormLiteral'><b>Seleccion</th>");
-        		          out.println("	<th class='FormLiteral'><b>DNI</th>");  					
-        		          out.println("	<th class='FormLiteral'><b>Nombre</th>");
-        		          out.println("	<th class='FormLiteral'><b>Primer Apellido</th>");
-        		          out.println("	<th class='FormLiteral'><b>Segundo Apellido</th>");
-        		           out.println("</tr>");	
-	                        
-	                       
-	     
+		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+        		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
+        		            out.println("<tr>");
+                        out.println("	<th class='FormLiteral'><b>Seleccion</th>");
+        		            out.println("	<th class='FormLiteral'><b>DNI</th>");  					
+        		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
+        		            out.println("	<th class='FormLiteral'><b>Primer Apellido</th>");
+        		            out.println("	<th class='FormLiteral'><b>Segundo Apellido</th>");
+        		            out.println("</tr>");	
+	                        	                       	     
 	                   	 for (int i=0; i<listaObjetoBean.tamanio();i++) {
 			
-	                    	profesor = (Profesor) listaObjetoBean.dameObjeto(i);
-			out.println("<tr>");
-			 out.println("<td>");
-			if (i==0){
-   		         	 out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posProf' checked>");
-			}
-			else{
-   		         	 out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posProf'>");
-			}
-	                   	 out.println("</td>");
-	                  	  out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"</td>");
-	                	  out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("NOMBRE"))+"</td>");
-	                  	  out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO1"))+"</td>");
-   		               out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO2"))+"</td>");
-	                             out.println("</tr>");
-		      }//fin for
+                          profesor = (Profesor) listaObjetoBean.dameObjeto(i);
+			                    out.println("<tr>");
+			                    out.println("<td>");
+			                    if (i==0){
+   		         	             out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posProf' checked>");
+			                    }
+			                    else{
+   		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posProf'>");
+			                         }
+	                   	    out.println("</td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"</td>");
+	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("NOMBRE"))+"</td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO1"))+"</td>");
+                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO2"))+"</td>");
+	                        out.println("</tr>");
+		                    }//fin for
 		      
-		      out.println("<tr>");
-		      out.println("		         <td colspan='7' align='center'> ");
-		      out.println("			          <input type='hidden' name='evento' value='MOSTRAR_PROF'>");
-		      out.println("			          <input type='hidden' name='idBean' value='listProf'>");
-		      out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
+		                    out.println("<tr>");
+		                    out.println("		         <td colspan='7' align='center'> ");
+		                    out.println("			          <input type='hidden' name='evento' value='MOSTRAR_PROF'>");
+		                    out.println("			          <input type='hidden' name='idBean' value='listProf'>");
+		                    out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
 		         
 		                  
-		      }
-		 else{	out.println("No se ha encontrado ninguna entrada bajo estas condiciones");
-			out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
-			out.println("<tr>");			 
-		      	 out.println("		         <td colspan='7' align='center'> ");
-		      	 out.println("			          <input type='hidden' name='evento' value='INI_CONS_PROF'>");
-		      	 out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
+		              }
+		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
+			                   out.println("<tr>");			 
+		      	             out.println("		         <td colspan='7' align='center'> ");
+		      	             out.println("			          <input type='hidden' name='evento' value='INI_CONS_PROF'>");
+		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
 
 		
-		}
-	      }
+		                  } 
                 %>   
-                
-               
 					         </td>
 				        </tr>	                     				
         			</table>

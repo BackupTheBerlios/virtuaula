@@ -1,3 +1,5 @@
+<%@ page import="beans.*" %>
+<%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -87,7 +89,26 @@
         				</tr>
         				<tr>
         					<td class="FormLiteral">Area</td>
-        					<td><input type="text" class="FormTxt" name="ISAREA_IDISAREA"></td>
+        					<td>        					       					
+              				<%
+              				    HttpSession sesion=request.getSession();
+                          ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
+              
+                          if (listaAreas != null && !listaAreas.esVacio()) {
+                	            Area area;	
+                	            out.println("<select name='ISAREA_IDISAREA' class='FormTxt'>");
+                	            out.println("<option value=''></option>");                	                            	            
+                              for (int i = 0; i < listaAreas.tamanio(); i++) {
+                                  area = (Area) listaAreas.dameObjeto(i);
+                                  out.println("<option value='"+String.valueOf(area.dameValor("IDISAREA"))+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
+      			                  }
+                              out.println("</select>");
+                          } else 
+                                {
+                                out.println("<font class='FormLiteral'>No hay creada ningún área.</font>");                                
+                                }
+                      %>
+                  </td>
         				</tr>        				 
               	<tr>
 					         <td colspan="7" align="center">
