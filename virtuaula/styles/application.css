@@ -18,6 +18,17 @@
 	padding-top: 2px;
 }
 
+.FormTxtArea {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	padding-left: 4px;
+	border: 1px solid #AEAEAE;
+	margin-left: 5px;
+	padding-top: 2px;
+}
+
 
 .comboSelect {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
@@ -37,5 +48,11 @@
 	font-size: 12px;
 	font-weight: normal;
 	color: #FF0000;
+}
 
+.info {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #336666;
 }
