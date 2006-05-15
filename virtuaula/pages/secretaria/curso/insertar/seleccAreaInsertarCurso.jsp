@@ -129,7 +129,7 @@
         				</tr>
         				<tr>
         					<td class="FormLiteral">Horario</td>
-        					
+        					<td>
                   <%
                       ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
                       Integer posicionLista =((Integer)sesion.getAttribute("posHor"));
@@ -140,10 +140,12 @@
                       	if (posicionLista != null) {
                       	
                           horario = (Horario) listaHorarios.dameObjeto(posicionLista.intValue());                          
+                          out.println("<input type='text' class='FormTxt' name='horario' disabled='true' value='"+horario.dameValor("L")+"'>");
                         }
                       }
                   %>        					        					
-        					<td><input type="text" class="FormTxt" name="horario" disabled="true" value="<%=horario.dameValor("L")%>"></td>
+        					
+                  </td>
         					<td></td>
         					<td class="FormLiteral">Aula</td>
         					<td class="info">
