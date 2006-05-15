@@ -34,7 +34,8 @@ public class EsqIsProfesor extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion  && !obj.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI).equals("")
+				 && !obj.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -141,54 +142,50 @@ public class EsqIsProfesor extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Integer iValor;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
 			
-		//if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_PROFESOR;
-			if (obj.dameNumCampos() != 0) {
+			sQuery = "SELECT * FROM " + Constantes.TABLA_PROFESOR;
+			if (obj.dameNumCampos() > 0){
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}	
-				
-				//cierro la sentencia
-			
-				sQuery += ";";
 			}
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isprofesor);
-						objetoBBDD.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI));					
-						iValor = new Integer (resultSet.getInt(Constantes.PROFESOR_ISAREA_IDISAREA));
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_ISAREA_IDISAREA, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_NOMBRE, resultSet.getString(Constantes.PROFESOR_NOMBRE));
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_APELLIDO1, resultSet.getString(Constantes.PROFESOR_APELLIDO1));
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_APELLIDO2, resultSet.getString(Constantes.PROFESOR_APELLIDO2));
-						iValor = new Integer (resultSet.getInt(Constantes.PROFESOR_TELEFONO));
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_TELEFONO, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.PROFESOR_EMAIL, resultSet.getString(Constantes.PROFESOR_EMAIL));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_PROFESOR);
-					log.error(e.getMessage());
-					
-				}	
-					
-			super.desconectar();					
-		}
+			//cierro la sentencia
+			sQuery += ";";
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isprofesor);
+					objetoBBDD.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI));					
+					iValor = new Integer (resultSet.getInt(Constantes.PROFESOR_ISAREA_IDISAREA));
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_ISAREA_IDISAREA, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_NOMBRE, resultSet.getString(Constantes.PROFESOR_NOMBRE));
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_APELLIDO1, resultSet.getString(Constantes.PROFESOR_APELLIDO1));
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_APELLIDO2, resultSet.getString(Constantes.PROFESOR_APELLIDO2));
+					iValor = new Integer (resultSet.getInt(Constantes.PROFESOR_TELEFONO));
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_TELEFONO, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.PROFESOR_EMAIL, resultSet.getString(Constantes.PROFESOR_EMAIL));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
+				
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_PROFESOR);
+				log.error(e.getMessage());
+				
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 	}
 	

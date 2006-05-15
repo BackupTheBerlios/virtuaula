@@ -35,7 +35,7 @@ public class EsqIsUsuario extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !(obj.dameValor(Constantes.ID_ISUSUARIO_DNI).equals(""))) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -139,46 +139,44 @@ public class EsqIsUsuario extends EsquemaBBDD {
 		String sQuery = "";
 		boolean bResultadoConexion;
 		int posicion = 0;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
 			
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_USUARIO;
+			sQuery = "SELECT * FROM " + Constantes.TABLA_USUARIO;
+			if (obj.dameNumCampos() != 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}		
+			}
+			//cierro la sentencia
+			sQuery += ";";
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isusuario);
+					objetoBBDD.cambiaValor(Constantes.ID_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISUSUARIO_DNI));
+					objetoBBDD.cambiaValor(Constantes.USUARIO_CONTRASENIA, resultSet.getString(Constantes.USUARIO_CONTRASENIA));
+					objetoBBDD.cambiaValor(Constantes.USUARIO_PERFIL, resultSet.getString(Constantes.USUARIO_PERFIL));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";";
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_USUARIO);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isusuario);
-						objetoBBDD.cambiaValor(Constantes.ID_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISUSUARIO_DNI));
-						objetoBBDD.cambiaValor(Constantes.USUARIO_CONTRASENIA, resultSet.getString(Constantes.USUARIO_CONTRASENIA));
-						objetoBBDD.cambiaValor(Constantes.USUARIO_PERFIL, resultSet.getString(Constantes.USUARIO_PERFIL));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_USUARIO);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 	}
 //	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que

@@ -35,7 +35,7 @@ public class EsqIsAula extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISAULA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -140,49 +140,46 @@ public class EsqIsAula extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Integer iValor;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-	
-				sQuery = "SELECT * FROM " + Constantes.TABLA_AULA;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			sQuery = "SELECT * FROM " + Constantes.TABLA_AULA;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}		
+			}
+			//cierro la sentencia
+			sQuery += ";";
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isaula);				
+					iValor = new Integer (resultSet.getInt(Constantes.ID_ISAULA));
+					objetoBBDD.cambiaValor(Constantes.ID_ISAULA, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.AULA_NOMBRE, resultSet.getString(Constantes.AULA_NOMBRE));
+					iValor = new Integer (resultSet.getInt(Constantes.AULA_CAPACIDAD));
+					objetoBBDD.cambiaValor(Constantes.AULA_CAPACIDAD, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.AULA_LOCALIZACION, resultSet.getString(Constantes.AULA_LOCALIZACION));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";";
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AULA);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isaula);				
-						iValor = new Integer (resultSet.getInt(Constantes.ID_ISAULA));
-						objetoBBDD.cambiaValor(Constantes.ID_ISAULA, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.AULA_NOMBRE, resultSet.getString(Constantes.AULA_NOMBRE));
-						iValor = new Integer (resultSet.getInt(Constantes.AULA_CAPACIDAD));
-						objetoBBDD.cambiaValor(Constantes.AULA_CAPACIDAD, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.AULA_LOCALIZACION, resultSet.getString(Constantes.AULA_LOCALIZACION));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AULA);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 
 	}

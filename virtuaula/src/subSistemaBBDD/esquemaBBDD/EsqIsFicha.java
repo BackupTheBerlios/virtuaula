@@ -35,7 +35,7 @@ public class EsqIsFicha extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion 	&& !obj.dameValor(Constantes.ID_ISFICHA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -141,49 +141,47 @@ public class EsqIsFicha extends EsquemaBBDD {
 		int posicion = 0;
 		Integer iValor;
 		Float fValor;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_FICHA;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_FICHA;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}	
+			}
+			//cierro la sentencia
+			sQuery += ";"; 
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.IsFicha);
+					iValor = new Integer (resultSet.getInt(Constantes.ID_ISFICHA));
+					objetoBBDD.cambiaValor(Constantes.ID_ISFICHA, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.FICHA_NOTAS, resultSet.getString(Constantes.FICHA_NOTAS));
+					objetoBBDD.cambiaValor(Constantes.FICHA_ANOTACIONES, resultSet.getString(Constantes.FICHA_ANOTACIONES));
+					fValor = new Float (resultSet.getFloat(Constantes.FICHA_NOTAS_EJERCICIOS));
+					objetoBBDD.cambiaValor(Constantes.FICHA_NOTAS_EJERCICIOS, fValor.toString());					
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";"; 
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_FICHA);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.IsFicha);
-						iValor = new Integer (resultSet.getInt(Constantes.ID_ISFICHA));
-						objetoBBDD.cambiaValor(Constantes.ID_ISFICHA, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.FICHA_NOTAS, resultSet.getString(Constantes.FICHA_NOTAS));
-						objetoBBDD.cambiaValor(Constantes.FICHA_ANOTACIONES, resultSet.getString(Constantes.FICHA_ANOTACIONES));
-						fValor = new Float (resultSet.getFloat(Constantes.FICHA_NOTAS_EJERCICIOS));
-						objetoBBDD.cambiaValor(Constantes.FICHA_NOTAS_EJERCICIOS, fValor.toString());					
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_FICHA);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 		
 	}

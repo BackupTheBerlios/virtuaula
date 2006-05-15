@@ -37,7 +37,7 @@ public class EsqIsArea extends EsquemaBBDD {
 			
 		//conecto con con la base de datos
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISAREA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -146,47 +146,45 @@ public class EsqIsArea extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Integer iValor;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
 		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_AREA;
+			sQuery = "SELECT * FROM " + Constantes.TABLA_AREA;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}				
-						
+			}	
+			
+			//cierro la sentencia
+			sQuery += ";"; 
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isarea);
+					objetoBBDD.cambiaValor(Constantes.AREA_NOMBRE, resultSet.getString(Constantes.AREA_NOMBRE));
+					iValor = new Integer (resultSet.getInt(Constantes.ID_ISAREA));
+					objetoBBDD.cambiaValor(Constantes.ID_ISAREA, iValor.toString());
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";"; 
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AREA);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isarea);
-						objetoBBDD.cambiaValor(Constantes.AREA_NOMBRE, resultSet.getString(Constantes.AREA_NOMBRE));
-						iValor = new Integer (resultSet.getInt(Constantes.ID_ISAREA));
-						objetoBBDD.cambiaValor(Constantes.ID_ISAREA, iValor.toString());
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AREA);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}	
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 	}
 

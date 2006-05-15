@@ -35,7 +35,9 @@ public class EsqIsCurso extends EsquemaBBDD {
 			
 		//conecto con con la base de datos
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISCURSO_IDISCURSO).equals("")
+				&& !obj.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI).equals("")				
+				&& !obj.dameValor(Constantes.CURSO_ISAREA_IDISAREA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -143,53 +145,51 @@ public class EsqIsCurso extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Float fValor;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_CURSO;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_CURSO;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}	
+			}
+			//cierro la sentencia
+			sQuery += ";";
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Iscurso);
+					objetoBBDD.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO , resultSet.getString(Constantes.ID_ISCURSO_IDISCURSO));
+					objetoBBDD.cambiaValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI, resultSet.getString(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
+					objetoBBDD.cambiaValor(Constantes.CURSO_ISAREA_IDISAREA , resultSet.getString(Constantes.CURSO_ISAREA_IDISAREA));
+					objetoBBDD.cambiaValor(Constantes.CURSO_NOMBRE, resultSet.getString(Constantes.CURSO_NOMBRE));
+					objetoBBDD.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS , resultSet.getString(Constantes.CURSO_NUMERO_PLAZAS));
+					objetoBBDD.cambiaValor(Constantes.CURSO_ESTADO, resultSet.getString(Constantes.CURSO_ESTADO));
+					objetoBBDD.cambiaValor(Constantes.CURSO_FECHA_INICIO, resultSet.getString(Constantes.CURSO_FECHA_INICIO));
+					objetoBBDD.cambiaValor(Constantes.CURSO_FECHA_FIN, resultSet.getString(Constantes.CURSO_FECHA_FIN));
+					fValor = new Float (resultSet.getFloat(Constantes.CURSO_PRECIO));
+					objetoBBDD.cambiaValor(Constantes.CURSO_PRECIO, fValor.toString());
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";";
-				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Iscurso);
-						objetoBBDD.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO , resultSet.getString(Constantes.ID_ISCURSO_IDISCURSO));
-						objetoBBDD.cambiaValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI, resultSet.getString(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
-						objetoBBDD.cambiaValor(Constantes.CURSO_ISAREA_IDISAREA , resultSet.getString(Constantes.CURSO_ISAREA_IDISAREA));
-						objetoBBDD.cambiaValor(Constantes.CURSO_NOMBRE, resultSet.getString(Constantes.CURSO_NOMBRE));
-						objetoBBDD.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS , resultSet.getString(Constantes.CURSO_NUMERO_PLAZAS));
-						objetoBBDD.cambiaValor(Constantes.CURSO_ESTADO, resultSet.getString(Constantes.CURSO_ESTADO));
-						objetoBBDD.cambiaValor(Constantes.CURSO_FECHA_INICIO, resultSet.getString(Constantes.CURSO_FECHA_INICIO));
-						objetoBBDD.cambiaValor(Constantes.CURSO_FECHA_FIN, resultSet.getString(Constantes.CURSO_FECHA_FIN));
-						fValor = new Float (resultSet.getFloat(Constantes.CURSO_PRECIO));
-						objetoBBDD.cambiaValor(Constantes.CURSO_PRECIO, fValor.toString());
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
 				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_CURSO);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_CURSO);
+				log.error(e.getMessage());
+				
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
 	}
 	

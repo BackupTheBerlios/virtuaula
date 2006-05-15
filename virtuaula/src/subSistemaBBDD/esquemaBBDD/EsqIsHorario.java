@@ -27,7 +27,7 @@ public class EsqIsHorario extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes. ID_ISHORARIO).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -131,51 +131,48 @@ public class EsqIsHorario extends EsquemaBBDD {
 		String sQuery = "";
 		boolean bResultadoConexion;
 		int posicion = 0;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
 			
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_HORARIO;
+			sQuery = "SELECT * FROM " + Constantes.TABLA_HORARIO;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}		
-				
+			}
 				//cierro la sentencia
-				sQuery += ";";
+			sQuery += ";";
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Ishorario);
+					objetoBBDD.cambiaValor(Constantes.ID_ISHORARIO, resultSet.getString(Constantes.ID_ISHORARIO));
+					objetoBBDD.cambiaValor(Constantes.HORARIO_LUNES, resultSet.getString(Constantes.HORARIO_LUNES));
+					objetoBBDD.cambiaValor(Constantes.HORARIO_MARTES, resultSet.getString(Constantes.HORARIO_MARTES));
+					objetoBBDD.cambiaValor(Constantes.HORARIO_MIERCOLES, resultSet.getString(Constantes.HORARIO_MIERCOLES));
+					objetoBBDD.cambiaValor(Constantes.HORARIO_JUEVES, resultSet.getString(Constantes.HORARIO_JUEVES));
+					objetoBBDD.cambiaValor(Constantes.HORARIO_VIERNES, resultSet.getString(Constantes.HORARIO_VIERNES));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Ishorario);
-						objetoBBDD.cambiaValor(Constantes.ID_ISHORARIO, resultSet.getString(Constantes.ID_ISHORARIO));
-						objetoBBDD.cambiaValor(Constantes.HORARIO_LUNES, resultSet.getString(Constantes.HORARIO_LUNES));
-						objetoBBDD.cambiaValor(Constantes.HORARIO_MARTES, resultSet.getString(Constantes.HORARIO_MARTES));
-						objetoBBDD.cambiaValor(Constantes.HORARIO_MIERCOLES, resultSet.getString(Constantes.HORARIO_MIERCOLES));
-						objetoBBDD.cambiaValor(Constantes.HORARIO_JUEVES, resultSet.getString(Constantes.HORARIO_JUEVES));
-						objetoBBDD.cambiaValor(Constantes.HORARIO_VIERNES, resultSet.getString(Constantes.HORARIO_VIERNES));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_HORARIO);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_HORARIO);
+				log.error(e.getMessage());
+				
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
-
 	}
 	
 //	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que

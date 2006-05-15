@@ -33,9 +33,10 @@ public class EsqIsCursoHasIsAlumno extends EsquemaBBDD {
 		String sQuery = "";
 		Statement instruccion = null;
 		int numFilas;
-				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI).equals("")
+				&& !obj.dameValor(Constantes. ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA).equals("")
+				&& !obj.dameValor(Constantes. ID_HAS_ISCURSO_IDISCURSO).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -139,52 +140,48 @@ public class EsqIsCursoHasIsAlumno extends EsquemaBBDD {
 		String sQuery = "";
 		boolean bResultadoConexion;
 		int posicion = 0;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_ISCURSO_HAS_ISALUMNO;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_ISCURSO_HAS_ISALUMNO;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}		
+			}
+			//cierro la sentencia
+			sQuery += ";"; 
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.IscursoHasIsalumno);
+					objetoBBDD.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO, resultSet.getString(Constantes.ID_HAS_ISCURSO_IDISCURSO));
+					objetoBBDD.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
+					objetoBBDD.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA, resultSet.getString(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
+					objetoBBDD.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL, resultSet.getString(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));					
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";"; 
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_ISCURSO_HAS_ISALUMNO);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.IscursoHasIsalumno);
-						objetoBBDD.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO, resultSet.getString(Constantes.ID_HAS_ISCURSO_IDISCURSO));
-						objetoBBDD.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
-						objetoBBDD.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA, resultSet.getString(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
-						objetoBBDD.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL, resultSet.getString(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));					
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_ISCURSO_HAS_ISALUMNO);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
-		
 	}
-	
-//	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
+	//	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
 	//el objetoCriterio obj siempre tendrá el campo identificador relleno (ID de cada fila de la tabla)
 	public boolean editar(ObjetoCriterio obj){
 //		variables a utilizar

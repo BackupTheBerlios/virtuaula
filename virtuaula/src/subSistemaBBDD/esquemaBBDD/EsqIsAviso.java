@@ -34,7 +34,7 @@ public class EsqIsAviso extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISAVISOS).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -139,51 +139,48 @@ public class EsqIsAviso extends EsquemaBBDD {
 		String sQuery = "";
 		boolean bResultadoConexion;
 		int posicion = 0;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_AVISOS;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_AVISOS;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}	
-				
-				//cierro la sentencia
-				sQuery += ";"; 
-				
-				try {
+			}
+			//cierro la sentencia
+			sQuery += ";"; 
+			
+			try {
 					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isavisos);
-						objetoBBDD.cambiaValor(Constantes.ID_ISAVISOS, resultSet.getString(Constantes.ID_ISAVISOS));
-						objetoBBDD.cambiaValor(Constantes.AVISOS_FECHA_AVISO, resultSet.getString(Constantes.AVISOS_FECHA_AVISO));
-						objetoBBDD.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD, resultSet.getString(Constantes.AVISOS_FECHA_CADUCUDAD));
-						objetoBBDD.cambiaValor(Constantes.AVISOS_ASUNTO, resultSet.getString(Constantes.AVISOS_ASUNTO));
-						objetoBBDD.cambiaValor(Constantes.AVISOS_TEXTO, resultSet.getString(Constantes.AVISOS_TEXTO));
-						objetoBBDD.cambiaValor(Constantes.AVISOS_ACTIVO, resultSet.getString(Constantes.AVISOS_ACTIVO));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AVISOS);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isavisos);
+					objetoBBDD.cambiaValor(Constantes.ID_ISAVISOS, resultSet.getString(Constantes.ID_ISAVISOS));
+					objetoBBDD.cambiaValor(Constantes.AVISOS_FECHA_AVISO, resultSet.getString(Constantes.AVISOS_FECHA_AVISO));
+					objetoBBDD.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD, resultSet.getString(Constantes.AVISOS_FECHA_CADUCUDAD));
+					objetoBBDD.cambiaValor(Constantes.AVISOS_ASUNTO, resultSet.getString(Constantes.AVISOS_ASUNTO));
+					objetoBBDD.cambiaValor(Constantes.AVISOS_TEXTO, resultSet.getString(Constantes.AVISOS_TEXTO));
+					objetoBBDD.cambiaValor(Constantes.AVISOS_ACTIVO, resultSet.getString(Constantes.AVISOS_ACTIVO));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
+				
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_AVISOS);
+				log.error(e.getMessage());
+				
+			}	
+		}		
+		super.desconectar();					
 		return listaObjetoBBDDAbs;
-
 	}
 	//Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
 	//el objetoCriterio obj siempre tendrá el campo identificador relleno (ID de cada fila de la tabla)

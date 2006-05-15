@@ -35,7 +35,8 @@ public class EsqIsContrato extends EsquemaBBDD {
 		int numFilas;
 				
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISCONTRATO_ISUSUARIO_DNI).equals("")
+				&& !obj.dameValor(Constantes.CONTRATO_ISNOMINA_IDISNOMINA).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -140,51 +141,48 @@ public class EsqIsContrato extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Integer iValor;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
-				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_CONTRATO;
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_CONTRATO;
+			if (obj.dameNumCampos() > 0) {
 				sQuery += " WHERE ";
 				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				while (obj.camposig()) {
 					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}		
+			}
+			//cierro la sentencia
+			sQuery += ";"; 
+			
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Iscontrato);
+					objetoBBDD.cambiaValor(Constantes.ID_ISCONTRATO_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISCONTRATO_ISUSUARIO_DNI));
+					iValor = new Integer (resultSet.getInt(Constantes.CONTRATO_ISNOMINA_IDISNOMINA));
+					objetoBBDD.cambiaValor(Constantes.CONTRATO_ISNOMINA_IDISNOMINA, iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.CONTRATO_TIPO, resultSet.getString(Constantes.CONTRATO_TIPO));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
 				
-				//cierro la sentencia
-				sQuery += ";"; 
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_CONTRATO);
+				log.error(e.getMessage());
 				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Iscontrato);
-						objetoBBDD.cambiaValor(Constantes.ID_ISCONTRATO_ISUSUARIO_DNI, resultSet.getString(Constantes.ID_ISCONTRATO_ISUSUARIO_DNI));
-						iValor = new Integer (resultSet.getInt(Constantes.CONTRATO_ISNOMINA_IDISNOMINA));
-						objetoBBDD.cambiaValor(Constantes.CONTRATO_ISNOMINA_IDISNOMINA, iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.CONTRATO_TIPO, resultSet.getString(Constantes.CONTRATO_TIPO));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_CONTRATO);
-					log.error(e.getMessage());
-					
-				}	
-			}		
-			super.desconectar();					
-		}
-		return listaObjetoBBDDAbs;
+			}	
+		}		
+		super.desconectar();					
+	    return listaObjetoBBDDAbs;
 	}
-	
-//	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
+	//	Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
 	//el objetoCriterio obj siempre tendrá el campo identificador relleno (ID de cada fila de la tabla)
 	public boolean editar(ObjetoCriterio obj){
 //		variables a utilizar

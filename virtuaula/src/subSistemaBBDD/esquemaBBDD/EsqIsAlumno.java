@@ -36,7 +36,11 @@ public class EsqIsAlumno extends EsquemaBBDD {
 		
 		//conecto con con la base de datos
 		bResultadoConexion = super.conectar();
-		if (bResultadoConexion) {
+		if (bResultadoConexion && !obj.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI).equals("")&&
+		 !obj.dameValor(Constantes.ALUMNO_NOMBRE).equals("") && !obj.dameValor(Constantes.ALUMNO_APELLIDO1).equals("") 
+		 && !obj.dameValor(Constantes.ALUMNO_APELLIDO2).equals("")
+		 && !obj.dameValor(Constantes.ALUMNO_TELEFONO).equals("")
+		 && !obj.dameValor(Constantes.ALUMNO_EMAIL).equals("")) {
 			try {
 				instruccion = super.getConexion().createStatement();			
 			} catch (SQLException e) {
@@ -45,7 +49,16 @@ public class EsqIsAlumno extends EsquemaBBDD {
 			}				
 			
 			//preparo la sentencia a ejecutar
-			sQuery = "INSERT INTO " + super.getBd()+ "." + Constantes.TABLA_ALUMNO + "(" + Constantes.ID_ISALUMNO_ISUSUARIO_DNI + "," + Constantes.ALUMNO_NOMBRE + "," + Constantes.ALUMNO_APELLIDO1 + "," + Constantes.ALUMNO_APELLIDO2 + "," + Constantes.ALUMNO_TELEFONO + "," + Constantes.ALUMNO_EMAIL + "," + Constantes.ALUMNO_DIRECCION + "," + Constantes.ALUMNO_FECH_NACIMIENTO+ "," + Constantes.ALUMNO_SEXO + ") VALUES('" + obj.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI) + "','"+obj.dameValor(Constantes.ALUMNO_NOMBRE) + "','" + obj.dameValor(Constantes.ALUMNO_APELLIDO1) + "','" + obj.dameValor(Constantes.ALUMNO_APELLIDO2) + "'," + obj.dameValor(Constantes.ALUMNO_TELEFONO) + ",'" + obj.dameValor(Constantes.ALUMNO_EMAIL) + "','" + obj.dameValor(Constantes.ALUMNO_DIRECCION) + "','" + obj.dameValor(Constantes.ALUMNO_FECH_NACIMIENTO)+ "','" + obj.dameValor(Constantes.ALUMNO_SEXO) + "');";	
+			sQuery = "INSERT INTO " + super.getBd()+ "." + Constantes.TABLA_ALUMNO + 
+			"(" + Constantes.ID_ISALUMNO_ISUSUARIO_DNI + 
+			"," + Constantes.ALUMNO_NOMBRE + "," + Constantes.ALUMNO_APELLIDO1 + 
+			"," + Constantes.ALUMNO_APELLIDO2 + "," + Constantes.ALUMNO_TELEFONO + "," + 
+			Constantes.ALUMNO_EMAIL + "," + Constantes.ALUMNO_DIRECCION + "," + Constantes.ALUMNO_FECH_NACIMIENTO+ "," + 
+			Constantes.ALUMNO_SEXO + ") VALUES('" + obj.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI) + "','"+
+			obj.dameValor(Constantes.ALUMNO_NOMBRE) + "','" + obj.dameValor(Constantes.ALUMNO_APELLIDO1) + "','" + 
+			obj.dameValor(Constantes.ALUMNO_APELLIDO2) + "'," + obj.dameValor(Constantes.ALUMNO_TELEFONO) + ",'" + 
+			obj.dameValor(Constantes.ALUMNO_EMAIL) + "','" + obj.dameValor(Constantes.ALUMNO_DIRECCION) + "','" + 
+			obj.dameValor(Constantes.ALUMNO_FECH_NACIMIENTO)+ "','" + obj.dameValor(Constantes.ALUMNO_SEXO) + "');";	
 	
 			try {
 				//ejecuto la query
@@ -144,57 +157,55 @@ public class EsqIsAlumno extends EsquemaBBDD {
 		boolean bResultadoConexion;
 		int posicion = 0;
 		Integer iValor;
-		
-		if (obj.dameNumCampos() != 0) {
-			bResultadoConexion = super.conectar();
-			if (bResultadoConexion) {
-				try {
-					instruccion = super.getConexion().createStatement();			
-				} catch (SQLException e) {
-					log.error(Constantes.ERROR_CONEXION_BBDD);
-					log.error(e.getMessage());
+		bResultadoConexion = super.conectar();
+		if (bResultadoConexion) {
+			try {
+				instruccion = super.getConexion().createStatement();			
+			} catch (SQLException e) {
+				log.error(Constantes.ERROR_CONEXION_BBDD);
+				log.error(e.getMessage());
+			}				
+			
+			sQuery = "SELECT * FROM " + Constantes.TABLA_ALUMNO;
+			if(obj.dameNumCampos()>0){
+				sQuery += " WHERE ";
+				sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
+				while (obj.camposig()) {
+					sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
 				}				
-				
-				sQuery = "SELECT * FROM " + Constantes.TABLA_ALUMNO;
-				if (obj.dameNumCampos() > 0) {
-					sQuery += " WHERE ";
-					sQuery += obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
-					while (obj.camposig()) {
-						sQuery += " AND " + obj.dameCampo()+"=" + obj.dameValor(obj.dameCampo());
-					}				
-				}		
-				
-				//cierro la sentencia
-				sQuery += ";";
-				
-				try {
-					//ejecuto la query
-					resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
-					while (resultSet.next()) {
-						ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isalumno);
-						objetoBBDD.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI , resultSet.getString(Constantes.ID_ISALUMNO_ISUSUARIO_DNI ));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_NOMBRE, resultSet.getString(Constantes.ALUMNO_NOMBRE));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_APELLIDO1 , resultSet.getString(Constantes.ALUMNO_APELLIDO1 ));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_APELLIDO2, resultSet.getString(Constantes.ALUMNO_APELLIDO2));
-						iValor = new Integer (resultSet.getInt(Constantes.ALUMNO_TELEFONO));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_TELEFONO , iValor.toString());
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_EMAIL, resultSet.getString(Constantes.ALUMNO_EMAIL));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_DIRECCION, resultSet.getString(Constantes.ALUMNO_DIRECCION  ));					
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_FECH_NACIMIENTO, resultSet.getString(Constantes.ALUMNO_FECH_NACIMIENTO));
-						objetoBBDD.cambiaValor(Constantes.ALUMNO_SEXO, resultSet.getString(Constantes.ALUMNO_SEXO));
-						listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
-					}								
-					
-				} catch (SQLException e) {
-					log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_ALUMNO);
-					log.error(e.getMessage());
-					
-				}	
 			}		
-			super.desconectar();					
-		}
+			
+			//cierro la sentencia
+			sQuery += ";";
+				
+			try {
+				//ejecuto la query
+				resultSet = (ResultSet) instruccion.executeQuery(sQuery);								
+				while (resultSet.next()) {
+					ObjetoBBDD objetoBBDD = creadorObjetoBBDD.crear(creadorObjetoBBDD.Isalumno);
+					objetoBBDD.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI , resultSet.getString(Constantes.ID_ISALUMNO_ISUSUARIO_DNI ));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_NOMBRE, resultSet.getString(Constantes.ALUMNO_NOMBRE));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_APELLIDO1 , resultSet.getString(Constantes.ALUMNO_APELLIDO1 ));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_APELLIDO2, resultSet.getString(Constantes.ALUMNO_APELLIDO2));
+					iValor = new Integer (resultSet.getInt(Constantes.ALUMNO_TELEFONO));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_TELEFONO , iValor.toString());
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_EMAIL, resultSet.getString(Constantes.ALUMNO_EMAIL));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_DIRECCION, resultSet.getString(Constantes.ALUMNO_DIRECCION  ));					
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_FECH_NACIMIENTO, resultSet.getString(Constantes.ALUMNO_FECH_NACIMIENTO));
+					objetoBBDD.cambiaValor(Constantes.ALUMNO_SEXO, resultSet.getString(Constantes.ALUMNO_SEXO));
+					listaObjetoBBDDAbs.insertar(posicion++, objetoBBDD);
+				}								
+					
+			} catch (SQLException e) {
+				log.error("Error al consultar ObjetoBBDD en " + Constantes.TABLA_ALUMNO);
+				log.error(e.getMessage());
+				
+			}	
+		}		
+		super.desconectar();					
+	
 		return listaObjetoBBDDAbs;
-	}
+}
 	/**
 	 * Edita los campos seleccionados de obj en la tabla alumno.
 	 * @param obj el ObjetoBBDD a editar.
