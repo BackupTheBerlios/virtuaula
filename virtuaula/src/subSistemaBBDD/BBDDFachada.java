@@ -718,14 +718,54 @@ public class BBDDFachada {
 		return areaCurso;
 		
 	}
-	//dameAulaCurso(ObjetoBean curso);
-	//dameProfesorCurso(ObjetoBean curso);
-	//dameHorarioCurso(ObjetoBean curso);
+	public ObjetoBean dameAulaCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ListaObjetoBean horariosAula=this.consultar(horarioAula);
+		ObjetoBean areaCurso = horariosAula.dameObjeto(0);
+		ObjetoBean aula = creadorBean.crear(creadorBean.Aula);
+		aula.cambiaValor(Constantes.ID_ISAULA,areaCurso.dameValor(Constantes.ID_HAS_ISAULA_IDISAULA));
+		return this.consultar(aula).dameObjeto(0);
+	}
+	public ObjetoBean dameProfesorCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean profesor= creadorBean.crear(creadorBean.Profesor);
+		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,curso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
+		ListaObjetoBean profesoresCurso=this.consultar(profesor);
+		ObjetoBean profesorCurso = profesoresCurso.dameObjeto(0);
+		System.out.println("salen "+ profesoresCurso.tamanio());
+		return profesorCurso;
+	}
+	public ObjetoBean dameHorarioCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ListaObjetoBean horariosAula=this.consultar(horarioAula);
+		ObjetoBean areaCurso = horariosAula.dameObjeto(0);
+		ObjetoBean horario = creadorBean.crear(creadorBean.Horario);
+		horario.cambiaValor(Constantes.ID_ISHORARIO,areaCurso.dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
+		return this.consultar(horario).dameObjeto(0);
+	}
 
 	
 	
+	//prueba dameHorarioCurso;
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean curso =creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		ObjetoBean cursos = mia.consultar(curso).dameObjeto(0);
+		ObjetoBean aula=mia.dameHorarioCurso(cursos);
+		System.out.println(aula.dameValor(Constantes.ID_ISHORARIO));
+		
+		
+		
+	}/*
 	
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 	BBDDFachada mia = BBDDFachada.getInstance();
 	CreadorBean creador = new CreadorBean();
 	ObjetoBean curso =creador.crear(creador.Curso);
@@ -736,7 +776,7 @@ public class BBDDFachada {
 	System.out.println(area.dameValor(Constantes.ID_ISAREA));
 	
 	
-	}
+	}*/
 	
 	
 	/*public Vector consultarNotasAlumnos(Bean profesor){
