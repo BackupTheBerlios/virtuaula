@@ -780,7 +780,7 @@ public class BBDDFachada {
 	
 	
 	//prueba dameAvisosUsuario
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 	BBDDFachada mia = BBDDFachada.getInstance();
 	CreadorBean creador = new CreadorBean();
 	ObjetoBean usuario =creador.crear(creador.Usuario);
@@ -793,7 +793,7 @@ public class BBDDFachada {
 	
 	
 	
-	}
+	}*/
 	
 	//prueba dameHorarioCurso;
 	/*public static void main(String[] args) {
