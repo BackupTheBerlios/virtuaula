@@ -113,5 +113,7 @@ public class Constantes {
 	public static final String ID_HAS_ISAULA_IDISAULA = "ISAULA_IDISAULA";
 	public static final String ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO = "ISCURSO_IDISCURSO";
 
-	
+
+	//ISERROR
+	public static final String CAUSA = "CAUSA_ERROR";
 }
