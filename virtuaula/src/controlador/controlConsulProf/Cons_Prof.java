@@ -28,7 +28,7 @@ public class Cons_Prof extends ControladorConsProf{
 		ListaObjetoBean lista;
 		//=clis.crear();
 		//beanProf pasara a llamarse bean
-		ObjetoBean beanprof = (ObjetoBean)this.getSesion().getAttribute("beanProf");
+		ObjetoBean beanprof = (ObjetoBean)this.getSesion().getAttribute("beanProfesor");
 		//Aqui accederiamos a la base de datos para consultar el profesor y me lo devolveria en
 		//beanprof. Luego lo meteriamos en la lista
 		//lista=consulta en la base de datos.

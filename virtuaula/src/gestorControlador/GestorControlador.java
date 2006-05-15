@@ -35,8 +35,11 @@ public class GestorControlador {
 		}
 		public void inicializa(){
 			GestorControladorSecretaria gestorContSec=new GestorControladorSecretaria();
+			GestorControladorProfesor gestorContProf = new GestorControladorProfesor();
 			gestorContSec.inicializa();
+			gestorContProf.inicializa();
 			tablaUsuarioGestor.put("secretaria",gestorContSec);
+			tablaUsuarioGestor.put("profesor",gestorContProf);
 		}
 		public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 			Controlador controladorResultado;	
