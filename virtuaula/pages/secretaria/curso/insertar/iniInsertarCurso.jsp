@@ -1,6 +1,5 @@
 <%@ page import="beans.*" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
-
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -50,7 +49,6 @@
                 </script>
               </font>
           </div>
-   		  
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
@@ -69,13 +67,6 @@
     		         </tr>
     			 </table>
     		</div>
-
-        <%
-            HttpSession sesion=request.getSession();
-            Curso curso = (Curso) request.getAttribute("beanCurso");
-            if (curso == null) {curso = new Curso ();}
-        %>
-    		
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="insertarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
@@ -84,108 +75,57 @@
         					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value="autorrellena" disabled="true"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Area</td>
-        					<td>
-                  <%
-                      ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
-                      Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
-                      Area area;
-                      
-                    	if (listaAreas != null && !listaAreas.esVacio()){
-                        	
-                      	if (posicionLista != null) {
-                      	
-                          area = (Area) listaAreas.dameObjeto(posicionLista.intValue());
-                          out.println("<input type='text' class='FormTxt' name='area' disabled='true' value='"+area.dameValor("NOMBRE")+"'>");                                                    
-                        }
-                      }
-                  %>        					        					        					
-                  </td>        					
+        					<td class="info">
+Se rellena posteriormente
+        					
+        				</td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE" disabled="true" value="<%=curso.dameValor("NOMBRE")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE"></td>
         					<td></td>
         					<td class="FormLiteral">Numero Plazas</td>
-        					<td><input type="text" class="FormTxt" name="NUMERO_PLAZAS" disabled="true" value="<%=curso.dameValor("NUMERO_PLAZAS")%>"></td>
+        					<td><input type="text" class="FormTxt" name="NUMERO_PLAZAS"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" maxlength="20" name="ESTADO" disabled="true" value="<%=curso.dameValor("ESTADO")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="20" name="ESTADO"></td>
         					<td></td>
         					<td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" name="PRECIO" disabled="true" value="<%=curso.dameValor("PRECIO")%>"></td>
+        					<td><input type="text" class="FormTxt" name="PRECIO"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Fecha inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO" disabled="true" value="<%=curso.dameValor("FECHA_INICIO")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('insertarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+                  </td>
         					<td></td>
         					<td class="FormLiteral">Fecha finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+                  </td>
         				</tr>
-        				<tr>
+               
+                <tr>
         					<td class="FormLiteral">Horario</td>
-        					<td>
-                  <%
-                      ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
-                      Integer posicionListaHorario =((Integer)sesion.getAttribute("posHor"));
-                      Horario horario;
-                      
-                    	if (listaHorarios != null && !listaHorarios.esVacio()){
-                        	
-                      	if (posicionListaHorario != null) {
-                      	
-                          horario = (Horario) listaHorarios.dameObjeto(posicionListaHorario.intValue());
-                          out.println("<input type='text' class='FormTxt' name='horario' disabled='true' value='"+horario.dameValor("L")+"'>");                                                    
-                        }
-                      }
-                  %>        					        					
-        					
+        					<td class="info">
+Se rellena posteriormente
                   </td>
         					<td></td>
         					<td class="FormLiteral">Aula</td>
-        					<td>
-                    <%
-                        ListaObjetoBean listaAulas =((ListaObjetoBean)sesion.getAttribute("listaaula"));
-                        Integer posicionListaAula =((Integer)sesion.getAttribute("posAula"));
-                        Aula aula;
-                        
-                      	if (listaAulas != null && !listaAulas.esVacio()){
-                          	
-                        	if (posicionListaAula != null) {
-                        	
-                            aula = (Aula) listaAulas.dameObjeto(posicionListaAula.intValue());
-                            out.println("<input type='text' class='FormTxt' name='aula' disabled='true' value='"+aula.dameValor("NOMBRE")+"'>");                                                    
-                          }
-                        }
-                    %>        					        					
-        					
-                  </td>
+        					<td class="info">
+Se rellena posteriormente
+        				</td>
         				</tr>
                 <tr>
         					<td class="FormLiteral">Profesor</td>
-        					<td>
-                    <%
-                        ListaObjetoBean listaProfesores =((ListaObjetoBean)sesion.getAttribute("listaprofesor"));
-                        Integer posicionListaProfesor =((Integer)sesion.getAttribute("posProf"));
-                        Profesor profesor;
-                        
-                      	if (listaProfesores != null && !listaProfesores.esVacio()){
-                          	
-                        	if (posicionListaProfesor != null) {
-                        	
-                            profesor = (Profesor) listaProfesores.dameObjeto(posicionListaProfesor.intValue());                          
-                            out.println("<input type='text' class='FormTxt' name='profesor' disabled='true' value='"+profesor.dameValor("NOMBRE")+ " " +profesor.dameValor("APELLIDO1")+"'>");
-                          }
-                        }
-                    %>        					        					
-
-        					
-                  </td>
-        				</tr>        				
+        					<td class="info">
+Se rellena posteriormente      					
+        				</td>
+        				</tr>
+                       				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Aula">
-					          <input type="hidden" name="evento" value="INSERTA_CURSO">
+					          <input type="hidden" name="evento" value="INS_CUR_HOR">
+					          <input type="hidden" name="idBean" value="Curso">
 						        <button type="submit" class="botonSimple">Insertar</button>
 					         </td>
 				        </tr>	                       				

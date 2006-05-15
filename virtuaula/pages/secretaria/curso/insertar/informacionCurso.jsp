@@ -7,6 +7,13 @@
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
       <script language="JavaScript" src="../../../../script/calendar.js"></script>
 
+      <script language=JavaScript type="text/JavaScript">        
+          function lanzaFormulario (evento) {
+            document.formSubmenu.evento.value = evento;
+            document.formSubmenu.submit();
+          };      
+      </script> 
+
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -40,20 +47,24 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:45px; z-index:-1;">
+    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-              <a href="#">Menu curso</a>
-    					<a href="#"><font color="#660000">Desconectar</font></a>
-    				</div>
-    		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+    				  </div>
+    				</form>
+    		  </div>
+    		  
+    		<div style="position:relative; top:4px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:55px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="editarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
               
@@ -77,6 +88,7 @@
         				</tr>       				
               	<tr>
 					         <td colspan="7" align="center">
+					          <input type="hidden" name="evento" value="MENU_PPAL_CUR">
 						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 				        </tr>	                       				

@@ -84,22 +84,9 @@
         					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value="autorrellena" disabled="true"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Area</td>
-        					<td>
-                  <%
-                      ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
-                      Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
-                      Area area;
-                      
-                    	if (listaAreas != null && !listaAreas.esVacio()){
-                        	
-                      	if (posicionLista != null) {
-                      	
-                          area = (Area) listaAreas.dameObjeto(posicionLista.intValue());
-                          out.println("<input type='text' class='FormTxt' name='area' disabled='true' value='"+area.dameValor("NOMBRE")+"'>");                                                    
-                        }
-                      }
-                  %>        					        					        					
-                  </td>        					
+        					<td class="info">
+Se rellena posteriormente
+                  </td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Nombre</td>
@@ -123,70 +110,43 @@
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
         				</tr>
         				<tr>
-        					<td class="FormLiteral">Horario</td>
-        					<td>
+        					<td class="error">Horario</td>
+        					
                   <%
                       ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
-                      Integer posicionListaHorario =((Integer)sesion.getAttribute("posHor"));
-                      Horario horario;
                       
-                    	if (listaHorarios != null && !listaHorarios.esVacio()){
-                        	
-                      	if (posicionListaHorario != null) {
-                      	
-                          horario = (Horario) listaHorarios.dameObjeto(posicionListaHorario.intValue());
-                          out.println("<input type='text' class='FormTxt' name='horario' disabled='true' value='"+horario.dameValor("L")+"'>");                                                    
-                        }
-                      }
+                      if (listaHorarios != null && !listaHorarios.esVacio()) {
+              	        Horario horario;	
+              	        out.println("<select name='IDISHORARIO' class='FormTxt'>");
+              	        out.println("<option value='-1'>Seleccione un horario</option>");                	                            	            
+                        for (int i = 0; i < listaHorarios.tamanio(); i++) {
+                            horario = (Horario) listaHorarios.dameObjeto(i);
+                            out.println("<option name='posHor' value='"+i+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
+              	              }
+                        out.println("</select>");
+                      } else 
+                          {
+                          	out.println("<font class='FormLiteral'>No hay creada ningún horario.</font>");                                
+                          }
                   %>        					        					
-        					
-                  </td>
+        					<td></td>
         					<td></td>
         					<td class="FormLiteral">Aula</td>
-        					<td>
-                    <%
-                        ListaObjetoBean listaAulas =((ListaObjetoBean)sesion.getAttribute("listaaula"));
-                        Integer posicionListaAula =((Integer)sesion.getAttribute("posAula"));
-                        Aula aula;
-                        
-                      	if (listaAulas != null && !listaAulas.esVacio()){
-                          	
-                        	if (posicionListaAula != null) {
-                        	
-                            aula = (Aula) listaAulas.dameObjeto(posicionListaAula.intValue());
-                            out.println("<input type='text' class='FormTxt' name='aula' disabled='true' value='"+aula.dameValor("NOMBRE")+"'>");                                                    
-                          }
-                        }
-                    %>        					        					
-        					
-                  </td>
+        					<td class="info">
+Se rellena posteriormente
+        				</td>
         				</tr>
                 <tr>
         					<td class="FormLiteral">Profesor</td>
-        					<td>
-                    <%
-                        ListaObjetoBean listaProfesores =((ListaObjetoBean)sesion.getAttribute("listaprofesor"));
-                        Integer posicionListaProfesor =((Integer)sesion.getAttribute("posProf"));
-                        Profesor profesor;
-                        
-                      	if (listaProfesores != null && !listaProfesores.esVacio()){
-                          	
-                        	if (posicionListaProfesor != null) {
-                        	
-                            profesor = (Profesor) listaProfesores.dameObjeto(posicionListaProfesor.intValue());                          
-                            out.println("<input type='text' class='FormTxt' name='profesor' disabled='true' value='"+profesor.dameValor("NOMBRE")+ " " +profesor.dameValor("APELLIDO1")+"'>");
-                          }
-                        }
-                    %>        					        					
-
-        					
-                  </td>
+        					<td class="info">
+Se rellena posteriormente      					
+        				</td>
         				</tr>        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Aula">
-					          <input type="hidden" name="evento" value="INSERTA_CURSO">
-						        <button type="submit" class="botonSimple">Insertar</button>
+					          <input type="hidden" name="idBean" value="Horario">
+					          <input type="hidden" name="evento" value="INS_CUR_AREA">
+						        <button type="submit" class="botonSimple">Seleccionar</button>
 					         </td>
 				        </tr>	                       				
         			</table>
