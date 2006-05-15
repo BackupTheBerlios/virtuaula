@@ -4,6 +4,7 @@ import subSistemaBBDD.BBDDFachada;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.Error;
+import beans.Ficha;
 import beans.ObjetoBean;
 import beans.Profesor;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
@@ -46,9 +47,9 @@ public class Profesorado {
 		return l;
 	}
 	
-	public ListaObjetoBean consultaFichaDeAlumno(ObjetoBean beanAlumno, ObjetoBean beanCurso) {
+	public Ficha consultaFichaDeAlumno(ObjetoBean beanAlumno, ObjetoBean beanCurso) {
 		GestorFichas gf = new GestorFichas();
-		return gf.consultaFichaDeAlumno(beanAlumno, beanCurso);
+		return (Ficha) gf.consultaFichaDeAlumno(beanAlumno, beanCurso);
 	}
 	
 	public boolean editarFicha(ObjetoBean beanFicha){
