@@ -2,6 +2,7 @@ package gestores;
 
 import subSistemaBBDD.BBDDFachada;
 import beans.*;
+import beans.Error;
 import beans.listaObjetoBeans.*;
 import subSistemaBBDD.utils.Constantes;
 
