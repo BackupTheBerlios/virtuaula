@@ -28,6 +28,7 @@ public class CreadorBean{
 	static private Profesor profesor;
 	static private Usuario usuario;
 	static private Ficha ficha;
+	static private Error error;
 	
 	/**
 	 * tipo de implementación de la clase ObjetoBean que define una tupla Isalumno
@@ -85,6 +86,10 @@ public class CreadorBean{
 	 * tipo de implementación de la clase ObjetoBean que define una tupla IsFicha
 	 */
 	final public int Ficha=13;
+	/**
+	 * tipo de implementación de la clase ObjetoBean que define una tupla Error
+	 */
+	final public int Error=14;
 	
 	public CreadorBean()
 	{}
@@ -202,6 +207,13 @@ public class CreadorBean{
 				 		ficha=new Ficha();
 				 	}
 				 objeto=ficha.clonar();break;
+				 }
+			 case 14:{
+				 	if (error==null)
+				 	{
+				 		error=new Error();
+				 	}
+				 objeto=error.clonar();break;
 				 }
 			 default: {objeto=null;break;}
 		 }
