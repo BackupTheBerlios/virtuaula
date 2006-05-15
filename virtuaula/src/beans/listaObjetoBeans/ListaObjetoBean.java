@@ -83,7 +83,7 @@ public class ListaObjetoBean extends ListaObjetoBeanAbs{
      * 
      * @return devuelve el tamaño de la lista.
      */
-    public int tamaño(){
+    public int tamanio(){
 		return lista.size();
 	}
 
