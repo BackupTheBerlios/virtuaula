@@ -46,9 +46,9 @@ public class Profesorado {
 		return l;
 	}
 	
-	public ListaObjetoBean consultaFichaDeAlumno(ObjetoBean beanAlumno, ObjetoBean beanFicha) {
+	public ListaObjetoBean consultaFichaDeAlumno(ObjetoBean beanAlumno, ObjetoBean beanCurso) {
 		GestorFichas gf = new GestorFichas();
-		return gf.consultaFichaDeAlumno(beanAlumno, beanFicha);
+		return gf.consultaFichaDeAlumno(beanAlumno, beanCurso);
 	}
 	
 	public boolean editarFicha(ObjetoBean beanFicha){
