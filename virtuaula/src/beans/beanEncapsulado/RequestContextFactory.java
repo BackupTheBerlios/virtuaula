@@ -1,10 +1,7 @@
 package beans.beanEncapsulado;
 
-
 import javax.servlet.http.HttpServletRequest;
-
-import beans.*;
-
+import beans.ObjetoBean;
 
 // Context Object Factory
 public class RequestContextFactory {
@@ -13,16 +10,8 @@ public class RequestContextFactory {
 		ObjetoBean requestContext = null;
 		try{
 			String tipo = request.getParameter("idBean");
-			if (tipo.equals("Profesor")){
-				Profesor p = new Profesor(); 
-				p.inicializar();
-				requestContext = p;
-			}
-			if (tipo.equals("Usuario")){
-				Usuario p = new Usuario(); 
-				p.inicializar();
-				requestContext = p;
-			}
+			HashBeanEncapsulado hbe = new HashBeanEncapsulado();
+			requestContext = hbe.dameBean(tipo);
 			AutoPopulateRequestContext.populateBean(requestContext,request);
 		}
 		catch(Exception e){

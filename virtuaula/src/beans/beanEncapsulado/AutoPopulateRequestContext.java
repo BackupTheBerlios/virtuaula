@@ -2,13 +2,11 @@ package beans.beanEncapsulado;
 
 import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
-
 import beans.ObjetoBean;
 
 public class AutoPopulateRequestContext {
 
 	public static void populateBean(ObjetoBean bean, HttpServletRequest request) {
-
 
 		Enumeration enume = request.getParameterNames();
 		while (enume.hasMoreElements()) {
