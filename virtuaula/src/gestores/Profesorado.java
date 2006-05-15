@@ -25,5 +25,16 @@ public class Profesorado {
 		ListaObjetoBean l = bdf.dameProfesoresLibres(beanHorario);	
 		return l;
 	}
+	
+	public ListaObjetoBean consultaAreas() {
+		GestorAreas ga = new GestorAreas();
+		return ga.consultaAreas();
+	}
+	
+	public ListaObjetoBean consultaprofesor(ObjetoBean beanProfesor) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		ListaObjetoBean l = bdf.consultar(beanProfesor);
+		return l;
+	}
 
 }
