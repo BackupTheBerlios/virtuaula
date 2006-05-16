@@ -11,6 +11,7 @@
           };      
       </script>      
       
+      
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -34,7 +35,7 @@
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Profesor</a>
   				    <a href="#">Alumno</a>  
-  				    <a href="#">Curso</a>
+  				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               

@@ -50,6 +50,7 @@ public class BeanEncapsulado extends HttpServlet {
 					//System.out.println("HE ENTRADO A HACER UN HORARIO");
 					int pos = Integer.parseInt(request.getParameter("posHor"));
 					//String pos = request.getParameter("posHor");
+					System.out.println("EL HORARIO ESCOGIDO ES"+ pos);
 					sesion.setAttribute("posHor", new Integer(pos));
 					System.out.println(pos);
 					lista = true;

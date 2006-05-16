@@ -26,6 +26,7 @@
             <td background="../../../../img/barF.gif"><img src="../../../../img/barF.gif" border="0"></td>
          </tr>
          <tr>
+         
             <td background="../../../../img/ContenidoF.gif" height="40px">&nbsp;</td>
          </tr>
       </table>

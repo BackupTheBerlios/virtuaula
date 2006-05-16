@@ -15,6 +15,7 @@
          <tr>
             <td background="../../../img/barF.gif"><img src="../../../img/barF.gif" border="0"></td>
          </tr>
+         
          <tr>
             <td background="../../../img/ContenidoF.gif" height="40px">&nbsp;</td>
          </tr>
@@ -25,6 +26,10 @@
            <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
+	   function lanzaFormulario (evento) {
+	            document.formSubmenu.evento.value = evento;
+	            document.formSubmenu.submit();
+	          };     
                 <!--   // Array ofmonth Names
                 var monthNames = new Array( "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octuble","Noviembre","Diciembre");
                 var now = new Date();
@@ -38,9 +43,11 @@
           </div>
     		  <div style="position:relative; top:45px; z-index:-1;">
     	  			<div class="botonesSubMenu">
-    					<a href="#">Insertar</a>
+    				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    				     <input type="hidden" name="evento">
+    					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Insertar Cursor';return true">Insertar</a>
     					<a href="#">Baja</a>
-              <a href="#">Editar</a>
+             					 <a href="#">Editar</a>
     					<a href="#">Consultar</a>
     				</div>
     		</div>

@@ -17,6 +17,7 @@
           };      
       </script> 
 
+
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -111,17 +112,17 @@ Se rellena posteriormente
         				</tr>
         				<tr>
         					<td class="error">Horario</td>
-        					
+        					<td>
                   <%
                       ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
                       
                       if (listaHorarios != null && !listaHorarios.esVacio()) {
               	        Horario horario;	
-              	        out.println("<select name='IDISHORARIO' class='FormTxt'>");
+              	        out.println("<select name='posHor' class='FormTxt'>");
               	        out.println("<option value='-1'>Seleccione un horario</option>");                	                            	            
                         for (int i = 0; i < listaHorarios.tamanio(); i++) {
                             horario = (Horario) listaHorarios.dameObjeto(i);
-                            out.println("<option name='posHor' value='"+i+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
+                            out.println("<option value='"+i+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
               	              }
                         out.println("</select>");
                       } else 
@@ -129,7 +130,7 @@ Se rellena posteriormente
                           	out.println("<font class='FormLiteral'>No hay creada ningún horario.</font>");                                
                           }
                   %>        					        					
-        					<td></td>
+        					</td>
         					<td></td>
         					<td class="FormLiteral">Aula</td>
         					<td class="info">
@@ -144,7 +145,7 @@ Se rellena posteriormente
         				</tr>        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Horario">
+					          <input type="hidden" name="idBean" value="listHor">
 					          <input type="hidden" name="evento" value="INS_CUR_AREA">
 						        <button type="submit" class="botonSimple">Seleccionar</button>
 					         </td>
