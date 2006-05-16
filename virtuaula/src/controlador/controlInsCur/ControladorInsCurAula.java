@@ -36,6 +36,7 @@ public class ControladorInsCurAula extends Controlador{
 			//Consultamos las aulas existentes con un horario dado.
 			GestorCursos GC = new GestorCursos();
 			ListaObjetoBean lhor= (ListaObjetoBean)this.getSesion().getAttribute("listahorario");
+		
 			Integer posh=(Integer)this.getSesion().getAttribute("posHor");
 			int poshorario=posh.intValue();
 			Horario hor=(Horario)lhor.dameObjeto(poshorario);

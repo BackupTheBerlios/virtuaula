@@ -13,7 +13,7 @@
             document.formSubmenu.submit();
           };      
       </script>
-          
+            
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -104,7 +104,7 @@
 		                    out.println("<tr>");
 		                    out.println("		         <td colspan='7' align='center'> ");
 		                    out.println("			          <input type='hidden' name='evento' value='INS_CUR_CON_PROF'>");
-		                    out.println("			          <input type='hidden' name='idBean' value='Profesor'>");
+		                    out.println("			          <input type='hidden' name='idBean' value='listProf'>");
 		                    out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
 		         
 		                  

@@ -16,7 +16,7 @@
             document.formSubmenu.submit();
           };      
       </script> 
- 
+
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -146,15 +146,15 @@
         					<td class="error">Aula</td>
         					<td>
                   <%
-                        	ListaObjetoBean listaAulas = ((ListaObjetoBean)sesion.getAttribute("listaarea"));
+                        	ListaObjetoBean listaAulas = ((ListaObjetoBean)sesion.getAttribute("listaaula"));
                         	
                     	    if (listaAulas != null && !listaAulas.esVacio()) {
                     	    	Aula aula;	
-                    	    	out.println("<select name='IDISAULA' class='FormTxt'>");
+                    	    	out.println("<select name='posAula' class='FormTxt'>");
                     	    	out.println("<option value='-1'>Seleccione un aula</option>");    
                     	    	for (int i = 0; i < listaAulas.tamanio(); i++) {
                     	    		aula = (Aula) listaAulas.dameObjeto(i);
-                    	    		out.println("<option name='posAula' value='"+i+"'>"+String.valueOf(aula.dameValor("NOMBRE"))+"</option>");
+                    	    		out.println("<option value='"+i+"'>"+String.valueOf(aula.dameValor("NOMBRE"))+"</option>");
                     	    	}
                     	    
                     	    } else {
@@ -172,7 +172,7 @@ Se rellena posteriormente
         				</tr>        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Aula">
+					          <input type="hidden" name="idBean" value="listAula">
 					          <input type="hidden" name="evento" value="INS_CUR_PROF">
 						        <button type="submit" class="botonSimple">Seleccionar</button>
 					         </td>

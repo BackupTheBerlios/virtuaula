@@ -16,7 +16,7 @@
             document.formSubmenu.submit();
           };      
       </script> 
- 
+
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -90,13 +90,13 @@
                         	
                     	    if (listaAreas != null && !listaAreas.esVacio()) {
                     	    	Area area;	
-                    	    	out.println("<select name='IDISAREA' class='FormTxt'>");
+                    	    	out.println("<select name='posArea' class='FormTxt'>");
                     	    	out.println("<option value='-1'>Seleccione un area</option>");    
                     	    	for (int i = 0; i < listaAreas.tamanio(); i++) {
                     	    		area = (Area) listaAreas.dameObjeto(i);
                     	        
                     	    		area.dameValor("NOMBRE");
-                    	    		out.println("<option name='posArea' value='"+i+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
+                    	    		out.println("<option value='"+i+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
                     	    	}
                     	    
                     	    } else {
@@ -160,7 +160,7 @@ Se rellena posteriormente
         				</tr>        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Area">
+					          <input type="hidden" name="idBean" value="listArea">
 					          <input type="hidden" name="evento" value="INS_CUR_AULA">
 						        <button type="submit" class="botonSimple">Seleccionar</button>
 					         </td>

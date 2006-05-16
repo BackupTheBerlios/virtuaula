@@ -32,8 +32,7 @@ public class BeanEncapsulado extends HttpServlet {
 			if ((tipo != null)&& (!tipo.equals(""))) {
 				//System.out.println("HE ENTRADO");
 				
-				RequestContextFactory test = new RequestContextFactory();
-				ObjetoBean result = test.createRequestContext(request);
+				
 				HttpSession sesion = request.getSession(true);
 				boolean lista = false;
 				if (tipo.equals("listProf")) {
@@ -47,10 +46,7 @@ public class BeanEncapsulado extends HttpServlet {
 					lista = true;
 				}
 				if (tipo.equals("listHor")) {
-					//System.out.println("HE ENTRADO A HACER UN HORARIO");
 					int pos = Integer.parseInt(request.getParameter("posHor"));
-					//String pos = request.getParameter("posHor");
-					System.out.println("EL HORARIO ESCOGIDO ES"+ pos);
 					sesion.setAttribute("posHor", new Integer(pos));
 					System.out.println(pos);
 					lista = true;
@@ -73,6 +69,8 @@ public class BeanEncapsulado extends HttpServlet {
 				}
 				//                            out.println("<option name='posHor' value='"+i+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
 				if (!lista){
+					RequestContextFactory test = new RequestContextFactory();
+					ObjetoBean result = test.createRequestContext(request);
 					String nombreAtributo = "bean" + tipo;
 					sesion.setAttribute(nombreAtributo, result);
 				}
