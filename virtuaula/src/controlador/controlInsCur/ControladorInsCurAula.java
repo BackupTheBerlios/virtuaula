@@ -49,7 +49,7 @@ public class ControladorInsCurAula extends Controlador{
 				if (!(listaAulas.esVacio()))
 						{
 							this.setResuladooperacion("OK");
-							this.getSesion().setAttribute("listaaulas",listaAulas);
+							this.getSesion().setAttribute("listaaula",listaAulas);
 							//eliminamos el error para que no aparezca en la proxima pagina
 							this.getSesion().removeAttribute("error");
 						}
@@ -66,7 +66,7 @@ public class ControladorInsCurAula extends Controlador{
 			}
 			//si la consulta ha fallado en la base de datos
 			else if (listaAulas==null)
-			{
+			{	
 				Error error = new Error();
 				error.cambiaValor(Constantes.CAUSA,"Fallo en la base de datos");
 				ListaObjetoBean listaerr = new ListaObjetoBean();

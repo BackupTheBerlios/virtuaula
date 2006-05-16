@@ -36,11 +36,11 @@ public class Constantes {
 	//ISHORARIO
 	public static final String TABLA_HORARIO = "ishorario";
 	public static final String ID_ISHORARIO = "IDISHORARIO";
-	public static final String HORARIO_LUNES = "LUNES";
-	public static final String HORARIO_MARTES = "MARTES";
-	public static final String HORARIO_MIERCOLES = "MIERCOLES";
-	public static final String HORARIO_JUEVES = "JUEVES";
-	public static final String HORARIO_VIERNES = "VIERNES";
+	public static final String HORARIO_LUNES = "L";
+	public static final String HORARIO_MARTES = "M";
+	public static final String HORARIO_MIERCOLES = "X";
+	public static final String HORARIO_JUEVES = "J";
+	public static final String HORARIO_VIERNES = "V";
 	
 	//ISFICHA
 	public static final String TABLA_FICHA = "isficha";

@@ -72,7 +72,12 @@ public class BeanEncapsulado extends HttpServlet {
 					RequestContextFactory test = new RequestContextFactory();
 					ObjetoBean result = test.createRequestContext(request);
 					String nombreAtributo = "bean" + tipo;
+					
+					System.out.println("tipo " +tipo);
+					System.out.println("result " +((ObjetoBean) result).dameValor("NOMBRE"));
+					
 					sesion.setAttribute(nombreAtributo, result);
+					
 				}
 			}
 		} catch (Exception e) {

@@ -72,7 +72,7 @@
 
         <%
             HttpSession sesion=request.getSession();
-            Curso curso = (Curso) request.getAttribute("beanCurso");
+            Curso curso = (Curso) sesion.getAttribute("beanCurso");
             if (curso == null) {curso = new Curso ();}
         %>
     		

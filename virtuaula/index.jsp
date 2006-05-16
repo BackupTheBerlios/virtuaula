@@ -2,23 +2,23 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       <title> Menu principal control Acceso </title>
-      <link href="../styles/estilosBotones.css" rel="stylesheet" type="text/css">
-      <link href="../styles/application.css" rel="stylesheet" type="text/css"/>
+      <link href="./styles/estilosBotones.css" rel="stylesheet" type="text/css">
+      <link href="./styles/application.css" rel="stylesheet" type="text/css"/>
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td width="3000" background="../img/cabF.jpg"><img src="../img/cabI.jpg"></td>
-            <td><img src="../img/cabD.jpg" width="537" height="78" border="0"></td>
+            <td width="3000" background="./img/cabF.jpg"><img src="./img/cabI.jpg"></td>
+            <td><img src="./img/cabD.jpg" width="537" height="78" border="0"></td>
          </tr>
       </table>
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td background="../img/barF.gif"><img src="../img/barF.gif" border="0"></td>
+            <td background="./img/barF.gif"><img src="./img/barF.gif" border="0"></td>
          </tr>
          
          <tr>
-            <td background="../img/ContenidoF.gif" height="40">&nbsp;</td>
+            <td background="./img/ContenidoF.gif" height="40">&nbsp;</td>
          </tr>
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
