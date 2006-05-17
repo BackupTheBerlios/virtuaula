@@ -23,7 +23,7 @@ public class ControladorMostrarCursoProf extends Controlador{
  */
 	public void procesarEvento() {
 	
-		CreadorBean creador = new CreadorBean();	
+	CreadorBean creador = new CreadorBean();	
 	Profesorado GP = new Profesorado();
 	HttpSession sesion = this.getSesion();
 	ObjetoBean prof=creador.crear(creador.Profesor);
