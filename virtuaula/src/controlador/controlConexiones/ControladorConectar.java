@@ -1,5 +1,7 @@
 package controlador.controlConexiones;
 
+import controlador.Controlador;
+
 public class ControladorConectar extends ControladorConexiones{
 
 	public void procesarEvento() {
@@ -9,6 +11,11 @@ public class ControladorConectar extends ControladorConexiones{
 		
 	
 		
+	}
+
+	public Controlador clonar() {
+		// TODO Auto-generated method stub
+		return new ControladorConectar();
 	}
 
 }

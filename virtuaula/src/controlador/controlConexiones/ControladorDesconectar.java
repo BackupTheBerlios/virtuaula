@@ -1,5 +1,7 @@
 package controlador.controlConexiones;
 
+import controlador.Controlador;
+
 
 
 
@@ -21,5 +23,10 @@ public class ControladorDesconectar extends ControladorConexiones{
 		this.setResuladooperacion("SIG");
 		
 	}
+
+public Controlador clonar() {
+	// TODO Auto-generated method stub
+	return new ControladorDesconectar();
+}
 
 }
