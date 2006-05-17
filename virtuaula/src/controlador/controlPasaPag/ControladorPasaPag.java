@@ -20,4 +20,9 @@ public class ControladorPasaPag extends Controlador{
 		this.setResuladooperacion("SIG");
 		
 	}
+
+	public Controlador clonar() {
+		// TODO Auto-generated method stub
+		return new ControladorPasaPag();
+	}
 }
