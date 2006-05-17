@@ -45,18 +45,6 @@ public class HashBeanEncapsulado {
 		int num = Integer.parseInt((String)tabIdConstructor.get(tipo));
 		result = (ObjetoBean) c.crear(num);
 		
-		if (tipo.equals("Curso")){
-			System.out.println("cursoooooooooooooo");
-			if (result==null){
-				System.out.println("cursoooooooooooooo es NULLLL");
-			}else{
-				System.out.println("cursoooooooooooooo NO es NULLLL");
-			}
-			}
-		else{
-			System.out.println("NO ENCAPSULA EL CURSO");
-		}
-		
 		return result;
 	}
 }
