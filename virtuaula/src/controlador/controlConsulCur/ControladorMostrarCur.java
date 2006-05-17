@@ -43,7 +43,7 @@ public class ControladorMostrarCur extends Controlador{
 			this.getSesion().setAttribute("beanhorario",horario);
 			this.setResuladooperacion("OK");
 			}
-			else 
+			else if ((area==null) || (aula==null) || (profesor==null) || (horario==null))
 			{
 				this.setResuladooperacion("ERROR");
 			}
