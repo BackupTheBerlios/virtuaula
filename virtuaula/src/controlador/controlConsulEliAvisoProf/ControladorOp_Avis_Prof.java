@@ -5,6 +5,7 @@ import gestores.Profesorado;
 
 import javax.servlet.http.HttpSession;
 
+import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.Usuario;
 import controlador.Controlador;
@@ -22,7 +23,7 @@ public class ControladorOp_Avis_Prof extends Controlador{
  * y metemos la lista resultante de avisos en la session.
  */
 	public void procesarEvento() {
-    
+		CreadorBean creador = new CreadorBean();
 		ObjetoBean beanUsuario = new Usuario();
 		HttpSession sesion = this.getSesion();
 		//idusuario me tiene que decir Javi si es asi
@@ -37,12 +38,18 @@ public class ControladorOp_Avis_Prof extends Controlador{
 		{
 			this.setResuladooperacion("OK");
 			sesion.setAttribute("listaaviso",lista);
-			
+			//borramos el la lista de error de la session porque ya realizamos la operacion correctamente
+			this.getSesion().removeAttribute("listaerror");
 		}
 		// La consulta ha dado error
 		else if (lista == null)
 		{
 			this.setResuladooperacion("ERROR");
+			ListaObjetoBean listaerror= new ListaObjetoBean();
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
+			listaerror.insertar(0,error);
+			this.getSesion().setAttribute("listaerror",listaerror);
 		}
 		
 		

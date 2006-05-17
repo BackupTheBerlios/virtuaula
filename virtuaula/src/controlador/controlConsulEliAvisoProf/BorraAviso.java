@@ -3,6 +3,7 @@ package controlador.controlConsulEliAvisoProf;
 import gestores.GestorAvisos;
 import gestores.Profesorado;
 import beans.Avisos;
+import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.Usuario;
 import beans.listaObjetoBeans.ListaObjetoBean;
@@ -23,6 +24,8 @@ public class BorraAviso extends Controlador{
 	 * 
 	 */
 	public void procesarEvento() {
+		
+		CreadorBean creador = new CreadorBean();
 		Profesorado GP = new Profesorado();
 		ListaObjetoBean lista = (ListaObjetoBean)this.getSesion().getAttribute("listaaviso");
 		Integer pos = (Integer)this.getSesion().getAttribute("posAviso");
@@ -44,6 +47,8 @@ public class BorraAviso extends Controlador{
 			{
 				this.setResuladooperacion("OK");
 				sesion.setAttribute("listaaviso",listaav);
+				//borramos el error porque ya no hay ningun fallo.
+				this.getSesion().removeAttribute("listaerror");
 				
 			}
 			// La consulta ha dado error en la base de datos
@@ -53,6 +58,11 @@ public class BorraAviso extends Controlador{
 				Error err=new Error;
 				this.getSesion().setAttribute("error",er);
 				*/
+				ObjetoBean error = creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
+				ListaObjetoBean listaerror = new ListaObjetoBean();
+				listaerror.insertar(0,error);
+				this.getSesion().setAttribute("listaerror",listaerror);
 				this.setResuladooperacion("ERROR");
 			}
 				//OJOOOOO!!!!Hay que mirar este error, si se manda a una pagina de error o q??			
