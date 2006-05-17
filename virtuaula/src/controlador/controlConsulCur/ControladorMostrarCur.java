@@ -28,12 +28,12 @@ public class ControladorMostrarCur extends Controlador{
 	 */
 		public void procesarEvento() {
 			ListaObjetoBean	listacurso=(ListaObjetoBean)this.getSesion().getAttribute("listacurso");
-			Curso curso=(Curso)listacurso.dameObjeto(Integer.valueOf((String)this.sesion.getAttribute("posCurso")).intValue());
+			ObjetoBean curso=(Curso)listacurso.dameObjeto(Integer.valueOf((String)this.sesion.getAttribute("posCurso")).intValue());
 			GestorCursos gestor = new GestorCursos();
-			Area area=gestor.consultaAreaDeCurso(curso);
-			Aula aula=gestor.consultaAulaDeCurso(curso);
-			Profesor profesor=gestor.consultaProfesorDeCurso(curso);
-			Horario horario=gestor.consultaHorarioDeCurso(curso);
+			ObjetoBean area=gestor.consultaAreaDeCurso(curso);
+			ObjetoBean aula=gestor.consultaAulaDeCurso(curso);
+			ObjetoBean profesor=gestor.consultaProfesorDeCurso(curso);
+			ObjetoBean horario=gestor.consultaHorarioDeCurso(curso);
 			
 			if ((area!=null) && (aula!=null) && (profesor!=null) && (horario!=null))
 			{

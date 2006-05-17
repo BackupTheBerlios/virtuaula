@@ -28,7 +28,7 @@ public class ControladorConsCur extends Controlador{
 	 * el bean que le pasamos por la session.
 	 */
 		public void procesarEvento() {
-			Curso curso = (Curso)this.getSesion().getAttribute("beancurso");
+			ObjetoBean curso = (Curso)this.getSesion().getAttribute("beancurso");
 			//ListaObjetoBean	listacurso=this.gestorCursos.consultaCursos(curso);
 			GestorCursos gestor = new GestorCursos();
 			ListaObjetoBean	listacurso=gestor.consultaCurso(curso);
