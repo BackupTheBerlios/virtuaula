@@ -1,3 +1,5 @@
+<%@ page import="beans.*" %>
+<%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -69,7 +71,7 @@
               <table border="0" cellspacing="0" cellpadding="10">
               
          				<tr>
-        					<th class="FormLiteral"><b>Identificador</th>         				
+        					<th class="FormLiteral"><b>Codigo Curso</th>         				
         					<th class="FormLiteral"><b>Nombre</th>
         					<th class="FormLiteral"><b>Numero Plazas</th>
                   <th class="FormLiteral"><b>Estado</th>
@@ -78,13 +80,24 @@
                   <th class="FormLiteral"><b>Precio</th>
         				</tr>              
                 <tr>
-        					<td class="FormLiteral" align="center">1</td>
-        					<td class="FormLiteral" align="center">Java</td>        					
-        					<td class="FormLiteral" align="center">30</td>
-        					<td class="FormLiteral" align="center">Libre</td>
-        					<td class="FormLiteral" align="center">12-09-2006</td>
-        					<td class="FormLiteral" align="center">28-10-2006</td>
-        					<td class="FormLiteral" align="center">123.45</td>        					
+                
+                
+        <%
+            HttpSession sesion=request.getSession();
+            Curso curso = (Curso) sesion.getAttribute("beanCurso");
+            if (curso == null) {curso = new Curso ();}
+        %>
+                
+                
+                
+                
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("IDISCURSO")%></td>
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("NOMBRE")%></td>        					
+        					<td class="FormLiteral" align="center">30<%=curso.dameValor("NUMERO_PLAZAS")%></td>
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("ESTADO")%></td>
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("FECHA_INICIO")%></td>
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("FECHA_FIN")%></td>
+        					<td class="FormLiteral" align="center"><%=curso.dameValor("PRECIO")%></td>        					
         				</tr>       				
               	<tr>
 					         <td colspan="7" align="center">
