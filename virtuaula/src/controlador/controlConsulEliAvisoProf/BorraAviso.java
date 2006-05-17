@@ -27,7 +27,7 @@ public class BorraAviso extends Controlador{
 		ListaObjetoBean lista = (ListaObjetoBean)this.getSesion().getAttribute("listaaviso");
 		Integer pos = (Integer)this.getSesion().getAttribute("posAviso");
 		int posicion = pos.intValue();
-		Avisos aviso = (Avisos)lista.dameObjeto(posicion);
+		ObjetoBean aviso = (Avisos)lista.dameObjeto(posicion);
 		GestorAvisos GA = new GestorAvisos();
 		boolean correcto=GA.borraAviso(aviso);
 	
