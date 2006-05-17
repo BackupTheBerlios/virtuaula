@@ -46,16 +46,19 @@ public class ControladorInsertaCurso extends Controlador{
 		
 		//Al insertar el curso el Gestor Cursos mandaria un aviso al profesor que ha sido
 		//seleccionado para impartir el curso.
-		ListaObjetoBean listaError=(ListaObjetoBean)GC.insertarCurso(cur,aula,horario);
 		
+		//consultamos otra vez el curso para obtener todos los datos (codigo curso)
+		ListaObjetoBean listaError=(ListaObjetoBean)GC.insertarCurso(cur,aula,horario);
+		//Curso curso=(Curso)GC.consultaCurso(cur).dameObjeto(0);
+	//	sesion.setAttribute("beanCurso",curso);
 		//la inserccion ha fallado
-		if (listaError==null)
+		if (listaError!=null)
 		{
 			this.setResuladooperacion("ERROR");
 			this.getSesion().setAttribute("error",listaError);
 			
 		}
-		else if (listaError!=null)
+		else if (listaError==null)
 		{
 			this.setResuladooperacion("OK");
 		}
