@@ -41,13 +41,14 @@ public class ControladorIniConsCur extends Controlador{
 			listaaula = gestor.consultaAulas();
 			listaprofesor = gestor.consultaProfesores();
 			listahorario = gestor.consultaHorarios();
-			this.getSesion().setAttribute("listaaula",listaaula);
-			this.getSesion().setAttribute("listaarea",listaarea);
-			this.getSesion().setAttribute("listaprofesor",listaprofesor);
-			this.getSesion().setAttribute("listahorario",listahorario);
+			
 			if ((listaarea!=null)&&(listaaula!=null)&&(listaprofesor!=null)&&
 				(listahorario!=null)){
 				this.setResuladooperacion("OK");
+				this.getSesion().setAttribute("listaaula",listaaula);
+				this.getSesion().setAttribute("listaarea",listaarea);
+				this.getSesion().setAttribute("listaprofesor",listaprofesor);
+				this.getSesion().setAttribute("listahorario",listahorario);
 			}
 			else if ((listaarea==null)||(listaaula==null)||(listaprofesor==null)||
 					 (listahorario==null)){
