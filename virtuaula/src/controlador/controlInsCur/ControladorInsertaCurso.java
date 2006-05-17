@@ -6,6 +6,7 @@ import gestores.GestorCursos;
 import beans.Aula;
 import beans.Curso;
 import beans.Horario;
+import beans.ObjetoBean;
 import beans.Profesor;
 import beans.Area;
 import beans.listaObjetoBeans.ListaObjetoBean;
@@ -33,11 +34,11 @@ public class ControladorInsertaCurso extends Controlador{
 		int posAre=posArea.intValue();
 		int posAul=posAula.intValue();
 		//int posHorario=posHor.intValue();
-		Profesor prof = (Profesor)listaProf.dameObjeto(posProfesor);
-		Area area = (Area)listaArea.dameObjeto(posAre);
-		Aula aula = (Aula)listaAula.dameObjeto(posAul);
-		Horario horario= (Horario)listaHor.dameObjeto(posProfesor);
-		Curso cur = (Curso)this.getSesion().getAttribute("beanCurso");
+		ObjetoBean prof = (Profesor)listaProf.dameObjeto(posProfesor);
+		ObjetoBean area = (Area)listaArea.dameObjeto(posAre);
+		ObjetoBean aula = (Aula)listaAula.dameObjeto(posAul);
+		ObjetoBean horario= (Horario)listaHor.dameObjeto(posProfesor);
+		ObjetoBean cur = (Curso)this.getSesion().getAttribute("beanCurso");
 		
 		String idarea= (String)area.dameValor(Constantes.ID_ISAREA);
 		String idprof = (String)prof.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI);
@@ -49,8 +50,8 @@ public class ControladorInsertaCurso extends Controlador{
 		
 		//consultamos otra vez el curso para obtener todos los datos (codigo curso)
 		ListaObjetoBean listaError=(ListaObjetoBean)GC.insertarCurso(cur,aula,horario);
-		//Curso curso=(Curso)GC.consultaCurso(cur).dameObjeto(0);
-	//	sesion.setAttribute("beanCurso",curso);
+		ObjetoBean curso=(Curso)GC.consultaCurso(cur).dameObjeto(0);
+	    sesion.setAttribute("beanCurso",curso);
 		//la inserccion ha fallado
 		if (listaError!=null)
 		{

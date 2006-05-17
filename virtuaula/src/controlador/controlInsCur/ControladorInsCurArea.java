@@ -4,8 +4,10 @@ import gestores.GestorCursos;
 //import beans.Horario;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import controlador.Controlador;
-import beans.Error;
+import beans.CreadorBean;
+
 import subSistemaBBDD.utils.Constantes;
+import beans.ObjetoBean;
 /**
  * 
  * @author Alberto Macho
@@ -16,7 +18,7 @@ public class ControladorInsCurArea extends Controlador{
  * Consultamos las areas disponibles en el sistema y la metemos en la sesion.
  */
 	public void procesarEvento() {
-		 
+		CreadorBean creador = new CreadorBean();
 		Integer posHor=(Integer)this.getSesion().getAttribute("posHor");
 		int posHorario=posHor.intValue();
 		
@@ -24,8 +26,8 @@ public class ControladorInsCurArea extends Controlador{
 		//inserto en la session
 		if (posHorario== -1 )
 		{
-			Error error=new Error();
-			
+			//Error error=new Error();
+			ObjetoBean error = creador.crear(creador.Error);
 			ListaObjetoBean listaerror= new ListaObjetoBean();
 			error.cambiaValor(Constantes.CAUSA,"Tiene que elegir un horario");
 			
@@ -51,7 +53,7 @@ public class ControladorInsCurArea extends Controlador{
 				//si la lista es vacia
 				if (listaAreas.esVacio())
 				{
-					Error error=new Error();
+					ObjetoBean error = creador.crear(creador.Error);
 					error.cambiaValor(Constantes.CAUSA,"No hay areas disponibles,debe insertar un area antes de insertar un curso");
 					ListaObjetoBean listaError= new ListaObjetoBean();
 					listaError.insertar(0,error);
@@ -73,7 +75,7 @@ public class ControladorInsCurArea extends Controlador{
 			//Si la consulta en la base de datos ha fallado.
 			else if (listaAreas==null)
 			{
-				Error error = new Error();
+				ObjetoBean error = creador.crear(creador.Error);
 				error.cambiaValor(Constantes.CAUSA,"Fallo en la base de datos");
 				ListaObjetoBean listaError= new ListaObjetoBean();
 				listaError.insertar(0,error);

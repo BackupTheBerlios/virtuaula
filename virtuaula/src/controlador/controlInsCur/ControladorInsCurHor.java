@@ -5,7 +5,9 @@ import gestores.GestorCursos;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import controlador.Controlador;
-import beans.Error;
+import beans.CreadorBean;
+
+import beans.ObjetoBean;
 
 /**
  * 
@@ -15,6 +17,7 @@ import beans.Error;
 public class ControladorInsCurHor extends Controlador{
 
 	public void procesarEvento() {
+		CreadorBean creador = new CreadorBean();
 		//Curso cur =(Curso)this.getSesion().getAttribute("idbean");
 		GestorCursos GC = new GestorCursos();
 		ListaObjetoBean listaHor=GC.consultaHorarios();
@@ -27,7 +30,7 @@ public class ControladorInsCurHor extends Controlador{
 			if (listaHor.esVacio())
 			{
 				//generamos un error y lo metemos en una listaerror
-				Error error= new Error();
+				ObjetoBean error=creador.crear(creador.Error);
 				error.cambiaValor(Constantes.CAUSA,"No hay horarios disponibles.Debe insertar horarios en el sistema");
 				ListaObjetoBean lerror=new ListaObjetoBean();
 				int pos=lerror.tamanio();
@@ -51,8 +54,8 @@ public class ControladorInsCurHor extends Controlador{
 		//si la consulta ha fallado en la base de datos
 		
 		else if (listaHor==null)
-		{
-			Error error= new Error();
+		{   
+			ObjetoBean error=creador.crear(creador.Error);
 			error.cambiaValor(Constantes.CAUSA,"Fallo en la base de datos");
 			ListaObjetoBean lerror=new ListaObjetoBean();
 			int posi=lerror.tamanio();

@@ -1,8 +1,9 @@
 package controlador.controlInsCur;
 
 import gestores.GestorCursos;
-import beans.Error;
+import beans.CreadorBean;
 import beans.Horario;
+import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import controlador.Controlador;
@@ -15,14 +16,14 @@ public class ControladorInsCurProf extends Controlador{
 
 	public void procesarEvento() {
 		
-		
+		CreadorBean creador = new CreadorBean();
 		Integer posAul=(Integer)this.getSesion().getAttribute("posAula");
 		int posAula= posAul.intValue();
 		
 		//si la posicion elegida para un aula no es valida
 		if (posAula==-1)
 		{
-			Error error = new Error();
+			ObjetoBean error=creador.crear(creador.Error);
 			error.cambiaValor(Constantes.CAUSA,"Debe elegir un Aula correcta");
 			ListaObjetoBean listaError= new ListaObjetoBean();
 			listaError.insertar(0,error);
@@ -39,7 +40,8 @@ public class ControladorInsCurProf extends Controlador{
 			ListaObjetoBean lhor= (ListaObjetoBean)this.getSesion().getAttribute("listahorario");
 			Integer posh=(Integer)this.getSesion().getAttribute("posHor");
 			int poshorario=posh.intValue();
-			Horario hor=(Horario)lhor.dameObjeto(poshorario);
+			
+			ObjetoBean hor=(Horario)lhor.dameObjeto(poshorario);
 			ListaObjetoBean listaProf=GC.consultaProfesoresPorHorario(hor);
 			
 			//si no ha fallado la consulta en la base de datos
@@ -56,7 +58,7 @@ public class ControladorInsCurProf extends Controlador{
 				//si la lista es vacia
 				else if (listaProf.esVacio())
 				{
-					Error error = new Error();
+					ObjetoBean error=creador.crear(creador.Error);
 					error.cambiaValor(Constantes.CAUSA,"No hay Profesores disponibles con este horario,inserte otro horario o inserte otra aula");
 					ListaObjetoBean listaerror = new ListaObjetoBean();
 					listaerror.insertar(0,error);
@@ -67,7 +69,7 @@ public class ControladorInsCurProf extends Controlador{
 			//si la consulta ha fallado en la base de datos
 			else if (listaProf==null)
 			{
-				Error error = new Error();
+				ObjetoBean error=creador.crear(creador.Error);
 				error.cambiaValor(Constantes.CAUSA,"Fallo en la base de datos");
 				ListaObjetoBean listaerr = new ListaObjetoBean();
 				listaerr.insertar(0,error);
