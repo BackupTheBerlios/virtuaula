@@ -34,11 +34,19 @@ public class ControladorMostrarCur extends Controlador{
 			Aula aula=gestor.consultaAulaDeCurso(curso);
 			Profesor profesor=gestor.consultaProfesorDeCurso(curso);
 			Horario horario=gestor.consultaHorarioDeCurso(curso);
+			
+			if ((area!=null) && (aula!=null) && (profesor!=null) && (horario!=null))
+			{
 			this.getSesion().setAttribute("beanaula",aula);
 			this.getSesion().setAttribute("beanarea",area);
 			this.getSesion().setAttribute("beanprofesor",profesor);
 			this.getSesion().setAttribute("beanhorario",horario);
-			this.setResuladooperacion("SIG");
+			this.setResuladooperacion("OK");
+			}
+			else 
+			{
+				this.setResuladooperacion("ERROR");
+			}
 			}
 		public Controlador clonar(){
 			return new ControladorMostrarCur();
