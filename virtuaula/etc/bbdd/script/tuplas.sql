@@ -1,0 +1,13 @@
+INSERT INTO `isalumno` VALUES ('46','caccota','po','pi',91409,'yotu','caca','12','m'),('50','paco','po','pi',91409,'yotu','caca','12','m'),('508556698','ramon','sanchez','perez',915524859,'mio@yo.com','calle poez','06/08/5897','M'),('51','pepito','po','pi',91409,'yotu','caca','12','m');
+INSERT INTO `isarea` VALUES (1040,'topotamad'),(1400,'jandepor');
+INSERT INTO `isarea` VALUES (1041,'area1'),(1401,'area2');
+INSERT INTO `isaula` VALUES (1,NULL,NULL,NULL),(5,'ocupada',32,'alli'),(1000,'aulatopotamad',45,NULL),(20000000,NULL,NULL,NULL);
+INSERT INTO `isavisos` VALUES (1400,NULL,NULL,'cambiado',NULL,NULL);
+INSERT INTO `iscontrato` VALUES ('',0,NULL);
+INSERT INTO `iscurso` VALUES (2,'50000000',3,'bien',NULL,'activo',NULL,NULL,NULL),(1400,'50000000',1500,'papanatas',10,NULL,NULL,NULL,NULL),(1401,'52',1450,'topota',5,'yes','nor','per',1000);
+INSERT INTO `iscurso_has_isalumno` VALUES (2,'50',10,0),(2,'51',10,0),(1400,'508556698',14,0.5);
+INSERT INTO `ishorario` VALUES (100,'M',NULL,'M',NULL,NULL),(400,'M',NULL,'M',NULL,NULL),(1000,'B',NULL,'B',NULL,NULL);
+INSERT INTO `ishorario_has_isaula` VALUES (100,5,2),(1,3,1400),(100,1,1400),(111111,222222,3333333);
+INSERT INTO `isprofesor` VALUES ('50000000',1400,'paquita',NULL,NULL,NULL,NULL),('50878552',1400,'pepe','perez','gomez',45,'yo');
+INSERT INTO `isprofesor` VALUES ('50000123',1401,'paco',NULL,NULL,NULL,NULL),('50875245',1041,'javi','sanchez','gomez',45,'yo');
+INSERT INTO `isusuario` VALUES ('50000000','password','alumno'),('50100000','',''),('51100000','','putilla'),('52100000','','putilla'),('null','passwordo',''),('123','123','secretaria');
