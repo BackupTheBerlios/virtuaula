@@ -27,4 +27,5 @@ abstract public class Controlador {
 	public void setSesion(HttpSession sesion) {
 		this.sesion = sesion;
 	}
+	abstract public Controlador clonar();
 }
