@@ -359,6 +359,9 @@ public class GestorCursos {
 		ListaObjetoBean result = comprobar(beanCurso);
 		CreadorBean cBean = new CreadorBean();
 		
+		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"Activo");
+		beanCurso.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS,beanAula.dameValor(Constantes.AULA_CAPACIDAD));
+		
 		if (result.esVacio()) {
 			BBDDFachada bdf = BBDDFachada.getInstance();
 			if (bdf.insertar(beanCurso)) {
@@ -376,6 +379,32 @@ public class GestorCursos {
 					result.insertar(0, error);
 					return result;
 				}
+				// Mandar aviso a profesor
+				Avisos aviso = (Avisos) cBean.crear(3);
+				aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso a impartir");
+				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso" + beanCurso.dameValor(Constantes.CURSO_NOMBRE));
+				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"Si");				
+				if(!bdf.insertar(aviso)){
+					String mensaje = "Error de Base de Datos";
+					Error error = (Error) cBean.crear(14);
+					error.cambiaValor("CAUSA_ERROR", mensaje);
+					result.insertar(0, error);
+					return result;
+				}
+				// Crear objeto bean especifico
+				Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) cBean.crear(4);
+				//Relleanr bean
+				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso.dameValor(Constantes.ID_ISAVISOS));
+				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
+				// Rellenar tabla intermedia de relacion Avisos-Usuario
+				if(!bdf.insertar(ahu)){
+					String mensaje = "Error de Base de Datos";
+					Error error = (Error) cBean.crear(14);
+					error.cambiaValor("CAUSA_ERROR", mensaje);
+					result.insertar(0, error);
+					return result;
+				}
+				
 			} else {
 				if (bdf.cursoYaExiste(beanCurso)){
 					String mensaje = "El curso introducido ya existe";
