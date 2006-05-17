@@ -5,6 +5,7 @@ import gestores.Profesorado;
 import javax.servlet.http.HttpSession;
 
 import beans.Curso;
+import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
 import controlador.Controlador;
@@ -21,7 +22,7 @@ public class ListarAlumnosCurso extends Controlador{
 		Integer pos = (Integer)sesion.getAttribute("posCurso");
 		int posicion = pos.intValue();
 		ListaObjetoBean lista=(ListaObjetoBean) sesion.getAttribute("listacurso");
-		Curso cur = (Curso)lista.dameObjeto(posicion);
+		ObjetoBean cur = (Curso)lista.dameObjeto(posicion);
 		sesion.setAttribute("beanCurso",cur);
 		
 		ListaObjetoBean listaal = new ListaObjetoBean();

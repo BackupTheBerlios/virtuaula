@@ -1,7 +1,9 @@
 package controlador.controlEditarFicha;
 
 import gestores.Profesorado;
+import beans.CreadorBean;
 import beans.Ficha;
+import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import controlador.Controlador;
 /**
@@ -16,7 +18,7 @@ public class ActualizarFichaAlumno extends Controlador{
  */
 	public void procesarEvento() {
 		
-		Ficha ficha=(Ficha)this.getSesion().getAttribute("beanFicha");
+		ObjetoBean ficha=(Ficha)this.getSesion().getAttribute("beanFicha");
 		Profesorado GP = new Profesorado();
 		ListaObjetoBean lerror= GP.editarFicha(ficha);
 		if (lerror==null)

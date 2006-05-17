@@ -4,6 +4,8 @@ import gestores.Profesorado;
 
 import javax.servlet.http.HttpSession;
 
+import beans.CreadorBean;
+import beans.ObjetoBean;
 import beans.Profesor;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
@@ -20,9 +22,12 @@ public class ControladorMostrarCursoProf extends Controlador{
  * session.
  */
 	public void procesarEvento() {
+	
+		CreadorBean creador = new CreadorBean();	
 	Profesorado GP = new Profesorado();
 	HttpSession sesion = this.getSesion();
-	Profesor prof = new Profesor();
+	ObjetoBean prof=creador.crear(creador.Profesor);
+	//Profesor prof = new Profesor();
 	//tengo que saber como se llamara el id el profesor;
 	String idprof = (String)sesion.getAttribute("idusuario");
 	prof.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,idprof);
