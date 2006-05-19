@@ -52,7 +52,7 @@ INSERT INTO `iscurso_has_isalumno` VALUES (4,'55555555',17,NULL);
 
 
 INSERT INTO `ishorario` VALUES (1,'M',NULL,'M',NULL,NULL);
-INSERT INTO `ishorario` VALUES (2,'M',NULL,'M',NULL,NULL);
+INSERT INTO `ishorario` VALUES (2,'T',NULL,'T',NULL,NULL);
 INSERT INTO `ishorario` VALUES (3,'T',NULL,'T',NULL,NULL);
 INSERT INTO `ishorario` VALUES (4,NULL,NULL,'T','T',NULL);
 INSERT INTO `ishorario` VALUES (5,'T','T','T',NULL,NULL);
