@@ -226,18 +226,27 @@ public class GestorCursos {
 		//beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI)
 		
 		ListaObjetoBean listaAula = bdf.dameAulasLibres(beanHorario);
-		Aula aul = (Aula) listaAula.dameObjeto(0);	
+		boolean aulLibre = false; 
+		Aula aul = null;
+		String s = beanAula.dameValor(Constantes.ID_ISAULA);
+		for (int i = 0; i<listaAula.tamanio(); i++){
+			aul = (Aula) listaAula.dameObjeto(i);
+			if(s.equals(aul.dameValor(Constantes.ID_ISAULA))){
+				aulLibre = true;
+			}
+		}
 		ListaObjetoBean listaProfesor = bdf.dameProfesoresLibres(beanHorario);		
 		boolean profLibre = false; 
 		Profesor p = null;
-		String s = beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI);
+		s = beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI);
 		for (int i = 0; i<listaProfesor.tamanio(); i++){
 			p = (Profesor) listaProfesor.dameObjeto(i);
 			if(s.equals(p.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI))){
 				profLibre = true;
 			}
 		}
-		if (profLibre && beanAula.dameValor(Constantes.ID_ISAULA).equals(aul.dameValor(Constantes.ID_ISAULA))){
+		
+		if (profLibre && aulLibre){
 		result = comprobar(beanCurso);
 		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"Activo");
 		beanCurso.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS,beanAula.dameValor(Constantes.AULA_CAPACIDAD));
@@ -269,7 +278,7 @@ public class GestorCursos {
 	
 				Avisos aviso = (Avisos) cBean.crear(cBean.Avisos);
 				aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso a impartir");
-				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso" + beanCurso.dameValor(Constantes.CURSO_NOMBRE));
+				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso " + beanCurso.dameValor(Constantes.CURSO_NOMBRE));
 				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
@@ -322,6 +331,8 @@ public class GestorCursos {
 	}
 	
 	else{
+		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
+		result =c.crear();
 		String mensaje = "Los datos seleccionados han caducado y ya no son válidos";
 		Error error = (Error) cBean.crear(cBean.Error);
 		error.cambiaValor("CAUSA_ERROR", mensaje);
