@@ -99,11 +99,9 @@
    		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posAviso'>");
 			                         }
 	                   	    out.println("</td>");
-	                   	    out.println("<tr>");
 	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</td>");
 	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</td>");
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</td>");
-	                        out.println("</tr>");
 		                    }//fin for
 		      
 		                    out.println("<tr>");
