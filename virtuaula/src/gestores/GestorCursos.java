@@ -6,10 +6,7 @@ import beans.Error;
 import beans.listaObjetoBeans.*;
 import subSistemaBBDD.utils.Constantes;
 
-
 public class GestorCursos {
-
-
 
 	public GestorCursos() {
 		super();
@@ -237,14 +234,14 @@ public class GestorCursos {
 				//Relleanr bean
 				hha.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,beanHorario.dameValor(Constantes.ID_ISHORARIO));
 				hha.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,beanAula.dameValor(Constantes.ID_ISAULA));
-				/*beanCurso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"");
+				beanCurso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"");
 				ListaObjetoBean l2 = bdf.consultar(beanCurso);
 				Curso c = (Curso) l2.dameObjeto(0);
-				hha.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,c.dameValor(Constantes.ID_ISCURSO_IDISCURSO));*/
+				hha.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,c.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
 				
-				// Borrar tabla intermedia de relacion Horario-Aula
-				if(!bdf.eliminar(hha)){
-					String mensaje = "Error de Base de Datos al borrar relacion";
+				// Insertar en tabla intermedia de relacion Horario-Aula
+				if(!bdf.insertar(hha)){
+					String mensaje = "Error de Base de Datos al crear relacion";
 					Error error = (Error) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
@@ -257,7 +254,7 @@ public class GestorCursos {
 				Avisos aviso = (Avisos) cBean.crear(cBean.Avisos);
 				aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso a impartir");
 				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso" + beanCurso.dameValor(Constantes.CURSO_NOMBRE));
-				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"Si");	
+				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 				aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
@@ -272,7 +269,10 @@ public class GestorCursos {
 				// Crear objeto bean especifico
 				Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) cBean.crear(cBean.AvisosHasUario);
 				//Relleanr bean
-				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso.dameValor(Constantes.ID_ISAVISOS));
+				aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+				ListaObjetoBean l3 = bdf.consultar(aviso);
+				Avisos a  = (Avisos) l3.dameObjeto(0);				
+				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,a.dameValor(Constantes.ID_ISAVISOS));
 				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
 				// Rellenar tabla intermedia de relacion Avisos-Usuario
 				if(!bdf.insertar(ahu)){
@@ -301,8 +301,8 @@ public class GestorCursos {
 			return null;
 		}
 
+		System.out.println("Ok");
 		return result;
 	}
-
 
 }
