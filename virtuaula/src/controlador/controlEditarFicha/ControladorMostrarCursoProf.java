@@ -29,8 +29,8 @@ public class ControladorMostrarCursoProf extends Controlador{
 	ObjetoBean prof=creador.crear(creador.Profesor);
 	//Profesor prof = new Profesor();
 	//tengo que saber como se llamara el id el profesor;
-	String idprof = (String)sesion.getAttribute("idusuario");
-	prof.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,idprof);
+	ObjetoBean idprof = (ObjetoBean)sesion.getAttribute("beanUsuario");
+	prof.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,idprof.dameValor(Constantes.ID_ISUSUARIO_DNI));
 	ListaObjetoBean lista=GP.consultaCursosProfesor(prof);
 	if (lista!=null)
 	{

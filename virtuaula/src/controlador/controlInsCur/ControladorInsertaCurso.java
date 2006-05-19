@@ -62,6 +62,7 @@ public class ControladorInsertaCurso extends Controlador{
 		else if (listaError==null)
 		{
 			this.setResuladooperacion("OK");
+			sesion.removeAttribute("error");
 		}
 		
 		
