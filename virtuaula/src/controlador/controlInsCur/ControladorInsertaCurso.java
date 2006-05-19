@@ -29,15 +29,15 @@ public class ControladorInsertaCurso extends Controlador{
 		Integer posProf = (Integer)this.getSesion().getAttribute("posProf");
 		Integer posArea = (Integer)this.getSesion().getAttribute("posArea");
 		Integer posAula = (Integer)this.getSesion().getAttribute("posAula");
-		//Integer posHor = (Integer)this.getSesion().getAttribute("posHor");
+		Integer posHor = (Integer)this.getSesion().getAttribute("posHor");
 		int posProfesor=posProf.intValue();
 		int posAre=posArea.intValue();
 		int posAul=posAula.intValue();
-		//int posHorario=posHor.intValue();
+		int posHorario=posHor.intValue();
 		ObjetoBean prof = (Profesor)listaProf.dameObjeto(posProfesor);
 		ObjetoBean area = (Area)listaArea.dameObjeto(posAre);
 		ObjetoBean aula = (Aula)listaAula.dameObjeto(posAul);
-		ObjetoBean horario= (Horario)listaHor.dameObjeto(posProfesor);
+		ObjetoBean horario= (Horario)listaHor.dameObjeto(posHorario);
 		ObjetoBean cur = (Curso)this.getSesion().getAttribute("beanCurso");
 		
 		String idarea= (String)area.dameValor(Constantes.ID_ISAREA);
