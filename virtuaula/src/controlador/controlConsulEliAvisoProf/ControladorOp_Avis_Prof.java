@@ -39,7 +39,7 @@ public class ControladorOp_Avis_Prof extends Controlador{
 			this.setResuladooperacion("OK");
 			sesion.setAttribute("listaaviso",lista);
 			//borramos el la lista de error de la session porque ya realizamos la operacion correctamente
-			this.getSesion().removeAttribute("listaerror");
+			this.getSesion().removeAttribute("error");
 		}
 		// La consulta ha dado error
 		else if (lista == null)
@@ -49,7 +49,7 @@ public class ControladorOp_Avis_Prof extends Controlador{
 			ObjetoBean error = creador.crear(creador.Error);
 			error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
 			listaerror.insertar(0,error);
-			this.getSesion().setAttribute("listaerror",listaerror);
+			this.getSesion().setAttribute("error",listaerror);
 		}
 		
 		

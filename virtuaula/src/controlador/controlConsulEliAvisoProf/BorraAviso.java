@@ -48,7 +48,7 @@ public class BorraAviso extends Controlador{
 				this.setResuladooperacion("OK");
 				sesion.setAttribute("listaaviso",listaav);
 				//borramos el error porque ya no hay ningun fallo.
-				this.getSesion().removeAttribute("listaerror");
+				this.getSesion().removeAttribute("error");
 				
 			}
 			// La consulta ha dado error en la base de datos
@@ -62,7 +62,7 @@ public class BorraAviso extends Controlador{
 				error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
 				ListaObjetoBean listaerror = new ListaObjetoBean();
 				listaerror.insertar(0,error);
-				this.getSesion().setAttribute("listaerror",listaerror);
+				this.getSesion().setAttribute("error",listaerror);
 				this.setResuladooperacion("ERROR");
 			}
 				//OJOOOOO!!!!Hay que mirar este error, si se manda a una pagina de error o q??			
@@ -75,7 +75,7 @@ public class BorraAviso extends Controlador{
 			error.cambiaValor(Constantes.CAUSA,"No se ha borrado el aviso,el aviso no existia");
 			ListaObjetoBean listaerror = new ListaObjetoBean();
 			listaerror.insertar(0,error);
-			this.getSesion().setAttribute("listaerror",listaerror);
+			this.getSesion().setAttribute("error",listaerror);
 			this.setResuladooperacion("ERROR");
 			//this.getSesion().setAttribute("error",lerror);
 			
