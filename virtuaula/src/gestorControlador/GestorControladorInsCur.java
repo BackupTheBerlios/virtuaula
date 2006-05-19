@@ -29,7 +29,7 @@ public class GestorControladorInsCur extends GestorControladorSecretaria{
 		GestorControlador.tablaOperacionControlador.put("INS_CUR_AULA",new ControladorInsCurAula());
 		GestorControlador.tablaOperacionControlador.put("INS_CUR_PROF",new ControladorInsCurProf());
 		//GestorControlador.tablaOperacionControlador.put("INS_CUR_AREA",new ControladorInsCurArea());
-		
+		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("INSERTA_CURSO",new ControladorInsertaCurso());
 		
 		
