@@ -41,13 +41,13 @@ public class ObjetoCriterioIsCursoHasIsAlumno extends ObjetoCriterio{
 		String s = (String) listaCampos.get(i);
 		int limite = listaCampos.size();
 		i++;
-		i++;
 		while(!s.equals(campo) && i<limite){
 			s = (String) listaCampos.get(i);
 			i++;
 			
 		}
 		if (s.equals(campo)){
+			i--;
 			sCampoSalida = (String) listaValores.get(i);
 		} 
 		

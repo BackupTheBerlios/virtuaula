@@ -48,6 +48,7 @@ public class ObjetoCriterioIsHorario extends ObjetoCriterio{
 			
 		}
 		if (s.equals(campo)){
+			i--;
 			sCampoSalida = (String) listaValores.get(i);
 		} 
 		
