@@ -51,7 +51,7 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -101,7 +101,7 @@
 		                    out.println("<tr>");
 		                    out.println("		         <td colspan='7' align='center'> ");
 		                    out.println("			          <input type='hidden' name='evento' value='ListarAlumnosCurso'>");
-		                    out.println("			          <input type='hidden' name='idBean' value='Curso'>");
+		                    out.println("			          <input type='hidden' name='idBean' value='listCurso'>");
 		                    out.println("   			        <button type='submit' class='botonSimple'>Mostrar Alumnos</button>");
 		                    out.println("   			        <button type='submit' class='botonSimple'>Publicar Notas</button>");
 		         

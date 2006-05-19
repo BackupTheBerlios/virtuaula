@@ -73,8 +73,9 @@
                     if ((listaObjetoBean != null) && (posicionAlumno != null)) {
                     	if (listaObjetoBean.tamanio() >= posicionAlumno.intValue() ) {
                     		Alumno alumno = (Alumno) listaObjetoBean.dameObjeto(posicionAlumno.intValue());
-                    		
-                    		if (alumno == null) {alumno = new Alumno ();}        		
+                    		ObjetoBean ficha =(ObjetoBean) sesion.getAttribute("beanFicha");
+                    		if (alumno == null) {alumno = new Alumno ();}    
+                    			out.println("<input type='hidden' name='IDISFICHA' value='"+ficha.dameValor("IDISFICHA")+"'>");
                     			out.println("<tr>");
                     			out.println("<td class='FormLiteral'>DNI</td>");
                     			out.println("<td><input type='text' class='FormTxt' maxlength='9' name='ISUSUARIODNI' disabled='true' value="+alumno.dameValor("ISUSUARIO_DNI")+"'></td>");
@@ -130,7 +131,7 @@
                     			out.println("<table border='0' cellspacing='0' cellpadding='0'>");
                     			out.println("<tr>");
                     			out.println("<td class='FormLiteral' width='100'>Notas</td>");
-                    			out.println("<td><textarea name='NOTAS' rows='5' cols='103'  class='FormTxtArea'></textarea></td>");
+                    			out.println("<td><textarea name='NOTAS' rows='5' cols='103'  class='FormTxtArea' >"+ficha.dameValor("NOTAS")+"</textarea></td>");
                     			out.println("<td></td>");
                     			out.println("</tr>");
                     			out.println("</table>");
@@ -141,7 +142,7 @@
                     			out.println("<table border='0' cellspacing='0' cellpadding='0'>");
                     			out.println("<tr>");
                     			out.println("<td class='FormLiteral' width='100'>Anotaciones</td>");
-                    			out.println("<td><textarea name='ANOTACIONES' rows='5' cols='103'  class='FormTxtArea'></textarea></td>");
+                    			out.println("<td><textarea name='ANOTACIONES' rows='5' cols='103'  class='FormTxtArea' >"+ficha.dameValor("ANOTACIONES")+"</textarea></td>");
                     			out.println("<td></td>");
                     			out.println("</tr>");
                     			out.println("</table>");
@@ -149,7 +150,7 @@
                     			out.println("</tr>");
                     			out.println("<tr>");
                     			out.println("<td colspan='5' align='center'>");
-                    			out.println("<input type='hidden' name='evento' value='CONCRETAR'>");
+                    			out.println("<input type='hidden' name='evento' value='ActualizarFichaAlumno'>");
                     			out.println("<input type='hidden' name='idBean' value='Ficha'>");
                     			out.println("<button type='submit' class='botonSimple'>Modificar</button>");
                     			out.println("</td>");

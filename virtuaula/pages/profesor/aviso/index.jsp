@@ -49,7 +49,7 @@
     		      <input type="hidden" name="evento">
       	  			<div class="botonesSubMenu">
                   <a href="#">Editar</a>
-      					  <a href="JavaScript:lanzaFormulario('INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar Profesor';return true ">Consultar</a>
+      					  <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar Profesor';return true ">Consultar</a>
     	 			   </div>
             </form>        	 			   
     		</div>

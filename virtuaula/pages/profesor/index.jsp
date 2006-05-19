@@ -1,7 +1,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Menu principal secretaría </title>
+      <title> Menu principal Profesor </title>
       <link href="../../styles/estilosBotones.css" rel="stylesheet" type="text/css">
       
       <script language=JavaScript type="text/JavaScript">        
@@ -33,7 +33,7 @@
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CURSO_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
-  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Aviso</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF_OPCIONES');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Aviso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
