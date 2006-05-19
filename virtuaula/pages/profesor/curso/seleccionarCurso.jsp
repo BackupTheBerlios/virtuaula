@@ -1,4 +1,5 @@
 <%@ page import="beans.*" %>
+<%@ page import="beans.Error" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
