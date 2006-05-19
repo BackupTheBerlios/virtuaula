@@ -73,26 +73,9 @@
     			<form name="insertarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
-        					<td class="FormLiteral">Identificador</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value="autorrellena" disabled="true"></td>
-        					<td width="100"></td>
-        					<td class="FormLiteral">Area</td>
-        					<td class="info">
-Se rellena posteriormente
-        					
-        				</td>
-        				</tr>
-        				<tr>
         					<td class="FormLiteral">Nombre</td>
         					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE"></td>
-        					<td></td>
-        					<td class="FormLiteral">Numero Plazas</td>
-        					<td><input type="text" class="FormTxt" name="NUMERO_PLAZAS"></td>
-        				</tr>
-        				<tr>
-        					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" maxlength="20" name="ESTADO"></td>
-        					<td></td>
+        					<td width="100"></td>
         					<td class="FormLiteral">Precio</td>
         					<td><input type="text" class="FormTxt" name="PRECIO"></td>
         				</tr>
@@ -105,25 +88,33 @@ Se rellena posteriormente
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
-               
                 <tr>
         					<td class="FormLiteral">Horario</td>
         					<td class="info">
 Se rellena posteriormente
                   </td>
         					<td></td>
+        					<td class="FormLiteral">Area</td>
+        					<td class="info">
+Se rellena posteriormente
+        					
+        				  </td>
+
+        				</tr>
+
+
+        				<tr>
         					<td class="FormLiteral">Aula</td>
         					<td class="info">
 Se rellena posteriormente
-        				</td>
-        				</tr>
-                <tr>
+        				  </td>
+        					<td></td>
         					<td class="FormLiteral">Profesor</td>
         					<td class="info">
 Se rellena posteriormente      					
         				</td>
-        				</tr>
-                       				
+
+        				</tr>               
               	<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="evento" value="INS_CUR_HOR">
