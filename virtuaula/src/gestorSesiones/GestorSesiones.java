@@ -27,7 +27,7 @@ public class GestorSesiones {
 				validado=Boolean.FALSE;	
 			}
 	
-			sesion.removeAttribute("beanUsuario");
+			//sesion.removeAttribute("beanUsuario");
 			sesion.setAttribute("validado",validado);
 			resultado=validado.booleanValue();
 			
