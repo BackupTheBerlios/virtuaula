@@ -120,10 +120,13 @@
 
 		
 		                  } 
+		          out.println("</td>");		                
+		          out.println("</tr>");		                
+		          out.println("</table>");		                
                 %>   
-					         </td>
-				        </tr>	
-				        	</table>
+					         
+				        	
+				        	
 <table>
 <%HttpSession sesion2=request.getSession();
 ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");%>
