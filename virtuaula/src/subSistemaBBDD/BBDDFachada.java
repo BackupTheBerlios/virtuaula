@@ -345,7 +345,7 @@ public class BBDDFachada {
 			EsquemaBBDD tablaAdecuada= this.crearTablaAdecuada(entidadBBDD);
 			ObjetoCriterio entidadCriterio= this.crearObjetoCriterioAdecuado(entidadBBDD);
 			ListaObjetoBBDD resultConsulta =(ListaObjetoBBDD) this.inicializaTabla(tablaAdecuada).consultar(entidadCriterio);
-			if (resultConsulta.tamaño()==1)
+			if (resultConsulta.tamanio()==1)
 				return Integer.parseInt(resultConsulta.dameObjeto(0).dameValor(Constantes.CURSO_NUMERO_PLAZAS));
 			else
 				return -1;
@@ -468,7 +468,7 @@ public class BBDDFachada {
 			CreadorObjetoCriterio creadorCriterio= this.creador.getCreadorObjetoCriterio();
 			ObjetoCriterio criterioCurso = creadorCriterio.crear(creadorCriterio.ObjetoCriterioIscurso);
 			criterioCurso.convertir(isCurso);
-			return (this.inicializaTabla(tablaCursos).consultar(criterioCurso).tamaño() !=0);
+			return (this.inicializaTabla(tablaCursos).consultar(criterioCurso).tamanio() !=0);
 			
 		}
 		catch (Exception e){

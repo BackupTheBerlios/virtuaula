@@ -423,7 +423,7 @@ public final class ConversorBeanBBDD {
 	public static ListaObjetoBean convierteListaBBDD(ListaObjetoBBDD listaBBDD){
 		CreadorListaObjetoBean creador = new CreadorListaObjetoBean();
 		ListaObjetoBean listaBeans = creador.crear();
-		for (int i=0;i<listaBBDD.tamaño();i++){
+		for (int i=0;i<listaBBDD.tamanio();i++){
 			try{
 				ObjetoBBDD entidadBBDD = listaBBDD.dameObjeto(i);
 				listaBeans.insertar(i,ConversorBeanBBDD.convierteBBDDABean(entidadBBDD));

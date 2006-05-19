@@ -20,7 +20,7 @@ package subSistemaBBDD.listaObjeto;
 	 * Crea una copia prototípica de la clase ListaObjetoBBDD
 	 * @return copia
 	 */
-	public ListaObjetoBBDD crear(int s){
+	public ListaObjetoBBDD crear(){
 		if(listaObjeto==null)listaObjeto = new ListaObjetoBBDD();  
 		return listaObjeto.clonar();
 	}
