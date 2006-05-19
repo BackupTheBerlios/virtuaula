@@ -194,7 +194,7 @@ public class GestorCursos {
 		}
 		if (!bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
 			try {
-				int numerico = Integer.parseInt(bean
+				float numerico = Float.parseFloat(bean
 						.dameValor(Constantes.CURSO_PRECIO));
 				if (numerico < 0) {
 					mensaje = "El campo precio tiene un valor incorrecto";
@@ -219,15 +219,31 @@ public class GestorCursos {
 	public ListaObjetoBean insertarCurso(ObjetoBean beanCurso,
 			ObjetoBean beanAula, ObjetoBean beanHorario) {
 		
-		ListaObjetoBean result = comprobar(beanCurso);
+		ListaObjetoBean result = null;
 		CreadorBean cBean = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();
 		
+		//beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI)
+		
+		ListaObjetoBean listaAula = bdf.dameAulasLibres(beanHorario);
+		Aula aul = (Aula) listaAula.dameObjeto(0);	
+		ListaObjetoBean listaProfesor = bdf.dameProfesoresLibres(beanHorario);		
+		boolean profLibre = false; 
+		Profesor p = null;
+		String s = beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI);
+		for (int i = 0; i<listaProfesor.tamanio(); i++){
+			p = (Profesor) listaProfesor.dameObjeto(i);
+			if(s.equals(p.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI))){
+				profLibre = true;
+			}
+		}
+		if (profLibre && beanAula.dameValor(Constantes.ID_ISAULA).equals(aul.dameValor(Constantes.ID_ISAULA))){
+		result = comprobar(beanCurso);
 		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"Activo");
 		beanCurso.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS,beanAula.dameValor(Constantes.AULA_CAPACIDAD));
 		
 		if (result.esVacio()) {
 			beanCurso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"1");
-			BBDDFachada bdf = BBDDFachada.getInstance();
 			if (bdf.insertar(beanCurso)) {
 				// Crear objeto bean especifico
 				Horario_Has_Aula hha = (Horario_Has_Aula) cBean.crear(cBean.HorarioHasAula);
@@ -304,5 +320,14 @@ public class GestorCursos {
 		System.out.println("Ok");
 		return result;
 	}
+	
+	else{
+		String mensaje = "Los datos seleccionados han caducado y ya no son válidos";
+		Error error = (Error) cBean.crear(cBean.Error);
+		error.cambiaValor("CAUSA_ERROR", mensaje);
+		result.insertar(0, error);
+		return result;
+	}
 
+}
 }
