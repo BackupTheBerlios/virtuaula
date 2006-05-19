@@ -1,7 +1,7 @@
 package controlador.controlConsulEliAvisoProf;
 
 import gestores.GestorAvisos;
-import gestores.Profesorado;
+
 
 import javax.servlet.http.HttpSession;
 

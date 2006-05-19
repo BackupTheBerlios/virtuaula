@@ -1,7 +1,7 @@
 package controlador.controlConsulEliAvisoProf;
 
 import gestores.GestorAvisos;
-import gestores.Profesorado;
+
 import beans.Avisos;
 import beans.CreadorBean;
 import beans.ObjetoBean;
@@ -26,7 +26,7 @@ public class BorraAviso extends Controlador{
 	public void procesarEvento() {
 		
 		CreadorBean creador = new CreadorBean();
-		Profesorado GP = new Profesorado();
+
 		ListaObjetoBean lista = (ListaObjetoBean)this.getSesion().getAttribute("listaaviso");
 		Integer pos = (Integer)this.getSesion().getAttribute("posAviso");
 		int posicion = pos.intValue();
