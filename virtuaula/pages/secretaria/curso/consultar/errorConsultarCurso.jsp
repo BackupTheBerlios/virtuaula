@@ -1,9 +1,7 @@
-<%@ page import="beans.*" %>
-<%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Informacion Curso Consultar </title>
+      <title> Error Consultar Curso </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       
@@ -32,7 +30,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Curso</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Profesor</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -52,7 +50,7 @@
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
     	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-                <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Menu curso</a>
+                <a href="JavaScript:lanzaFormulario('menuCurso');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Menu curso</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -65,52 +63,12 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+    	   	<font class="error">Error al consultar el curso especificado.</font>          
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
-        				<tr>        					
-        					<th class="FormLiteral"><b>DNI Profesor</th>        					
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Número de plazas</th>
-        					<th class="FormLiteral"><b>Estado</th>
-        					<th class="FormLiteral"><b>Fecha Inicio</th>
-        					<th class="FormLiteral"><b>Fecha Fin</th>
-        					<th class="FormLiteral"><b>Área</th>
-        					<th class="FormLiteral"><b>Precio</th>
-        				</tr>
-        				
-        				
-        			<%
-                    HttpSession sesion=request.getSession();
-                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
-                    Integer posicionLista =((Integer)sesion.getAttribute("posCur"));
-                  	Curso curso;	
-                  	
-                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
-                  	
-                    	if (posicionLista != null) {
-                    	
-                        curso = (Curso) listaObjetoBean.dameObjeto(posicionLista.intValue());
-    	                  out.println("<tr>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISPROFESOR_ISUSUARIO_DNI"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");	 
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	 
-    	                  out.println("</tr>");
-  	                  
-                      }
-                    }
-                    //ELIMINAR DE SESSION LA LISTA Y LA POSICION
-                    //sesion.removeAttribute("RdoControlador");
-                    //sesion.removeAttribute("posCur");
-
-                %>  
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="evento" value="MOSTRAR_CUR">
+					          <input type="hidden" name="evento" value="GES_CUR">
 						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 				        </tr>	                       				

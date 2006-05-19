@@ -3,7 +3,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Informacion Curso Consultar </title>
+      <title> Seleccionar Curso Consultar </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       
@@ -13,7 +13,7 @@
             document.formSubmenu.submit();
           };      
       </script>
-     
+           
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -32,7 +32,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Curso</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Consultar Curso</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -66,55 +66,64 @@
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <table border="0" cellspacing="0" cellpadding="10">
-        				<tr>        					
-        					<th class="FormLiteral"><b>DNI Profesor</th>        					
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Número de plazas</th>
-        					<th class="FormLiteral"><b>Estado</th>
-        					<th class="FormLiteral"><b>Fecha Inicio</th>
-        					<th class="FormLiteral"><b>Fecha Fin</th>
-        					<th class="FormLiteral"><b>Área</th>
-        					<th class="FormLiteral"><b>Precio</th>
-        				</tr>
         				
-        				
-        			<%
+        				<%
+	
                     HttpSession sesion=request.getSession();
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
-                    Integer posicionLista =((Integer)sesion.getAttribute("posCur"));
-                  	Curso curso;	
-                  	
-                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
-                  	
-                    	if (posicionLista != null) {
-                    	
-                        curso = (Curso) listaObjetoBean.dameObjeto(posicionLista.intValue());
-    	                  out.println("<tr>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISPROFESOR_ISUSUARIO_DNI"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");	 
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	 
-    	                  out.println("</tr>");
-  	                  
-                      }
-                    }
-                    //ELIMINAR DE SESSION LA LISTA Y LA POSICION
-                    //sesion.removeAttribute("RdoControlador");
-                    //sesion.removeAttribute("posCur");
+                  	Curso curso;
+		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+        		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
+        		            out.println("<tr>");
+                        out.println("	<th class='FormLiteral'><b>Seleccion</th>");
+        		            out.println("	<th class='FormLiteral'><b>Area</th>");  					
+        		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
+        		            out.println("	<th class='FormLiteral'><b>Número de plazas</th>");
+        		            out.println("	<th class='FormLiteral'><b>Estado</th>");
+        		            out.println("	<th class='FormLiteral'><b>Precio</th>");
+        		            out.println("</tr>");	
+	                        	                       	     
+	                   	 for (int i=0; i<listaObjetoBean.tamanio();i++) {
+			
+                          curso = (Curso) listaObjetoBean.dameObjeto(i);
+			                    out.println("<tr>");
+			                    out.println("<td>");
+			                    if (i==0){
+   		         	             out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCur' checked>");
+			                    }
+			                    else{
+   		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCur'>");
+			                         }
+	                   	    out.println("</td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");
+	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
+                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
+                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");
+                       
+	                        out.println("</tr>");
+		                    }//fin for
+		      
+		                    out.println("<tr>");
+		                    out.println("		         <td colspan='7' align='center'> ");
+		                    out.println("			          <input type='hidden' name='evento' value='CONS_CUR'>");
+		                    out.println("			          <input type='hidden' name='idBean' value='listCur'>");
+		                    out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
+		         
+		                  
+		              }
+		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
+			                   out.println("<tr>");			 
+		      	             out.println("		         <td colspan='7' align='center'> ");
+		      	             out.println("			          <input type='hidden' name='evento' value='INI_CONS_CUR'>");
+		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
 
-                %>  
-              	<tr>
-					         <td colspan="7" align="center">
-					          <input type="hidden" name="evento" value="MOSTRAR_CUR">
-						        <button type="submit" class="botonSimple">Aceptar</button>
-					         </td>
-				        </tr>	                       				
-        			</table>
+		                  } 
+				          out.println("</td>");		                
+				          out.println("</tr>");		    
+				          out.println("</table>");	
+                %>   
           </form>
     		</div>
 	  </div>
