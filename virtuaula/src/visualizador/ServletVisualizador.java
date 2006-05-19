@@ -47,15 +47,16 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AREA","OK","/virtuaula/pages/secretaria/curso/insertar/seleccAreaInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AREA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","OK","/virtuaula/pages/secretaria/curso/insertar/seleccAulaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccAreaInsertarCurso.jsp");
+		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","OK","/virtuaula/pages/secretaria/curso/insertar/seleccProfesorInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccAulaInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","OK","/virtuaula/pages/secretaria/curso/insertar/insertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","ERROR","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
+		gestorPaginas.agregarPaginas("secretaria","INS_CUR_CON_PROF","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		//sesion profesor
 		gestorPaginas.agregarPaginas("profesor","LOGAR","SIG","/virtuaula/pages/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","menuPrincipalProf","SIG","/virtuaula/pages/profesor/index.jsp");
-		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF_OPCIONES","SIG","/virtuaula/pages/profesor/aviso/index.jsp");
+		//gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF_OPCIONES","SIG","/virtuaula/pages/profesor/aviso/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","desconectar","SIG","/virtuaula/index.jsp");
 		//profesor consulta avisos
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
