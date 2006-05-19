@@ -1,25 +1,28 @@
 package subSistemaBBDD.listaObjeto;
 
+
 /**
- * Clase encargada de la creación de listaObjetoBBDD
+ * Clase encargada de la creación de ListaObjetoBBDD
  * formando parte del patrón Prototype siendo su rol de client_Prototype
  * @author Fco Javier Pérez Escrivá & Sergio Piqueras Martínez
+ *
  */
-    public class CreadorListaObjetoBBDD {
-    	static private ListaObjetoBBDD lista;
+    public class CreadorListaObjetoBBDD{
+    	private ListaObjetoBBDD listaObjeto;
     /**
-     * Constructora de la clase
+     * Constructora de la clase.
      *
      */
     public CreadorListaObjetoBBDD(){
-    	if (lista==null)lista = new ListaObjetoBBDD();
+    	super();
     }
 	/**
-	 * Crea una copia prototípica de la clase listaObjetoBBDD
+	 * Crea una copia prototípica de la clase ListaObjetoBBDD
 	 * @return copia
 	 */
-	public ListaObjetoBBDD crear(){
-		return lista.clonar();
+	public ListaObjetoBBDD crear(int s){
+		if(listaObjeto==null)listaObjeto = new ListaObjetoBBDD();  
+		return listaObjeto.clonar();
 	}
 }
 

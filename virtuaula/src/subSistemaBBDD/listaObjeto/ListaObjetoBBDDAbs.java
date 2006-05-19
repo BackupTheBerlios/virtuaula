@@ -3,7 +3,8 @@ package subSistemaBBDD.listaObjeto;
 import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
 /**
  * Lista que puede contener ObjetosBBDD
- * @author Fco Javier Pérez Escrivá & Sergio Piqueras Martínez
+ * @author Fco Javier Pérez Escrivá
+ *
  */
 abstract public class ListaObjetoBBDDAbs {
 	/**
@@ -12,14 +13,14 @@ abstract public class ListaObjetoBBDDAbs {
 	 */
 	abstract public boolean esVacio();
 	/**
-	 * Inserta un objetoBBDD en la lista en una posición determinada
-	 * (si esta ocupada lo sobreescribe)
+	 * Inserta un ObjetoBBDD en la lista en una posición determinada
+	 * (si la posición está ocupada, sobreescribe el ObjetoBBDD)
 	 * @param pos posicion donde insertar el objeto 
 	 * @param obj objetoBBDD a insertar
 	 */
 	abstract public void insertar (int pos, ObjetoBBDD obj);
 	/**
-	 * Accesor del objeto de la posición especificada
+	 * accesor del objeto de la posición especificada
 	 * @param pos posición a examinar
 	 * @return objeto consultado
 	 */
