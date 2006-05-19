@@ -25,7 +25,7 @@ public class GestorFichas {
 		CreadorBean cBean = new CreadorBean();
 		if (result.esVacio()) {
 			BBDDFachada bdf = BBDDFachada.getInstance();
-			if(!bdf.insertar(beanFicha)){
+			if(!bdf.editar(beanFicha)){
 				String mensaje = "Error de Base de Datos";
 				Error error = (Error) cBean.crear(14);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
