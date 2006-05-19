@@ -1,4 +1,5 @@
 <%@ page import="beans.*" %>
+<%@ page import="beans.Error" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
@@ -117,10 +118,10 @@
 
 		
 		                  } 
+		                	out.println("</td>");		                
+		                out.println("</tr>");		                
+		              out.println("</table>");		                
                 %>   
-					         </td>
-				        </tr>	                     				
-        			</table>
               <%
               
                   HttpSession sesion2=request.getSession();
@@ -134,9 +135,9 @@
                       {
                           Error error = (Error) lista.dameObjeto(i);
                   
-                          out.println("<tr class="error">");            
-                          out.println("     <td width="34%" align="left" height="18" bordercolor="#800000" bgcolor="#FFFFFF">");                  
-                                  error.dameValor("CAUSA_ERROR")
+                          out.println("<tr class='error'>");            
+                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
+                                  error.dameValor("CAUSA_ERROR");
                           out.println("     </td>");
                           out.println("</tr>");                                                
                         }
