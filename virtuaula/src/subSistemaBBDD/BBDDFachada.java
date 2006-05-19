@@ -524,17 +524,12 @@ public class BBDDFachada {
 					String valor4= horarioActual.dameValor(Constantes.HORARIO_MIERCOLES);
 					String valor5= horarioActual.dameValor(Constantes.HORARIO_JUEVES);
 					String valor6= horarioActual.dameValor(Constantes.HORARIO_VIERNES);
-					if(!valor1.equals("")&& valor1.equals(horario.dameValor(Constantes.ID_ISHORARIO)))
-						libre=false;
-					if (!valor2.equals("")&& valor2.equals(horario.dameValor("L")))
-						libre=false;
-					if  (!valor3.equals("")&& valor3.equals(horario.dameValor("M")))
-						libre=false;
-					if (!valor4.equals("")&& valor4.equals(horario.dameValor("X")))
-						libre=false;
-					if(!valor5.equals("")&& valor5.equals(horario.dameValor("J")))
-						libre=false;
-					if(!valor6.equals("")&& valor6.equals(horario.dameValor("V")))
+					if((!valor1.equals("")&& valor1.equals(horario.dameValor(Constantes.ID_ISHORARIO)))
+						||	(!valor2.equals("")&& valor2.equals(horario.dameValor("L")))
+						||  (!valor3.equals("")&& valor3.equals(horario.dameValor("M")))
+						||  (!valor4.equals("")&& valor4.equals(horario.dameValor("X")))
+						||	(!valor5.equals("")&& valor5.equals(horario.dameValor("J")))
+						||	(!valor6.equals("")&& valor6.equals(horario.dameValor("V"))))
 					   	libre=false;
 				}
 				if(libre)
