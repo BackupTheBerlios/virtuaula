@@ -115,7 +115,7 @@
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
-		      	             out.println("			          <input type='hidden' name='evento' value='INS_CUR_AULA'>");
+		      	             out.println("			          <input type='hidden' name='evento' value='INS_CUR_CON_PROF'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
 
 		
