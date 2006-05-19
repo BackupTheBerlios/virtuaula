@@ -1,4 +1,5 @@
 <%@ page import="beans.*" %>
+<%@ page import="beans.Error" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
@@ -145,9 +146,9 @@
                         {
                             Error error = (Error) lista.dameObjeto(i);
                     
-                            out.println("<tr class="error">");            
-                            out.println("     <td width="34%" align="left" height="18" bordercolor="#800000" bgcolor="#FFFFFF">");                  
-                                    error.dameValor("CAUSA_ERROR")
+                            out.println("<tr class='error'>");            
+                            out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
+                                    error.dameValor("CAUSA_ERROR");
                             out.println("     </td>");
                             out.println("</tr>");                                                
                           }
