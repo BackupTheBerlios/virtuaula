@@ -83,7 +83,7 @@
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">Identificador</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value="autorrellena" disabled="true"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value=<%=curso.dameValor("IDISCURSO")%> disabled="true"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Area</td>
         					<td>
@@ -187,8 +187,8 @@
               	<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="Aula">
-					          <input type="hidden" name="evento" value="INSERTA_CURSO">
-						        <button type="submit" class="botonSimple">Insertar</button>
+					          <input type="hidden" name="evento" value="INS_CUR_CON_PROF">
+						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 	</tr>
 				      </table>
