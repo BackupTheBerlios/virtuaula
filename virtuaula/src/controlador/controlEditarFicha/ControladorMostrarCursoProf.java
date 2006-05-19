@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.CreadorBean;
 import beans.ObjetoBean;
-import beans.Profesor;
+
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import controlador.Controlador;
@@ -36,9 +36,16 @@ public class ControladorMostrarCursoProf extends Controlador{
 	{
 		this.setResuladooperacion("OK");
 		sesion.setAttribute("listacurso",lista);
+		this.getSesion().removeAttribute("error");
 	}
+	//si falla la base de datos se produce un error y se mete en la sesion
 	else if (lista==null)
 	{
+		ObjetoBean error = creador.crear(creador.Error);
+		error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos.");
+		ListaObjetoBean listaerror = new ListaObjetoBean();
+		listaerror.insertar(0,error);
+		this.getSesion().setAttribute("error",listaerror);
 		this.setResuladooperacion("ERROR");
 	}
 		

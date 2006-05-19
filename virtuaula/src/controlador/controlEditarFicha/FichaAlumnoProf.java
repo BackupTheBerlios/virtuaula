@@ -4,10 +4,13 @@ import gestores.Profesorado;
 
 import javax.servlet.http.HttpSession;
 
+import subSistemaBBDD.utils.Constantes;
+
 import beans.Alumno;
 
+import beans.CreadorBean;
 import beans.Curso;
-import beans.Ficha;
+
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
@@ -41,10 +44,17 @@ public class FichaAlumnoProf extends Controlador{
 		{
 			this.setResuladooperacion("OK");
 			sesion.setAttribute("beanFicha",ficha);
+			this.getSesion().removeAttribute("error");
 			
 		}
 		else if (ficha ==null)
 		{
+			CreadorBean creador =new CreadorBean();
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos.");
+			ListaObjetoBean listaerror = new ListaObjetoBean();
+			listaerror.insertar(0,error);
+			this.getSesion().setAttribute("error",listaerror);
 			this.setResuladooperacion("ERROR");
 		}
 		

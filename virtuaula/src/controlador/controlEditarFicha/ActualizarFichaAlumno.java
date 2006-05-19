@@ -1,5 +1,6 @@
 package controlador.controlEditarFicha;
 
+import subSistemaBBDD.utils.Constantes;
 import gestores.Profesorado;
 import beans.CreadorBean;
 import beans.Ficha;
@@ -25,9 +26,16 @@ public class ActualizarFichaAlumno extends Controlador{
 		if (lerror==null)
 		{
 			this.setResuladooperacion("OK");
+			this.getSesion().removeAttribute("error");
 		}
 		else if (lerror!=null)
-		{
+		{	
+			CreadorBean creador = new CreadorBean();
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
+			ListaObjetoBean listaerror = new ListaObjetoBean();
+			listaerror.insertar(0,error);
+			this.getSesion().setAttribute("error",listaerror);
 			this.setResuladooperacion("ERROR");
 			this.sesion.setAttribute("error",lerror);
 		}
