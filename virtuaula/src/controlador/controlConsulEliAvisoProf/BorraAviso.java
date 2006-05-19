@@ -71,9 +71,14 @@ public class BorraAviso extends Controlador{
 		//si se ha producido un error al borrar el aviso
 		else if (correcto==false)
 		{
-			
-			//this.getSesion().setAttribute("error",lerror);
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"No se ha borrado el aviso,el aviso no existia");
+			ListaObjetoBean listaerror = new ListaObjetoBean();
+			listaerror.insertar(0,error);
+			this.getSesion().setAttribute("listaerror",listaerror);
 			this.setResuladooperacion("ERROR");
+			//this.getSesion().setAttribute("error",lerror);
+			
 		}
 	}
 
