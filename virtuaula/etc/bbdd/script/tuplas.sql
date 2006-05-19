@@ -11,3 +11,6 @@ INSERT INTO `ishorario_has_isaula` VALUES (100,5,2),(1,3,1400),(100,1,1400),(111
 INSERT INTO `isprofesor` VALUES ('50000000',1400,'paquita',NULL,NULL,NULL,NULL),('50878552',1400,'pepe','perez','gomez',45,'yo');
 INSERT INTO `isprofesor` VALUES ('50000123',1401,'paco',NULL,NULL,NULL,NULL),('50875245',1041,'javi','sanchez','gomez',45,'yo');
 INSERT INTO `isusuario` VALUES ('50000000','password','alumno'),('50100000','',''),('51100000','','putilla'),('52100000','','putilla'),('null','passwordo',''),('123','123','secretaria');
+INSERT INTO `isusuario` values ('789','789','profesor');
+INSERT INTO `isficha` values (10,'5','El nene no me come nada',5.5);
+INSERT INTO `isficha` values (14,'8','El nene me come mucho',8.5);

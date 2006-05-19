@@ -20,6 +20,7 @@ public class ActualizarFichaAlumno extends Controlador{
 		
 		ObjetoBean ficha=(Ficha)this.getSesion().getAttribute("beanFicha");
 		Profesorado GP = new Profesorado();
+		System.out.println("el id de la ficha "+ ficha.dameValor("IDISFICHA"));
 		ListaObjetoBean lerror= GP.editarFicha(ficha);
 		if (lerror==null)
 		{

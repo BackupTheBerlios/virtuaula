@@ -6,10 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
 import controlador.controlConexiones.ControladorDesconectar;
+import controlador.controlConsulEliAvisoProf.BorraAviso;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 
- * @author Alberto Macho
+ * @author Fco Javier Pérez Escrivá  Alberto Macho
  *
  */
 public class GestorControladorProfesor extends GestorControlador{
@@ -29,16 +30,22 @@ public class GestorControladorProfesor extends GestorControlador{
 
 	}
 	public void inicializa(){
+		//		AVISOS
 		tablaOperacionGestor.put("OP_AVIS_PROF",new GestorControladorOpAvisProf());
+		tablaOperacionGestor.put("MOSTRAR_AVISOS_PROF",new GestorControladorOpAvisProf());
+		tablaOperacionGestor.put("BORRA_AVISO",new GestorControladorOpAvisProf());
+		tablaOperacionGestor.put("OP_AVIS_PROF_OPCIONES",new GestorControladorOpAvisProf());
+		//		FICHAS
 		tablaOperacionGestor.put("OP_MOSTRAR_CURSO_PROF",new GestorControladorEditarFicha());
+		tablaOperacionGestor.put("ListarAlumnosCurso",new GestorControladorEditarFicha());
+		tablaOperacionGestor.put("Ficha_Alumno_Prof",new GestorControladorEditarFicha());
+		tablaOperacionGestor.put("ActualizarFichaAlumno",new GestorControladorEditarFicha());
+
+
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("menuPrinPalProf",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalProf",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_PROF",new ControladorPasaPag());
-		//GestorControlador.tablaOperacionControlador.put("INI_CONS_PROF",new ControladorPasaPag());
-		//GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",new ControladorPasaPag());
-		//GestorControlador.tablaOperacionControlador.put("BORRAR_AVISO",new BorraAviso());
 		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",new ControladorPasaPag());
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

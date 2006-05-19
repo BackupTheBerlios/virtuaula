@@ -6,7 +6,10 @@ import beans.Error;
 import beans.listaObjetoBeans.*;
 import subSistemaBBDD.utils.Constantes;
 
+
 public class GestorCursos {
+
+
 
 	public GestorCursos() {
 		super();
@@ -300,5 +303,6 @@ public class GestorCursos {
 
 		return result;
 	}
+
 
 }

@@ -37,6 +37,11 @@ public class BeanEncapsulado extends HttpServlet {
 					sesion.setAttribute("posProf", new Integer(pos));
 					lista = true;
 				}
+				if (tipo.equals("listAlumno")) {
+					int pos = Integer.parseInt(request.getParameter("posAlumno"));
+					sesion.setAttribute("posAlumno", new Integer(pos));
+					lista = true;
+				}
 				if (tipo.equals("listArea")) {
 					int pos = Integer.parseInt(request.getParameter("posArea"));
 					sesion.setAttribute("posArea", new Integer(pos));
@@ -70,6 +75,7 @@ public class BeanEncapsulado extends HttpServlet {
 					sesion.setAttribute(nombreAtributo, result);
 					
 				}
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

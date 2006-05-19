@@ -41,11 +41,14 @@ public class ObjetoCriterioIsFicha extends ObjetoCriterio{
 		
 		String s = (String) listaCampos.get(i);
 		int limite = listaCampos.size();
+		i++;
 		while(!s.equals(campo) && i<limite){
-			i++;
 			s = (String) listaCampos.get(i);
+			i++;
+			
 		}
 		if (s.equals(campo)){
+			i--;
 			sCampoSalida = (String) listaValores.get(i);
 		} 
 		

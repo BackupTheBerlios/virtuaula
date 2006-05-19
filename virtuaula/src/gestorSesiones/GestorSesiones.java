@@ -56,7 +56,7 @@ public class GestorSesiones {
 		return req.getParameter("evento");
 	}
 	public String damePerfilUsuario(HttpSession sesion){
-	//	return ((String)sesion.getAttribute("perfilUsuario"));
-		return "secretaria";
+	
+		return ((String)sesion.getAttribute("perfilUsuario"));
 	}
 }

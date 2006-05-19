@@ -9,7 +9,11 @@ import gestorPaginas.GestorPaginas;
 import gestorControlador.*;
 import javax.servlet.http.*;
 
-
+/**
+ * 
+ * @author Fco Javier Pérez Escrivá 
+ *
+ */
 public class ServletVisualizador extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -25,16 +29,17 @@ public class ServletVisualizador extends HttpServlet{
 		//sesion secretaria
 		gestorPaginas.agregarPaginas("secretaria","LOGAR","SIG","/virtuaula/pages/secretaria/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","menuPrincipalSec","SIG","/virtuaula/pages/secretaria/index.jsp");
-		//cosulta profesor
+		gestorPaginas.agregarPaginas("secretaria","desconectar","SIG","/virtuaula/index.jsp");
+		//secretaria cosulta profesor
 		gestorPaginas.agregarPaginas("secretaria","CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/seleccionarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","GES_PROF","SIG","/virtuaula/pages/secretaria/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/buscarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_PROF","SIG","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","desconectar","SIG","/virtuaula/pages/index.jsp");
+		
 	
-		//insercion curso
+		//secretaria insercion curso
 		gestorPaginas.agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_INS_CUR","SIG","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_HOR","OK","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
@@ -45,21 +50,43 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccAreaInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","OK","/virtuaula/pages/secretaria/curso/insertar/seleccProfesorInsertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccAulaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","OK","/virtuaula/pages/secretaria/curso/insertar/informacionCurso.jsp");
+		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","OK","/virtuaula/pages/secretaria/curso/insertar/insertarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","ERROR","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
-	
+		//sesion profesor
+		gestorPaginas.agregarPaginas("profesor","LOGAR","SIG","/virtuaula/pages/profesor/index.jsp");
+		gestorPaginas.agregarPaginas("profesor","menuPrincipalProf","SIG","/virtuaula/pages/profesor/index.jsp");
+		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF_OPCIONES","SIG","/virtuaula/pages/profesor/aviso/index.jsp");
+		gestorPaginas.agregarPaginas("profesor","desconectar","SIG","/virtuaula/index.jsp");
+		//profesor consulta avisos
+		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
+		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
+		gestorPaginas.agregarPaginas("profesor","MOSTRAR_AVISOS_PROF","SIG","no hecha");
+		gestorPaginas.agregarPaginas("profesor","VOLVER_ANTERIOR","SIG","/virtuaula/pages/profesor/seleccionarAviso.jsp");
+		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
+		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 
-		
-		
+		//profesor EDITAR FICHA
+		gestorPaginas.agregarPaginas("profesor","OP_MOSTRAR_CURSO_PROF","OK","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
+		gestorPaginas.agregarPaginas("profesor","OP_MOSTRAR_CURSO_PROF","ERROR","/virtuaula/pages/profesor/index.jsp");
+		gestorPaginas.agregarPaginas("profesor","ListarAlumnosCurso","OK","/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp");
+		gestorPaginas.agregarPaginas("profesor","ListarAlumnosCurso","ERROR","no hecha");
+		gestorPaginas.agregarPaginas("profesor","Ficha_Alumno_Prof","OK","/virtuaula/pages/profesor/curso/fichaAlumno.jsp");
+		gestorPaginas.agregarPaginas("profesor","Ficha_Alumno_Prof","ERROR","no hecha");
+		gestorPaginas.agregarPaginas("profesor","ActualizarFichaAlumno","OK","/virtuaula/pages/profesor/curso/confirmacion.jsp");
+		gestorPaginas.agregarPaginas("profesor","ActualizarFichaAlumno","ERROR","no hecha");
+		//la de menuPrincipalProf esta hecha en consulta avisos
+
+
 		}
 	
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
 		//this.encapsular(req);
 		BeanEncapsulado.encapsular(req);
-	
+		
 		if (gestorSesiones.indicaSiUsuarioIdentificado(sesion)){
 			//el usuario está validado
+			
 			String operacion=gestorSesiones.dameOperacion(req);
 			String perfil=gestorSesiones.damePerfilUsuario(sesion);
 			Controlador controlador=gestorControlador.dameControlador(perfil,operacion,sesion);
