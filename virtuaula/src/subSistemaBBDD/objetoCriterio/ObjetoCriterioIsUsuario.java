@@ -40,9 +40,10 @@ public class ObjetoCriterioIsUsuario extends ObjetoCriterio{
 		String sCampoSalida = "";
 		String s="";
 		int limite = listaCampos.size();
-		while(!s.equals(campo) && i<limite-1){
-			i++;
+		i++;
+		while(!s.equals(campo) && i<limite){
 			s = (String) listaCampos.get(i);
+			i++;
 			
 		}
 		if (s.equals(campo)){
