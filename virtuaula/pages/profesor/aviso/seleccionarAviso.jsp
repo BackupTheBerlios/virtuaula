@@ -98,6 +98,7 @@
    		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posAviso'>");
 			                         }
 	                   	    out.println("</td>");
+	                   	    out.println("<tr>");
 	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</td>");
 	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</td>");
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</td>");
@@ -108,8 +109,12 @@
 		                    out.println("		         <td colspan='7' align='center'> ");
 		                    out.println("			            <input type='hidden' name='evento'>");
 		                    out.println("			            <input type='hidden' name='idBean' value='Avisos'>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('DETERMINAR');' class='botonSimple'>Leer</button>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('DETERMINAR');' class='botonSimple'>Borrar</button>");
+		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('MOSTRAR_AVISOS_PROF');' class='botonSimple'>Leer</button>");
+		                    out.println("</td>");
+		                    out.println("<td>");
+		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('BORRA_AVISO');' class='botonSimple'>Borrar</button>");
+		                    out.println("</td>");
+		                    out.println("<td>");
 		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('DETERMINAR');' class='botonSimple'>Enviar</button>");
 		         
 		                  
