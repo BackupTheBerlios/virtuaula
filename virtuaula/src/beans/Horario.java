@@ -6,11 +6,11 @@ import subSistemaBBDD.utils.Constantes;
  */
 public class Horario extends ObjetoBean{
 	private String IDISHORARIO;
-	private String LUNES;
-	private String MARTES;
-	private String MIERCOLES;
- 	private String JUEVES;
-	private String VIERNES;
+	private String L;
+	private String M;
+	private String X;
+ 	private String J;
+	private String V;
 
 	public Horario()
 	{
@@ -22,11 +22,11 @@ public class Horario extends ObjetoBean{
 	public ObjetoBean clonar() {
 		Horario horario=new Horario();
 		horario.IDISHORARIO=this.IDISHORARIO;
-		horario.LUNES=this.LUNES;
-		horario.MARTES=this.MARTES;
-		horario.MIERCOLES=this.MIERCOLES;
-		horario.JUEVES=this.JUEVES;
-		horario.VIERNES=this.VIERNES;
+		horario.L=this.L;
+		horario.M=this.M;
+		horario.X=this.X;
+		horario.J=this.J;
+		horario.V=this.V;
 		//horario.inicializar();
 		return horario;
 	}
@@ -43,23 +43,23 @@ public class Horario extends ObjetoBean{
 		}
 		else if (campo.equals(Constantes.HORARIO_LUNES))
 		{
-			c=LUNES;
+			c=L;
 		}
 		else if (campo.equals(Constantes.HORARIO_MARTES))
 		{
-			c=MARTES;
+			c=M;
 		}
 		else if (campo.equals(Constantes.HORARIO_MIERCOLES))
 		{
-			c=MIERCOLES;
+			c=X;
 		}
 		else if (campo.equals(Constantes.HORARIO_JUEVES))
 		{
-			c=JUEVES;
+			c=J;
 		}
 		else if (campo.equals(Constantes.HORARIO_VIERNES))
 		{
-			c=VIERNES;
+			c=V;
 		}
 		return c;
 	}
@@ -74,23 +74,23 @@ public class Horario extends ObjetoBean{
 		}
 		else if (campo.equals(Constantes.HORARIO_LUNES))
 		{
-			LUNES=valor;
+			L=valor;
 		}
 		else if (campo.equals(Constantes.HORARIO_MARTES))
 		{
-			MARTES=valor;
+			M=valor;
 		}
 		else if (campo.equals(Constantes.HORARIO_MIERCOLES))
 		{
-			MIERCOLES=valor;
+			X=valor;
 		}
 		else if (campo.equals(Constantes.HORARIO_JUEVES))
 		{
-			JUEVES=valor;
+			J=valor;
 		}
 		else if (campo.equals(Constantes.HORARIO_VIERNES))
 		{
-			VIERNES=valor;
+			V=valor;
 		}
 	}
 
@@ -101,11 +101,11 @@ public class Horario extends ObjetoBean{
 	public void inicializar() {
 		// TODO Auto-generated method stub
 		IDISHORARIO="";
-		LUNES="";
-		MARTES="";
-		MIERCOLES="";
-		JUEVES="";
-		VIERNES="";
+		L="";
+		M="";
+		X="";
+		J="";
+		V="";
 		
 	}
 }
