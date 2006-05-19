@@ -50,7 +50,7 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-                <a href="JavaScript:lanzaFormulario('DETERMINAR');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Menu profesor</a>
+                <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Menu principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>

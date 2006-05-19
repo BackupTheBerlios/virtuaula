@@ -11,7 +11,12 @@
           function lanzaFormulario (evento) {
             document.formSubmenu.evento.value = evento;
             document.formSubmenu.submit();
-          };      
+          };   
+                    
+        function lanzaFormularioPrincipal (evento) {
+            document.formPrincipal.evento.value = evento;
+            document.formPrincipal.submit();
+          };   
       </script>
             
   </head>
@@ -64,7 +69,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
-    			<form method=post action="/virtuaula/ServletVisualizador">
+    			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
         				
         				<%
 	
@@ -100,11 +105,11 @@
 		      
 		                    out.println("<tr>");
 		                    out.println("		         <td colspan='7' align='center'> ");
-		                    out.println("			          <input type='hidden' name='evento' value='ListarAlumnosCurso'>");
 		                    out.println("			          <input type='hidden' name='idBean' value='listCurso'>");
-		                    out.println("   			        <button type='submit' class='botonSimple'>Mostrar Alumnos</button>");
-		                    out.println("   			        <button type='submit' class='botonSimple'>Publicar Notas</button>");
-		         
+		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('ListarAlumnosCurso');' class='botonSimple'>Mostrar Alumnos</button>");
+		                    out.println("</td>");
+		                    out.println("<td>");
+		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('PUB_NOTAS');' class='botonSimple'>Publicar Notas</button>");                        		                    		         
 		                  
 		              }
 		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
@@ -116,9 +121,9 @@
 
 		
 		                  } 
+                  out.println("</td>");
+                  out.println("</tr>");		                  		                  
                 %>   
-					         </td>
-				        </tr>	                     				
         			</table>
           </form>
     		</div>
