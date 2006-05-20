@@ -118,10 +118,10 @@
 
 		
 		                  } 
+                  out.println("</td>");
+                  out.println("</tr>");
+                  out.println("</table>");		                  
                 %>   
-					         </td>
-				        </tr>	                     				
-        			</table>
           </form>
     		</div>
 	  </div>
