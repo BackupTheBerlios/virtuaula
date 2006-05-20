@@ -105,19 +105,20 @@
 		                    }//fin for
 		      
 		                    out.println("<tr>");
-		                    out.println("		         <td colspan='7' align='center'> ");
+		                    out.println("		         <td colspan='2' align='center'> ");
 		                    out.println("			          <input type='hidden' name='idBean' value='listCurso'>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('ListarAlumnosCurso');' class='botonSimple'>Mostrar Alumnos</button>");
+							out.println("			            <input type='hidden' name='evento'>");		                    
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('ListarAlumnosCurso');\" class='botonSimpleGrande'>Mostrar Alumnos</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('PUB_NOTAS');' class='botonSimple'>Publicar Notas</button>");                        		                    		         
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('PUB_NOTAS');\" class='botonSimpleGrande'>Publicar Notas</button>");                        		                    		         
 		                  
 		              }
 		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
-		      	             out.println("			          <input type='hidden' name='evento' value='OP_MOSTRAR_CURSO_PROF'>");
+		      	             out.println("			          <input type='hidden' name='evento' value='menuPrincipalProf'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
 
 		
