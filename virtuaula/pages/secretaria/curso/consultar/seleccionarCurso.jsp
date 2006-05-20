@@ -69,14 +69,6 @@
         				
         				<%
                     		HttpSession sesion=request.getSession();
-                            ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
-                      		Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
-                      		Area area = null;
-                           	if (listaAreas != null && !listaAreas.esVacio()){
-                               	if (posicionLista != null) {
-                                    area = (Area) listaAreas.dameObjeto(posicionLista.intValue());  
-                      		    }
-                          	} 
                     
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
@@ -109,7 +101,7 @@
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");
-                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(area.dameValor("NOMBRE"))+"</td>");
+                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");
                        
 	                        out.println("</tr>");
 		                    }//fin for

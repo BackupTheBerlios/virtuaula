@@ -69,7 +69,7 @@
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>        					
         					<th class="FormLiteral"><b>DNI Profesor</th>        					
-        					<th class="FormLiteral"><b>Nombre</th>
+        					<th class="FormLiteral"><b>Nombre Curso</th>
         					<th class="FormLiteral"><b>Número de plazas</th>
         					<th class="FormLiteral"><b>Estado</th>
         					<th class="FormLiteral"><b>Fecha Inicio</th>
