@@ -38,13 +38,15 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_PROF","SIG","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
 		
+		
 		//secretaria cosulta curso
 		gestorPaginas.agregarPaginas("secretaria","CONS_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/seleccionarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/buscarCurso.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_CUR","SIG","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
 	
 		//secretaria insercion curso
 		gestorPaginas.agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");

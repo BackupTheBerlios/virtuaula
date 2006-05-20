@@ -26,7 +26,7 @@ public class GestorControladorConsultaCurso extends GestorControladorSecretaria{
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("INI_CONS_CUR",new ControladorIniConsCur());
 		GestorControlador.tablaOperacionControlador.put("CONS_CUR",new ControladorConsCur());
-		//GestorControlador.tablaOperacionControlador.put("MOSTRAR_CUR",new ControladorMostrarCur());
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_CUR",new ControladorMostrarCur());
 		
 		
 		
