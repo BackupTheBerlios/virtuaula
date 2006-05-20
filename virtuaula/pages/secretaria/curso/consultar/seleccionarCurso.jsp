@@ -70,7 +70,7 @@
         				<%
 	
                     HttpSession sesion=request.getSession();
-                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
+                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
@@ -89,10 +89,10 @@
 			                    out.println("<tr>");
 			                    out.println("<td>");
 			                    if (i==0){
-   		         	             out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCur' checked>");
+   		         	             out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCurso' checked>");
 			                    }
 			                    else{
-   		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCur'>");
+   		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCurso'>");
 			                         }
 	                   	    out.println("</td>");
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");
@@ -106,8 +106,8 @@
 		      
 		                    out.println("<tr>");
 		                    out.println("		         <td colspan='7' align='center'> ");
-		                    out.println("			          <input type='hidden' name='evento' value='CONS_CUR'>");
-		                    out.println("			          <input type='hidden' name='idBean' value='listCur'>");
+		                    out.println("			          <input type='hidden' name='evento' value='MOSTRAR_CUR'>");
+		                    out.println("			          <input type='hidden' name='idBean' value='listCurso'>");
 		                    out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
 		         
 		                  

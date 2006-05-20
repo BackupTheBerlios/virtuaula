@@ -26,7 +26,10 @@ public class GestorControladorSecretaria extends GestorControlador{
 	public void inicializa(){
 		//consulta de profesor concretos
 		tablaOperacionGestor.put("CONS_PROF",new GestorControladorConsultaProf());
-		tablaOperacionGestor.put("INI_CONS_PROF",new GestorControladorConsultaProf());
+		tablaOperacionGestor.put("INI_CONS_PROF",new GestorControladorConsultaProf());	
+		//consulta de curso concretos
+		tablaOperacionGestor.put("CONS_CUR",new GestorControladorConsultaCurso());
+		tablaOperacionGestor.put("INI_CONS_CUR",new GestorControladorConsultaCurso());
 		//insercion curso concretos
 		tablaOperacionGestor.put("INS_CUR_HOR",new GestorControladorInsCur());
 		tablaOperacionGestor.put("INS_CUR_AREA",new GestorControladorInsCur());
@@ -46,7 +49,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",new ControladorPasaPag());
-		
+		//consultar curso
+		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_CUR",new ControladorPasaPag());
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

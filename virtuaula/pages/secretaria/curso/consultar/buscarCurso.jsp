@@ -156,7 +156,7 @@
                   </td>      				 
               	<tr>
 					         <td colspan="7" align="center">
-						        <input type="hidden" name="evento" value="INI_CONS_CUR">
+						        <input type="hidden" name="evento" value="CONS_CUR">
 						        <input type="hidden" name="idBean" value="Curso">
                     <button type="submit" class="botonSimple">Buscar</button>
 					         </td>

@@ -45,10 +45,10 @@
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
-    					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Insertar Cursor';return true">Insertar</a>
+    					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Insertar Curso';return true">Insertar</a>
     					<a href="#">Baja</a>
              					 <a href="#">Editar</a>
-    					<a href="#">Consultar</a>
+    					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Consultar Curso';return true">Consultar</a>
     				</div>
     		</div>
     		<div style="position:relative; top:43px; z-index:-1;">
