@@ -71,7 +71,7 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		gestorPaginas.agregarPaginas("profesor","MOSTRAR_AVISOS_PROF","SIG","/virtuaula/pages/profesor/aviso/leerAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","VOLVER_ANTERIOR","SIG","/virtuaula/pages/profesor/seleccionarAviso.jsp");
+		gestorPaginas.agregarPaginas("profesor","VOLVER_ANTERIOR","SIG","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 
