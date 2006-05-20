@@ -68,19 +68,28 @@
     			<form method=post action="/virtuaula/ServletVisualizador">
         				
         				<%
-	
-                    HttpSession sesion=request.getSession();
+                    		HttpSession sesion=request.getSession();
+                            ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
+                      		Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
+                      		Area area = null;
+                           	if (listaAreas != null && !listaAreas.esVacio()){
+                               	if (posicionLista != null) {
+                                    area = (Area) listaAreas.dameObjeto(posicionLista.intValue());  
+                      		    }
+                          	} 
+                    
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");
-        		            out.println("	<th class='FormLiteral'><b>Area</th>");  					
+        		             					
         		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
         		            out.println("	<th class='FormLiteral'><b>Número de plazas</th>");
         		            out.println("	<th class='FormLiteral'><b>Estado</th>");
         		            out.println("	<th class='FormLiteral'><b>Precio</th>");
+        		            out.println("	<th class='FormLiteral'><b>Area</th>"); 
         		            out.println("</tr>");	
 	                        	                       	     
 	                   	 for (int i=0; i<listaObjetoBean.tamanio();i++) {
@@ -95,11 +104,12 @@
    		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posCurso'>");
 			                         }
 	                   	    out.println("</td>");
-	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");
+	                  	    
 	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");
+                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(area.dameValor("NOMBRE"))+"</td>");
                        
 	                        out.println("</tr>");
 		                    }//fin for

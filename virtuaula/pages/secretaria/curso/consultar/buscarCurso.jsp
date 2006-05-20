@@ -6,6 +6,8 @@
       <title> Buscar Curso Consultar </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
+      <script language="JavaScript" src="../../../../script/calendar.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -65,64 +67,32 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
-    			<form method=post action="/virtuaula/ServletVisualizador">
+    			<form method=post name= "consultarCurso" action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
-        					<td class="FormLiteral">DNI del profesor</td>
-        					<td><input type="text" class="FormTxt" maxlength="9" name="ISPROFESOR_ISUSUARIO_DNI"></td>
-        					<td width="100"></td>
-        					<td class="FormLiteral">Nombre Curso</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="NOMBRE"></td>
-        				</tr>
-        				<tr>
-        					<td class="FormLiteral">Número de plazas</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="NUMERO_PLAZAS"></td>
+         					<td class="FormLiteral">Nombre Curso</td>
+        					<td><input type="text" class="FormTxt" maxlength="40"  size="23" name="NOMBRE"></td>
+         					<td class="FormLiteral">Número de plazas</td>
+        					<td><input type="text" class="FormTxt" maxlength="40" size="23" name="NUMERO_PLAZAS"></td>
         					<td></td>
-        					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="ESTADO"></td>
         				</tr>
         				<tr>
-        					<td class="FormLiteral">Fecha Inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="FECHA_INICIO"></td>
-        					<td></td>
-        					<td class="FormLiteral">Fecha Fin</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="FECHA_FIN"></td>
-        				</tr>
+         					<td class="FormLiteral">Estado</td>
+        					<td><input type="text" class="FormTxt" maxlength="40" size="23" name="ESTADO"></td>
+ 			                <td class="FormLiteral">Precio</td>
+        					<td><input type="text" class="FormTxt" maxlength="40" size="23" name="PRECIO"></td>
+						</tr>
         				<tr>
-        					<td class="FormLiteral">Area</td>
+ 							
+        					        					<td class="FormLiteral">Horario</td>
         					<td>        					       					
-              				<%
-              				    HttpSession sesion=request.getSession();
-                          ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
-              
-                          if (listaAreas != null && !listaAreas.esVacio()) {
-                	            Area area;	
-                	            out.println("<select name='ISAREA_IDISAREA' class='FormTxt'>");
-                	            out.println("<option value=''></option>");                	                            	            
-                              for (int i = 0; i < listaAreas.tamanio(); i++) {
-                                  area = (Area) listaAreas.dameObjeto(i);
-                                  out.println("<option value='"+String.valueOf(area.dameValor("IDISAREA"))+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
-      			                  }
-                              out.println("</select>");
-                          } else 
-                                {
-                                out.println("<font class='FormLiteral'>No hay creada ningún área.</font>");                                
-                                }
-                      %>
-                  </td>
-                  <td class="FormLiteral">Precio</td>
-        		<td><input type="text" class="FormTxt" maxlength="50" name="PRECIO"></td>
-        				</tr>  
-        				<tr>
-        					<td class="FormLiteral">Horario</td>
-        					<td>        					       					
-              				<%
+              				<% HttpSession sesion=request.getSession();
               				    ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
               
                           if (listaHorarios != null && !listaHorarios.esVacio()) {
                 	            Horario horario;	
                 	            out.println("<select name='ISHORARIO_IDISHORARIO' class='FormTxt'>");
-                	            out.println("<option value=''></option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un horario</option>");                	                            	            
                               for (int i = 0; i < listaHorarios.tamanio(); i++) {
                                   horario = (Horario) listaHorarios.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(horario.dameValor("IDISHORARIO"))+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
@@ -134,6 +104,8 @@
                                 }
                       %>
                   </td>
+                  
+                  
         					<td class="FormLiteral">Aula</td>
         					<td>        					       					
               				<%
@@ -142,7 +114,7 @@
                           if (listaAulas != null && !listaAulas.esVacio()) {
                 	            Aula aula;	
                 	            out.println("<select name='ISAULA_IDISAULA' class='FormTxt'>");
-                	            out.println("<option value=''></option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un aula &#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
                               for (int i = 0; i < listaAulas.tamanio(); i++) {
                                   aula = (Aula) listaAulas.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(aula.dameValor("IDISAULA"))+"'>"+String.valueOf(aula.dameValor("NOMBRE"))+"</option>");
@@ -153,7 +125,64 @@
                                 out.println("<font class='FormLiteral'>No hay creada ningún aula.</font>");                                
                                 }
                       %>
-                  </td>      				 
+                  </td>   		
+        				</tr>
+        				<tr>
+        					<td class="FormLiteral">Area</td>
+        					<td>        					       					
+              				<%  
+              				    ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
+              
+                          if (listaAreas != null && !listaAreas.esVacio()) {
+                	            Area area;	
+                	            out.println("<select name='ISAREA_IDISAREA' class='FormTxt'>");
+                	            out.println("<option value=''>Seleccione un area &#160;&#160;&#160;</option>");                	                            	            
+                              for (int i = 0; i < listaAreas.tamanio(); i++) {
+                                  area = (Area) listaAreas.dameObjeto(i);
+                                  out.println("<option value='"+String.valueOf(area.dameValor("IDISAREA"))+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
+      			                  }
+                              out.println("</select>");
+                          } else 
+                                {
+                                out.println("<font class='FormLiteral'>No hay creada ningún área.</font>");                                
+                                }
+                      %>
+                  </td>
+                  
+                  <td class="FormLiteral">DNI del profesor</td>
+        					
+        						<td>        					       					
+              				<%
+              				    
+                          ListaObjetoBean listaProfesores =((ListaObjetoBean)sesion.getAttribute("listaprofesor"));
+              
+                          if (listaProfesores != null && !listaProfesores.esVacio()) {
+                	            Profesor profesor;	
+                	            out.println("<select name='ISPROFESOR_IDISPROFESOR' class='FormTxt'>");
+                	            out.println("<option value=''>Seleccione un DNI &#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
+                              for (int i = 0; i < listaProfesores.tamanio(); i++) {
+                                  profesor = (Profesor) listaProfesores.dameObjeto(i);
+                                  out.println("<option value='"+String.valueOf(profesor.dameValor("IDISPROFESOR"))+"'>"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"</option>");
+      			                  }
+                              out.println("</select>");
+                          } else 
+                                {
+                                out.println("<font class='FormLiteral'>No hay ningún profesor.</font>");                                
+                                }
+                      %>
+                  </td>
+        		
+        		
+        				</tr>  
+        				<tr>
+                 
+                  <td class="FormLiteral">Fecha inicio</td>
+        					<td><input type="text" class="FormTxt" maxlength="10" size="23" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('consultarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+                  </td>
+        					<td class="FormLiteral">Fecha finalización</td>
+        					<td><input type="text" class="FormTxt" maxlength="10" size="23" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('consultarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+                  </td>
+                     				 
               	<tr>
 					         <td colspan="7" align="center">
 						        <input type="hidden" name="evento" value="CONS_CUR">
@@ -165,5 +194,6 @@
           </form>
     		</div>
 	  </div>
+	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
