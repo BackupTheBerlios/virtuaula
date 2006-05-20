@@ -49,7 +49,7 @@
               </font>
           </div>
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
-    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		    <form method=post action="/webvirtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
     	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
@@ -65,13 +65,13 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:40px; z-index:-1;">
-    			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
+    			<form method=post action="/webvirtuaula/ServletVisualizador" name="formPrincipal">
   				<%
 
               HttpSession sesion=request.getSession();
               ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaaviso"));
               Integer posicionAviso = ((Integer)sesion.getAttribute("posAviso"));
-            	Avisos aviso;
+            	Avisos aviso = null; 
             	
               if (listaObjetoBean != null && !listaObjetoBean.esVacio() && posicionAviso != null){
               	if (posicionAviso.intValue() <= listaObjetoBean.tamanio()) {
