@@ -33,7 +33,7 @@
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CURSO_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
-  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Aviso</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu aviso';return true ">Aviso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
