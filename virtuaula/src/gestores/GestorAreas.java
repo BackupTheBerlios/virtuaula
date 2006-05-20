@@ -4,6 +4,7 @@ package gestores;
 import subSistemaBBDD.BBDDFachada;
 import beans.Area;
 import beans.CreadorBean;
+import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
 public class GestorAreas {
@@ -18,6 +19,12 @@ public class GestorAreas {
 		Area area = (Area) cBean.crear(1);
 		ListaObjetoBean l = bdf.consultar(area);
 		return l;
+	}
+	
+	public ListaObjetoBean consultaArea(ObjetoBean bean)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.consultar(bean);
 	}
 
 }
