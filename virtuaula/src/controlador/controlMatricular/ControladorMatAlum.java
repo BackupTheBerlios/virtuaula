@@ -34,14 +34,14 @@ public class ControladorMatAlum extends ControladorMatricular{
 				error.cambiaValor(Constantes.CAUSA,"No hay ningun curso disponible, cree un curso para hacer la matricula");
 				ListaObjetoBean listaerror = new ListaObjetoBean();
 				listaerror.insertar(0,error);
-				this.getSesion().setAttribute("listaerror",listaerror);
+				this.getSesion().setAttribute("error",listaerror);
 				
 			}
 			//si hay algun curso activo
 			else if (!listacursos.esVacio())
 			{
 				this.setResuladooperacion("OK");
-				this.getSesion().removeAttribute("listaerror");
+				this.getSesion().removeAttribute("error");
 				this.getSesion().setAttribute("listacurso",listacursos);
 			}
 
@@ -54,6 +54,7 @@ public class ControladorMatAlum extends ControladorMatricular{
 			error.cambiaValor(Constantes.CAUSA,"Se ha producido un error en la base de datos");
 			ListaObjetoBean listaer = new ListaObjetoBean();
 			listaer.insertar(0,error);
+			this.getSesion().setAttribute("error",listaer);
 		}
 	}
 
