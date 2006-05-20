@@ -487,8 +487,7 @@ public class BBDDFachada {
 		String valor4= horario1.dameValor(Constantes.HORARIO_MIERCOLES);
 		String valor5= horario1.dameValor(Constantes.HORARIO_JUEVES);
 		String valor6= horario1.dameValor(Constantes.HORARIO_VIERNES);
-		System.out.println(null==null);
-				
+						
 		if( (valor1.equals(horario2.dameValor(Constantes.ID_ISHORARIO)) )
 			||	((!(valor2==null)&&!valor2.equals("")&& !(horario2.dameValor("L")==null))&& valor2.equals(horario2.dameValor("L")))
 			||  ((!(valor3==null)&& !valor3.equals("") && !(horario2.dameValor("M")==null))&& valor3.equals(horario2.dameValor("M")))
@@ -520,30 +519,16 @@ public class BBDDFachada {
 			//Para cada aula obtengo los horario en los cuales están ocupadas
 			CreadorListaObjetoBBDD creadorListaBBDD = new CreadorListaObjetoBBDD();
 			ListaObjetoBBDD aulasLibresHorario= creadorListaBBDD.crear();
-			ListaObjetoBBDD idHorariosOcupadoAula;
-			ObjetoBBDD hor = creadorOB.crear(creadorOB.Ishorario);
+			
 			
 			for (int i=0; i<aulasExistentes.tamanio();i++){
-				ObjetoBBDD horarioAula = creadorOB.crear(creadorOB.IshorarioHasIsaula);
-				EsquemaBBDD esHorAula = this.crearTablaAdecuada(horarioAula);
-				horarioAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,aulasExistentes.dameObjeto(i)
-																	 .dameValor(Constantes.ID_ISAULA));
-				ObjetoCriterio critHorAula = this.crearObjetoCriterioAdecuado(horarioAula);
-				idHorariosOcupadoAula = this.inicializaTabla(esHorAula).consultar(critHorAula);
-				//Obtengo todos los horarios en los cuales el aulasExistentes[i] está ocupada y lo meto en horariosOcupados
-				ListaObjetoBBDD horariosOcupados= creadorListaBBDD.crear();
-				for(int j=0;j<idHorariosOcupadoAula.tamanio();j++){
-					hor.cambiaValor(Constantes.ID_ISHORARIO,idHorariosOcupadoAula.dameObjeto(j).dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
-					ObjetoCriterio critHor = this.crearObjetoCriterioAdecuado(hor);
-					horariosOcupados.insertar(horariosOcupados.tamanio(),this.inicializaTabla(this.crearTablaAdecuada(hor)).consultar(critHor).dameObjeto(0));
-				}
-				
-				
+				ObjetoBean aulaActual = ConversorBeanBBDD.convierteBBDDABean(aulasExistentes.dameObjeto(i));
+				ListaObjetoBean horariosOcupados= this.dameHorariosOcupadosAula(aulaActual);
 				//Para cada uno de los horarios en los cuales el aula está ocupado, compruebo si alguna de las horas
 				//de este horario coincide con el Bean horario que se me ha pasado como parámetro.
 				boolean libre=true;
 				for(int j=0;j<horariosOcupados.tamanio() && libre;j++){
-					ObjetoBean horarioActual = ConversorBeanBBDD.convierteBBDDABean(horariosOcupados.dameObjeto(j));
+					ObjetoBean horarioActual = horariosOcupados.dameObjeto(j);
 					libre= this.horariosCompatibles(horario,horarioActual);
 				}
 				if(libre)
@@ -559,7 +544,72 @@ public class BBDDFachada {
 	}
 	
 	
-
+	
+	public ListaObjetoBean dameHorariosOcupadosAula(ObjetoBean aula){
+		
+		try{
+			CreadorListaObjetoBBDD creadorListaBBDD = new CreadorListaObjetoBBDD();
+			ListaObjetoBBDD idHorariosOcupadoAula;
+			CreadorObjetoBBDD creadorOB= this.creador.getCreadorObjetoBBDD();
+			ObjetoBBDD hor = creadorOB.crear(creadorOB.Ishorario);
+			
+			ObjetoBBDD horarioAula = creadorOB.crear(creadorOB.IshorarioHasIsaula);
+			EsquemaBBDD esHorAula = this.crearTablaAdecuada(horarioAula);
+			horarioAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,aula
+																 .dameValor(Constantes.ID_ISAULA));
+			ObjetoCriterio critHorAula = this.crearObjetoCriterioAdecuado(horarioAula);
+			idHorariosOcupadoAula = this.inicializaTabla(esHorAula).consultar(critHorAula);
+			//Obtengo todos los horarios en los cuales el aulasExistentes[i] está ocupada y lo meto en horariosOcupados
+			ListaObjetoBBDD horariosOcupados= creadorListaBBDD.crear();
+			for(int j=0;j<idHorariosOcupadoAula.tamanio();j++){
+				hor.cambiaValor(Constantes.ID_ISHORARIO,idHorariosOcupadoAula.dameObjeto(j).dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
+				ObjetoCriterio critHor = this.crearObjetoCriterioAdecuado(hor);
+				horariosOcupados.insertar(horariosOcupados.tamanio(),this.inicializaTabla(this.crearTablaAdecuada(hor)).consultar(critHor).dameObjeto(0));
+			}
+			return ConversorBeanBBDD.convierteListaBBDD(horariosOcupados);
+		}
+		catch( Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Dado un profesor devuelve una lista con sus horarios.
+	 * @param profesor, el profesor del cual queremos consultar sus horarios
+	 * @return una lista con los horarios del profesor.
+	 */
+	public ListaObjetoBean dameHorariosOcupadosProfesor(ObjetoBean profesor){
+		
+		try{
+			ListaObjetoBean cursosProfesorActual = this.dameCursosProfesor(profesor);
+			//Para cada curso del profesor actual obtengo el horario en el cual se imparte
+			ObjetoBean cursoActual;
+			ObjetoBBDD horarioAula;
+			ObjetoCriterio critHorarioAula;
+			//Aqui tendremos todos los horarios de todos los cursos que da el profesor actual.
+			ListaObjetoBBDD horariosOcupadoProfesorActual = this.creador.getCreadorListaObjetoBBDD().crear();
+			ObjetoBBDD horarioAulaCurso;
+			ObjetoBBDD hor= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().Ishorario);
+			ObjetoCriterio critHorario;
+			for(int j=0; j<cursosProfesorActual.tamanio();j++){
+				cursoActual= cursosProfesorActual.dameObjeto(j);
+				horarioAula = this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
+				horarioAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+				critHorarioAula = this.crearObjetoCriterioAdecuado(horarioAula);
+				horarioAulaCurso= this.inicializaTabla(this.crearTablaAdecuada(horarioAula)).consultar(critHorarioAula).dameObjeto(0);
+				hor.cambiaValor(Constantes.ID_ISHORARIO,horarioAulaCurso.dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
+				critHorario = this.crearObjetoCriterioAdecuado(hor);
+				ObjetoBBDD horarioCurso= this.inicializaTabla(this.crearTablaAdecuada(hor)).consultar(critHorario).dameObjeto(0);
+				horariosOcupadoProfesorActual.insertar(horariosOcupadoProfesorActual.tamanio(),horarioCurso);					
+			}
+			return ConversorBeanBBDD.convierteListaBBDD(horariosOcupadoProfesorActual);
+		}
+		catch( Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	/**
 	 * Sirve para obtener todas las profesores que están libres en un
@@ -575,30 +625,10 @@ public class BBDDFachada {
 			//Para cada profesor obtengo todos los cursos que imparte
 			for(int i=0;i<profesoresDisponibles.tamanio();i++){
 				ObjetoBean profesorActual=profesoresDisponibles.dameObjeto(i);
-				ListaObjetoBean cursosProfesorActual = this.dameCursosProfesor(profesorActual);
-				//Para cada curso del profesor actual obtengo el horario en el cual se imparte
-				ObjetoBean cursoActual;
-				ObjetoBBDD horarioAula;
-				ObjetoCriterio critHorarioAula;
-				//Aqui tendremos todos los horarios de todos los cursos que da el profesor actual.
-				ListaObjetoBBDD horariosOcupadoProfesorActual = this.creador.getCreadorListaObjetoBBDD().crear();
-				ObjetoBBDD horarioAulaCurso;
-				ObjetoBBDD hor= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().Ishorario);
-				ObjetoCriterio critHorario;
-				for(int j=0; j<cursosProfesorActual.tamanio();j++){
-					cursoActual= cursosProfesorActual.dameObjeto(j);
-					horarioAula = this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
-					horarioAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
-					critHorarioAula = this.crearObjetoCriterioAdecuado(horarioAula);
-					horarioAulaCurso= this.inicializaTabla(this.crearTablaAdecuada(horarioAula)).consultar(critHorarioAula).dameObjeto(0);
-					hor.cambiaValor(Constantes.ID_ISHORARIO,horarioAulaCurso.dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
-					critHorario = this.crearObjetoCriterioAdecuado(hor);
-					ObjetoBBDD horarioCurso= this.inicializaTabla(this.crearTablaAdecuada(hor)).consultar(critHorario).dameObjeto(0);
-					horariosOcupadoProfesorActual.insertar(horariosOcupadoProfesorActual.tamanio(),horarioCurso);					
-				}
+				ListaObjetoBean horariosOcupadoProfesorActual= this.dameHorariosOcupadosProfesor(profesorActual);
 				boolean libreProf=true;
 				for(int j=0;j<horariosOcupadoProfesorActual.tamanio()&& libreProf;j++){
-					ObjetoBean horarioActual = ConversorBeanBBDD.convierteBBDDABean(horariosOcupadoProfesorActual.dameObjeto(j));
+					ObjetoBean horarioActual = horariosOcupadoProfesorActual.dameObjeto(j);
 					libreProf= this.horariosCompatibles(horario,horarioActual);
 				}
 				
@@ -725,13 +755,7 @@ public class BBDDFachada {
 		return exito;
 	}
 	
-	/**
-	 * Dado un profesor y un alumno, devuelve la ficha del alumno para el curso impartido por el profesor.
-	 * @param alumno
-	 * @param profesor
-	 * @return
-	 */
-	//public ObjetoBean dameFichaAlumno(ObjetoBean alumno, ObjetoBean profesor)
+	
 	
 	public ObjetoBean dameAreaCurso(ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();
@@ -796,6 +820,46 @@ public class BBDDFachada {
 		return avisos;
 	}
 	
+	
+	/**
+	 * Dado un horario y un profesor nos sirve para saber si el profesor en cuestión puede impartir clases en el
+	 * horario dado o si por el contrario es horario no es compatible con los que ya tiene.
+	 * @param horario
+	 * @param profesor
+	 * @return true si el profesor esta libre en ese horario, false e.o.c
+	 */
+	public boolean libreProfesor(ObjetoBean horario,ObjetoBean profesor){
+		ListaObjetoBean horariosOcupadoProfesor= this.dameHorariosOcupadosProfesor(profesor);
+		boolean libre= true;
+		for(int i=0;i<horariosOcupadoProfesor.tamanio() && libre;i++){
+			ObjetoBean horario2= horariosOcupadoProfesor.dameObjeto(i);
+			if (!this.horariosCompatibles(horario,horario2))
+				libre=false;
+		}
+		return libre;
+		
+		
+	}
+	
+	/**
+	 * Dado un horario y un aula nos sirve para saber si el aula en cuestión está libre para impartir en ella clases en el
+	 * horario dado o si por el contrario es horario no es compatible con los que ya tiene.
+	 * @param horario
+	 * @param aula
+	 * @return true si el aula esta libre en ese horario, false e.o.c
+	 */
+	public boolean libreAula(ObjetoBean horario,ObjetoBean aula){
+		ListaObjetoBean horariosOcupadoAula= this.dameHorariosOcupadosAula(aula);
+		boolean libre= true;
+		for(int i=0;i<horariosOcupadoAula.tamanio() && libre;i++){
+			ObjetoBean horario2= horariosOcupadoAula.dameObjeto(i);
+			if (!this.horariosCompatibles(horario,horario2))
+				libre=false;
+		}
+		return libre;
+	}
+	
+	
 	/**
 	 * Dado un alumno y un curso nos devuele la ficha correspondiente.
 	 * @param alumno que guia la busqueda
@@ -814,6 +878,44 @@ public class BBDDFachada {
 		return ficha;
 		
 	}
+	
+	
+	
+	
+	//prueba libreAula
+	/*public static void main(String[] args) {
+	BBDDFachada mia = BBDDFachada.getInstance();
+	CreadorBean creador = new CreadorBean();
+	ObjetoBean aula =creador.crear(creador.Aula);
+	aula.cambiaValor(Constantes.ID_ISAULA,"4");
+	ObjetoBean horario =creador.crear(creador.Horario);
+	horario.cambiaValor(Constantes.ID_ISHORARIO,"5");
+
+	ObjetoBean aula2= mia.consultar(aula).dameObjeto(0);
+	ObjetoBean horario2= mia.consultar(horario).dameObjeto(0);
+	System.out.println(mia.libreAula(horario2,aula2));
+	
+	
+	
+	}*/	
+	
+	//prueba de libreProfeosor
+	
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean profesor =creador.crear(creador.Profesor);
+		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,"53333333");
+		ObjetoBean horario =creador.crear(creador.Horario);
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"2");
+	
+		ObjetoBean profesor2= mia.consultar(profesor).dameObjeto(0);
+		ObjetoBean horario2= mia.consultar(horario).dameObjeto(0);
+		System.out.println(mia.libreProfesor(horario2,profesor2));
+		
+		
+		
+	}*/
 	
 	
 	//prueba de dameFichaAlumnoCurso
@@ -922,7 +1024,7 @@ public class BBDDFachada {
 	}*/
 	
 	//Prueba dameAulasLibres
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean horario =creador.crear(creador.Horario);
@@ -934,7 +1036,7 @@ public class BBDDFachada {
 		System.out.println(listaAulasLibres.dameObjeto(i).dameValor(Constantes.AULA_NOMBRE));
 		
 		}
-	}
+	}*/
 	
 	
 	
@@ -943,12 +1045,12 @@ public class BBDDFachada {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean horario =creador.crear(creador.Horario);
-		horario.cambiaValor(Constantes.ID_ISHORARIO,"100");
-		horario.cambiaValor(Constantes.HORARIO_LUNES,"M");
-		horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"M");
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"3");
+		horario.cambiaValor(Constantes.HORARIO_LUNES,"T");
+		horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"T");
 		ListaObjetoBean listaprofesLibres = mia.dameProfesoresLibres(horario);
 		for (int i=0;i<listaprofesLibres.tamanio();i++){
-		System.out.println(listaprofesLibres.dameObjeto(i).dameValor(Constantes.PROFESOR_NOMBRE));
+			System.out.println(listaprofesLibres.dameObjeto(i).dameValor(Constantes.PROFESOR_NOMBRE));
 		
 		}
 	}*/
