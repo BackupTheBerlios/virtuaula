@@ -81,8 +81,8 @@
         				
         			<%
                     HttpSession sesion=request.getSession();
-                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
-                    Integer posicionLista =((Integer)sesion.getAttribute("posCur"));
+                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+                    Integer posicionLista =((Integer)sesion.getAttribute("posCurso"));
                   	Curso curso;	
                   	
                   	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
@@ -103,14 +103,11 @@
   	                  
                       }
                     }
-                    //ELIMINAR DE SESSION LA LISTA Y LA POSICION
-                    //sesion.removeAttribute("RdoControlador");
-                    //sesion.removeAttribute("posCur");
 
                 %>  
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="evento" value="MOSTRAR_CUR">
+					          <input type="hidden" name="evento" value="menuPrincipalSec">
 						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 				        </tr>	                       				
