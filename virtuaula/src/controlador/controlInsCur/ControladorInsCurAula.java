@@ -3,8 +3,6 @@ package controlador.controlInsCur;
 import gestores.GestorCursos;
 import controlador.Controlador;
 import beans.CreadorBean;
-
-import beans.Horario;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
@@ -41,7 +39,7 @@ public class ControladorInsCurAula extends Controlador{
 		
 			Integer posh=(Integer)this.getSesion().getAttribute("posHor");
 			int poshorario=posh.intValue();
-			ObjetoBean hor=(Horario)lhor.dameObjeto(poshorario);
+			ObjetoBean hor=(ObjetoBean)lhor.dameObjeto(poshorario);
 			ListaObjetoBean listaAulas=GC.consultaAulasPorHorario(hor);
 			
 			//si no ha fallado la consulta en la base de datos

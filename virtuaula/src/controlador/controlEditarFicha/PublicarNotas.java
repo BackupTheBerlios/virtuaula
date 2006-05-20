@@ -2,9 +2,7 @@ package controlador.controlEditarFicha;
 
 import gestores.Profesorado;
 import beans.CreadorBean;
-import beans.Curso;
 import beans.ObjetoBean;
-import beans.Profesor;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import controlador.Controlador;
@@ -31,7 +29,7 @@ public class PublicarNotas extends Controlador{
 	Integer posc=(Integer)this.getSesion().getAttribute("posCurso");
 	int poscurso=posc.intValue();
 	ListaObjetoBean listacurso=(ListaObjetoBean)this.getSesion().getAttribute("listacurso");
-	ObjetoBean curso=(Curso)listacurso.dameObjeto(poscurso);
+	ObjetoBean curso=(ObjetoBean)listacurso.dameObjeto(poscurso);
 	boolean correcto=GP.PublicarNota(curso);
 	
 	

@@ -3,12 +3,7 @@ package controlador.controlInsCur;
 //import java.awt.geom.Area;
 
 import gestores.GestorCursos;
-import beans.Aula;
-import beans.Curso;
-import beans.Horario;
 import beans.ObjetoBean;
-import beans.Profesor;
-import beans.Area;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import controlador.Controlador;
 import subSistemaBBDD.utils.Constantes;
@@ -34,11 +29,11 @@ public class ControladorInsertaCurso extends Controlador{
 		int posAre=posArea.intValue();
 		int posAul=posAula.intValue();
 		int posHorario=posHor.intValue();
-		ObjetoBean prof = (Profesor)listaProf.dameObjeto(posProfesor);
-		ObjetoBean area = (Area)listaArea.dameObjeto(posAre);
-		ObjetoBean aula = (Aula)listaAula.dameObjeto(posAul);
-		ObjetoBean horario= (Horario)listaHor.dameObjeto(posHorario);
-		ObjetoBean cur = (Curso)this.getSesion().getAttribute("beanCurso");
+		ObjetoBean prof = (ObjetoBean)listaProf.dameObjeto(posProfesor);
+		ObjetoBean area = (ObjetoBean)listaArea.dameObjeto(posAre);
+		ObjetoBean aula = (ObjetoBean)listaAula.dameObjeto(posAul);
+		ObjetoBean horario= (ObjetoBean)listaHor.dameObjeto(posHorario);
+		ObjetoBean cur = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 		
 		String idarea= (String)area.dameValor(Constantes.ID_ISAREA);
 		String idprof = (String)prof.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI);
@@ -50,7 +45,7 @@ public class ControladorInsertaCurso extends Controlador{
 		
 		//consultamos otra vez el curso para obtener todos los datos (codigo curso)
 		ListaObjetoBean listaError=(ListaObjetoBean)GC.insertarCurso(cur,aula,horario);
-		ObjetoBean curso=(Curso)GC.consultaCurso(cur).dameObjeto(0);
+		ObjetoBean curso=(ObjetoBean)GC.consultaCurso(cur).dameObjeto(0);
 	    sesion.setAttribute("beanCurso",curso);
 		//la inserccion ha fallado
 		if (listaError!=null)

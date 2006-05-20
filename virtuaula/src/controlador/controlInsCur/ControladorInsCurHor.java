@@ -6,7 +6,6 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import controlador.Controlador;
 import beans.CreadorBean;
-
 import beans.ObjetoBean;
 
 /**

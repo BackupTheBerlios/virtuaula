@@ -2,7 +2,7 @@ package controlador.controlConsulEliAvisoProf;
 
 import gestores.GestorAvisos;
 
-import beans.Avisos;
+
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.Usuario;
@@ -30,7 +30,7 @@ public class BorraAviso extends Controlador{
 		ListaObjetoBean lista = (ListaObjetoBean)this.getSesion().getAttribute("listaaviso");
 		Integer pos = (Integer)this.getSesion().getAttribute("posAviso");
 		int posicion = pos.intValue();
-		ObjetoBean aviso = (Avisos)lista.dameObjeto(posicion);
+		ObjetoBean aviso = (ObjetoBean)lista.dameObjeto(posicion);
 		GestorAvisos GA = new GestorAvisos();
 		boolean correcto=GA.borraAviso(aviso);
 	

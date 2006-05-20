@@ -28,7 +28,7 @@ public class ControladorMostrarCur extends Controlador{
 	 */
 		public void procesarEvento() {
 			ListaObjetoBean	listacurso=(ListaObjetoBean)this.getSesion().getAttribute("listacurso");
-			ObjetoBean curso=(Curso)listacurso.dameObjeto(Integer.valueOf((String)this.sesion.getAttribute("posCurso")).intValue());
+			ObjetoBean curso=(ObjetoBean)listacurso.dameObjeto(Integer.valueOf((String)this.sesion.getAttribute("posCurso")).intValue());
 			GestorCursos gestor = new GestorCursos();
 			ObjetoBean area=gestor.consultaAreaDeCurso(curso);
 			ObjetoBean aula=gestor.consultaAulaDeCurso(curso);

@@ -1,16 +1,11 @@
 package controlador.controlEditarFicha;
 
 import gestores.Profesorado;
-
 import javax.servlet.http.HttpSession;
-
 import subSistemaBBDD.utils.Constantes;
-
 import beans.CreadorBean;
-import beans.Curso;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
 import controlador.Controlador;
 /**
  * 
@@ -25,7 +20,7 @@ public class ListarAlumnosCurso extends Controlador{
 		Integer pos = (Integer)sesion.getAttribute("posCurso");
 		int posicion = pos.intValue();
 		ListaObjetoBean lista=(ListaObjetoBean) sesion.getAttribute("listacurso");
-		ObjetoBean cur = (Curso)lista.dameObjeto(posicion);
+		ObjetoBean cur = (ObjetoBean)lista.dameObjeto(posicion);
 		sesion.setAttribute("beanCurso",cur);
 		
 		ListaObjetoBean listaal = new ListaObjetoBean();

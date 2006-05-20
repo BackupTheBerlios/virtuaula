@@ -3,7 +3,6 @@ package controlador.controlEditarFicha;
 import subSistemaBBDD.utils.Constantes;
 import gestores.Profesorado;
 import beans.CreadorBean;
-import beans.Ficha;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import controlador.Controlador;
@@ -19,7 +18,7 @@ public class ActualizarFichaAlumno extends Controlador{
  */
 	public void procesarEvento() {
 		
-		ObjetoBean ficha=(Ficha)this.getSesion().getAttribute("beanFicha");
+		ObjetoBean ficha=(ObjetoBean)this.getSesion().getAttribute("beanFicha");
 		Profesorado GP = new Profesorado();
 		System.out.println("el id de la ficha "+ ficha.dameValor("IDISFICHA"));
 		ListaObjetoBean lerror= GP.editarFicha(ficha);

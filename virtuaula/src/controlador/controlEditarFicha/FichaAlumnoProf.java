@@ -1,19 +1,11 @@
 package controlador.controlEditarFicha;
 
 import gestores.Profesorado;
-
 import javax.servlet.http.HttpSession;
-
 import subSistemaBBDD.utils.Constantes;
-
-import beans.Alumno;
-
 import beans.CreadorBean;
-import beans.Curso;
-
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
 import controlador.Controlador;
 /**
  * 
@@ -30,13 +22,13 @@ public class FichaAlumnoProf extends Controlador{
 		int posalum= posa.intValue();
 		ListaObjetoBean lista = (ListaObjetoBean)sesion.getAttribute("listaalumno");
 		
-		ObjetoBean alum = (Alumno)lista.dameObjeto(posalum);
+		ObjetoBean alum = (ObjetoBean)lista.dameObjeto(posalum);
 		
 		//Buscamos la ficha del alumno.
 		Integer poscur=(Integer)this.getSesion().getAttribute("posCurso");
 		int poscurso=poscur.intValue();
 		ListaObjetoBean listacurso=(ListaObjetoBean)this.getSesion().getAttribute("listacurso");
-		ObjetoBean curso = (Curso)listacurso.dameObjeto(poscurso);
+		ObjetoBean curso = (ObjetoBean)listacurso.dameObjeto(poscurso);
 		Profesorado GP = new Profesorado();
 		ObjetoBean ficha= GP.consultaFichaDeAlumno(alum,curso);
 		//si no falla la consulta en la base de datos
