@@ -91,3 +91,5 @@ INSERT INTO `isficha` values (14,'5','Entregado trabajo opcional',7);
 INSERT INTO `isficha` values (15,'5','Muy activo en clase',9.5);
 INSERT INTO `isficha` values (16,'5','Nunca hace los ejercicios',2);
 INSERT INTO `isficha` values (17,'5','',5.5);
+
+INSERT INTO `isavisos_has_isusuario` (`ISAVISOS_IDISAVISOS`,`ISUSUARIO_DNI`) values (1,'789'), (2,'789'), (3,'789');
