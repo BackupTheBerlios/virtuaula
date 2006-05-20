@@ -77,7 +77,7 @@
         					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" name="PRECIO"></td>
+        					<td><input type="text" class="FormTxt" name="PRECIO" value="0"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Fecha inicio</td>
