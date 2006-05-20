@@ -32,12 +32,17 @@ public class BorraAviso extends Controlador{
 		int posicion = pos.intValue();
 		ObjetoBean aviso = (ObjetoBean)lista.dameObjeto(posicion);
 		GestorAvisos GA = new GestorAvisos();
-		boolean correcto=GA.borraAviso(aviso);
+		ObjetoBean idusu=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");
+		ObjetoBean aviusu=creador.crear(creador.AvisosHasUario);
+		aviusu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,idusu.dameValor(Constantes.ID_ISUSUARIO_DNI));
+		aviusu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso.dameValor(Constantes.ID_ISAVISOS));
+		boolean correcto=GA.borraAviso(aviso,aviusu);
 	
 		// Si no se ha producido ningun error en la eliminacion del aviso
 		if (correcto==true)
 		{
-			ObjetoBean idusu=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");;
+			
+			
 			//ObjetoBean beanUsuario = new Usuario();
 			//beanUsuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,idusu);
 			ListaObjetoBean listaav= GA.consultaAvisos(idusu);
