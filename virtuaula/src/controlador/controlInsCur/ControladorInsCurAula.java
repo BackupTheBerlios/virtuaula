@@ -67,6 +67,7 @@ public class ControladorInsCurAula extends Controlador{
 			//si la consulta ha fallado en la base de datos
 			else if (listaAulas==null)
 			{	
+				
 				ObjetoBean error =creador.crear(creador.Error);
 				error.cambiaValor(Constantes.CAUSA,"Fallo en la base de datos");
 				ListaObjetoBean listaerr = new ListaObjetoBean();
