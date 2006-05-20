@@ -37,10 +37,10 @@ public class ControladorMostrarCur extends Controlador{
 			
 			if ((area!=null) && (aula!=null) && (profesor!=null) && (horario!=null))
 			{
-			this.getSesion().setAttribute("beanaula",aula);
-			this.getSesion().setAttribute("beanarea",area);
-			this.getSesion().setAttribute("beanprofesor",profesor);
-			this.getSesion().setAttribute("beanhorario",horario);
+			this.getSesion().setAttribute("beanAula",aula);
+			this.getSesion().setAttribute("beanArea",area);
+			this.getSesion().setAttribute("beanProf",profesor);
+			this.getSesion().setAttribute("beanHorario",horario);
 			this.setResuladooperacion("OK");
 			}
 			else if ((area==null) || (aula==null) || (profesor==null) || (horario==null))
