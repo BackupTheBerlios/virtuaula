@@ -19,10 +19,12 @@ public class GestorAvisos {
 		ListaObjetoBean l = bdf.dameAvisosUsuario(beanUsuario);
 		return l;
 	}
-	
-	public boolean borraAviso(ObjetoBean beanAviso){
+	/**
+	 * me borra el aviso y la relacion
+	 */
+	public boolean borraAviso(ObjetoBean beanAviso,ObjetoBean usuavi){
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.eliminar(beanAviso);
+    	return   ((bdf.eliminar(usuavi)) && (bdf.eliminar(beanAviso)) );
 	}
 	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
