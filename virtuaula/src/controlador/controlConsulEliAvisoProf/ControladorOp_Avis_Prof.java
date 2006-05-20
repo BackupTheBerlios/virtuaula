@@ -24,14 +24,12 @@ public class ControladorOp_Avis_Prof extends Controlador{
  */
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();
-		ObjetoBean beanUsuario = new Usuario();
+		ObjetoBean beanUsuario =creador.crear(creador.Profesor);
 		HttpSession sesion = this.getSesion();
 		//idusuario me tiene que decir Javi si es asi
-		String idusu=(String)this.getSesion().getAttribute("idusuario");
-		beanUsuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,idusu);
-		//Profesorado GP = new Profesorado();
+		ObjetoBean idusu=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");
 		GestorAvisos GA = new GestorAvisos();
-		ListaObjetoBean lista= GA.consultaAvisos(beanUsuario);
+		ListaObjetoBean lista= GA.consultaAvisos(idusu);
 		
 		//la consulta se ha realizado correctamente.
 		if (lista!=null)
