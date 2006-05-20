@@ -81,39 +81,9 @@
     			<form name="insertarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
-        					<td class="FormLiteral">Identificador</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="IDISCURSO" value="autorrellena" disabled="true"></td>
-        					<td width="100"></td>
-        					<td class="FormLiteral">Area</td>
-                  <td>
-                  <%
-                      ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
-                      Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
-                      Area area;
-                      
-                    	if (listaAreas != null && !listaAreas.esVacio()){
-                        	
-                      	if (posicionLista != null) {
-                      	
-                          area = (Area) listaAreas.dameObjeto(posicionLista.intValue());  
-                          out.println("<input type='text' class='FormTxt' name='area' disabled='true' value='"+area.dameValor("NOMBRE")+"'>");                        
-                        }
-                      }
-                  %>        					        					
-        					
-                  </td>        					
-        				</tr>
-        				<tr>
         					<td class="FormLiteral">Nombre</td>
         					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE" disabled="true" value="<%=curso.dameValor("NOMBRE")%>"></td>
-        					<td></td>
-        					<td class="FormLiteral">Numero Plazas</td>
-        					<td><input type="text" class="FormTxt" name="NUMERO_PLAZAS" disabled="true" value="<%=curso.dameValor("NUMERO_PLAZAS")%>"></td>
-        				</tr>
-        				<tr>
-        					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" maxlength="20" name="ESTADO" disabled="true" value="<%=curso.dameValor("ESTADO")%>"></td>
-        					<td></td>
+        					<td width="100"></td>
         					<td class="FormLiteral">Precio</td>
         					<td><input type="text" class="FormTxt" name="PRECIO" disabled="true" value="<%=curso.dameValor("PRECIO")%>"></td>
         				</tr>
@@ -144,6 +114,26 @@
         					
                   </td>
         					<td></td>
+        					<td class="FormLiteral">Area</td>
+                  <td>
+                  <%
+                      ListaObjetoBean listaAreas =((ListaObjetoBean)sesion.getAttribute("listaarea"));
+                      Integer posicionLista =((Integer)sesion.getAttribute("posArea"));
+                      Area area;
+                      
+                    	if (listaAreas != null && !listaAreas.esVacio()){
+                        	
+                      	if (posicionLista != null) {
+                      	
+                          area = (Area) listaAreas.dameObjeto(posicionLista.intValue());  
+                          out.println("<input type='text' class='FormTxt' name='area' disabled='true' value='"+area.dameValor("NOMBRE")+"'>");                        
+                        }
+                      }
+                  %>        					        					
+        					
+                  </td>          					
+        				</tr>
+                <tr>
         					<td class="error">Aula</td>
         					<td>
                   <%
@@ -164,8 +154,7 @@
                   %>         					
         					
         					</td>
-        				</tr>
-                <tr>
+        					<td></td>            
         					<td class="FormLiteral">Profesor</td>
         					<td class="info">
 Se rellena posteriormente      					
