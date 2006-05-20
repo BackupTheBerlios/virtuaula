@@ -34,6 +34,11 @@ public class Profesorado {
 		GestorAreas ga = new GestorAreas();
 		return ga.consultaAreas();
 	}
+	public ListaObjetoBean consultaArea(ObjetoBean bean)
+	{
+		GestorAreas ga = new GestorAreas();
+		return ga.consultaArea(bean);
+	}
 	
 	public ListaObjetoBean consultaProfesor(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
