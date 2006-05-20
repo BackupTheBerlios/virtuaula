@@ -95,6 +95,14 @@ public class GestorCursos {
 			l.insertar(i, error);
 			i++;
 		}
+		if (bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
+			bean.cambiaValor(Constantes.CURSO_PRECIO,"0");
+			//mensaje = "El campo precio no ha sido rellenado";
+			//Error error = (Error) cBean.crear(cBean.Error);
+			//error.cambiaValor("CAUSA_ERROR", mensaje);
+			//l.insertar(i, error);
+			//i++;
+		}
 
 		if (bean.dameValor(Constantes.CURSO_ISAREA_IDISAREA).equals("")) {
 			mensaje = "El campo area no ha sido rellenado";
