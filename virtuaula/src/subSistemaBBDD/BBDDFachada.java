@@ -487,12 +487,14 @@ public class BBDDFachada {
 		String valor4= horario1.dameValor(Constantes.HORARIO_MIERCOLES);
 		String valor5= horario1.dameValor(Constantes.HORARIO_JUEVES);
 		String valor6= horario1.dameValor(Constantes.HORARIO_VIERNES);
-		if((!valor1.equals("")&& valor1.equals(horario2.dameValor(Constantes.ID_ISHORARIO)))
-			||	(!valor2.equals("")&& valor2.equals(horario2.dameValor("L")))
-			||  (!valor3.equals("")&& valor3.equals(horario2.dameValor("M")))
-			||  (!valor4.equals("")&& valor4.equals(horario2.dameValor("X")))
-			||	(!valor5.equals("")&& valor5.equals(horario2.dameValor("J")))
-			||	(!valor6.equals("")&& valor6.equals(horario2.dameValor("V"))))
+		System.out.println(null==null);
+				
+		if( (valor1.equals(horario2.dameValor(Constantes.ID_ISHORARIO)) )
+			||	((!(valor2==null)&&!valor2.equals("")&& !(horario2.dameValor("L")==null))&& valor2.equals(horario2.dameValor("L")))
+			||  ((!(valor3==null)&& !valor3.equals("") && !(horario2.dameValor("M")==null))&& valor3.equals(horario2.dameValor("M")))
+			||  ((!(valor4==null)&&!valor4.equals("")&& !(horario2.dameValor("X")==null))&& valor4.equals(horario2.dameValor("X")))
+			||	((!(valor5==null)&&!valor5.equals("")&& !(horario2.dameValor("J")==null))&& valor5.equals(horario2.dameValor("J")))
+			||	((!(valor6==null)&&!valor6.equals("")&& !(horario2.dameValor("V")==null))&& valor6.equals(horario2.dameValor("V"))))
 		   	return false;
 		else
 			return true;
@@ -542,7 +544,7 @@ public class BBDDFachada {
 				boolean libre=true;
 				for(int j=0;j<horariosOcupados.tamanio() && libre;j++){
 					ObjetoBean horarioActual = ConversorBeanBBDD.convierteBBDDABean(horariosOcupados.dameObjeto(j));
-					libre= this.horariosCompatibles(horarioActual,horario);
+					libre= this.horariosCompatibles(horario,horarioActual);
 				}
 				if(libre)
 					aulasLibresHorario.insertar(aulasLibresHorario.tamanio(),aulasExistentes.dameObjeto(i));
@@ -920,19 +922,19 @@ public class BBDDFachada {
 	}*/
 	
 	//Prueba dameAulasLibres
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean horario =creador.crear(creador.Horario);
-		horario.cambiaValor(Constantes.ID_ISHORARIO,"100");
-		horario.cambiaValor(Constantes.HORARIO_LUNES,"M");
-		horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"M");
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"2");
+		horario.cambiaValor(Constantes.HORARIO_LUNES,"T");
+		horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"T");
 		ListaObjetoBean listaAulasLibres = mia.dameAulasLibres(horario);
 		for (int i=0;i<listaAulasLibres.tamanio();i++){
 		System.out.println(listaAulasLibres.dameObjeto(i).dameValor(Constantes.AULA_NOMBRE));
 		
 		}
-	}*/
+	}
 	
 	
 	
