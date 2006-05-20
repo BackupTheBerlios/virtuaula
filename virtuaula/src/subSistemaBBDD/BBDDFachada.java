@@ -474,6 +474,22 @@ public class BBDDFachada {
 			return false;
 		}		
 	}
+	
+	public boolean usuarioYaExiste(ObjetoBean usuario){
+		try{
+			ObjetoBBDD isUsuario = ConversorBeanBBDD.convierteBeanABBDD(usuario);
+			EsquemaBBDD tablaUsuarios = this.crearTablaAdecuada(isUsuario);
+			CreadorObjetoCriterio creadorCriterio= this.creador.getCreadorObjetoCriterio();
+			ObjetoCriterio criterioCurso = creadorCriterio.crear(creadorCriterio.ObjetoCriterioIscurso);
+			criterioCurso.convertir(isUsuario);
+			return (this.inicializaTabla(tablaUsuarios).consultar(criterioCurso).tamanio() !=0);
+			
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}	
+	}
 	/**
 	 * Sirve para saber si dos horarios son compatibles, es decir si no tienen ninguna hora en comun.
 	 * @param horario1
@@ -878,6 +894,21 @@ public class BBDDFachada {
 		return ficha;
 		
 	}
+	
+	/**
+	 * Devuelve todos los cursos activos de la academia.
+	 * @return los cursos activos de la academia
+	 */
+	public ListaObjetoBean dameCursosActivos(){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean curso = creadorBean.crear(creadorBean.Curso);
+		curso.cambiaValor(Constantes.CURSO_ESTADO, "Activo");
+		return this.consultar(curso);
+	}
+	
+	
+	
+
 	
 	
 	
