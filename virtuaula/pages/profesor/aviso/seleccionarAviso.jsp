@@ -105,16 +105,16 @@
 		                    }//fin for
 		      
 		                    out.println("<tr>");
-		                    out.println("		         <td colspan='7' align='center'> ");
+		                    out.println("		         <td colspan='2' align='center'> ");
 		                    out.println("			            <input type='hidden' name='evento'>");
-		                    out.println("			            <input type='hidden' name='idBean' value='Avisos'>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('MOSTRAR_AVISOS_PROF');' class='botonSimple'>Leer</button>");
+		                    out.println("			            <input type='hidden' name='idBean' value='listAviso'>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('MOSTRAR_AVISOS_PROF');\" class='botonSimple'>Leer</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('BORRA_AVISO');' class='botonSimple'>Borrar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('BORRA_AVISO');\" class='botonSimple'>Borrar</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick='JavaScript:lanzaFormularioPrincipal('DETERMINAR');' class='botonSimple'>Enviar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
 		         
 		                  
 		              }

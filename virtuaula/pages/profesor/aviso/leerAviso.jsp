@@ -49,7 +49,7 @@
               </font>
           </div>
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
-    		    <form method=post action="/webvirtuaula/ServletVisualizador" name="formSubmenu">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
     	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
@@ -65,13 +65,13 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:40px; z-index:-1;">
-    			<form method=post action="/webvirtuaula/ServletVisualizador" name="formPrincipal">
+    			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
   				<%
 
               HttpSession sesion=request.getSession();
               ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaaviso"));
               Integer posicionAviso = ((Integer)sesion.getAttribute("posAviso"));
-            	Avisos aviso = null; 
+            	Avisos aviso = null;
             	
               if (listaObjetoBean != null && !listaObjetoBean.esVacio() && posicionAviso != null){
               	if (posicionAviso.intValue() <= listaObjetoBean.tamanio()) {
@@ -100,7 +100,7 @@
         		<table border='0' cellspacing='0' cellpadding='10'>  		
                     <tr>
             					<td class="FormLiteral" width="100">Anotaciones</td>
-            					<td><textarea name="TEXTO" rows="15" cols="95" disabled="true" class="FormTxtArea" value="<%=aviso.dameValor("TEXTO")%>"></textarea></td>
+            					<td><textarea name="TEXTO" rows="15" cols="95" disabled="true" class="FormTxtArea"><%=aviso.dameValor("TEXTO")%></textarea></td>
             					<td></td>
             				</tr>
                   	<tr>
