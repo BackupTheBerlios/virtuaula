@@ -37,10 +37,10 @@ public class BorraAviso extends Controlador{
 		// Si no se ha producido ningun error en la eliminacion del aviso
 		if (correcto==true)
 		{
-			String idusu=(String)this.getSesion().getAttribute("idusuario");
-			ObjetoBean beanUsuario = new Usuario();
-			beanUsuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,idusu);
-			ListaObjetoBean listaav= GA.consultaAvisos(beanUsuario);
+			ObjetoBean idusu=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");;
+			//ObjetoBean beanUsuario = new Usuario();
+			//beanUsuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,idusu);
+			ListaObjetoBean listaav= GA.consultaAvisos(idusu);
 			
 			//si la nueva consulta no ha fallado en la base de datos
 			if (listaav!=null)
