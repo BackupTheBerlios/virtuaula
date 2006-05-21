@@ -3,6 +3,7 @@ package controlador.controlInsCur;
 //import java.awt.geom.Area;
 
 import gestores.GestorCursos;
+import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import controlador.Controlador;
@@ -35,6 +36,18 @@ public class ControladorInsertaCurso extends Controlador{
 		ObjetoBean horario= (ObjetoBean)listaHor.dameObjeto(posHorario);
 		ObjetoBean cur = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 		
+		if (cur==null)
+		{
+			CreadorBean creador = new CreadorBean();
+			ListaObjetoBean listaError = new ListaObjetoBean();
+			this.setResuladooperacion("ERROR");
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"el curso es null");
+			listaError.insertar(0,error);
+			
+		}
+		else
+		{
 		String idarea= (String)area.dameValor(Constantes.ID_ISAREA);
 		String idprof = (String)prof.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI);
 		cur.cambiaValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI,idprof);
@@ -60,7 +73,7 @@ public class ControladorInsertaCurso extends Controlador{
 			sesion.removeAttribute("error");
 		}
 		
-		
+		}
 		
 	}
 
