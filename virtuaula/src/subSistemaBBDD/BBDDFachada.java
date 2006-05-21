@@ -906,7 +906,16 @@ public class BBDDFachada {
 		return this.consultar(curso);
 	}
 	
-	
+	/**
+	 * Consulta sobre cursos que cumplan que se dan en el aula
+	 * pasada como parámetro en el horario dado y que cumplan 
+	 * los criterios del curso pasado como parámetro.
+	 * 
+	 * @param curso
+	 * @param aula
+	 * @param horario
+	 * @return una lista de cursos que cumplen los criterios deseados.
+	 */
 	public ListaObjetoBean dameCursosCumplan(ObjetoBean curso,ObjetoBean aula,ObjetoBean horario ){
 		try{
 			//primera hacemos una consulta para ver los cursos que cumplen los criterios del bean curso
@@ -953,10 +962,108 @@ public class BBDDFachada {
 		
 		
 	}
+	
+	
+	//REPASAR
+	
+	/**
+	 * Este metodo borra todas las fichas de un curso
+	 * @param curso
+	 * @return true si exito, false e.o.c
+	 */
+	public boolean borrarFichasCurso(ObjetoBean curso){
+		try{
+			ObjetoBBDD cursoAlumnoFicha = this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IscursoHasIsalumno);
+			cursoAlumnoFicha.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+			ObjetoCriterio critCursoAlumnoFicha= this.crearObjetoCriterioAdecuado(cursoAlumnoFicha);
+			EsquemaBBDD tablaCursoAlumFicha=  this.inicializaTabla(this.crearTablaAdecuada(cursoAlumnoFicha));
+			ListaObjetoBBDD fichasCursoAlumno=tablaCursoAlumFicha.consultar(critCursoAlumnoFicha);
+			ObjetoBBDD ficha=this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IsFicha);
+			ObjetoCriterio critFicha;
+			EsquemaBBDD tablaFicha = this.inicializaTabla(this.crearTablaAdecuada(ficha));
+			ObjetoBBDD fichaCursAlumActual;
+			ObjetoCriterio critFichAlumCur;
+			for(int i=0;i<fichasCursoAlumno.tamanio();i++){
+				fichaCursAlumActual= fichasCursoAlumno.dameObjeto(i);
+			//	Cambiamos el campo idficha de la tabla de relacion curso alumno al valor vacio.
+				fichaCursAlumActual.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,"");
+				critFichAlumCur= this.crearObjetoCriterioAdecuado(fichaCursAlumActual);
+				tablaCursoAlumFicha.editar(critFichAlumCur);
+				ficha.cambiaValor(Constantes.ID_ISFICHA, fichaCursAlumActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
+				critFicha= this.crearObjetoCriterioAdecuado(ficha);
+			//	Borramos cada ficha			
+				tablaFicha.borrar(critFicha);
+			}
+			return true;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
 
 	
+	public ListaObjetoBean creaExpediente (ObjetoBean curso){
+		try{
+		    ObjetoBBDD cursoAlumno= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IscursoHasIsalumno);
+		    cursoAlumno.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		    ObjetoCriterio critCurAlumno= this.crearObjetoCriterioAdecuado(cursoAlumno);
+		    ListaObjetoBBDD cursosAlumnosFichaNota = this.inicializaTabla(this.crearTablaAdecuada(cursoAlumno)).consultar(critCurAlumno);
+		    CreadorListaObjetoBean creadorLB= new CreadorListaObjetoBean();
+		    ListaObjetoBean expedientesAlumnos= creadorLB.crear();
+		    //Para cada elemento de cursosAlumnosFichaNota hacemos una consulta en la tabla isalumno y cogemos el alumno resultado
+			//creamos un objetoBean expedienteAlumno y lo rellenamos con todos los datos del alumno en cuestion y con el campo
+		    //nota final que sacamos del cursoAlumnoFichaNota actual
+		    ObjetoBBDD alumno= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().Isalumno);
+			ObjetoCriterio critAlumno;
+			ObjetoBBDD cursoAlumnoFichaNotaActual;
+			ObjetoBBDD alumnoActual;
+			
+			EsquemaBBDD tablaAlumno= this.inicializaTabla(this.crearTablaAdecuada(alumno));
+			for(int i=0;i<cursosAlumnosFichaNota.tamanio();i++){
+				ObjetoBean expedienteActual=this.creador.getCreadorBean().crear(this.creador.getCreadorBean().ExpedienteAlumno);
+				cursoAlumnoFichaNotaActual= cursosAlumnosFichaNota.dameObjeto(i);
+				alumno.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI,cursoAlumnoFichaNotaActual.dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
+				critAlumno= this.crearObjetoCriterioAdecuado(alumno);
+				alumnoActual = tablaAlumno.consultar(critAlumno).dameObjeto(0);
+						
+				expedienteActual.cambiaValor(Constantes.ID_EXPEDIENTEALUMNO_ISUSUARIO_DNI,alumnoActual.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_APELLIDO1,alumnoActual.dameValor(Constantes.ALUMNO_APELLIDO1));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_APELLIDO2,alumnoActual.dameValor(Constantes.ALUMNO_APELLIDO2));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_DIRECCION,alumnoActual.dameValor(Constantes.ALUMNO_DIRECCION));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_EMAIL,alumnoActual.dameValor(Constantes.ALUMNO_EMAIL));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_FECH_NACIMIENTO,alumnoActual.dameValor(Constantes.ALUMNO_FECH_NACIMIENTO));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_NOMBRE,alumnoActual.dameValor(Constantes.ALUMNO_NOMBRE));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_NOTAFINAL,cursoAlumnoFichaNotaActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_SEXO,alumnoActual.dameValor(Constantes.ALUMNO_SEXO));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTEALUMNO_TELEFONO,alumnoActual.dameValor(Constantes.ALUMNO_TELEFONO));
+				expedientesAlumnos.insertar(expedientesAlumnos.tamanio(),expedienteActual);
+			}
+			return expedientesAlumnos;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+
+	//prueba creaExpediente(curso)
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean curso= creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"1");
+		ListaObjetoBean cursos=mia.creaExpediente(curso);
+		for(int i=0;i<cursos.tamanio();i++){
+			System.out.println(cursos.dameObjeto(i).dameValor(Constantes.EXPEDIENTEALUMNO_NOTAFINAL));
+			System.out.println(cursos.dameObjeto(i).dameValor(Constantes.EXPEDIENTEALUMNO_NOMBRE));
+		}
+	}*/
 	//prueba dameCursosCumplan
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean aula =creador.crear(creador.Aula);
@@ -973,7 +1080,20 @@ public class BBDDFachada {
 		
 		
 		
-		}
+		}*/
+	
+	
+	//Prueba borrarFichasCurso
+	/*public static void main(String[] args) {
+	BBDDFachada mia = BBDDFachada.getInstance();
+	CreadorBean creador = new CreadorBean();
+	ObjetoBean curso =creador.crear(creador.Curso);
+	curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"1");
+	System.out.println(mia.borrarFichasCurso(curso));
+	
+	
+	
+	}*/
 	
 	//prueba libreAula
 	/*public static void main(String[] args) {

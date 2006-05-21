@@ -117,29 +117,29 @@ public class Constantes {
 	//ISERROR
 	public static final String CAUSA = "CAUSA_ERROR";
 	
-	//ISBEANEXPEDIENTEALUMNO
-
-	public static final String ID_EXPEDIENTEALUMNO_IDISCURSO = "IDISCURSO";
-	public static final String EXPEDIENTEALUMNO_ISPROFESOR_ISUSUARIO_DNI = "ISPROFESOR_ISUSUARIO_DNI";
-	public static final String EXPEDIENTEALUMNO_ISAREA_IDISAREA = "ISAREA_IDISAREA";
-	public static final String EXPEDIENTEALUMNO_NOMBRE = "NOMBRE";
-	public static final String EXPEDIENTEALUMNO_NUMERO_PLAZAS = "NUMERO_PLAZAS";
-	public static final String EXPEDIENTEALUMNO_ESTADO	= "ESTADO";
-	public static final String EXPEDIENTEALUMNO_FECHA_INICIO = "FECHA_INICIO";
-	public static final String EXPEDIENTEALUMNO_FECHA_FIN = "FECHA_FIN";
-	public static final String EXPEDIENTEALUMNO_PRECIO = "PRECIO";
-	public static final String EXPEDIENTEALUMNO_NOTAFINAL= "NOTAFINAL";
-	
 	//ISBEANEXPEDIENTECURSO
-	//public static final String TABLA_ALUMNO = "isalumno";
-	public static final String ID_EXPEDIENTECURSO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
+
+	public static final String ID_EXPEDIENTECURSO_IDISCURSO = "IDISCURSO";
+	public static final String EXPEDIENTECURSO_ISPROFESOR_ISUSUARIO_DNI = "ISPROFESOR_ISUSUARIO_DNI";
+	public static final String EXPEDIENTECURSO_ISAREA_IDISAREA = "ISAREA_IDISAREA";
 	public static final String EXPEDIENTECURSO_NOMBRE = "NOMBRE";
-	public static final String EXPEDIENTECURSO_APELLIDO1 = "APELLIDO1";
-	public static final String EXPEDIENTECURSO_APELLIDO2 = "APELLIDO2";
-	public static final String EXPEDIENTECURSO_TELEFONO = "TELEFONO";
-	public static final String EXPEDIENTECURSO_EMAIL = "EMAIL";
-	public static final String EXPEDIENTECURSO_DIRECCION = "DIRECCION";
-	public static final String EXPEDIENTECURSO_FECH_NACIMIENTO = "FECH_NACIMIENTO";
-	public static final String EXPEDIENTECURSO_SEXO = "SEXO";
-	public static final String EXPEDIENTECURSO_NOTAFINAL="NOTAFINAL";
+	public static final String EXPEDIENTECURSO_NUMERO_PLAZAS = "NUMERO_PLAZAS";
+	public static final String EXPEDIENTECURSO_ESTADO	= "ESTADO";
+	public static final String EXPEDIENTECURSO_FECHA_INICIO = "FECHA_INICIO";
+	public static final String EXPEDIENTECURSO_FECHA_FIN = "FECHA_FIN";
+	public static final String EXPEDIENTECURSO_PRECIO = "PRECIO";
+	public static final String EXPEDIENTECURSO_NOTAFINAL= "NOTAFINAL";
+	
+	//ISBEANEXPEDIENTEALUMNO
+	
+	public static final String ID_EXPEDIENTEALUMNO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
+	public static final String EXPEDIENTEALUMNO_NOMBRE = "NOMBRE";
+	public static final String EXPEDIENTEALUMNO_APELLIDO1 = "APELLIDO1";
+	public static final String EXPEDIENTEALUMNO_APELLIDO2 = "APELLIDO2";
+	public static final String EXPEDIENTEALUMNO_TELEFONO = "TELEFONO";
+	public static final String EXPEDIENTEALUMNO_EMAIL = "EMAIL";
+	public static final String EXPEDIENTEALUMNO_DIRECCION = "DIRECCION";
+	public static final String EXPEDIENTEALUMNO_FECH_NACIMIENTO = "FECH_NACIMIENTO";
+	public static final String EXPEDIENTEALUMNO_SEXO = "SEXO";
+	public static final String EXPEDIENTEALUMNO_NOTAFINAL="NOTAFINAL";
 }

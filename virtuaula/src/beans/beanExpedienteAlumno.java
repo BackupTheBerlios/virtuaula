@@ -4,143 +4,177 @@ import subSistemaBBDD.utils.Constantes;
 
 public class beanExpedienteAlumno extends ObjetoBean{
 	
-	private String IDISCURSO;
-	private String ISPROFESOR_ISUSUARIO_DNI;
-	private String ISAREA_IDISAREA;
+	private String ISUSUARIO_DNI;
 	private String NOMBRE;
-	private String NUMERO_PLAZAS;
-	private String ESTADO;
-	private String FECHA_INICIO;
-	private String FECHA_FIN;
-	private String PRECIO;
+	private String APELLIDO1;
+	private String APELLIDO2;
+	private String TELEFONO;
+	private String EMAIL;
+	private String DIRECCION;
+	private String FECH_NACIMIENTO;
+	private String SEXO;
 	private String NOTAFINAL;
-	
+
+	/**
+	 * 
+	 *Pone todos los atriburos de alumno a ""
+	 *
+	 */
 	public beanExpedienteAlumno()
 	{
 		this.inicializar();
 	}
+	/**
+	 * @return ObjetoBean: Es un objeto que encapsula los datos y puede ser de varios tipos.
+	 * 	Nos devuelve una copia de this
+	 * La usaremos para hacer una copia o clon del atriburo prototipo 
+	 * Mirar documentacion de la clase de la que hereda(ObjetoBean)
+	 * */
 	public ObjetoBean clonar() {
 		// TODO Auto-generated method stub
-		beanExpedienteAlumno expedienteAlumno = new beanExpedienteAlumno();
-		expedienteAlumno.IDISCURSO=this.IDISCURSO;
-		expedienteAlumno.ISPROFESOR_ISUSUARIO_DNI=this.ISPROFESOR_ISUSUARIO_DNI;
-		expedienteAlumno.ISAREA_IDISAREA=this.ISAREA_IDISAREA;
-		expedienteAlumno.NOMBRE=this.NOMBRE;
-		expedienteAlumno.NUMERO_PLAZAS=this.NUMERO_PLAZAS;
-		expedienteAlumno.ESTADO=this.ESTADO;
-		expedienteAlumno.FECHA_INICIO=this.FECHA_INICIO;
-		expedienteAlumno.FECHA_FIN=this.FECHA_FIN;
-		expedienteAlumno.PRECIO=this.PRECIO;
-		expedienteAlumno.NOTAFINAL=this.NOTAFINAL;
-		//curso.inicializar();
-		return expedienteAlumno;
+		beanExpedienteAlumno a = new beanExpedienteAlumno();
+		a.NOMBRE=this.NOMBRE;
+		a.ISUSUARIO_DNI=this.ISUSUARIO_DNI;
+		a.APELLIDO1=this.APELLIDO1;
+		a.APELLIDO2=this.APELLIDO2;
+		a.DIRECCION=this.DIRECCION;
+		a.TELEFONO=this.TELEFONO;
+		a.EMAIL=this.EMAIL;
+		a.FECH_NACIMIENTO=this.FECH_NACIMIENTO;
+		a.SEXO=this.SEXO;
+		a.NOTAFINAL=this.NOTAFINAL;
+		return a;
+		
 	}
-
+	
+	
+	/**
+	 * @param Le pasamos  un String para saber el campo que queramos que nos devuelva
+	 * @return Nos devuelve el valor del campo elegido
+	 * Me devuelve el valor del atriburo  que le indique en 
+	 * el parametro campo
+	 * Mirar documentacion de la clase de la que hereda(ObjetoBean)
+	 */
+	
 	public String dameValor(String campo) {
+		
 		String c="";
-		if (campo.equals(Constantes.ID_ISCURSO_IDISCURSO))
+		
+		if (campo.equals(Constantes.ID_ISALUMNO_ISUSUARIO_DNI))
 		{
-			c=IDISCURSO;
+			c=ISUSUARIO_DNI;
 		}
-		else if (campo.equals(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI))
-		{
-			c=ISPROFESOR_ISUSUARIO_DNI;
-		}
-		else if (campo.equals(Constantes.CURSO_ISAREA_IDISAREA))
-		{
-			c=ISAREA_IDISAREA;
-		}
-		else if (campo.equals(Constantes.CURSO_NOMBRE))
+		else if (campo.equals(Constantes.ALUMNO_NOMBRE))
 		{
 			c=NOMBRE;
 		}
-		else if (campo.equals(Constantes.CURSO_NUMERO_PLAZAS))
+		else if (campo.equals(Constantes.ALUMNO_APELLIDO1))
 		{
-			c=NUMERO_PLAZAS;
+			c=APELLIDO1;
 		}
-		else if (campo.equals(Constantes.CURSO_ESTADO))
+		else if (campo.equals(Constantes.ALUMNO_APELLIDO2))
 		{
-			c=ESTADO;
+			c=APELLIDO2;
 		}
-		else if (campo.equals(Constantes.CURSO_FECHA_INICIO))
+		else if (campo.equals(Constantes.ALUMNO_TELEFONO))
 		{
-			c=FECHA_INICIO;
+			c=TELEFONO;
 		}
-		else if (campo.equals(Constantes.CURSO_FECHA_FIN))
+		else if (campo.equals(Constantes.ALUMNO_EMAIL))
 		{
-			c=FECHA_FIN;
+			c=EMAIL;
 		}
-		else if (campo.equals(Constantes.CURSO_PRECIO))
+		else if (campo.equals(Constantes.ALUMNO_DIRECCION))
 		{
-			c=PRECIO;
+			c=DIRECCION;
 		}
-		else if (campo.equals(Constantes.EXPEDIENTEALUMNO_NOTAFINAL))
+		else if (campo.equals(Constantes.ALUMNO_FECH_NACIMIENTO))
+		{
+			c=FECH_NACIMIENTO;
+		}
+		else if (campo.equals(Constantes.ALUMNO_SEXO))
+		{
+			c=SEXO;
+		}
+		else if (campo.equals(Constantes.EXPEDIENTECURSO_NOTAFINAL))
 		{
 			c=NOTAFINAL;
 		}
-		
 		return c;
 	}
-
+    /**
+     * 
+     * @param Le pasamos el campo que queremos que nos cambie y el valor nuevo
+     * Introducimos un campo de la tupla que queremos cambiar y el valor que le
+     * queremos asignar y nos lo cambia.
+     * Mirar documentacion de la clase de la que hereda(ObjetoBean)
+     * 
+     */
 	public void cambiaValor(String campo, String valor) {
 		// TODO Auto-generated method stub
-		if (campo.equals(Constantes.ID_ISCURSO_IDISCURSO))
+								
+		if (campo.equals(Constantes.ID_ISALUMNO_ISUSUARIO_DNI))
 		{
-			IDISCURSO=valor;
+			ISUSUARIO_DNI=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI))
-		{
-			ISPROFESOR_ISUSUARIO_DNI=valor;
-		}
-		else if (campo.equals(Constantes.CURSO_ISAREA_IDISAREA))
-		{
-			ISAREA_IDISAREA=valor;
-		}
-		else if (campo.equals(Constantes.CURSO_NOMBRE))
+		else if (campo.equals(Constantes.ALUMNO_NOMBRE))
 		{
 			NOMBRE=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_NUMERO_PLAZAS))
+		else if (campo.equals(Constantes.ALUMNO_APELLIDO1))
 		{
-			NUMERO_PLAZAS=valor;
+			APELLIDO1=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_ESTADO))
+		else if (campo.equals(Constantes.ALUMNO_APELLIDO2))
 		{
-			ESTADO=valor;
+			APELLIDO2=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_FECHA_INICIO))
+		else if (campo.equals(Constantes.ALUMNO_TELEFONO))
 		{
-			FECHA_INICIO=valor;
+			TELEFONO=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_FECHA_FIN))
+		else if (campo.equals(Constantes.ALUMNO_EMAIL))
 		{
-			FECHA_FIN=valor;
+			EMAIL=valor;
 		}
-		else if (campo.equals(Constantes.CURSO_PRECIO))
+		else if (campo.equals(Constantes.ALUMNO_DIRECCION))
 		{
-			PRECIO=valor;
+			DIRECCION=valor;
 		}
-		else if (campo.equals(Constantes.EXPEDIENTEALUMNO_NOTAFINAL))
+		else if (campo.equals(Constantes.ALUMNO_FECH_NACIMIENTO))
+		{
+			FECH_NACIMIENTO=valor;
+		}
+		else if (campo.equals(Constantes.ALUMNO_SEXO))
+		{
+			SEXO=valor;
+		}
+		else if (campo.equals(Constantes.EXPEDIENTECURSO_NOTAFINAL))
 		{
 			NOTAFINAL=valor;
 		}
 		
+		
 	}
 
+	/**
+	 * Metodo que inicializa todos los atributos a la cadena vacia
+	 * Mirar documentacion de la clase de la que hereda(ObjetoBean)
+	 */
 	public void inicializar() {
-		
-			IDISCURSO="";
-			ISPROFESOR_ISUSUARIO_DNI="";
-			ISAREA_IDISAREA="";
-			NOMBRE="";
-			NUMERO_PLAZAS="";
-			ESTADO="";
-			FECHA_INICIO="";
-			FECHA_FIN="";
-			PRECIO="";
-			NOTAFINAL="";
+		// TODO Auto-generated method stub
+		ISUSUARIO_DNI="";
+		NOMBRE="";
+		APELLIDO1="";
+		APELLIDO2="";
+		TELEFONO="";
+		EMAIL="";
+		DIRECCION="";
+		FECH_NACIMIENTO="";
+		SEXO="";
+		NOTAFINAL="";
 			
-		}
+	}
 		
 	}
 
