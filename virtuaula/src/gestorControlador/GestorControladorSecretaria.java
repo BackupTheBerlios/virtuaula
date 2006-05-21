@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import controlador.Controlador;
 import controlador.controlConexiones.ControladorDesconectar;
 import controlador.controlPasaPag.ControladorPasaPag;
+import controlador.controlConsulProf.ControladorMostrarProf;
 import controlador.controlConsulProf.ControladorProfAreas;
 
 public class GestorControladorSecretaria extends GestorControlador{
@@ -44,7 +45,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",new ControladorMostrarProf());
 		//insercion curso generales
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",new ControladorPasaPag());
