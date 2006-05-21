@@ -21,7 +21,7 @@ public class ControladorDesconectar extends ControladorConexiones{
 		this.sesion.removeAttribute("validado");
 		this.sesion.removeAttribute("perfilUsuario");
 		this.setResuladooperacion("SIG");
-		
+		this.setResuladooperacion("error");
 	}
 
 public Controlador clonar() {
