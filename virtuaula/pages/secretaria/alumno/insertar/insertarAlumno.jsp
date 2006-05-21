@@ -146,7 +146,7 @@
         				</tr>                        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Alumno">
+					          <input type="hidden" name="idBean" value="">
 					          <input type="hidden" name="evento" value="MATRICULA">					         
 						        <button type="submit" class="botonSimple">Matricular</button>
 					         </td>
