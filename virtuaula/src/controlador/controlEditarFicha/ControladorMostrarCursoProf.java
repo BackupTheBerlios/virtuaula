@@ -31,7 +31,7 @@ public class ControladorMostrarCursoProf extends Controlador{
 	//tengo que saber como se llamara el id el profesor;
 	ObjetoBean idprof = (ObjetoBean)sesion.getAttribute("beanUsuario");
 	prof.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,idprof.dameValor(Constantes.ID_ISUSUARIO_DNI));
-	ListaObjetoBean lista=GP.consultaCursosProfesor(prof);
+	ListaObjetoBean lista=GP.consultaCursosActivos(prof);
 	if (lista!=null)
 	{
 		this.setResuladooperacion("OK");
