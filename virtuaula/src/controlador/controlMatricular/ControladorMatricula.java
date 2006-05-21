@@ -18,11 +18,16 @@ public class ControladorMatricula extends ControladorMatricular{
 		ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
 		ObjetoBean curso = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 		GestorAlumnos GA = new GestorAlumnos();
-		ListaObjetoBean listaerror=GA.marticularAlumno(alumno,curso);
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean usuario = creador.crear(creador.Usuario);
+		ListaObjetoBean listaerror=GA.marticularAlumno(alumno,curso,usuario);
 		//si los datos introducidos son correctos
 		if (listaerror==null)
 		{
 			this.setResuladooperacion("OK");
+			//metemos en sesion el usuario para que en la sig pagina muestre el usuario
+			//y la contraseña.
+			this.getSesion().setAttribute("usuario",usuario);
 			//borramos la listaeror porque ya lo hacemos correctamente.
 			this.getSesion().removeAttribute("error");
 		}
