@@ -77,11 +77,10 @@
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");
         		             					
-        		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
+        		            out.println("	<th class='FormLiteral'><b>Nombre Curso</th>");
         		            out.println("	<th class='FormLiteral'><b>Número de plazas</th>");
         		            out.println("	<th class='FormLiteral'><b>Estado</th>");
-        		            out.println("	<th class='FormLiteral'><b>Precio</th>");
-        		            out.println("	<th class='FormLiteral'><b>Area</th>"); 
+        		            out.println("	<th class='FormLiteral'><b>Precio</th>"); 
         		            out.println("</tr>");	
 	                        	                       	     
 	                   	 for (int i=0; i<listaObjetoBean.tamanio();i++) {
@@ -101,7 +100,6 @@
 	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
                           out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");
-                          out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ISAREA_IDISAREA"))+"</td>");
                        
 	                        out.println("</tr>");
 		                    }//fin for
