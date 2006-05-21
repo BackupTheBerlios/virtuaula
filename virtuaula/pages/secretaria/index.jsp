@@ -34,7 +34,7 @@
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Profesor</a>
-  				    <a href="#">Alumno</a>  
+  				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Alumno</a>  
   				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
   				  </form>
 		  	 </div>		  	 		  	
