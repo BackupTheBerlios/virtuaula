@@ -16,6 +16,11 @@ public class GestorCursos {
 		ListaObjetoBean l = bdf.consultar(beanCurso);
 		return l;
 	}
+	public ListaObjetoBean consultaCurso(ObjetoBean beanCurso,ObjetoBean aula,ObjetoBean horario) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		ListaObjetoBean l = bdf.dameCursosCumplan(beanCurso,aula,horario);
+		return l;
+	}
 	
 	public Area consultaAreaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
@@ -348,4 +353,9 @@ public class GestorCursos {
 	}
 
 }
+	public ListaObjetoBean dameCursosActivos()
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.dameCursosActivos();
+	}
 }
