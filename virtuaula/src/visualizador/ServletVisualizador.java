@@ -71,7 +71,6 @@ public class ServletVisualizador extends HttpServlet{
 		//sesion profesor
 		gestorPaginas.agregarPaginas("profesor","LOGAR","SIG","/virtuaula/pages/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","menuPrincipalProf","SIG","/virtuaula/pages/profesor/index.jsp");
-		//gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF_OPCIONES","SIG","/virtuaula/pages/profesor/aviso/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","desconectar","SIG","/virtuaula/index.jsp");
 		//profesor consulta avisos
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
@@ -93,6 +92,17 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("profesor","PUB_NOTAS","OK","/virtuaula/pages/profesor/curso/confirmacionPublicarNotas.jsp");
 		gestorPaginas.agregarPaginas("profesor","PUB_NOTAS","ERROR","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
 		//la de menuPrincipalProf esta hecha en consulta avisos
+		
+		//matricular alumno
+		gestorPaginas.agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_DOS","OK","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_DOS","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","SIG","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","OK","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MATRICULA","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MATRICULA","ERROR","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
+		
 
 
 		}
@@ -100,7 +110,7 @@ public class ServletVisualizador extends HttpServlet{
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
 		BeanEncapsulado.encapsular(req);
-		
+		System.out.println("paso por el servlet");
 		if (gestorSesiones.indicaSiUsuarioIdentificado(sesion)){
 			//el usuario está validado
 			
