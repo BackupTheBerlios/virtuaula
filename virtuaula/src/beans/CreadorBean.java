@@ -30,7 +30,7 @@ public class CreadorBean{
 	static private Ficha ficha;
 	static private Error error;
 	static private beanExpedienteAlumno expedienteAlumno; 
-	
+	static private beanExpedienteCurso expedienteCurso; 
 	/**
 	 * tipo de implementación de la clase ObjetoBean que define una tupla Isalumno
 	 */
@@ -92,6 +92,7 @@ public class CreadorBean{
 	 */
 	final public int Error=14;
 	final public int ExpedienteAlumno=15;
+	final public int ExpedienteCurso=16;
 	public CreadorBean()
 	{}
 	
@@ -223,6 +224,12 @@ public class CreadorBean{
 				 	}
 				 objeto=expedienteAlumno.clonar();break;
 				 }
+			 case 16:{
+				 	if (expedienteCurso==null)
+				 	{
+				 		expedienteCurso=new beanExpedienteCurso();
+				 	}
+			 }
 			
 			 default: {objeto=null;break;}
 		 }
