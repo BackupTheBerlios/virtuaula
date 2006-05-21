@@ -125,8 +125,7 @@
                     	    	out.println("<option value='-1'>Seleccione un area</option>");    
                     	    	for (int i = 0; i < listaAreas.tamanio(); i++) {
                     	    		area = (Area) listaAreas.dameObjeto(i);
-                    	        
-                    	    		area.dameValor("NOMBRE");
+                    	                            	    		
                     	    		out.println("<option value='"+i+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
                     	    	}
                     	    
