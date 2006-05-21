@@ -83,8 +83,9 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
                     Integer posicionLista =((Integer)sesion.getAttribute("posProf"));
                   	Profesor profesor;	
-                  	
-                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+                  	Area area = (Area) sesion.getAttribute("beanArea");
+
+                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio() && area != null){
                   	
                     	if (posicionLista != null) {
                     	
@@ -96,16 +97,53 @@
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("APELLIDO2"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("TELEFONO"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("EMAIL"))+"</td>");
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(profesor.dameValor("ISAREA_IDISAREA"))+"</td>");	                    	                   	                    
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(area.dameValor("NOMBRE"))+"</td>");	                    	                   	                    
     	                  out.println("</tr>");
   	                  
                       }
                     }
-                    //ELIMINAR DE SESSION LA LISTA Y LA POSICION
-                    //sesion.removeAttribute("RdoControlador");
-                    //sesion.removeAttribute("posProf");
 
-                %>  
+                %>
+              
+              </table>
+              <p><p>
+                              
+            <table border="0" cellspacing="0" cellpadding="10">
+              <tr bgcolor="#3366CC">
+                <td colspan="7" align="center"><h3><font color="#FFFFFF">Cursos que imparte el Profesor</font></h3></td>
+              </tr>
+              <tr bgcolor="#3399FF">
+                <td><h4>Identificador</h4></td>
+                <td><h4>Nombre</h4></td>
+                <td><h4>N&uacute;mero de plazas</h4></td>
+                <td><h4>Estado</h4></td>
+                <td><h4>Fecha Inicio</h4></td>
+                <td><h4>Fecha Finalizaci&oacute;n</h4></td>
+                <td><h4>Precio</h4></td>
+              </tr>   
+        			<%
+                    ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+                  	Curso curso;	
+
+                  	if (listaCursos != null && !listaCursos.esVacio()){
+                  	
+                  	   for (int i=0; i<listaCursos.tamanio();i++) {
+                    	
+                        curso = (Curso) listaCursos.dameObjeto(i);
+    	                  out.println("<tr bgcolor='#99CCFF'>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("IDISCURSO"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");    	                  
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	                    	                   	                    
+    	                  out.println("</tr>");
+  	                  
+                        }
+                    }
+
+                %>                               
               	<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="evento" value="menuPrincipalSec">
