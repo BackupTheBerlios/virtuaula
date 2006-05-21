@@ -10,6 +10,9 @@ public class RequestContextFactory {
 		ObjetoBean requestContext = null;
 		try{
 			String tipo = request.getParameter("idBean");
+			if (tipo.equals("consultaCurso")){
+				tipo = "Curso";
+			}
 			HashBeanEncapsulado hbe = new HashBeanEncapsulado();
 			requestContext = hbe.dameBean(tipo);
 			AutoPopulateRequestContext.populateBean(requestContext,request);

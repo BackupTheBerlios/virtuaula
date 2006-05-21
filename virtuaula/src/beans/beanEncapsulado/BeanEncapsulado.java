@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.ObjetoBean;
+import beans.listaObjetoBeans.ListaObjetoBean;
 
 
 public class BeanEncapsulado extends HttpServlet {
@@ -32,6 +33,56 @@ public class BeanEncapsulado extends HttpServlet {
 			if ((tipo != null)&& (!tipo.equals(""))) {
 				HttpSession sesion = request.getSession(true);
 				boolean lista = false;
+				if (tipo.equals("consultaCurso")) {
+					
+										
+					ListaObjetoBean lx= null;
+					ObjetoBean obj = null;
+					int pos;
+					
+					if (!request.getParameter("ISAREA_IDISAREA").equals("")){
+						String s = request.getParameter("ISAREA_IDISAREA");
+						lx = (ListaObjetoBean) sesion.getAttribute("listaarea");
+					
+						obj = null;
+						for (int i =0; i<lx.tamanio(); i++){
+							obj = lx.dameObjeto(i);
+							if(s.equals(obj.dameValor("IDISAREA"))){
+								sesion.setAttribute("beanArea",obj);
+							}
+						}	
+					}
+					
+					if (!request.getParameter("ISPROFESOR_ISUSUARIO_DNI").equals("")){
+						String s = request.getParameter("ISPROFESOR_ISUSUARIO_DNI");
+						lx = (ListaObjetoBean) sesion.getAttribute("listaprofesor");
+					
+						obj = null;
+						for (int i =0; i<lx.tamanio(); i++){
+							obj = lx.dameObjeto(i);
+							if(s.equals(obj.dameValor("ISUSUARIO_DNI"))){
+								sesion.setAttribute("beanProfesor",obj);
+							}
+						}	
+					}
+
+					if (!request.getParameter("posAula").equals("")){
+					pos = Integer.parseInt(request.getParameter("posAula"));
+					lx = (ListaObjetoBean) sesion.getAttribute("listaaula");
+					obj = lx.dameObjeto(pos);
+					sesion.setAttribute("beanAula",obj);
+					}
+					
+					if (!request.getParameter("posHor").equals("")){
+					pos = Integer.parseInt(request.getParameter("posHor"));
+					lx = (ListaObjetoBean) sesion.getAttribute("listahorario");
+					obj = lx.dameObjeto(pos);
+					sesion.setAttribute("beanHorario",obj);
+					}
+					
+					tipo = "Curso";
+					lista = false;
+				}
 				if (tipo.equals("listProf")) {
 					int pos = Integer.parseInt(request.getParameter("posProf"));
 					sesion.setAttribute("posProf", new Integer(pos));
