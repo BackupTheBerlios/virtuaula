@@ -151,7 +151,7 @@
                   
                           out.println("<tr class='error'>");            
                           out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
-                                  error.dameValor("CAUSA_ERROR");
+                           out.println(""+error.dameValor("CAUSA_ERROR")+"");
                           out.println("     </td>");
                           out.println("</tr>");                                                
                         }
