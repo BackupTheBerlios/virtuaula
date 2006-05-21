@@ -12,7 +12,7 @@ import controlador.controlEditarFicha.ActualizarFichaAlumno;
 import controlador.controlEditarFicha.ControladorMostrarCursoProf;
 import controlador.controlEditarFicha.FichaAlumnoProf;
 import controlador.controlEditarFicha.ListarAlumnosCurso;
-
+import controlador.controlEditarFicha.PublicarNotas;
 /**
  * 
  * @author Fco Javier Pérez Escrivá Alberto Macho
@@ -31,7 +31,7 @@ public class GestorControladorEditarFicha extends GestorControladorProfesor{
 		GestorControlador.tablaOperacionControlador.put("ListarAlumnosCurso",new ListarAlumnosCurso());
 		GestorControlador.tablaOperacionControlador.put("Ficha_Alumno_Prof",new FichaAlumnoProf());
 		GestorControlador.tablaOperacionControlador.put("ActualizarFichaAlumno",new ActualizarFichaAlumno());
-		
+		GestorControlador.tablaOperacionControlador.put("PUB_NOTAS",new PublicarNotas());
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
 		return controladorResultado;

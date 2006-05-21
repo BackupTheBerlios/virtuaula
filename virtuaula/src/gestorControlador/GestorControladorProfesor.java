@@ -40,7 +40,7 @@ public class GestorControladorProfesor extends GestorControlador{
 		tablaOperacionGestor.put("ListarAlumnosCurso",new GestorControladorEditarFicha());
 		tablaOperacionGestor.put("Ficha_Alumno_Prof",new GestorControladorEditarFicha());
 		tablaOperacionGestor.put("ActualizarFichaAlumno",new GestorControladorEditarFicha());
-
+		tablaOperacionGestor.put("PUB_NOTAS",new GestorControladorEditarFicha());
 
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
