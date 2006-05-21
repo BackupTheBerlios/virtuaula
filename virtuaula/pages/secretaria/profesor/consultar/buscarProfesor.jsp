@@ -98,7 +98,7 @@
                           if (listaAreas != null && !listaAreas.esVacio()) {
                 	            Area area;	
                 	            out.println("<select name='ISAREA_IDISAREA' class='FormTxt'>");
-                	            out.println("<option value='-1'>Seleccione un area</option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un area</option>");                	                            	            
                               for (int i = 0; i < listaAreas.tamanio(); i++) {
                                   area = (Area) listaAreas.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(area.dameValor("IDISAREA"))+"'>"+String.valueOf(area.dameValor("NOMBRE"))+"</option>");
