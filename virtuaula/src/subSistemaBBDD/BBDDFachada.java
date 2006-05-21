@@ -927,16 +927,19 @@ public class BBDDFachada {
 				horCursoAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
 				String idAula=aula.dameValor(Constantes.ID_ISAULA);
 				String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
-				if(idAula!=null){
+				if(idAula!=null)
 					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
+				else
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,"");
 				if (idHorario!=null)
 					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
-				
+				else
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");
 				critHorAulaCurso = this.crearObjetoCriterioAdecuado(horCursoAula);
 				cursosHorAula= this.inicializaTabla(this.crearTablaAdecuada(horCursoAula)).consultar(critHorAulaCurso);
 				if(!cursosHorAula.esVacio())
 						cursosResultado.insertar(cursosResultado.tamanio(),cursoActual);
-				}
+				
 						
 			}
 		
@@ -953,11 +956,11 @@ public class BBDDFachada {
 
 	
 	//prueba dameCursosCumplan
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean aula =creador.crear(creador.Aula);
-		aula.cambiaValor(Constantes.ID_ISAULA,"1");
+		aula.cambiaValor(Constantes.ID_ISAULA,null);
 		ObjetoBean horario =creador.crear(creador.Horario);
 		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
 		ObjetoBean curso= creador.crear(creador.Curso);
@@ -970,7 +973,7 @@ public class BBDDFachada {
 		
 		
 		
-		}*/
+		}
 	
 	//prueba libreAula
 	/*public static void main(String[] args) {
