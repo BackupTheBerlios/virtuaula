@@ -64,91 +64,59 @@
     		         </tr>
     			 </table>
     		</div>
-    		
-    	 <%
-            HttpSession sesion=request.getSession();
-            Alumno alumno = (Alumno) sesion.getAttribute("beanAlumno");
-            if (alumno == null) {alumno = new Alumno ();}
-        %>
-    		
     		<div style="position:relative; top:55px; left:80px; z-index:-1;">
     			<form name="insertarAlumno" method=post action="">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">DNI</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="9" name="ISUSUARIO_DNI" value="<%=alumno.dameValor("ISUSUARIO_DNI")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="9" name="ISUSUARIO_DNI"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="40" name="NOMBRE" value="<%=alumno.dameValor("NOMBRE")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="NOMBRE"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Primer Apellido</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="40" name="APELLIDO1" value="<%=alumno.dameValor("APELLIDO1")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO1"></td>
         					<td></td>
         					<td class="FormLiteral">Segundo Apellido</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="40" name="APELLIDO2" value="<%=alumno.dameValor("APELLIDO2")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO2"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Telefono</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="9" name="TELEFONO" value="<%=alumno.dameValor("TELEFONO")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="9" name="TELEFONO"></td>
         					<td></td>
         					<td class="FormLiteral">Correo electrónico</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="50" name="EMAIL" value="<%=alumno.dameValor("EMAIL")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="50" name="EMAIL"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Dirección</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="100" name="DIRECCION" value="<%=alumno.dameValor("DIRECCION")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="100" name="DIRECCION"></td>
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" disabled="true" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>"></td>
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('insertarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
         				<tr>        				
         					<td class="FormLiteral">Sexo</td>
-                  <td><input type="text" class="FormTxt" disabled="true" maxlength="10" name="SEXO" value="<%=alumno.dameValor("SEXO")%>"></td>
+        					<td>
+                      <select name="SEXO" class="FormTxt">
+                         <option value="">Seleccione un sexo</option>
+	                       <option value="Masculino">Masculino</option>
+	                       <option value="Femenino">Femenino</option>
+                      </select>                                    
+                  </td>
         					<td></td>
         					<td class="FormLiteral">Curso</td>
-        					<td>
-                  <%
-                      ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
-                      Integer posicionLista =((Integer)sesion.getAttribute("posCurso"));
-                      Curso curso;
-                      
-                    	if (listaCursos != null && !listaCursos.esVacio()){
-                        	
-                      	if (posicionLista != null) {
-                      	
-                          curso = (Curso) listaCursos.dameObjeto(posicionLista.intValue());                          
-                        }
-                      }
-                      
-                      if (curso == null) {curso = new Curso ();}
-                  %>        					        					
-                  <input type='text' class='FormTxt' name='NOMBRE' maxlength="50" disabled='true' value="<%=curso.dameValor("NOMBRE")%>">        					
-                  </td>
+        					<td class="info">
+Se rellena posteriormente      					
+        				</td>
                                   
         				</tr>
-        				<tr>
-        					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="20" name="ESTADO" value="<%=curso.dameValor("ESTADO")%>"></td>
-        					<td></td>
-        					<td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" readonly="true" name="PRECIO" disabled="true" value="<%=curso.dameValor("PRECIO")%>"></td>
-                  </td>
-        				</tr>        				
-        				<tr>
-        					<td class="FormLiteral">Fecha Inicio</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="10" name="FECHA_INICIO" value="<%=curso.dameValor("FECHA_INICIO")%>"></td>
-        					<td></td>
-        					<td class="FormLiteral">Fecha Finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
-                  </td>
-        				</tr>                        				
               	<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="Alumno">
-					          <input type="hidden" name="evento" value="MATRICULA">					         
-						        <button type="submit" class="botonSimple">Matricular</button>
+					          <input type="hidden" name="evento" value="MAT_ALUM">					         
+						        <button type="submit" class="botonSimple">Siguiente</button>
 					         </td>
 				        </tr>	                       				
         			</table>

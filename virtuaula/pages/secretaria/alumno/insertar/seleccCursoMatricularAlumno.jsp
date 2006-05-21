@@ -1,11 +1,10 @@
 <%@ page import="beans.*" %>
 <%@ page import="beans.Error" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
-
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Matricular Alumno </title>
+      <title> Seleccionar Curso Matricular Alumno </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
@@ -110,45 +109,30 @@
         					<td class="FormLiteral">Curso</td>
         					<td>
                   <%
-                      ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
-                      Integer posicionLista =((Integer)sesion.getAttribute("posCurso"));
-                      Curso curso;
-                      
-                    	if (listaCursos != null && !listaCursos.esVacio()){
+                        	ListaObjetoBean listaCursos = ((ListaObjetoBean)sesion.getAttribute("listacurso"));
                         	
-                      	if (posicionLista != null) {
-                      	
-                          curso = (Curso) listaCursos.dameObjeto(posicionLista.intValue());                          
-                        }
-                      }
-                      
-                      if (curso == null) {curso = new Curso ();}
-                  %>        					        					
-                  <input type='text' class='FormTxt' name='NOMBRE' maxlength="50" disabled='true' value="<%=curso.dameValor("NOMBRE")%>">        					
-                  </td>
+                    	    if (listaCursos != null && !listaCursos.esVacio()) {
+                    	    	Curso curso;	
+                    	    	out.println("<select name='posCurso' class='FormTxt'>");
+                    	    	out.println("<option value='-1'>Seleccione un curso</option>");    
+                    	    	for (int i = 0; i < listaCursos.tamanio(); i++) {
+                    	    		curso = (Curso) listaCursos.dameObjeto(i);                    	        
+                    	    		out.println("<option value='"+i+"'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</option>");
+                    	    	}
+                    	    
+                    	    } else {
+                    	    	out.println("<font class='FormLiteral'>No hay creada ningún Curso.</font>");
+                    	    }  
+                  %>         					
+        					
+        					</td>
                                   
         				</tr>
-        				<tr>
-        					<td class="FormLiteral">Estado</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="20" name="ESTADO" value="<%=curso.dameValor("ESTADO")%>"></td>
-        					<td></td>
-        					<td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" readonly="true" name="PRECIO" disabled="true" value="<%=curso.dameValor("PRECIO")%>"></td>
-                  </td>
-        				</tr>        				
-        				<tr>
-        					<td class="FormLiteral">Fecha Inicio</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="10" name="FECHA_INICIO" value="<%=curso.dameValor("FECHA_INICIO")%>"></td>
-        					<td></td>
-        					<td class="FormLiteral">Fecha Finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
-                  </td>
-        				</tr>                        				
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="idBean" value="Alumno">
-					          <input type="hidden" name="evento" value="MATRICULA">					         
-						        <button type="submit" class="botonSimple">Matricular</button>
+					          <input type="hidden" name="idBean" value="listCurso">
+					          <input type="hidden" name="evento" value="MAT_ALUM_CUR">					         
+						        <button type="submit" class="botonSimple">Siguiente</button>
 					         </td>
 				        </tr>	                       				
         			</table>
