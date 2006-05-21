@@ -36,7 +36,7 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("secretaria","GES_PROF","SIG","/virtuaula/pages/secretaria/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/buscarProfesor.jsp");
 		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_PROF","SIG","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
 		
 		
 		//secretaria cosulta curso
