@@ -1,5 +1,9 @@
 package gestores;
 
+import java.util.Random;
+
+import beans.Avisos;
+import beans.Avisos_Has_Usuario;
 import beans.CreadorBean;
 import beans.Error;
 import beans.ObjetoBean;
@@ -20,10 +24,8 @@ public class GestorAlumnos {
 	
 	public ListaObjetoBean consultaCursosActivos()
 	{
-		//TODO falta por hacer
 		GestorCursos GC = new GestorCursos();
-		return null;
-		//return GC.consultaCursosActivos();
+		return 	GC.dameCursosActivos();
 	}
 	
 /*	public ObjetoBean consultaClaseCurso(ObjetoBean Curso)
@@ -122,24 +124,218 @@ public class GestorAlumnos {
 			l.insertar(i, error);
 			i++;
 		}
+		//Compruebo que el telefono no se deja sin rellenar
+		if (bean.dameValor(Constantes.ALUMNO_TELEFONO).equals("")) {
+			mensaje = "El campo Telefono no ha sido rellenado,por favor introduzca uno";
+			ObjetoBean error = cBean.crear(cBean.Error);
+			error.cambiaValor(Constantes.CAUSA, mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		//compruebo que el campo email no se deja sin rellenar
+		if (bean.dameValor(Constantes.ALUMNO_EMAIL).equals("")) {
+			mensaje = "El campo Email no ha sido rellenado,por favor introduzca uno";
+			ObjetoBean error = cBean.crear(cBean.Error);
+			error.cambiaValor(Constantes.CAUSA, mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		//Compruebo que el DNI sea un numero valido
+		try {
+			int numerico = Integer.parseInt(bean
+					.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+			if (numerico < 0) {
+				mensaje = "El campo DNI tiene un valor incorrecto";
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				l.insertar(i, error);
+				i++;
+			}
+		} catch (Exception e) {
+			// No es número
+			mensaje = "El campo DNI debe ser numérico";
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		
+		//Compruebo que el telefono sea un numero valido
+		try {
+			int numerico = Integer.parseInt(bean
+					.dameValor(Constantes.ALUMNO_TELEFONO));
+			if (numerico < 0) {
+				mensaje = "El campo Telefono tiene un valor incorrecto";
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				l.insertar(i, error);
+				i++;
+			}
+		} catch (Exception e) {
+			// No es número
+			mensaje = "El campo Telefono debe ser numérico";
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		
 		
 		
 		return l;
 	}
-	public ListaObjetoBean marticularAlumno(ObjetoBean Alumno,ObjetoBean Profesor)
+	/**
+	 * genere una contraseña aleatoria
+	 * @return
+	 */
+	private int generaContrasenia()
+	{
+		Random rnd = new Random();
+		int x;
+		int contrasenia=1;
+		for (int i=0;i<5;i++)
+		{
+		x = (int)(rnd.nextDouble() * 10.0);
+		contrasenia= contrasenia*10+x;
+		}
+		return contrasenia;
+	}
+	public ListaObjetoBean marticularAlumno(ObjetoBean Alumno,ObjetoBean Curso,ObjetoBean usuario)
 	{
 		ListaObjetoBean liserror=this.comprobar(Alumno);
-		//no hay ningun dato introducido incorrecto.
+		String numplazas= (Curso.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
+		int numeroplazas = Integer.parseInt(numplazas);
+		
+		//comprobamos que hay plazas en el curso
+		if (numeroplazas==0)
+		{
+			//no hay plazas en el curso
+			CreadorBean creador=new CreadorBean();
+			ObjetoBean error = creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA,"No hay plazas para este curso");
+			int tamanio=liserror.tamanio();
+			liserror.insertar(tamanio,error);
+			return liserror;
+		}
+		
+		else if (numeroplazas>0)
+		//si hay plazas en el curso
+		{
+		CreadorBean creador = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		//no hay datos incorrectos
 		if (liserror==null)
 		{
-			//si el alumno ya existe
-			if (this.existeAlumno(Alumno))
+			
+			if (!this.existeAlumno(Alumno))
 			{
-				
+				//generamos la contraeña
+				int pass=this.generaContrasenia();
+				Integer p=new Integer(pass);
+				String password =p.toString();
+				//creamos un usuario con su DNI y la contraseña que hemos generado
+				//ObjetoBean usuario = creador.crear(creador.Usuario);
+				usuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+				usuario.cambiaValor(Constantes.USUARIO_CONTRASENIA,password);
+				usuario.cambiaValor(Constantes.USUARIO_PERFIL,"alumno");
+				if (!bdf.insertar(usuario))
+				{//genero un error
+					ObjetoBean error = creador.crear(creador.Error);
+					error.cambiaValor(Constantes.CAUSA,"No se ha creado el usuario alumno");
+					int tamanio=liserror.tamanio();
+					liserror.insertar(tamanio,error);
+					return liserror;
+				}
+				else
+				{//inserto un alumno
+					if (!bdf.insertar(Alumno))
+					{
+						ObjetoBean error = creador.crear(creador.Error);
+						error.cambiaValor(Constantes.CAUSA,"No se ha creado el alumno");
+						int tamanio=liserror.tamanio();
+						liserror.insertar(tamanio,error);
+						return liserror;
+					}
+					else
+					{//se ha insertado todo correctamente. Genero el aviso con el usuario
+					//y contraseña
+					GestorAvisos GA =new GestorAvisos();
+					GA.passAlumno(Alumno,usuario);
+						
+					}
+				}
 			}
+			
+			
+			//si el alumno ya existe solo hay que rellenar la relacion IscursoHasIsAlumno.
+			//enviaar aviso de que se ha matriculado en un curso con los datos
+			//del curso y crear una nueva ficha
+			//if (this.existeAlumno(Alumno))
+			
+				//primero crear la ficha
+				ObjetoBean ficha =  creador.crear(creador.Ficha);
+				ficha.cambiaValor(Constantes.ID_ISFICHA,"1");
+				ficha.cambiaValor(Constantes.FICHA_ANOTACIONES,"creadanuevafichaalumno");
+				GestorFichas GF = new GestorFichas();
+				if (GF.insertarFicha(ficha))
+				{
+					ListaObjetoBean listaficha=GF.consultarFicha(ficha);
+					//como solo voy a obtener una ficha
+					ObjetoBean ficha2=listaficha.dameObjeto(0);
+					ficha2.cambiaValor(Constantes.FICHA_ANOTACIONES,"");
+					GF.editarFicha(ficha2);
+					
+					
+					//luego inserto la relacion cursohasalumno
+					ObjetoBean relacion = creador.crear(creador.CursoHasAlumno);
+					relacion.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,ficha2.dameValor(Constantes.ID_ISFICHA));
+					relacion.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+					relacion.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,Curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+					
+					if(bdf.insertar(relacion))
+							{
+								
+								//mando un aviso al usuario correspondiente
+						GestorAvisos GA = new GestorAvisos();
+						ListaObjetoBean ListaError=GA.alumnoSinPass(Alumno,Curso);
+						if (ListaError!=null)
+						{//se ha producido un error al enviar el aviso.
+							return ListaError;
+						}
+					}
+					else
+					
+					{
+						//creo un error de base de datos
+						String mensaje = "Error de Base de Datos al crear relacion entre alumno y curso";
+						ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+						error.cambiaValor("CAUSA_ERROR", mensaje);
+						int tamano=liserror.tamanio();
+						liserror.insertar(tamano,error);
+						return liserror;
+					}				
+				}
+				else
+				{
+					ObjetoBean error = creador.crear(creador.Error);
+					error.cambiaValor(Constantes.CAUSA,"No se ha creado la ficha del alumno");
+					int tamanio=liserror.tamanio();
+					liserror.insertar(tamanio,error);
+					return liserror;
+				}
+				
+			
+			
+			
+			//si el alumno no existe habra que crear un usuario y matricularle
+			//tambien se le mandara un aviso con su usuario y contraseña
+			//y otro aviso informandole de que se ha matriculado en un curso con los
+			//datos del curso.
+			
 		}
-		//tiene que comprobar que los datos introducidos son correctos
-		//Tambien deberia mandar un aviso al usuario para comunicarle su usuario y contraseña.
+		}
+		
 		return null;
 	}
+	
 }

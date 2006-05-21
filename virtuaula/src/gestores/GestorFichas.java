@@ -37,6 +37,18 @@ public class GestorFichas {
 		return result;
 	}
 	
+	public boolean insertarFicha(ObjetoBean ficha)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.insertar(ficha);
+		
+	}
+	public ListaObjetoBean consultarFicha(ObjetoBean ficha)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.consultar(ficha);
+	}
+	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();
