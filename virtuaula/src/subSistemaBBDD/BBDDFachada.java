@@ -929,21 +929,30 @@ public class BBDDFachada {
 			ListaObjetoBBDD cursosHorAula;
 			//	Para cada curso que cumple los criterios establecidos por el bean curso pasado como parámtero, vemos si tambien cumplen
 			//	los criterios de aula y horario y si es asi lo incluimos a la lista de cursos que cumplen todos los requisitos.
-		
 			for(int i=0;i<cursosCumplenCurso.tamanio();i++){
 				cursoActual = cursosCumplenCurso.dameObjeto(i);
 				horCursoAula= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
 				horCursoAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
-				String idAula=aula.dameValor(Constantes.ID_ISAULA);
-				String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
-				if(idAula!=null)
-					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
+				
+				if(aula!=null){
+					String idAula=aula.dameValor(Constantes.ID_ISAULA);
+					if(idAula!=null)
+						horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
+					else
+						horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,"");
+				}
 				else
 					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,"");
-				if (idHorario!=null)
-					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
+				if(horario!=null){
+					String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
+					if (idHorario!=null)
+						horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
+					else
+						horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");
+				}
 				else
-					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");	
+							
 				critHorAulaCurso = this.crearObjetoCriterioAdecuado(horCursoAula);
 				cursosHorAula= this.inicializaTabla(this.crearTablaAdecuada(horCursoAula)).consultar(critHorAulaCurso);
 				if(!cursosHorAula.esVacio())
