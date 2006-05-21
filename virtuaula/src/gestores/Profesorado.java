@@ -74,6 +74,8 @@ public class Profesorado {
 	
 	public boolean PublicarNota(ObjetoBean beanCurso){
 		BBDDFachada bdf = BBDDFachada.getInstance();
+		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"inactivo");
+		bdf.editar(beanCurso);
 		return bdf.publicarNota(beanCurso);
 	}
 
