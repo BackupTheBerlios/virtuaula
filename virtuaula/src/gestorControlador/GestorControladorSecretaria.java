@@ -7,9 +7,12 @@ import controlador.Controlador;
 import controlador.controlConexiones.ControladorDesconectar;
 import controlador.controlPasaPag.ControladorPasaPag;
 import controlador.controlConsulProf.ControladorMostrarProf;
-import controlador.controlConsulProf.ControladorProfAreas;
 import controlador.controlInsCur.ControladorIniInsCur;
-
+/**
+ * 
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorSecretaria extends GestorControlador{
 	/**
 	 * tabla que guarda la relación entre una operación y su gestor
@@ -39,7 +42,11 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("INS_CUR_PROF",new GestorControladorInsCur());
 		tablaOperacionGestor.put("INSERTA_CURSO",new GestorControladorInsCur());
 		tablaOperacionGestor.put("INS_CUR_CON_PROF",new GestorControladorInsCur());
-		
+		//matricular alumno
+		tablaOperacionGestor.put("MAT_ALUM_DOS",new GestorControladorMatricularAlumno());
+		tablaOperacionGestor.put("MAT_ALUM",new GestorControladorMatricularAlumno());
+		tablaOperacionGestor.put("MATRICULA",new GestorControladorMatricularAlumno());
+		tablaOperacionGestor.put("MAT_ALUM_CUR",new GestorControladorMatricularAlumno());
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",new ControladorPasaPag());
@@ -53,7 +60,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",new ControladorPasaPag());
 		//consultar curso
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
-		//GestorControlador.tablaOperacionControlador.put("MOSTRAR_CUR",new ControladorPasaPag());
+		
+		//matricular alumno
+		GestorControlador.tablaOperacionControlador.put("GES_ALUM",new ControladorPasaPag());	
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

@@ -12,7 +12,7 @@ import controlador.controlInsCur.ControladorInsertaCurso;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 
- * @author Alberto Macho
+ * @author Alberto Macho y Fco Javier Pérez Escrivá
  *
  */
 public class GestorControladorInsCur extends GestorControladorSecretaria{

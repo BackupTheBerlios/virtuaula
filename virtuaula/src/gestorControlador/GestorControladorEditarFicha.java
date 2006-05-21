@@ -1,6 +1,5 @@
 package gestorControlador;
 
-import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
 

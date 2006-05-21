@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
 import controlador.controlConexiones.ControladorDesconectar;
-import controlador.controlConsulEliAvisoProf.BorraAviso;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 

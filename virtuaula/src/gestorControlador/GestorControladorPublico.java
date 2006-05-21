@@ -5,7 +5,11 @@ import javax.servlet.http.HttpSession;
 import controlador.Controlador;
 import controlador.controlPasaPag.ControladorPasaPag;
 import controlador.controlOfertaFormativa.ControladorOfertaFormativa;;
-
+/**
+ * 
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorPublico extends GestorControlador{
 
 		/**

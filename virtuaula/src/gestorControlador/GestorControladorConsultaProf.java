@@ -6,7 +6,11 @@ import controlador.controlConsulProf.Cons_Prof;
 import controlador.controlConsulProf.ControladorProfAreas;
 
 import javax.servlet.http.HttpSession;
-
+/**
+ * 
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorConsultaProf extends GestorControladorSecretaria{
 
 	
