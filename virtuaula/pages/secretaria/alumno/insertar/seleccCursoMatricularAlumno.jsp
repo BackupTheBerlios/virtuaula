@@ -71,7 +71,7 @@
         %>
     		
     		<div style="position:relative; top:55px; left:80px; z-index:-1;">
-    			<form name="insertarAlumno" method=post action="">
+    			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">DNI</td>

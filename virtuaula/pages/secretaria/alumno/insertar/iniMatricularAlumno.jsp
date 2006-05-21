@@ -21,6 +21,7 @@
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
+      	 
          <tr>
             <td width="3000" background="../../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
             <td><img src="../../../../img/cabD.jpg" width="537px" height="78px" border="0"></td>
@@ -58,6 +59,7 @@
      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
     		</div>
     		<div style="position:relative; top:43px; z-index:-1;">
+    	
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -65,7 +67,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:55px; left:80px; z-index:-1;">
-    			<form name="insertarAlumno" method=post action="">
+    			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">DNI</td>
@@ -113,10 +115,11 @@ Se rellena posteriormente
                                   
         				</tr>
               	<tr>
-					         <td colspan="7" align="center">
+					         <td colspan="7" align="center">     
 					          <input type="hidden" name="idBean" value="Alumno">
 					          <input type="hidden" name="evento" value="MAT_ALUM">					         
 						        <button type="submit" class="botonSimple">Siguiente</button>
+						      
 					         </td>
 				        </tr>	                       				
         			</table>
