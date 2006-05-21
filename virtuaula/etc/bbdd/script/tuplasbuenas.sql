@@ -1,3 +1,18 @@
+DELETE FROM isavisos_has_isusuario;
+DELETE FROM isficha;
+DELETE FROM isusuario;
+DELETE FROM isprofesor;
+DELETE FROM ishorario_has_isaula;
+DELETE FROM ishorario;
+DELETE FROM iscurso_has_isalumno;
+DELETE FROM iscurso;
+DELETE FROM iscontrato;
+DELETE FROM isavisos;
+DELETE FROM isaula;
+DELETE FROM isarea;
+DELETE FROM isalumno;
+
+
 INSERT INTO `isalumno` VALUES ('11111111','Pedro','Ruiz','Santos',914095454,'yotu@hotmail.com','Alcala n 49 2A','04/09/79','Varon');
 INSERT INTO `isalumno` VALUES ('22222222','Juan','Sanchez','Sanchez',918569545,'juans@hotmail.com','Avenida de Brasil 12 1C','08/05/90','Varon');
 INSERT INTO `isalumno` VALUES ('33333333','Ana','Gonzalez','Garcia',917775264,'anag@hotmail.com','Serrano 12 1C','04/03/89','Mujer');
