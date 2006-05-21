@@ -110,7 +110,6 @@ public class ServletVisualizador extends HttpServlet{
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
 		BeanEncapsulado.encapsular(req);
-		System.out.println("paso por el servlet");
 		if (gestorSesiones.indicaSiUsuarioIdentificado(sesion)){
 			//el usuario está validado
 			
