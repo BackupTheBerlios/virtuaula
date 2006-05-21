@@ -8,6 +8,7 @@ import controlador.controlConexiones.ControladorDesconectar;
 import controlador.controlPasaPag.ControladorPasaPag;
 import controlador.controlConsulProf.ControladorMostrarProf;
 import controlador.controlConsulProf.ControladorProfAreas;
+import controlador.controlInsCur.ControladorIniInsCur;
 
 public class GestorControladorSecretaria extends GestorControlador{
 	/**
@@ -48,7 +49,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",new ControladorMostrarProf());
 		//insercion curso generales
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",new ControladorIniInsCur());
 		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",new ControladorPasaPag());
 		//consultar curso
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
