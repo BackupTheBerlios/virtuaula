@@ -27,7 +27,7 @@ public class ControladorInsCurAula extends Controlador{
 			ListaObjetoBean listaError= new ListaObjetoBean();
 			listaError.insertar(0,error);
 			this.getSesion().setAttribute("error",listaError);
-			this.setResuladooperacion("ERROR");
+			this.setResuladooperacion("ERROR2");
 		}
 		
 		//si ha escogido un area valida
