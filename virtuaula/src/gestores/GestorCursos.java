@@ -2,7 +2,6 @@ package gestores;
 
 import subSistemaBBDD.BBDDFachada;
 import beans.*;
-import beans.Error;
 import beans.listaObjetoBeans.*;
 import subSistemaBBDD.utils.Constantes;
 
@@ -90,7 +89,7 @@ public class GestorCursos {
 
 		if (bean.dameValor(Constantes.CURSO_NOMBRE).equals("")) {
 			mensaje = "El campo nombre no ha sido rellenado";
-			Error error = (Error) cBean.crear(cBean.Error);
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
 			i++;
@@ -98,7 +97,7 @@ public class GestorCursos {
 		if (bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
 			bean.cambiaValor(Constantes.CURSO_PRECIO,"0");
 			//mensaje = "El campo precio no ha sido rellenado";
-			//Error error = (Error) cBean.crear(cBean.Error);
+			//ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			//error.cambiaValor("CAUSA_ERROR", mensaje);
 			//l.insertar(i, error);
 			//i++;
@@ -106,7 +105,7 @@ public class GestorCursos {
 
 		if (bean.dameValor(Constantes.CURSO_ISAREA_IDISAREA).equals("")) {
 			mensaje = "El campo area no ha sido rellenado";
-			Error error = (Error) cBean.crear(cBean.Error);
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
 			i++;
@@ -115,7 +114,7 @@ public class GestorCursos {
 		if (bean.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI)
 				.equals("")) {
 			mensaje = "El campo dni profesor no ha sido rellenado";
-			Error error = (Error) cBean.crear(cBean.Error);
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
 			i++;
@@ -155,7 +154,7 @@ public class GestorCursos {
 		}
 		if (!fechasValidas) {
 			mensaje = "Los campos fecha inicio y fecha fin entran en conflicto";
-			Error error = (Error) cBean.crear(cBean.Error);
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
 			i++;
@@ -167,7 +166,7 @@ public class GestorCursos {
 					.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
 			if (numerico < 0) {
 				mensaje = "El campo DNI tiene un valor incorrecto";
-				Error error = (Error) cBean.crear(cBean.Error);
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				l.insertar(i, error);
 				i++;
@@ -175,7 +174,7 @@ public class GestorCursos {
 		} catch (Exception e) {
 			// No es número
 			mensaje = "El campo DNI debe ser numérico";
-			Error error = (Error) cBean.crear(cBean.Error);
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
 			i++;
@@ -186,7 +185,7 @@ public class GestorCursos {
 						.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
 				if (numerico < 0) {
 					mensaje = "El campo numero de plazas tiene un valor incorrecto";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					l.insertar(i, error);
 					i++;
@@ -194,7 +193,7 @@ public class GestorCursos {
 			} catch (Exception e) {
 				// No es número
 				mensaje = "El campo numero de plazas debe ser numérico";
-				Error error = (Error) cBean.crear(cBean.Error);
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				l.insertar(i, error);
 				i++;
@@ -206,7 +205,7 @@ public class GestorCursos {
 						.dameValor(Constantes.CURSO_PRECIO));
 				if (numerico < 0) {
 					mensaje = "El campo precio tiene un valor incorrecto";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					l.insertar(i, error);
 					i++;
@@ -214,7 +213,7 @@ public class GestorCursos {
 			} catch (Exception e) {
 				// No es número
 				mensaje = "El campo precio debe ser numérico";
-				Error error = (Error) cBean.crear(cBean.Error);
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				l.insertar(i, error);
 				i++;
@@ -275,7 +274,7 @@ public class GestorCursos {
 				// Insertar en tabla intermedia de relacion Horario-Aula
 				if(!bdf.insertar(hha)){
 					String mensaje = "Error de Base de Datos al crear relacion";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
 					return result;
@@ -294,7 +293,7 @@ public class GestorCursos {
 				
 				if(!bdf.insertar(aviso)){
 					String mensaje = "Error de Base de Datos al crear Aviso";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
 					return result;
@@ -310,7 +309,7 @@ public class GestorCursos {
 				// Rellenar tabla intermedia de relacion Avisos-Usuario
 				if(!bdf.insertar(ahu)){
 					String mensaje = "Error de Base de Datos al mandar Aviso";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
 					return result;
@@ -319,13 +318,13 @@ public class GestorCursos {
 			} else {
 				if (bdf.cursoYaExiste(beanCurso)){
 					String mensaje = "El curso introducido ya existe";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
 					return result;
 				}else{
 					String mensaje = "Error de Base de Datos";
-					Error error = (Error) cBean.crear(cBean.Error);
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
 					return result;
@@ -342,7 +341,7 @@ public class GestorCursos {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		result =c.crear();
 		String mensaje = "Los datos seleccionados han caducado y ya no son válidos";
-		Error error = (Error) cBean.crear(cBean.Error);
+		ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 		error.cambiaValor("CAUSA_ERROR", mensaje);
 		result.insertar(0, error);
 		return result;
