@@ -38,13 +38,7 @@ public class ControladorInsertaCurso extends Controlador{
 		
 		if (cur==null)
 		{
-			CreadorBean creador = new CreadorBean();
-			ListaObjetoBean listaError = new ListaObjetoBean();
 			this.setResuladooperacion("ERROR");
-			ObjetoBean error = creador.crear(creador.Error);
-			error.cambiaValor(Constantes.CAUSA,"el curso es null");
-			listaError.insertar(0,error);
-			this.getSesion().setAttribute("error",listaError);
 			
 		}
 		else
