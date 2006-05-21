@@ -4,6 +4,12 @@
       <title> Menu principal control Acceso </title>
       <link href="../../styles/estilosBotones.css" rel="stylesheet" type="text/css">
       <link href="../../styles/application.css" rel="stylesheet" type="text/css"/>
+     <script language=JavaScript type="text/JavaScript">        
+          function lanzaFormulario (evento) {
+            document.formSubmenu.evento.value = evento;
+            document.formSubmenu.submit();
+          };      
+      </script>      
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
@@ -21,6 +27,16 @@
          </tr>
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
+            <div style="position:relative; top:12px;">
+			   <div class="botones">
+			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+			      <input type="hidden" name="idBean" value="Usuario">
+			      <input type="hidden" name="DNI" value="anonimo">
+			      <input type="hidden" name="CONTRASENIA" value="anonimo">
+    	     <input type="hidden" name="evento">
+  				    <a href="JavaScript:lanzaFormulario('PRINCIPAL_PUBLICO');" onmouseout="window.status=''" onmouseover="window.status='Pagina Principal';return true ">Pagina Principal</a>
+  				  </form>
+		  	 </div>	
 		  <div align="right" style="position:relative; top:12px;">		  	 		  	              
            <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>

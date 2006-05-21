@@ -26,6 +26,11 @@ public class ServletVisualizador extends HttpServlet{
 		gestorControlador.inicializa();
 		gestorSesiones =new GestorSesiones();
 		gestorPaginas=new GestorPaginas();
+		//sesion anonima
+		gestorPaginas.agregarPaginas("publico","OFERTA_FORMATIVA","OK","/virtuaula/pages/publico/ofertaFormativa.jsp");
+		gestorPaginas.agregarPaginas("publico","OFERTA_FORMATIVA","ERROR","/virtuaula/pages/publico/errorOfertaFormativa.jsp");
+		gestorPaginas.agregarPaginas("publico","ZONA_RESTRINGIDA","SIG","/virtuaula/pages/controlAcceso/index.jsp");
+		gestorPaginas.agregarPaginas("publico","PRINCIPAL_PUBLICO","SIG","/virtuaula/pages/index.jsp");
 		//sesion secretaria
 		gestorPaginas.agregarPaginas("secretaria","LOGAR","SIG","/virtuaula/pages/secretaria/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","menuPrincipalSec","SIG","/virtuaula/pages/secretaria/index.jsp");
@@ -94,7 +99,6 @@ public class ServletVisualizador extends HttpServlet{
 	
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
-		//this.encapsular(req);
 		BeanEncapsulado.encapsular(req);
 		
 		if (gestorSesiones.indicaSiUsuarioIdentificado(sesion)){
@@ -117,27 +121,5 @@ public class ServletVisualizador extends HttpServlet{
 		doPost(req,rep);
 		}
 	
-	/*
-	private void encapsular (HttpServletRequest request){
-		
-		RequestContextFactory test = new RequestContextFactory();
-		ObjetoBean result = test.createRequestContext(request);
-		HttpSession sesion=request.getSession(true);
-		String tipo = request.getParameter("idBean");
-		if (tipo!=null){
-			if (tipo.equals("Usuario")){
-				sesion.setAttribute("beanUsuario",result);
-			}
-			
-			if (tipo.equals("Profesor")){
-				sesion.setAttribute("beanProf",result);
-			} 
-			if (tipo.equals("listProf")){
-				int pos = Integer.parseInt(request.getParameter("posProf"));
-				sesion.setAttribute("posProf", new Integer(pos) );
-			}
-		}
-		
-	}
-	*/
+
 }
