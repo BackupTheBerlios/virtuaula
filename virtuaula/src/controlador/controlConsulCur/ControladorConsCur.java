@@ -31,7 +31,13 @@ public class ControladorConsCur extends Controlador{
 			ObjetoBean curso = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 			//ListaObjetoBean	listacurso=this.gestorCursos.consultaCursos(curso);
 			GestorCursos gestor = new GestorCursos();
-			ListaObjetoBean	listacurso=gestor.consultaCurso(curso);
+			//TODO consultar por todo curso aula y horario, tengo que coger de session
+			//el pos horario el posaula y sacar la lista de aulas y horarios
+			//para poder coger el que seleccionamos.
+			ObjetoBean aula=(ObjetoBean)this.getSesion().getAttribute("beanAula");
+			ObjetoBean horario =(ObjetoBean)this.getSesion().getAttribute("beanHorario");
+						
+			ListaObjetoBean	listacurso=gestor.consultaCurso(curso,aula,horario);
 			this.getSesion().setAttribute("listacurso",listacurso);
 			
 			if (listacurso!=null)this.setResuladooperacion("OK");
