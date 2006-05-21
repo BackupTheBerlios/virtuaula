@@ -907,11 +907,70 @@ public class BBDDFachada {
 	}
 	
 	
-	
+	public ListaObjetoBean dameCursosCumplan(ObjetoBean curso,ObjetoBean aula,ObjetoBean horario ){
+		try{
+			//primera hacemos una consulta para ver los cursos que cumplen los criterios del bean curso
+			ObjetoBBDD iscurso= ConversorBeanBBDD.convierteBeanABBDD(curso);
+			ObjetoCriterio critCurso = this.crearObjetoCriterioAdecuado(iscurso);		
+			ListaObjetoBBDD cursosCumplenCurso= this.inicializaTabla(this.crearTablaAdecuada(iscurso)).consultar(critCurso);
+			ListaObjetoBBDD cursosResultado= this.creador.getCreadorListaObjetoBBDD().crear();
+			ObjetoBBDD cursoActual;
+			ObjetoBBDD horCursoAula;
+			ObjetoCriterio critHorAulaCurso;
+			ListaObjetoBBDD cursosHorAula;
+			//	Para cada curso que cumple los criterios establecidos por el bean curso pasado como parámtero, vemos si tambien cumplen
+			//	los criterios de aula y horario y si es asi lo incluimos a la lista de cursos que cumplen todos los requisitos.
+		
+			for(int i=0;i<cursosCumplenCurso.tamanio();i++){
+				cursoActual = cursosCumplenCurso.dameObjeto(i);
+				horCursoAula= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
+				horCursoAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+				String idAula=aula.dameValor(Constantes.ID_ISAULA);
+				String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
+				if(idAula!=null){
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
+				if (idHorario!=null)
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
+				
+				critHorAulaCurso = this.crearObjetoCriterioAdecuado(horCursoAula);
+				cursosHorAula= this.inicializaTabla(this.crearTablaAdecuada(horCursoAula)).consultar(critHorAulaCurso);
+				if(!cursosHorAula.esVacio())
+						cursosResultado.insertar(cursosResultado.tamanio(),cursoActual);
+				}
+						
+			}
+		
+			return ConversorBeanBBDD.convierteListaBBDD(cursosResultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+		
+	}
 
 	
-	
-	
+	//prueba dameCursosCumplan
+	/*public static void main(String[] args) {
+		BBDDFachada mia = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean aula =creador.crear(creador.Aula);
+		aula.cambiaValor(Constantes.ID_ISAULA,"1");
+		ObjetoBean horario =creador.crear(creador.Horario);
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
+		ObjetoBean curso= creador.crear(creador.Curso);
+		curso.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS,"10");
+		ListaObjetoBean cursos=mia.dameCursosCumplan(curso,aula,horario);
+		for(int i=0;i<cursos.tamanio();i++){
+			System.out.println(cursos.dameObjeto(i).dameValor(Constantes.CURSO_NOMBRE));
+		}
+		
+		
+		
+		
+		}*/
 	
 	//prueba libreAula
 	/*public static void main(String[] args) {
