@@ -12,7 +12,6 @@ public class GestorSesiones {
 
 		Boolean validado=((Boolean)sesion.getAttribute("validado"));
 		ObjetoBean usuario=((ObjetoBean)sesion.getAttribute("beanUsuario"));
-		System.out.println("el usuario"+usuario.dameValor("DNI"));
 		if (usuario!=null){
 			//venimos de la pag de inicio
 			BBDDFachada bbdd=BBDDFachada.getInstance();
@@ -21,7 +20,6 @@ public class GestorSesiones {
 				validado=Boolean.TRUE;
 				//saco su perfilUsuario
 				String perfilUsuario=bbdd.damePerfilUsuario(usuario);
-				System.out.println("perfil del usuario"+perfilUsuario);
 				sesion.setAttribute("perfilUsuario",perfilUsuario);
 			}
 			else{

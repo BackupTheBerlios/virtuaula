@@ -61,7 +61,7 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:180px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
         				
         				<%
@@ -70,7 +70,7 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
-        		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
+        		            out.println(" <table border='8' cellspacing='25' cellpadding='10'>");		
         		            out.println("<tr>");
         		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
         		            out.println("	<th class='FormLiteral'><b>Fecha Inicio</th>");
@@ -81,8 +81,8 @@
 			
                           curso = (Curso) listaObjetoBean.dameObjeto(i);
 			                    out.println("<tr>");
-	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
-	                	      if (String.valueOf(curso.dameValor("FECHA_INICIO")).equals("null")){
+	                	      out.println("    <td class='FormLiteral' align='left'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
+	                	      if ((String.valueOf(curso.dameValor("FECHA_INICIO")).equals("null"))||(String.valueOf(curso.dameValor("FECHA_INICIO")).equals(""))){
 		                	    	out.println("    <td class='FormLiteral' align='center'>Sin especf.</td>");  
 	                	      	}
 	    	              	    else{
@@ -90,7 +90,7 @@
 	        	          	    }
 	        	          	  
 	        	          	  
-	        	          	  if (String.valueOf(curso.dameValor("FECHA_FIN")).equals("null")){
+	        	          	  if ((String.valueOf(curso.dameValor("FECHA_FIN")).equals("null"))||(String.valueOf(curso.dameValor("FECHA_FIN")).equals(""))){
 		                	  	  out.println("    <td class='FormLiteral' align='center'>Sin especf.</td>");  
 	                	      	}
 	    	              	    else{
@@ -101,8 +101,10 @@
 		                    }//fin for
 		      
 		                    out.println("<tr>");
-		                    out.println("		         <td colspan='2' align='center'> ");
-		                    out.println("			          <input type='hidden' name='idBean' value='listCurso'>");
+		                    out.println("		         <td colspan='3' align='center'> ");
+		                    out.println("			          <input type='hidden' name='idBean' value='Usuario'>");
+		                    out.println("					   <input type='hidden' name='DNI' value='anonimo'>");
+							out.println("				      <input type='hidden' name='CONTRASENIA' value='anonimo'>");
 							out.println("			            <input type='hidden' name='evento'>");		                    
 		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('PRINCIPAL_PUBLICO');\" class='botonSimpleGrande'>Pagina Principal</button>");
 		                    out.println("</td>");
