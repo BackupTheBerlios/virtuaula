@@ -43,7 +43,7 @@ public class GestorAvisos {
 	public ListaObjetoBean alumnoSinPass(ObjetoBean Alumno,ObjetoBean Curso)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
-		liserror=null;
+		//liserror=null;
 		CreadorBean creador = new CreadorBean();
 		BBDDFachada bdf = BBDDFachada.getInstance();	
 		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
@@ -79,6 +79,7 @@ public class GestorAvisos {
 			
 			//Crear objeto bean especifico
 			GestorAvisos GA=new GestorAvisos();
+			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
 			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
 			ObjetoBean aviso2 = listaav.dameObjeto(0);
 			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso matriculado");
@@ -89,7 +90,7 @@ public class GestorAvisos {
 			//Relleanar bean
 										
 			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
-			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
+			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
 			// Rellenar tabla intermedia de relacion Avisos-Usuario
 			if(!bdf.insertar(ahu)){
 				String mensaje = "Error de Base de Datos al mandar Aviso";
@@ -108,7 +109,7 @@ public class GestorAvisos {
 	public ListaObjetoBean passAlumno(ObjetoBean Alumno,ObjetoBean Usuario)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
-		liserror=null;
+		//liserror=null;
 		CreadorBean creador = new CreadorBean();
 		BBDDFachada bdf = BBDDFachada.getInstance();	
 		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
@@ -142,17 +143,20 @@ public class GestorAvisos {
 			
 			//Crear objeto bean especifico
 			GestorAvisos GA=new GestorAvisos();
+			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
 			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+			System.out.println(listaav.tamanio());
 			ObjetoBean aviso2 = listaav.dameObjeto(0);
 			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Bienvenido a Virtuaula");
 			
 			if (GA.editarAviso(aviso2))
 			{
+				
 			Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
 			//Relleanar bean
 										
 			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
-			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI));
+			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
 			// Rellenar tabla intermedia de relacion Avisos-Usuario
 			if(!bdf.insertar(ahu)){
 				String mensaje = "Error de Base de Datos al mandar Aviso";

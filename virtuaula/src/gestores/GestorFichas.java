@@ -35,6 +35,18 @@ public class GestorFichas {
 			else return null;
 		}
 		return result;
+		
+	}
+	public boolean cambiaFicha(ObjetoBean beanFicha)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.editar(beanFicha);
+	}
+	
+	public boolean eliminarFicha(ObjetoBean ficha)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.eliminar(ficha);
 	}
 	
 	public boolean insertarFicha(ObjetoBean ficha)

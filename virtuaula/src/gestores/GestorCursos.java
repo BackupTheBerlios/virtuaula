@@ -353,6 +353,11 @@ public class GestorCursos {
 	}
 
 }
+	public boolean editaCurso(ObjetoBean curso)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.editar(curso);
+	}
 	public ListaObjetoBean dameCursosActivos()
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();

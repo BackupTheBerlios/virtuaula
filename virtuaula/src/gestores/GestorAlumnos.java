@@ -203,6 +203,7 @@ public class GestorAlumnos {
 	public ListaObjetoBean marticularAlumno(ObjetoBean Alumno,ObjetoBean Curso,ObjetoBean usuario)
 	{
 		ListaObjetoBean liserror=this.comprobar(Alumno);
+		System.out.println(liserror.tamanio());
 		String numplazas= (Curso.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
 		int numeroplazas = Integer.parseInt(numplazas);
 		
@@ -224,10 +225,11 @@ public class GestorAlumnos {
 		CreadorBean creador = new CreadorBean();
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		//no hay datos incorrectos
-		if (liserror==null)
-		{
+		if (liserror.esVacio())
+		{	ObjetoBean us =creador.crear(creador.Usuario);
+			us.cambiaValor(Constantes.ID_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
 			
-			if (!this.existeAlumno(Alumno))
+			if (!bdf.usuarioYaExiste(us))
 			{
 				//generamos la contraeña
 				int pass=this.generaContrasenia();
@@ -241,7 +243,7 @@ public class GestorAlumnos {
 				if (!bdf.insertar(usuario))
 				{//genero un error
 					ObjetoBean error = creador.crear(creador.Error);
-					error.cambiaValor(Constantes.CAUSA,"No se ha creado el usuario alumno");
+					error.cambiaValor(Constantes.CAUSA,"El usuario ya existe");
 					int tamanio=liserror.tamanio();
 					liserror.insertar(tamanio,error);
 					return liserror;
@@ -251,7 +253,7 @@ public class GestorAlumnos {
 					if (!bdf.insertar(Alumno))
 					{
 						ObjetoBean error = creador.crear(creador.Error);
-						error.cambiaValor(Constantes.CAUSA,"No se ha creado el alumno");
+						error.cambiaValor(Constantes.CAUSA,"El alumno ya existe");
 						int tamanio=liserror.tamanio();
 						liserror.insertar(tamanio,error);
 						return liserror;
@@ -265,25 +267,22 @@ public class GestorAlumnos {
 					}
 				}
 			}
-			
-			
-			//si el alumno ya existe solo hay que rellenar la relacion IscursoHasIsAlumno.
-			//enviaar aviso de que se ha matriculado en un curso con los datos
-			//del curso y crear una nueva ficha
-			//if (this.existeAlumno(Alumno))
-			
+				
 				//primero crear la ficha
 				ObjetoBean ficha =  creador.crear(creador.Ficha);
 				ficha.cambiaValor(Constantes.ID_ISFICHA,"1");
 				ficha.cambiaValor(Constantes.FICHA_ANOTACIONES,"creadanuevafichaalumno");
+				ficha.cambiaValor(Constantes.FICHA_NOTAS," ");
+				ficha.cambiaValor(Constantes.FICHA_NOTAS_EJERCICIOS,"-1");
 				GestorFichas GF = new GestorFichas();
 				if (GF.insertarFicha(ficha))
 				{
+					ficha.cambiaValor(Constantes.ID_ISFICHA,"");
 					ListaObjetoBean listaficha=GF.consultarFicha(ficha);
 					//como solo voy a obtener una ficha
 					ObjetoBean ficha2=listaficha.dameObjeto(0);
-					ficha2.cambiaValor(Constantes.FICHA_ANOTACIONES,"");
-					GF.editarFicha(ficha2);
+					ficha2.cambiaValor(Constantes.FICHA_ANOTACIONES," ");
+					GF.cambiaFicha(ficha2);
 					
 					
 					//luego inserto la relacion cursohasalumno
@@ -291,6 +290,8 @@ public class GestorAlumnos {
 					relacion.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,ficha2.dameValor(Constantes.ID_ISFICHA));
 					relacion.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
 					relacion.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,Curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+					relacion.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,"-1");
+					
 					
 					if(bdf.insertar(relacion))
 							{
@@ -298,16 +299,26 @@ public class GestorAlumnos {
 								//mando un aviso al usuario correspondiente
 						GestorAvisos GA = new GestorAvisos();
 						ListaObjetoBean ListaError=GA.alumnoSinPass(Alumno,Curso);
-						if (ListaError!=null)
+						
+						if (!ListaError.esVacio())
 						{//se ha producido un error al enviar el aviso.
 							return ListaError;
 						}
+						//decremento el numero de plazas del curso
+						String num = Curso.dameValor(Constantes.CURSO_NUMERO_PLAZAS);
+						int plazas = Integer.parseInt(num);
+						plazas = plazas-1;
+						Integer numerop=new Integer(plazas);
+						String numeplazas=numerop.toString();
+						Curso.cambiaValor(Constantes.CURSO_NUMERO_PLAZAS,numeplazas);
+						GestorCursos GC = new GestorCursos();
+						GC.editaCurso(Curso);
 					}
-					else
-					
-					{
-						//creo un error de base de datos
-						String mensaje = "Error de Base de Datos al crear relacion entre alumno y curso";
+					else					
+					{	//creo un error de base de datos
+						String mensaje = "El alumno ya esta matriculado de este curso";
+						//eliminamos la ficha creada antes
+						GF.eliminarFicha(ficha2);
 						ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
 						error.cambiaValor("CAUSA_ERROR", mensaje);
 						int tamano=liserror.tamanio();
@@ -318,24 +329,16 @@ public class GestorAlumnos {
 				else
 				{
 					ObjetoBean error = creador.crear(creador.Error);
-					error.cambiaValor(Constantes.CAUSA,"No se ha creado la ficha del alumno");
+					error.cambiaValor(Constantes.CAUSA,"El alumno ya tiene ficha de este curso");
 					int tamanio=liserror.tamanio();
 					liserror.insertar(tamanio,error);
 					return liserror;
 				}
-				
-			
-			
-			
-			//si el alumno no existe habra que crear un usuario y matricularle
-			//tambien se le mandara un aviso con su usuario y contraseña
-			//y otro aviso informandole de que se ha matriculado en un curso con los
-			//datos del curso.
-			
+					
 		}
 		}
+		return liserror;
 		
-		return null;
 	}
 	
 }
