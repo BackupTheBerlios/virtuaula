@@ -97,8 +97,18 @@
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");
+    	                  if (!(String.valueOf(curso.dameValor("FECHA_INICIO"))).equals("null")){
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
+    	                  }
+    	                  else{
+    	                  out.println("<td class='FormLiteral' align='center'>Sin especificar</td>");
+    	                  }
+    	                  if (!(String.valueOf(curso.dameValor("FECHA_FIN"))).equals("null")){
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
+                        	}
+    	                  else{
+    	                  out.println("<td class='FormLiteral' align='center'>Sin especificar</td>");
+    	                  }
                         out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");
                          out.println("<td class='FormLiteral' align='center'>"+String.valueOf(area.dameValor("NOMBRE"))+"</td>");		 
     	                  out.println("</tr>");
