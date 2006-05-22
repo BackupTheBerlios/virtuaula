@@ -332,40 +332,40 @@ public class GestorAvisos {
 	private String convertirHorario(ObjetoBean horario)
 	{
 		String lunes = horario.dameValor(Constantes.HORARIO_LUNES);
-		String martes = horario.dameValor(Constantes.HORARIO_LUNES);
-		String miercoles = horario.dameValor(Constantes.HORARIO_LUNES);
-		String jueves = horario.dameValor(Constantes.HORARIO_LUNES);
-		String viernes = horario.dameValor(Constantes.HORARIO_LUNES);
+		String martes = horario.dameValor(Constantes.HORARIO_MARTES);
+		String miercoles = horario.dameValor(Constantes.HORARIO_MIERCOLES);
+		String jueves = horario.dameValor(Constantes.HORARIO_JUEVES);
+		String viernes = horario.dameValor(Constantes.HORARIO_VIERNES);
 		String resul="";
 		if (lunes!=null)
 		{
-			resul.concat("L");
-			resul.concat(lunes);
-			resul.concat("-");
+			resul=resul+"L";
+			resul=resul+lunes;
+			resul=resul+"-";
 		}
 		if (martes!=null)
 		{
-			resul.concat("M");
-			resul.concat(martes);
-			resul.concat("-");
+			resul=resul+"M";
+			resul=resul+martes;
+			resul=resul+"-";
 		}
 		if (miercoles!=null)
 		{
-			resul.concat("X");
-			resul.concat(miercoles);
-			resul.concat("-");
+			resul=resul+"X";
+			resul=resul+miercoles;
+			resul=resul+"-";
 		}
 		if (jueves!=null)
 		{
-			resul.concat("J");
-			resul.concat(jueves);
-			resul.concat("-");
+			resul=resul+"J";
+			resul=resul+jueves;
+			resul=resul+"-";
 		}
 		if (viernes!=null)
 		{
-			resul.concat("V");
-			resul.concat(viernes);
-			resul.concat("-");
+			resul=resul+"V";
+			resul=resul+viernes;
+			resul=resul+"-";
 		}
 		return resul;
 	}
