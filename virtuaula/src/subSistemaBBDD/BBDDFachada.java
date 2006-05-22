@@ -768,6 +768,8 @@ public class BBDDFachada {
 			
 			
 		}
+		//Si se han publicado con exito las notas de este curso borramos las fichas correspondientes al curso.
+		if(exito) this.borrarFichasCurso(curso);
 		return exito;
 	}
 	
@@ -994,14 +996,16 @@ public class BBDDFachada {
 			ObjetoCriterio critFichAlumCur;
 			for(int i=0;i<fichasCursoAlumno.tamanio();i++){
 				fichaCursAlumActual= fichasCursoAlumno.dameObjeto(i);
-			//	Cambiamos el campo idficha de la tabla de relacion curso alumno al valor vacio.
-				fichaCursAlumActual.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,"");
-				critFichAlumCur= this.crearObjetoCriterioAdecuado(fichaCursAlumActual);
-				tablaCursoAlumFicha.editar(critFichAlumCur);
 				ficha.cambiaValor(Constantes.ID_ISFICHA, fichaCursAlumActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
 				critFicha= this.crearObjetoCriterioAdecuado(ficha);
-			//	Borramos cada ficha			
+				//	Borramos cada ficha			
 				tablaFicha.borrar(critFicha);
+				
+			//	Cambiamos el campo idficha de la tabla de relacion curso alumno al valor vacio.
+				fichaCursAlumActual.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,"null");
+				critFichAlumCur= this.crearObjetoCriterioAdecuado(fichaCursAlumActual);
+				tablaCursoAlumFicha.editar(critFichAlumCur);
+				
 			}
 			return true;
 		}
