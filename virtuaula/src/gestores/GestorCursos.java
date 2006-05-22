@@ -137,12 +137,12 @@ public class GestorCursos {
 		boolean fechasValidas = false;
 		String fechaFin = bean.dameValor(Constantes.CURSO_FECHA_FIN);
 		String fechaInicio = bean.dameValor(Constantes.CURSO_FECHA_INICIO);
-		dia1 = Integer.parseInt(fechaInicio.substring(0, 1));
-		mes1 = Integer.parseInt(fechaInicio.substring(3, 4));
-		annio1 = Integer.parseInt(fechaInicio.substring(6, 9));
-		dia2 = Integer.parseInt(fechaFin.substring(0, 1));
-		mes2 = Integer.parseInt(fechaFin.substring(3, 4));
-		annio2 = Integer.parseInt(fechaFin.substring(6, 9));
+		dia1 = Integer.parseInt(fechaInicio.substring(0, 2));
+		mes1 = Integer.parseInt(fechaInicio.substring(3, 5));
+		annio1 = Integer.parseInt(fechaInicio.substring(6, 10));
+		dia2 = Integer.parseInt(fechaFin.substring(0, 2));
+		mes2 = Integer.parseInt(fechaFin.substring(3, 5));
+		annio2 = Integer.parseInt(fechaFin.substring(6, 10));
 		if (!bean.dameValor(Constantes.CURSO_FECHA_FIN).equals("")
 				&& (!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals(""))) {
 			if (annio1 < annio2) {
