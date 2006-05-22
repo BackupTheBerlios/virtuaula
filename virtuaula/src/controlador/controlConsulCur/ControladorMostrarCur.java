@@ -42,7 +42,7 @@ public class ControladorMostrarCur extends Controlador{
 			{
 			this.getSesion().setAttribute("beanAula",aula);
 			this.getSesion().setAttribute("beanArea",area);
-			this.getSesion().setAttribute("beanProf",profesor);
+			this.getSesion().setAttribute("beanProfesor",profesor);
 			this.getSesion().setAttribute("beanHorario",horario);
 			this.setResuladooperacion("OK");
 			}
