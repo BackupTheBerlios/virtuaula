@@ -23,6 +23,7 @@ public class ControladorMatAlum extends ControladorMatricular{
 		GestorAlumnos GA = new GestorAlumnos();
 		ListaObjetoBean listacursos = GA.consultaCursosActivos();
 		
+		
 		//si no se produce error en la base de datos
 		if (listacursos!=null)
 		{

@@ -20,10 +20,13 @@ public class ControladorMatricula extends ControladorMatricular{
 		GestorAlumnos GA = new GestorAlumnos();
 		CreadorBean creador = new CreadorBean();
 		ObjetoBean usuario = creador.crear(creador.Usuario);
+		//System.out.println(curso.dameValor(Constantes.CURSO_NOMBRE));
+		
 		ListaObjetoBean listaerror=GA.marticularAlumno(alumno,curso,usuario);
 		//si los datos introducidos son correctos
 		if (listaerror==null)
 		{
+			
 			this.setResuladooperacion("OK");
 			//metemos en sesion el usuario para que en la sig pagina muestre el usuario
 			//y la contraseña.
