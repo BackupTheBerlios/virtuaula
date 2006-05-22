@@ -19,7 +19,7 @@ public class ControladorMatricula extends ControladorMatricular{
 		ObjetoBean curso = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 		GestorAlumnos GA = new GestorAlumnos();
 		CreadorBean creador = new CreadorBean();
-		ObjetoBean usuario = creador.crear(creador.Usuario);
+		ObjetoBean usuario = (ObjetoBean)this.getSesion().getAttribute("usuario");
 		//System.out.println(curso.dameValor(Constantes.CURSO_NOMBRE));
 		
 		ListaObjetoBean listaerror=GA.marticularAlumno(alumno,curso,usuario);

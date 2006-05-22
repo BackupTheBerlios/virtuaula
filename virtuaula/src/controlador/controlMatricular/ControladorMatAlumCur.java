@@ -36,6 +36,22 @@ public class ControladorMatAlumCur extends ControladorMatricular {
 			//no se produce un error en la base de datos.
 			if ((aula!=null) && (horario!=null) && (profesor!=null))
 			{
+				//generamos una contrasña y la metemos en session si el alumno no existe
+				ObjetoBean alum=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
+				if (!GA.existeAlumno(alum))
+				{
+					//creo contraseña y para el usuario y este lo meto en sesion
+				int pass=GA.generaContrasenia();
+				Integer p=new Integer(pass);
+				String password =p.toString();
+				ObjetoBean usuar=creador.crear(creador.Usuario);
+				String dni=alum.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI);
+				usuar.cambiaValor(Constantes.ID_ISUSUARIO_DNI,dni);
+				usuar.cambiaValor(Constantes.USUARIO_CONTRASENIA,password);
+				usuar.cambiaValor(Constantes.USUARIO_PERFIL,"alumno");
+				this.getSesion().setAttribute("usuario",usuar);
+				}
+				
 				this.setResuladooperacion("OK");
 				this.getSesion().removeAttribute("error");
 				this.getSesion().setAttribute("beanAula",aula);
