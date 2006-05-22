@@ -229,6 +229,7 @@ public class CreadorBean{
 				 	{
 				 		expedienteCurso=new beanExpedienteCurso();
 				 	}
+				 	objeto=expedienteCurso.clonar();break;
 			 }
 			
 			 default: {objeto=null;break;}

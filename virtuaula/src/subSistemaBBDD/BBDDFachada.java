@@ -1012,11 +1012,16 @@ public class BBDDFachada {
 	
 	}
 
-	
+	/**
+	 * Genera y devuelve el expediente de un curso que se compone de los alumnos
+	 * de este curso y de sus notas finales correspondientes.
+	 * @param curso, del cual queremos hallar su expediente
+	 * @return el expediente del curso deseado.
+	 */
 	public ListaObjetoBean creaExpediente (ObjetoBean curso){
 		try{
 		    ObjetoBBDD cursoAlumno= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IscursoHasIsalumno);
-		    cursoAlumno.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		    cursoAlumno.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
 		    ObjetoCriterio critCurAlumno= this.crearObjetoCriterioAdecuado(cursoAlumno);
 		    ListaObjetoBBDD cursosAlumnosFichaNota = this.inicializaTabla(this.crearTablaAdecuada(cursoAlumno)).consultar(critCurAlumno);
 		    CreadorListaObjetoBean creadorLB= new CreadorListaObjetoBean();
@@ -1058,6 +1063,69 @@ public class BBDDFachada {
 		
 	}
 
+	/**
+	 * Crea y devuelve el expediente de un alumno que consiste en todos sus cursos matriculados
+	 * y en la nota final que ha sacado en cada uno de ellos.
+	 * @param alumno
+	 * @return
+	 */
+	public ListaObjetoBean creaExpedienteAlumno(ObjetoBean alumno){
+	    try{
+	    	ObjetoBBDD cursoAlumno= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IscursoHasIsalumno);
+	        cursoAlumno.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI,alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+	        ObjetoCriterio critCurAlumno= this.crearObjetoCriterioAdecuado(cursoAlumno);
+	        ListaObjetoBBDD cursosAlumnosFichaNota = this.inicializaTabla(this.crearTablaAdecuada(cursoAlumno)).consultar(critCurAlumno);
+	        CreadorListaObjetoBean creadorLB= new CreadorListaObjetoBean();
+	        ListaObjetoBean expedientesCursos= creadorLB.crear();
+	        //Para cada elemento de cursosAlumnosFichaNota hacemos una consulta en la tabla isalumno y cogemos el alumno resultado
+	        //creamos un objetoBean expedienteAlumno y lo rellenamos con todos los datos del alumno en cuestion y con el campo
+	        //nota final que sacamos del cursoAlumnoFichaNota actual
+	        ObjetoBBDD curso= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().Iscurso);
+	        ObjetoCriterio critCurso;
+	        ObjetoBBDD cursoAlumnoFichaNotaActual;
+	        ObjetoBBDD cursoActual;
+		
+		
+	        EsquemaBBDD tablaCurso= this.inicializaTabla(this.crearTablaAdecuada(curso));
+	        for(int i=0;i<cursosAlumnosFichaNota.tamanio();i++){
+	        	ObjetoBean expedienteActual=this.creador.getCreadorBean().crear(this.creador.getCreadorBean().ExpedienteCurso);
+	        	cursoAlumnoFichaNotaActual= cursosAlumnosFichaNota.dameObjeto(i);
+	        	curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,cursoAlumnoFichaNotaActual.dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
+	        	critCurso= this.crearObjetoCriterioAdecuado(curso);
+	        	cursoActual = tablaCurso.consultar(critCurso).dameObjeto(0);
+					
+	        	expedienteActual.cambiaValor(Constantes.ID_EXPEDIENTECURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+	        	expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ESTADO,cursoActual.dameValor(Constantes.CURSO_ESTADO));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_FIN,cursoActual.dameValor(Constantes.CURSO_FECHA_FIN));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_INICIO,cursoActual.dameValor(Constantes.CURSO_FECHA_INICIO));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISAREA_IDISAREA,cursoActual.dameValor(Constantes.CURSO_ISAREA_IDISAREA));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISPROFESOR_ISUSUARIO_DNI,cursoActual.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOMBRE,cursoActual.dameValor(Constantes.CURSO_NOMBRE));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOTAFINAL,cursoAlumnoFichaNotaActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NUMERO_PLAZAS,cursoActual.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
+				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_PRECIO,cursoActual.dameValor(Constantes.CURSO_PRECIO));
+				expedientesCursos.insertar(expedientesCursos.tamanio(),expedienteActual);
+			}
+			return expedientesCursos;
+		}
+		
+	    catch(Exception e){
+	    	e.printStackTrace();
+	    	return null;
+	    }
+	}
+	//prueba creaExpedienteAlumno(alumno)
+	/*public static void main(String[] args) {
+	BBDDFachada mia = BBDDFachada.getInstance();
+	CreadorBean creador = new CreadorBean();
+	ObjetoBean alumno= creador.crear(creador.Alumno);
+	alumno.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI,"11111111");
+	ListaObjetoBean alumnos=mia.creaExpedienteAlumno(alumno);
+	for(int i=0;i<alumnos.tamanio();i++){
+		System.out.println(alumnos.dameObjeto(i).dameValor(Constantes.EXPEDIENTECURSO_NOMBRE));
+		System.out.println(alumnos.dameObjeto(i).dameValor(Constantes.EXPEDIENTECURSO_NOTAFINAL));
+	}
+	}*/
 
 	//prueba creaExpediente(curso)
 	/*public static void main(String[] args) {
@@ -1337,13 +1405,13 @@ public class BBDDFachada {
 	//usuario.cambiaValor(Constantes.USUARIO_PERFIL,"putilla");
 	System.out.println(mia.numPlazasEnCurso(curso));
 	}*/
-	 /*Prueba de consultarCursosProfesor
-	public static void main(String[] args){
+	 //Prueba de consultarCursosProfesor
+	/*public static void main(String[] args){
 		BBDDFachada mia = BBDDFachada.getInstance();
 		CreadorBean mio= new CreadorBean();
 		ObjetoBean profesor = mio.crear(mio.Profesor);
 		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,"50000000");
-		ListaObjetoBean cursosProfe = mia.consultarCursosProfesor(profesor);
+		ListaObjetoBean cursosProfe = mia.dameCursosProfesor(profesor);
 		System.out.println(cursosProfe.dameObjeto(0).dameValor(Constantes.CURSO_NOMBRE));
 		
 		
