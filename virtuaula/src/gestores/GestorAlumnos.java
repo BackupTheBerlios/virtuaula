@@ -229,7 +229,7 @@ public class GestorAlumnos {
 		{	ObjetoBean us =creador.crear(creador.Usuario);
 			us.cambiaValor(Constantes.ID_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
 			
-			if (!bdf.usuarioYaExiste(us))
+			if (bdf.consultar(Alumno).esVacio())
 			{
 				//generamos la contraeña
 				int pass=this.generaContrasenia();
