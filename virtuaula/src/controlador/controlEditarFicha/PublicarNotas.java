@@ -35,12 +35,13 @@ public class PublicarNotas extends Controlador{
 	
 	if (correcto==true)
 	{
-		ListaObjetoBean lista = GP.consultaCursosActivos(prof);
+		//ListaObjetoBean lista = GP.consultaCursosActivos(prof);
+		ListaObjetoBean lista=GP.dameExpedienteCurso(curso);
 	if (lista!=null)
 	//la consulta se ha realizado con exito
 	{
 		this.setResuladooperacion("OK");
-		this.getSesion().setAttribute("listacurso",lista);
+		this.getSesion().setAttribute("listaexpedientealumno",lista);
 		this.getSesion().removeAttribute("error");
 	}
 	else if (lista==null)

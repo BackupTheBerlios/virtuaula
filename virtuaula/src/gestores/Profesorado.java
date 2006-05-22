@@ -15,7 +15,10 @@ public class Profesorado {
 	public Profesorado() {
 		super();
 	}
-	
+	/**
+	 * Consulta todos los profesores
+	 * @return
+	 */
 	public ListaObjetoBean consultaProfesores() {	
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean cBean = new CreadorBean();
@@ -23,55 +26,99 @@ public class Profesorado {
 		ListaObjetoBean l = bdf.consultar(profesor);
 		return l;
 	}
-	
+	/**
+	 * Consulta todos los profesores que esten libres en un horario
+	 * @param beanHorario
+	 * @return
+	 */
 	public ListaObjetoBean consultaProfesoresPorHorario (ObjetoBean beanHorario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l = bdf.dameProfesoresLibres(beanHorario);	
 		return l;
 	}
-	
+	/**
+	 * Consulta todas las areas
+	 * @return
+	 */
 	public ListaObjetoBean consultaAreas() {
 		GestorAreas ga = new GestorAreas();
 		return ga.consultaAreas();
 	}
+	/**
+	 * Consulta de un area por un objeto bean area
+	 * @param bean
+	 * @return
+	 */
 	public ListaObjetoBean consultaArea(ObjetoBean bean)
 	{
 		GestorAreas ga = new GestorAreas();
 		return ga.consultaArea(bean);
 	}
-	
+	/**
+	 * Consulta un profesor con las caracteristicas de un bean profesor que
+	 * le pasamos por parametro
+	 * @param beanProfesor
+	 * @return
+	 */
 	public ListaObjetoBean consultaProfesor(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l = bdf.consultar(beanProfesor);
 		return l;
 	}
 	
+	/**
+	 * Consulta los cursos de un profesor en concreto
+	 * @param beanProfesor
+	 * @return
+	 */
 	public ListaObjetoBean consultaCursosProfesor(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l = bdf.dameCursosProfesor(beanProfesor);
 		return l;
 	}
-	
+	/**
+	 * Consulta la ficha de un alumno, nos devuelve una ficha
+	 * @param beanAlumno
+	 * @param beanCurso
+	 * @return
+	 */
 	public Ficha consultaFichaDeAlumno(ObjetoBean beanAlumno, ObjetoBean beanCurso) {
 		GestorFichas gf = new GestorFichas();
 		return (Ficha) gf.consultaFichaDeAlumno(beanAlumno, beanCurso);
 	}
-	
+	/**
+	 * Realizamos modificaciones sobre una ficha con las caracteristicas de beanFicha
+	 * @param beanFicha
+	 * @return
+	 */
 	public ListaObjetoBean editarFicha(ObjetoBean beanFicha){
 		GestorFichas gf = new GestorFichas();
 		return gf.editarFicha(beanFicha);
 	}
-	
+	/**
+	 * Nos devueve una lista de los alumnos de un curso que le pasamos por parametro
+	 * @param beanCurso
+	 * @return
+	 */
 	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
 		GestorCursos gc = new GestorCursos();
 		return gc.consultaAlumnosDeCurso(beanCurso);
 	}
-	
+	/**
+	 * Consulta los cursos activos en ese momento
+	 * @param beanProfesor
+	 * @return
+	 */
 	public ListaObjetoBean consultaCursosActivos(ObjetoBean beanProfesor) {
 		GestorCursos gc = new GestorCursos();
 		return gc.consultaCursosActivos(beanProfesor);
 	}
-	
+	/**
+	 * REaliza la publicacion de las notas, borrando las fichas de los alumnos
+	 * y pasando el curso a inactivo
+	 * @param beanCurso
+	 * @return
+	 */
 	public boolean PublicarNota(ObjetoBean beanCurso){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"inactivo");
@@ -79,6 +126,11 @@ public class Profesorado {
 		return bdf.publicarNota(beanCurso);
 	}
 
+	public ListaObjetoBean dameExpedienteCurso(ObjetoBean curso)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.creaExpediente(curso);
+	}
 	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
