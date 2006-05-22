@@ -98,7 +98,23 @@ var i = 0;
                 	            out.println("<option value=''>Seleccione un horario &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
                               for (int i = 0; i < listaHorarios.tamanio(); i++) {
                                   horario = (Horario) listaHorarios.dameObjeto(i);
-                                  out.println("<option value='"+String.valueOf(horario.dameValor("IDISHORARIO"))+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
+                                  out.println("<option value='"+String.valueOf(i)+ "'>"); 
+								  if (!(String.valueOf(horario.dameValor("L"))).equals("null")){
+								  out.println("L" + String.valueOf(horario.dameValor("L")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("M"))).equals("null")){
+								  out.println("M" + String.valueOf(horario.dameValor("M")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("X"))).equals("null")){
+								  out.println("X" + String.valueOf(horario.dameValor("X")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("J"))).equals("null")){
+								  out.println("J" + String.valueOf(horario.dameValor("J")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("V"))).equals("null")){
+								  out.println("V" + String.valueOf(horario.dameValor("V")) );
+								  }
+								  out.println("</option>");
       			                  }
                               out.println("</select>");
                           } else 

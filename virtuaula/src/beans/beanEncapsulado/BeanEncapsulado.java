@@ -52,6 +52,10 @@ public class BeanEncapsulado extends HttpServlet {
 							}
 						}	
 					}
+					else{
+						obj = null;
+						sesion.setAttribute("beanArea",obj);
+					}
 					
 					if (!request.getParameter("ISPROFESOR_ISUSUARIO_DNI").equals("")){
 						String s = request.getParameter("ISPROFESOR_ISUSUARIO_DNI");
@@ -65,6 +69,10 @@ public class BeanEncapsulado extends HttpServlet {
 							}
 						}	
 					}
+					else{
+						obj = null;
+						sesion.setAttribute("beanProfesor",obj);
+					}
 
 					if (!request.getParameter("posAula").equals("")){
 					pos = Integer.parseInt(request.getParameter("posAula"));
@@ -72,12 +80,20 @@ public class BeanEncapsulado extends HttpServlet {
 					obj = lx.dameObjeto(pos);
 					sesion.setAttribute("beanAula",obj);
 					}
+					else{
+						obj = null;
+						sesion.setAttribute("beanAula",obj);
+					}
 					
 					if (!request.getParameter("posHor").equals("")){
 					pos = Integer.parseInt(request.getParameter("posHor"));
 					lx = (ListaObjetoBean) sesion.getAttribute("listahorario");
 					obj = lx.dameObjeto(pos);
 					sesion.setAttribute("beanHorario",obj);
+					}
+					else{
+						obj = null;
+						sesion.setAttribute("beanHorario",obj);
 					}
 					
 					tipo = "Curso";
