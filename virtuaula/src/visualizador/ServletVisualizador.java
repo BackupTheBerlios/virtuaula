@@ -109,13 +109,13 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_DOS","SIG","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","OK","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
+		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","OK","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MATRICULA","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
 		gestorPaginas.agregarPaginas("secretaria","MATRICULA","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
 		
-
+		
 
 		}
 	

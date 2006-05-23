@@ -22,7 +22,8 @@ public class ControladorMatAlum extends ControladorMatricular{
 		CreadorBean creador = new CreadorBean();
 		GestorAlumnos GA = new GestorAlumnos();
 		ListaObjetoBean listacursos = GA.consultaCursosActivos();
-		
+		ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
+		ListaObjetoBean listae = GA.comprobar(alumno);
 		
 		//si no se produce error en la base de datos
 		if (listacursos!=null)
@@ -41,12 +42,22 @@ public class ControladorMatAlum extends ControladorMatricular{
 			//si hay algun curso activo
 			else if (!listacursos.esVacio())
 			{
+				
+				if (!listae.esVacio())
+				{// si los datos no estan bien
+					this.setResuladooperacion("ERROR");
+					this.getSesion().setAttribute("error",listae);
+				}
+				else{
 				this.setResuladooperacion("OK");
 				this.getSesion().removeAttribute("error");
 				this.getSesion().setAttribute("listacurso",listacursos);
+				}	
 			}
+			
 
 		}
+		
 		//si se produce un error en la base de datos.
 		else if (listacursos==null)
 		{
