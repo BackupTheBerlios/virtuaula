@@ -70,7 +70,7 @@
 				        </tr>	                       				
               	<tr>
 					         <td>
-                      <input type="hidden" name="evento" value="menuPrincipalProf">
+                      <input type="hidden" name="evento" value="ListarAlumnosCurso">
                       <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 				        </tr>	                       				
