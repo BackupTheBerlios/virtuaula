@@ -45,6 +45,11 @@ public class GestorPaginas {
 		if (tipoUsuario.equals("publico")) {
 			paginaSig = (String) this.mapPublico.get(operacion.concat(operacionResultado));
 		}
+		
+		if (tipoUsuario.equals("contable")) {
+			paginaSig = (String) this.mapPublico.get(operacion.concat(operacionResultado));
+		}
+		
 		return paginaSig;
 		
 	}
@@ -70,6 +75,10 @@ public class GestorPaginas {
 		}
 		
 		if (tipoUsuario.equals("publico")) {
+			this.mapPublico.put(operacion.concat(operacionResultado), paginaSig);
+		}
+		
+		if (tipoUsuario.equals("contable")) {
 			this.mapPublico.put(operacion.concat(operacionResultado), paginaSig);
 		}
 	}

@@ -72,6 +72,18 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("profesor","LOGAR","SIG","/virtuaula/pages/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","menuPrincipalProf","SIG","/virtuaula/pages/profesor/index.jsp");
 		gestorPaginas.agregarPaginas("profesor","desconectar","SIG","/virtuaula/index.jsp");
+		
+		//sesion contable
+		gestorPaginas.agregarPaginas("contable","LOGAR","SIG","/virtuaula/pages/contable/index.jsp");
+		gestorPaginas.agregarPaginas("contable","menuPrincipalCont","SIG","/virtuaula/pages/contable/index.jsp");
+		gestorPaginas.agregarPaginas("contable","desconectar","SIG","/virtuaula/index.jsp");
+		
+		//contable consulta nominas
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","SIG","/virtuaula/pages/contable/nomina/verNominas.jsp");
+		
+		//contable consulta contratos
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","SIG","/virtuaula/pages/contable/contrato/verContratos.jsp");
+		
 		//profesor consulta avisos
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
