@@ -11,6 +11,7 @@ public class GestorPaginas {
 	private HashMap mapSecretaria;
 	private HashMap mapProfesor;
 	private HashMap mapPublico;
+	private HashMap mapContable;
 	
 	/**
 	 * Inicializa los atributos de la clase
@@ -20,6 +21,7 @@ public class GestorPaginas {
 		mapSecretaria = new HashMap ();
 		mapProfesor = new HashMap ();
 		mapPublico = new HashMap ();
+		mapContable = new HashMap ();
 	}
 	
 	
@@ -47,7 +49,7 @@ public class GestorPaginas {
 		}
 		
 		if (tipoUsuario.equals("contable")) {
-			paginaSig = (String) this.mapPublico.get(operacion.concat(operacionResultado));
+			paginaSig = (String) this.mapContable.get(operacion.concat(operacionResultado));
 		}
 		
 		return paginaSig;
@@ -79,7 +81,7 @@ public class GestorPaginas {
 		}
 		
 		if (tipoUsuario.equals("contable")) {
-			this.mapPublico.put(operacion.concat(operacionResultado), paginaSig);
+			this.mapContable.put(operacion.concat(operacionResultado), paginaSig);
 		}
 	}
 }
