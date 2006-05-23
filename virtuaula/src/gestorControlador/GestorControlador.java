@@ -38,13 +38,16 @@ public class GestorControlador {
 			GestorControladorProfesor gestorContProf = new GestorControladorProfesor();
 			GestorControladorPublico gestorContPublico = new GestorControladorPublico();
 			GestorControladorContable gestorContContable = new GestorControladorContable();
+			GestorControladorAlumnos gestorContAlumno = new GestorControladorAlumnos();
 			gestorContSec.inicializa();
 			gestorContProf.inicializa();
 			gestorContContable.inicializa();
+			gestorContAlumno.inicializa();
 			tablaUsuarioGestor.put("secretaria",gestorContSec);
 			tablaUsuarioGestor.put("profesor",gestorContProf);
 			tablaUsuarioGestor.put("publico",gestorContPublico);
 			tablaUsuarioGestor.put("contable",gestorContContable);
+			tablaUsuarioGestor.put("alumno",gestorContAlumno);
 		}
 		public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 			Controlador controladorResultado;	
