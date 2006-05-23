@@ -100,6 +100,25 @@ public class GestorAlumnos {
 			l.insertar(i, error);
 			i++;
 		}
+//		Compruebo que el DNI sea un numero valido
+		try {
+			int numerico = Integer.parseInt(bean
+					.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+			if (numerico < 0) {
+				mensaje = "El campo DNI tiene un valor incorrecto";
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				l.insertar(i, error);
+				i++;
+			}
+		} catch (Exception e) {
+			// No es número
+			mensaje = "El campo DNI debe ser numérico";
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			l.insertar(i, error);
+			i++;
+		}
 		//Compruebo que el Nombre no se haya dejado vacío
 		if (bean.dameValor(Constantes.ALUMNO_NOMBRE).equals("")) {
 			mensaje = "El campo Nombre no ha sido rellenado,por favor introduzca uno";
@@ -132,35 +151,7 @@ public class GestorAlumnos {
 			l.insertar(i, error);
 			i++;
 		}
-		//compruebo que el campo email no se deja sin rellenar
-		if (bean.dameValor(Constantes.ALUMNO_EMAIL).equals("")) {
-			mensaje = "El campo Email no ha sido rellenado,por favor introduzca uno";
-			ObjetoBean error = cBean.crear(cBean.Error);
-			error.cambiaValor(Constantes.CAUSA, mensaje);
-			l.insertar(i, error);
-			i++;
-		}
-		//Compruebo que el DNI sea un numero valido
-		try {
-			int numerico = Integer.parseInt(bean
-					.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
-			if (numerico < 0) {
-				mensaje = "El campo DNI tiene un valor incorrecto";
-				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
-				error.cambiaValor("CAUSA_ERROR", mensaje);
-				l.insertar(i, error);
-				i++;
-			}
-		} catch (Exception e) {
-			// No es número
-			mensaje = "El campo DNI debe ser numérico";
-			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
-			error.cambiaValor("CAUSA_ERROR", mensaje);
-			l.insertar(i, error);
-			i++;
-		}
-		
-		//Compruebo que el telefono sea un numero valido
+//		Compruebo que el telefono sea un numero valido
 		try {
 			int numerico = Integer.parseInt(bean
 					.dameValor(Constantes.ALUMNO_TELEFONO));
@@ -179,6 +170,17 @@ public class GestorAlumnos {
 			l.insertar(i, error);
 			i++;
 		}
+		//compruebo que el campo email no se deja sin rellenar
+		if (bean.dameValor(Constantes.ALUMNO_EMAIL).equals("")) {
+			mensaje = "El campo Email no ha sido rellenado,por favor introduzca uno";
+			ObjetoBean error = cBean.crear(cBean.Error);
+			error.cambiaValor(Constantes.CAUSA, mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		
+		
+		
 		
 		
 		
