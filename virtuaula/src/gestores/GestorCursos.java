@@ -236,8 +236,9 @@ public class GestorCursos {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		
 		//beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI)
-		
-		ListaObjetoBean listaAula = bdf.dameAulasLibres(beanHorario);
+		GestorAulas gestoraulas = new GestorAulas();
+		ListaObjetoBean listaAula = gestoraulas.consultaAulasPorHorario(beanHorario);
+		//bdf.dameAulasLibres(beanHorario);
 		boolean aulLibre = false; 
 		Aula aul = null;
 		String s = beanAula.dameValor(Constantes.ID_ISAULA);
@@ -247,7 +248,9 @@ public class GestorCursos {
 				aulLibre = true;
 			}
 		}
-		ListaObjetoBean listaProfesor = bdf.dameProfesoresLibres(beanHorario);		
+		Profesorado profesorado=new Profesorado();
+		ListaObjetoBean listaProfesor = profesorado.consultaProfesoresPorHorario(beanHorario);
+		//bdf.dameProfesoresLibres(beanHorario);		
 		boolean profLibre = false; 
 		Profesor p = null;
 		s = beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI);
@@ -295,8 +298,9 @@ public class GestorCursos {
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 				aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
-				
-				if(!bdf.insertar(aviso)){
+				GestorAvisos gestorAvisos= new GestorAvisos();
+				if(!gestorAvisos.insertarAviso(aviso)){
+					//!bdf.insertar(aviso)
 					String mensaje = "Error de Base de Datos al crear Aviso";
 					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -307,7 +311,8 @@ public class GestorCursos {
 				Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) cBean.crear(cBean.AvisosHasUario);
 				//Relleanr bean
 				aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
-				ListaObjetoBean l3 = bdf.consultar(aviso);
+				ListaObjetoBean l3 = gestorAvisos.consultarAvisos(aviso);
+				//bdf.consultar(aviso)
 				Avisos a  = (Avisos) l3.dameObjeto(0);				
 				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,a.dameValor(Constantes.ID_ISAVISOS));
 				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,beanCurso.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));

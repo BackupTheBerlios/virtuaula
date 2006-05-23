@@ -39,6 +39,11 @@ public class GestorAvisos {
 		return bdf.editar(aviso);
 		
 	}
+	public boolean insertarAviso(ObjetoBean aviso)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.insertar(aviso);
+	};
 	
 	public ListaObjetoBean alumnoSinPass(ObjetoBean Alumno,ObjetoBean Curso)
 	{	
