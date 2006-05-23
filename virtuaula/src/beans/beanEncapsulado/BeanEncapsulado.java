@@ -34,8 +34,6 @@ public class BeanEncapsulado extends HttpServlet {
 				HttpSession sesion = request.getSession(true);
 				boolean lista = false;
 				if (tipo.equals("consultaCurso")) {
-					
-										
 					ListaObjetoBean lx= null;
 					ObjetoBean obj = null;
 					int pos;
@@ -99,6 +97,27 @@ public class BeanEncapsulado extends HttpServlet {
 					tipo = "Curso";
 					lista = false;
 				}
+				
+				if (tipo.equals("insertarProfesor")){
+					RequestContextFactory test = new RequestContextFactory();					
+					
+					//rellenar bean nomina
+					ObjetoBean result = test.createRequestContext(request,"Nomina");
+					String nombreAtributo = "beanNomina";					
+					sesion.setAttribute(nombreAtributo, result);				
+					
+					//rellenar bean profesor
+					result = test.createRequestContext(request,"Profesor");
+					nombreAtributo = "beanProfesor";					
+					sesion.setAttribute(nombreAtributo, result);
+					
+					//rellenar bean contrato
+					result = test.createRequestContext(request,"Contrato");
+					nombreAtributo = "beanContrato";					
+					sesion.setAttribute(nombreAtributo, result);
+					lista = false;
+				}
+				
 				if (tipo.equals("listProf")) {
 					int pos = Integer.parseInt(request.getParameter("posProf"));
 					sesion.setAttribute("posProf", new Integer(pos));
@@ -137,7 +156,7 @@ public class BeanEncapsulado extends HttpServlet {
 				}
 				if (!lista){
 					RequestContextFactory test = new RequestContextFactory();
-					ObjetoBean result = test.createRequestContext(request);
+					ObjetoBean result = test.createRequestContext(request,tipo);
 					String nombreAtributo = "bean" + tipo;					
 					sesion.setAttribute(nombreAtributo, result);
 					

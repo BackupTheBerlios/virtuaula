@@ -6,13 +6,9 @@ import beans.ObjetoBean;
 // Context Object Factory
 public class RequestContextFactory {
 
-	public ObjetoBean createRequestContext(HttpServletRequest request){
+	public ObjetoBean createRequestContext(HttpServletRequest request, String tipo){
 		ObjetoBean requestContext = null;
 		try{
-			String tipo = request.getParameter("idBean");
-			if (tipo.equals("consultaCurso")){
-				tipo = "Curso";
-			}
 			HashBeanEncapsulado hbe = new HashBeanEncapsulado();
 			requestContext = hbe.dameBean(tipo);
 			AutoPopulateRequestContext.populateBean(requestContext,request);
