@@ -131,7 +131,11 @@ public class Profesorado {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.creaExpediente(curso);
 	}
-	
+	/**
+	 * Comprueba que los datos del profesor sean correctos para insertarlo
+	 * @param bean
+	 * @return
+	 */
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();
@@ -152,6 +156,38 @@ public class Profesorado {
 		//El área no debe ser un campo vacío
 		else if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("")){
 			mensaje = "El campo Area no ha sido rellenado";
+			Error error = (Error) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+//		El nombre no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_NOMBRE).equals("")){
+			mensaje = "El campo Nombre no ha sido rellenado";
+			Error error = (Error) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+//		El apellido no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO1).equals("")){
+			mensaje = "El campo Apellido1 no ha sido rellenado";
+			Error error = (Error) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+//		El apellido no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
+			mensaje = "El campo Apellido2 no ha sido rellenado";
+			Error error = (Error) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+//		El tipo de la nomina no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
+			mensaje = "El campo Apellido2 no ha sido rellenado";
 			Error error = (Error) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);

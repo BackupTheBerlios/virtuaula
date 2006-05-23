@@ -185,6 +185,17 @@ public class GestorAlumnos {
 		return l;
 	}
 	/**
+	 * Me devuelve una lista de beans del tipo beanexpedienteAlumno
+	 * @param alumno
+	 * @return
+	 */
+	public ListaObjetoBean creaExpedienteAlumno(ObjetoBean alumno)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.creaExpedienteAlumno(alumno);
+		
+	}
+	/**
 	 * genere una contraseña aleatoria
 	 * @return
 	 */
