@@ -51,13 +51,17 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:45px; z-index:-1;">
-    	  			<div class="botonesSubMenu">
-    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-              <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
-     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
-    		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
+    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">
+    	  			    <div class="botonesSubMenu">
+    	  			        <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+                      <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
+     					        <a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
+    		          </div>
+    				</form>
+    		          
+    		<div style="position:relative; top:4px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -71,7 +75,7 @@
             if (alumno == null) {alumno = new Alumno ();}
         %>
     		
-    		<div style="position:relative; top:55px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -143,7 +147,25 @@
         					<td class="FormLiteral">Fecha Finalización</td>
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
                   </td>
-        				</tr>                        				
+        				</tr>   
+
+
+            	 <%
+                    HttpSession sesion=request.getSession();
+                    Usuario usuario = (Usuario) sesion.getAttribute("usuario");
+                    if (usuario != null) {
+                      out.println("<tr>");
+                      out.println("<td class='info'><b>Usuario</td>");
+                      out.println("<td><input type='text' class='FormTxt' disabled='true' maxlength='9' name='DNI' value='"+usuario.dameValor("DNI")+"'></td>");
+                      out.println("<td></td>");
+                      out.println("<td class='info'><b>Pass</td>");
+                      out.println("<td><input type='text' class='FormTxt' disabled='true' maxlength='20' name='CONTRASENIA' value='"+usuario.dameValor("CONTRASENIA")+"'></td>");
+                      out.println("</td>");
+                      out.println("</tr>");
+                    }
+                                                           
+                %>
+                                                     				
               	<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="">
@@ -166,13 +188,14 @@
                           Error error = (Error) lista.dameObjeto(i);
                   
                           out.println("<tr class='error'>");            
-                          out.println(""+error.dameValor("CAUSA_ERROR")+"");
+                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
+                                  error.dameValor("CAUSA_ERROR");
                           out.println("     </td>");
                           out.println("</tr>");                                                
                         }
                         out.println("</table>");
                     }
-              %>         			
+              %>        			
           </form>
     		</div>
 	  </div>	  	  

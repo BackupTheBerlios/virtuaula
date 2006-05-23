@@ -52,21 +52,24 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:45px; z-index:-1;">
-    	  			<div class="botonesSubMenu">
-    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-              <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
-     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
-    		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
-    	
+    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">    		  
+    	  			    <div class="botonesSubMenu">
+    	  			        <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+                      <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
+     					        <a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
+    		          </div>
+    				</form>
+    		          
+    		<div style="position:relative; top:4px; z-index:-1;">    	
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:55px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -126,10 +129,8 @@ Se rellena posteriormente
               <%
               
                   HttpSession sesion2=request.getSession();
-                
                   ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");
-                 
-                 
+               
                   if (lista != null) 
                   {
                       out.println("<table>");
@@ -140,13 +141,13 @@ Se rellena posteriormente
                   
                           out.println("<tr class='error'>");            
                           out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
-                          out.println(""+error.dameValor("CAUSA_ERROR")+"");
+                                  error.dameValor("CAUSA_ERROR");
                           out.println("     </td>");
                           out.println("</tr>");                                                
                         }
                         out.println("</table>");
                     }
-              %>         			
+              %>      			
           </form>
     		</div>
 	  </div>	  	  
