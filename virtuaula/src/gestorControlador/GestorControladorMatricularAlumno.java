@@ -20,8 +20,8 @@ public class GestorControladorMatricularAlumno extends GestorControladorSecretar
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorMatAlum());
-		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",new ControladorMatAlum());
 		GestorControlador.tablaOperacionControlador.put("MATRICULA",new ControladorMatricula());
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_CUR",new ControladorMatAlumCur());
 		
