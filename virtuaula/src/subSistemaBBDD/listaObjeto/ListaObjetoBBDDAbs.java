@@ -30,4 +30,14 @@ abstract public class ListaObjetoBBDDAbs {
 	 * @param pos posición del objeto a eliminar
 	 */
 	abstract public void eliminar(int pos);
+	/**
+	 * Devuelve una copia de la ListaObjetoBBDD al que se le envia el mensaje Patrón Prototype
+	 * @return copia
+	 */
+	abstract public ListaObjetoBBDD clonar();
+	/**
+	 * Devuelve el número de elementos de la lista
+	 * @return numero de elementos en la lista
+	 */
+	abstract public int tamanio();
 }
