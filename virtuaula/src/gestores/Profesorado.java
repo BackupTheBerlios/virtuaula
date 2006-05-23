@@ -132,11 +132,11 @@ public class Profesorado {
 		return bdf.creaExpediente(curso);
 	}
 	/**
-	 * Comprueba que los datos del profesor sean correctos para insertarlo
+	 * Comprueba que los datos del profesor,de su nomina y su contraro sean correctos para insertarlo
 	 * @param bean
 	 * @return
 	 */
-	private ListaObjetoBean comprobar(ObjetoBean bean) {
+	private ListaObjetoBean comprobar(ObjetoBean bean, ObjetoBean nomina,ObjetoBean contrato) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();
 		ListaObjetoBean listaerror = c.crear();
@@ -148,7 +148,7 @@ public class Profesorado {
 		//El DNI no debe ser un campo vacío
 		if (bean.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI).equals("")){
 			mensaje = "El campo DNI no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
@@ -156,7 +156,7 @@ public class Profesorado {
 		//El área no debe ser un campo vacío
 		else if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("")){
 			mensaje = "El campo Area no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
@@ -164,7 +164,7 @@ public class Profesorado {
 //		El nombre no debe ser un campo vacío
 		else if (bean.dameValor(Constantes.PROFESOR_NOMBRE).equals("")){
 			mensaje = "El campo Nombre no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
@@ -172,7 +172,7 @@ public class Profesorado {
 //		El apellido no debe ser un campo vacío
 		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO1).equals("")){
 			mensaje = "El campo Apellido1 no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
@@ -180,19 +180,84 @@ public class Profesorado {
 //		El apellido no debe ser un campo vacío
 		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
 			mensaje = "El campo Apellido2 no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
 		}
-//		El tipo de la nomina no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
-			mensaje = "El campo Apellido2 no ha sido rellenado";
-			Error error = (Error) cBean.crear(14);
+
+//		El  tipo del contrato no puede ser vacio
+		else if (contrato.dameValor(Constantes.CONTRATO_TIPO).equals("")){
+			mensaje = "El campo tipo de contrato no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
 		}
+//		La cuenta de ingresos de la nomina no puede ser vacio
+		else if (nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
+			mensaje = "El campo cuenta de ingresos no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+		//La cuenta de ingresos debe ser un numero
+		else if (!nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
+		  try {
+			int telf = Integer.parseInt(bean.dameValor(Constantes.NOMINA_CUENTA_INGRESOS));
+			if (telf < 0) {
+				mensaje = "El campo cuenta tiene un valor incorrecto. Debe ser" +
+						  "numerica";
+				ObjetoBean error = (ObjetoBean) cBean.crear(14);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				listaerror.insertar(i, error);
+				i++;
+			}
+		  } 
+		  catch (Exception e) {
+			// No es número
+			mensaje = "El campo cuenta tiene un valor incorrecto. Debe ser " +
+					  "numerica";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		  }
+		}
+		
+//		El sueldo de la nomina no puede ser vacio
+		else if (nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
+			mensaje = "El campo cantidad de ingresos no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+//		La cantidad de ingresos debe ser un numero
+		else if (!nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
+		  try {
+			int telf = Integer.parseInt(bean.dameValor(Constantes.NOMINA_CANTIDAD));
+			if (telf < 0) {
+				mensaje = "El campo cantidad de ingresos tiene un valor incorrecto. Debe ser" +
+						  "numerico";
+				ObjetoBean error = (ObjetoBean) cBean.crear(14);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				listaerror.insertar(i, error);
+				i++;
+			}
+		  } 
+		  catch (Exception e) {
+			// No es número
+			mensaje = "El campo cantidad de ingresos tiene un valor incorrecto. Debe ser " +
+					  "numerico";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		  }
+		}
+		
 		//El telefono debe ser un entero mayor que 0
 		else if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
 		  try {
@@ -200,7 +265,7 @@ public class Profesorado {
 			if (telf < 0) {
 				mensaje = "El campo Telefono tiene un valor incorrecto. Debe ser un" +
 						  "entero mayor que 0";
-				Error error = (Error) cBean.crear(14);
+				ObjetoBean error = (ObjetoBean) cBean.crear(14);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				listaerror.insertar(i, error);
 				i++;
@@ -210,7 +275,7 @@ public class Profesorado {
 			// No es número
 			mensaje = "El campo Telefono tiene un valor incorrecto. Debe ser un" +
 					  "entero mayor que 0";
-			Error error = (Error) cBean.crear(14);
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			listaerror.insertar(i, error);
 			i++;
@@ -218,4 +283,10 @@ public class Profesorado {
 		}
 		return listaerror;
 	}
+	public ListaObjetoBean contratarProfesor(ObjetoBean profesor,ObjetoBean usuario,ObjetoBean nomina,ObjetoBean contrato)
+	{
+		return null;
+	}
 }
+
+
