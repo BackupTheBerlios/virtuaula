@@ -88,7 +88,12 @@
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO1"))+"</td>");	
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO2"))+"</td>");	
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");	
+    	                  if ((String.valueOf(expediente.dameValor("NOTAFINAL"))).equals("-1")){
+    	                  	out.println("<td class='FormLiteral' align='center'>No presentado</td>");	
+    	                  }
+    	                  else{
+    	                  	out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");	
+    	                  }
     	                  out.println("</tr>");
                       }
                       }
