@@ -1,4 +1,6 @@
-package gestorControlador;
+package gestorControlador.gestorControladorContable;
+
+import gestorControlador.GestorControlador;
 
 import java.util.Hashtable;
 

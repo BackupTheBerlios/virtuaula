@@ -1,4 +1,6 @@
-package gestorControlador;
+package gestorControlador.gestorControladorPublico;
+
+import gestorControlador.GestorControlador;
 
 import java.util.Hashtable;
 import javax.servlet.http.HttpSession;

@@ -2,6 +2,12 @@ package gestorControlador;
 import controlador.Controlador;
 import controlador.controlPasaPag.ControladorPasaPag;
 
+import gestorControlador.gestorControladorAlumnos.GestorControladorAlumnos;
+import gestorControlador.gestorControladorContable.GestorControladorContable;
+import gestorControlador.gestorControladorProfesor.GestorControladorProfesor;
+import gestorControlador.gestorControladorPublico.GestorControladorPublico;
+import gestorControlador.gestorControladorSecretaria.GestorControladorSecretaria;
+
 import javax.servlet.http.*;
 import java.util.Hashtable;
 /**

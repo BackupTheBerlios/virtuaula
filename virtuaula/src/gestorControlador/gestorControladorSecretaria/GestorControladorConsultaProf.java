@@ -1,6 +1,7 @@
-package gestorControlador;
+package gestorControlador.gestorControladorSecretaria;
 
 
+import gestorControlador.GestorControlador;
 import controlador.Controlador;
 import controlador.controlConsulProf.Cons_Prof;
 import controlador.controlConsulProf.ControladorProfAreas;

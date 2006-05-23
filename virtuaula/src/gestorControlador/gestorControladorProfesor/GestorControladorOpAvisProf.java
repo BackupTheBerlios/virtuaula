@@ -1,4 +1,6 @@
-package gestorControlador;
+package gestorControlador.gestorControladorProfesor;
+
+import gestorControlador.GestorControlador;
 
 import javax.servlet.http.HttpSession;
 
