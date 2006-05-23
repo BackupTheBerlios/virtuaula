@@ -82,14 +82,14 @@
                     ObjetoBean alumno;	
                   	for(int i=0;i<listaObjetoBean.tamanio();i++){
                   	expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
-                  	alumno = (ObjetoBean) listaObjetoBean.dameObjeto(i);
+                  	alumno = (ObjetoBean) listaObjetoBean2.dameObjeto(i);
                   	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
                   	%> <tr bgcolor="#dbecff">
     	                  <%
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO1"))+"</td>");	
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO2"))+"</td>");	
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO1"))+"</td>");	
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO2"))+"</td>");	
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");	
     	                  out.println("</tr>");
                       }
