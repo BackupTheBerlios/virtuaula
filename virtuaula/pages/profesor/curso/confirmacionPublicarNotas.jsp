@@ -1,3 +1,6 @@
+<%@ page import="beans.*" %>
+<%@ page import="beans.listaObjetoBeans.*" %>
+<%@ page import="beans.beanExpedienteCurso" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -62,13 +65,40 @@
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
-              	<tr>
-					         <td class="info">
-					           Notas publicadas correctamente
-					         </td>
-				        </tr>	                       				
-              	<tr>
+              			  <B>NOTAS PUBLICADAS</B><BR>
+              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
+        				<tr bgcolor="#877fff">        					
+        					<th class="FormLiteral"><b>DNI</th>	
+        					<th class="FormLiteral"><b>Nombre</th>
+        					<th class="FormLiteral"><b>Primer Aplellido</th>
+        					<th class="FormLiteral"><b>Segundo Apellido</th>
+        					<th class="FormLiteral"><b>Nota Final</th>	
+        				</tr>	
+        			<%
+                    HttpSession sesion=request.getSession();
+                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaexpedientealumno"));
+                    ListaObjetoBean listaObjetoBean2 =((ListaObjetoBean)sesion.getAttribute("listaapellidosalumno"));
+                    ObjetoBean expediente;	
+                    ObjetoBean alumno;	
+                  	for(int i=0;i<listaObjetoBean.tamanio();i++){
+                  	expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
+                  	alumno = (ObjetoBean) listaObjetoBean.dameObjeto(i);
+                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+                  	%> <tr bgcolor="#dbecff">
+    	                  <%
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO1"))+"</td>");	
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("APELLIDO2"))+"</td>");	
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");	
+    	                  out.println("</tr>");
+                      }
+                      }
+                %>  
+                </table>
+                <BR><BR>
+              <table border="0" align="center" cellspacing="0" cellpadding="5">                 	                      				                      				
+              	<tr >
 					         <td>
                       <input type="hidden" name="evento" value="menuPrincipalProf">
                       <button type="submit" class="botonSimple">Aceptar</button>
