@@ -24,7 +24,7 @@ public class ControladorMatricula extends ControladorMatricular{
 		
 		ListaObjetoBean listaerror=GA.marticularAlumno(alumno,curso,usuario);
 		//si los datos introducidos son correctos
-		if (listaerror==null)
+		if (listaerror.esVacio())
 		{
 			
 			this.setResuladooperacion("OK");
@@ -35,7 +35,7 @@ public class ControladorMatricula extends ControladorMatricular{
 			this.getSesion().removeAttribute("error");
 		}
 		//si los datos introducidos no son correctos
-		else if (listaerror!=null)
+		else if (!listaerror.esVacio())
 		{
 			this.setResuladooperacion("ERROR");
 			this.getSesion().setAttribute("error",listaerror);
