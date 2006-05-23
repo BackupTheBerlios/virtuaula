@@ -151,7 +151,7 @@
 
 
             	 <%
-                    HttpSession sesion=request.getSession();
+                    
                     Usuario usuario = (Usuario) sesion.getAttribute("usuario");
                     if (usuario != null) {
                       out.println("<tr>");
