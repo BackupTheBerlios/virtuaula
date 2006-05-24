@@ -69,23 +69,30 @@
     		         </tr>
     			 </table>
     		</div>
+    		  <%
+            HttpSession sesion=request.getSession();
+            Curso curso = (Curso) sesion.getAttribute("beanCurso");
+            if (curso == null) {curso = new Curso ();
+            					curso.cambiaValor("PRECIO","0");
+            					}
+        	%>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="insertarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE"></td>
+        					<td><input type="text" class="FormTxt" maxlength="50" name="NOMBRE" value="<%=curso.dameValor("NOMBRE")%>"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" name="PRECIO" value="0"></td>
+        					<td><input type="text" class="FormTxt" name="PRECIO" value="<%=curso.dameValor("PRECIO")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Fecha inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('insertarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO" value="<%=curso.dameValor("FECHA_INICIO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('insertarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
                   </td>
         					<td></td>
         					<td class="FormLiteral">Fecha finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" value="<%=curso.dameValor("FECHA_FIN")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
                 <tr>
