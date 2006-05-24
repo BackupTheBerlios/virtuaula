@@ -8,6 +8,7 @@ public class ControladorIniInsCur extends Controlador{
 		
 		this.setResuladooperacion("SIG");
 		this.getSesion().removeAttribute("error");
+		this.getSesion().removeAttribute("beanCurso");
 	}
 
 	public Controlador clonar() {
