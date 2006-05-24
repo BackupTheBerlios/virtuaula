@@ -9,11 +9,11 @@ import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
 
-import controlador.controlEditarFicha.ActualizarFichaAlumno;
-import controlador.controlEditarFicha.ControladorMostrarCursoProf;
-import controlador.controlEditarFicha.FichaAlumnoProf;
-import controlador.controlEditarFicha.ListarAlumnosCurso;
-import controlador.controlEditarFicha.PublicarNotas;
+import controlador.ControladorProfesor.controlEditarFicha.ActualizarFichaAlumno;
+import controlador.ControladorProfesor.controlEditarFicha.ControladorMostrarCursoProf;
+import controlador.ControladorProfesor.controlEditarFicha.FichaAlumnoProf;
+import controlador.ControladorProfesor.controlEditarFicha.ListarAlumnosCurso;
+import controlador.ControladorProfesor.controlEditarFicha.PublicarNotas;
 /**
  * 
  * @author Fco Javier Pérez Escrivá Alberto Macho

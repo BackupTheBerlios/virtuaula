@@ -5,9 +5,9 @@ import gestorControlador.GestorControlador;
 import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
-import controlador.controlMatricular.ControladorMatAlum;
-import controlador.controlMatricular.ControladorMatricula;
-import controlador.controlMatricular.ControladorMatAlumCur;
+import controlador.ControladorSecretaria.controlMatricular.ControladorMatAlum;
+import controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
+import controlador.ControladorSecretaria.controlMatricular.ControladorMatricula;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 

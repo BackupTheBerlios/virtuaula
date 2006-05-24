@@ -6,11 +6,11 @@ import gestorControlador.GestorControlador;
 
 import javax.servlet.http.HttpSession;
 import controlador.Controlador;
-import controlador.controlInsCur.ControladorInsCurArea;
-import controlador.controlInsCur.ControladorInsCurAula;
-import controlador.controlInsCur.ControladorInsCurHor;
-import controlador.controlInsCur.ControladorInsCurProf;
-import controlador.controlInsCur.ControladorInsertaCurso;
+import controlador.ControladorSecretaria.controlInsCur.ControladorInsCurArea;
+import controlador.ControladorSecretaria.controlInsCur.ControladorInsCurAula;
+import controlador.ControladorSecretaria.controlInsCur.ControladorInsCurHor;
+import controlador.ControladorSecretaria.controlInsCur.ControladorInsCurProf;
+import controlador.ControladorSecretaria.controlInsCur.ControladorInsertaCurso;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 

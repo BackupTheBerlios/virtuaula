@@ -5,8 +5,8 @@ import gestorControlador.GestorControlador;
 import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
-import controlador.controlConsulEliAvisoProf.BorraAviso;
-import controlador.controlConsulEliAvisoProf.ControladorOp_Avis_Prof;
+import controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
+import controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis_Prof;
 import controlador.controlPasaPag.ControladorPasaPag;
 /**
  * 

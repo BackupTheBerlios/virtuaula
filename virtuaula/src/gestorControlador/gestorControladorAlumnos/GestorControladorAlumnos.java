@@ -7,10 +7,10 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 
 import controlador.Controlador;
+import controlador.ControladorAlumnos.controlConsultaExpAlum.ControladorConExpAlum;
+import controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
+import controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis_Prof;
 import controlador.controlConexiones.ControladorDesconectar;
-import controlador.controlConsulEliAvisoProf.BorraAviso;
-import controlador.controlConsulEliAvisoProf.ControladorOp_Avis_Prof;
-import controlador.controlConsultaExpAlum.ControladorConExpAlum;
 import controlador.controlPasaPag.ControladorPasaPag;
 
 /**

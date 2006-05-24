@@ -6,10 +6,10 @@ import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
 import controlador.Controlador;
+import controlador.ControladorSecretaria.controlConsulProf.ControladorMostrarProf;
+import controlador.ControladorSecretaria.controlInsCur.ControladorIniInsCur;
 import controlador.controlConexiones.ControladorDesconectar;
 import controlador.controlPasaPag.ControladorPasaPag;
-import controlador.controlConsulProf.ControladorMostrarProf;
-import controlador.controlInsCur.ControladorIniInsCur;
 /**
  * 
  * @author Fco Javier Pérez Escrivá

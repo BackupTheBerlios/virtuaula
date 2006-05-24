@@ -3,8 +3,8 @@ package gestorControlador.gestorControladorSecretaria;
 
 import gestorControlador.GestorControlador;
 import controlador.Controlador;
-import controlador.controlConsulProf.Cons_Prof;
-import controlador.controlConsulProf.ControladorProfAreas;
+import controlador.ControladorSecretaria.controlConsulProf.Cons_Prof;
+import controlador.ControladorSecretaria.controlConsulProf.ControladorProfAreas;
 
 import javax.servlet.http.HttpSession;
 /**
