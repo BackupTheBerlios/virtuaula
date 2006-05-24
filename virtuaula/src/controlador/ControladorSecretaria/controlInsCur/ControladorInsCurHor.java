@@ -42,11 +42,21 @@ public class ControladorInsCurHor extends Controlador{
 			
 			else if(!(listaHor.esVacio()))
 			{
+			ObjetoBean curso=(ObjetoBean)this.getSesion().getAttribute("beanCurso");
+			ListaObjetoBean listae=GC.comprobarParcial(curso);
+			if (listae.esVacio())
+			{
 			this.setResuladooperacion("OK");
 			this.getSesion().setAttribute("listahorario",listaHor);
 			//borro los posibles errores que se hayan generado antes para que no los muestre
 			//en la pagina siguiente, ya que estos se habran resuelto ya.
 			this.getSesion().removeAttribute("error");
+			}
+			else //hay errores en los datos del curso
+			{
+				this.setResuladooperacion("ERROR");
+				this.getSesion().setAttribute("error",listae);
+			}
 			}
 		}
 		

@@ -82,6 +82,100 @@ public class GestorCursos {
 		GestorAreas ga = new GestorAreas();
 		return ga.consultaAreas();
 	}
+	/**
+	 * comprueba los datos basicos del curso
+	 * @param bean
+	 * @return
+	 */
+	public ListaObjetoBean comprobarParcial(ObjetoBean bean)
+	{
+		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
+		CreadorBean cBean = new CreadorBean();
+		ListaObjetoBean l = c.crear();
+		String mensaje = "";
+		int i = 0;
+
+		// comprobar que los campos obligatorios tienen datos
+
+		if (bean.dameValor(Constantes.CURSO_NOMBRE).equals("")) {
+			mensaje = "El campo nombre no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		if (bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
+			bean.cambiaValor(Constantes.CURSO_PRECIO,"0");
+			//mensaje = "El campo precio no ha sido rellenado";
+			//ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			//error.cambiaValor("CAUSA_ERROR", mensaje);
+			//l.insertar(i, error);
+			//i++;
+		}
+		if (!bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
+			try {
+				float numerico = Float.parseFloat(bean
+						.dameValor(Constantes.CURSO_PRECIO));
+				if (numerico < 0) {
+					mensaje = "El campo precio tiene un valor incorrecto";
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+					error.cambiaValor("CAUSA_ERROR", mensaje);
+					l.insertar(i, error);
+					i++;
+				}
+			} catch (Exception e) {
+				// No es número
+				mensaje = "El campo precio debe ser numérico";
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				l.insertar(i, error);
+				i++;
+			}
+		}
+		
+
+		int dia1 = 0;
+		int dia2 = 0;
+		int mes1 = 0;
+		int mes2 = 0;
+		int annio1 = 0;
+		int annio2 = 0;
+		
+		if ((!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals("")) && (!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals(""))) {
+		boolean fechasValidas = false;
+		String fechaFin = bean.dameValor(Constantes.CURSO_FECHA_FIN);
+		String fechaInicio = bean.dameValor(Constantes.CURSO_FECHA_INICIO);
+		dia1 = Integer.parseInt(fechaInicio.substring(0, 2));
+		mes1 = Integer.parseInt(fechaInicio.substring(3, 5));
+		annio1 = Integer.parseInt(fechaInicio.substring(6, 10));
+		dia2 = Integer.parseInt(fechaFin.substring(0, 2));
+		mes2 = Integer.parseInt(fechaFin.substring(3, 5));
+		annio2 = Integer.parseInt(fechaFin.substring(6, 10));
+		if (!bean.dameValor(Constantes.CURSO_FECHA_FIN).equals("")
+				&& (!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals(""))) {
+			if (annio1 < annio2) {
+				fechasValidas = true;
+			} else if (annio1 == annio2) {
+				if (mes1 < mes2) {
+					fechasValidas = true;
+				} else if (mes1 == mes2) {
+					if (dia1 <= dia2) {
+						fechasValidas = true;
+					}
+				}
+			}
+		}
+		if (!fechasValidas) {
+			mensaje = "Los campos fecha inicio y fecha fin entran en conflicto";
+			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			l.insertar(i, error);
+			i++;
+		}
+		}
+		return l;
+
+	}
 	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
@@ -106,6 +200,26 @@ public class GestorCursos {
 			//error.cambiaValor("CAUSA_ERROR", mensaje);
 			//l.insertar(i, error);
 			//i++;
+		}
+		if (!bean.dameValor(Constantes.CURSO_PRECIO).equals("")) {
+			try {
+				float numerico = Float.parseFloat(bean
+						.dameValor(Constantes.CURSO_PRECIO));
+				if (numerico < 0) {
+					mensaje = "El campo precio tiene un valor incorrecto";
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+					error.cambiaValor("CAUSA_ERROR", mensaje);
+					l.insertar(i, error);
+					i++;
+				}
+			} catch (Exception e) {
+				// No es número
+				mensaje = "El campo precio debe ser numérico";
+				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				l.insertar(i, error);
+				i++;
+			}
 		}
 
 		if (bean.dameValor(Constantes.CURSO_ISAREA_IDISAREA).equals("")) {
