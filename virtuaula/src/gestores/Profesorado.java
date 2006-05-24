@@ -317,12 +317,13 @@ public class Profesorado {
 				//mando un aviso al profesor
 				GestorAvisos GA = new GestorAvisos();
 				GA.passProfesor(profesor,usuario);
-				//TODO mirar si hacer gestor nominas y de contratos
+				
+				GestorNominasyContratos GNC = new GestorNominasyContratos();
 				bdf.insertar(profesor);
-				bdf.insertar(nomina);
-				bdf.insertar(contrato);
-				//falta mandar el aviso al contable y al secretario
-			}
+				GNC.insertarNomina(nomina);
+				GNC.insertarContrato(contrato);
+				
+			}   
 		}
 		
 		return liserror;
