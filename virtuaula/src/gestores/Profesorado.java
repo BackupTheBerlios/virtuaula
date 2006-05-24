@@ -1,5 +1,7 @@
 package gestores;
 
+import java.util.Random;
+
 import subSistemaBBDD.BBDDFachada;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
@@ -283,9 +285,63 @@ public class Profesorado {
 		}
 		return listaerror;
 	}
+	/**
+	 * Este metodo itroduce un usuario profesor en el sistema y genera la contraseña
+	 * para el usuario. Se le manda un aviso al profesor y otro a la secretaria
+	 * informando de la accio. Tambien introducira la nomina y el contrato
+	 * para el contable.
+	 * @param profesor
+	 * @param usuario
+	 * @param nomina
+	 * @param contrato
+	 * @return
+	 */
 	public ListaObjetoBean contratarProfesor(ObjetoBean profesor,ObjetoBean usuario,ObjetoBean nomina,ObjetoBean contrato)
 	{
-		return null;
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		CreadorBean creador=new CreadorBean();
+		ListaObjetoBean liserror = this.comprobar(profesor,nomina,contrato);
+		if (liserror.esVacio())
+		{//no hay errores en los datos del profesor
+			//compruebo si el usuario existe
+			if (!bdf.insertar(usuario))
+			{//genero un error
+				ObjetoBean error = creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA,"El usuario ya existe");
+				int tamanio=liserror.tamanio();
+				liserror.insertar(tamanio,error);
+				return liserror;
+			}
+			else 
+			{//el usuario no existe
+				//mando un aviso al profesor
+				GestorAvisos GA = new GestorAvisos();
+				GA.passProfesor(profesor,usuario);
+				//TODO mirar si hacer gestor nominas y de contratos
+				bdf.insertar(profesor);
+				bdf.insertar(nomina);
+				bdf.insertar(contrato);
+				//falta mandar el aviso al contable y al secretario
+			}
+		}
+		
+		return liserror;
+	}
+	/**
+	 * genere una contraseña aleatoria
+	 * @return
+	 */
+	public int generaContrasenia()
+	{
+		Random rnd = new Random();
+		int x;
+		int contrasenia=1;
+		for (int i=0;i<5;i++)
+		{
+		x = (int)(rnd.nextDouble() * 10.0);
+		contrasenia= contrasenia*10+x;
+		}
+		return contrasenia;
 	}
 }
 
