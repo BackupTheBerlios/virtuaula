@@ -3,122 +3,45 @@ import java.io.*;
 
 
 import beans.beanEncapsulado.BeanEncapsulado;
-import javax.servlet.http.*;
-
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 import subSistemaControlador.gestorPaginas.GestorPaginas;
 import subSistemaControlador.gestorSesiones.GestorSesiones;
 
 /**
- * 
+ * Intermediario entre el terminal (navegador) y sistema de controlador de datos.
  * @author Fco Javier Pérez Escrivá 
  *
  */
 public class ServletVisualizador extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Entidad que controla el acceso al sistema
+	 */
 	private GestorSesiones gestorSesiones;
+	/**
+	 * Entidad que gestiona la relacion entre una operación y el controlador que esta destinado a llevarla a cabo
+	 */
 	private GestorControlador gestorControlador;
+	/**
+	 *	Tabla de transición de comportamiento de las paginas con respecto a operaciones, operaciones resultado y perfil de usuario
+	 */
 	private GestorPaginas gestorPaginas;
+	/**
+	 * Constructor
+	 */
 	public ServletVisualizador() {
 		super();
 		gestorControlador=new GestorControlador();
 		gestorControlador.inicializa();
 		gestorSesiones =new GestorSesiones();
 		gestorPaginas=new GestorPaginas();
-		//sesion anonima
-		gestorPaginas.agregarPaginas("publico","OFERTA_FORMATIVA","OK","/virtuaula/pages/publico/ofertaFormativa.jsp");
-		gestorPaginas.agregarPaginas("publico","OFERTA_FORMATIVA","ERROR","/virtuaula/pages/publico/errorOfertaFormativa.jsp");
-		gestorPaginas.agregarPaginas("publico","ZONA_RESTRINGIDA","SIG","/virtuaula/pages/controlAcceso/index.jsp");
-		gestorPaginas.agregarPaginas("publico","PRINCIPAL_PUBLICO","SIG","/virtuaula/index.jsp");
-		//sesion secretaria
-		gestorPaginas.agregarPaginas("secretaria","LOGAR","SIG","/virtuaula/pages/secretaria/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","menuPrincipalSec","SIG","/virtuaula/pages/secretaria/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","desconectar","SIG","/virtuaula/index.jsp");
-		//secretaria cosulta profesor
-		gestorPaginas.agregarPaginas("secretaria","CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/seleccionarProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","GES_PROF","SIG","/virtuaula/pages/secretaria/profesor/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/buscarProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
-		
-		
-		//secretaria cosulta curso
-		gestorPaginas.agregarPaginas("secretaria","CONS_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/seleccionarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INI_CONS_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/buscarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INI_CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MOSTRAR_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
-	
-		//secretaria insercion curso
-		gestorPaginas.agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INI_INS_CUR","SIG","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_HOR","OK","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_HOR","ERROR","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AREA","OK","/virtuaula/pages/secretaria/curso/insertar/seleccAreaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AREA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","OK","/virtuaula/pages/secretaria/curso/insertar/seleccAulaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccHorarioInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_AULA","ERROR2","/virtuaula/pages/secretaria/curso/insertar/seleccAreaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","OK","/virtuaula/pages/secretaria/curso/insertar/seleccProfesorInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_PROF","ERROR","/virtuaula/pages/secretaria/curso/insertar/seleccAulaInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","OK","/virtuaula/pages/secretaria/curso/insertar/insertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INSERTA_CURSO","ERROR","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
-		gestorPaginas.agregarPaginas("secretaria","INS_CUR_CON_PROF","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
-		//sesion profesor
-		gestorPaginas.agregarPaginas("profesor","LOGAR","SIG","/virtuaula/pages/profesor/index.jsp");
-		gestorPaginas.agregarPaginas("profesor","menuPrincipalProf","SIG","/virtuaula/pages/profesor/index.jsp");
-		gestorPaginas.agregarPaginas("profesor","desconectar","SIG","/virtuaula/index.jsp");
-		
-		//sesion contable
-		gestorPaginas.agregarPaginas("contable","LOGAR","SIG","/virtuaula/pages/contable/index.jsp");
-		gestorPaginas.agregarPaginas("contable","menuPrincipalCont","SIG","/virtuaula/pages/contable/index.jsp");
-		gestorPaginas.agregarPaginas("contable","desconectar","SIG","/virtuaula/index.jsp");
-		
-		//contable consulta nominas
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","OK","/virtuaula/pages/contable/nomina/verNominas.jsp");
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","ERROR","/virtuaula/pages/contable/nomina/verNominas.jsp");
-		
-		//contable consulta contratos
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","OK","/virtuaula/pages/contable/contrato/verContratos.jsp");
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","ERROR","/virtuaula/pages/contable/contrato/verContratos.jsp");
-		
-		//profesor consulta avisos
-		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","MOSTRAR_AVISOS_PROF","SIG","/virtuaula/pages/profesor/aviso/leerAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","VOLVER_ANTERIOR","SIG","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
-		gestorPaginas.agregarPaginas("profesor","BORRA_AVISO","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
-
-		//profesor EDITAR FICHA
-		gestorPaginas.agregarPaginas("profesor","OP_MOSTRAR_CURSO_PROF","OK","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
-		gestorPaginas.agregarPaginas("profesor","OP_MOSTRAR_CURSO_PROF","ERROR","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
-		gestorPaginas.agregarPaginas("profesor","ListarAlumnosCurso","OK","/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp");
-		gestorPaginas.agregarPaginas("profesor","ListarAlumnosCurso","ERROR","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
-		gestorPaginas.agregarPaginas("profesor","Ficha_Alumno_Prof","OK","/virtuaula/pages/profesor/curso/fichaAlumno.jsp");
-		gestorPaginas.agregarPaginas("profesor","Ficha_Alumno_Prof","ERROR","/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp");
-		gestorPaginas.agregarPaginas("profesor","ActualizarFichaAlumno","OK","/virtuaula/pages/profesor/curso/confirmacion.jsp");
-		gestorPaginas.agregarPaginas("profesor","ActualizarFichaAlumno","ERROR","/virtuaula/pages/profesor/curso/fichaAlumno.jsp");
-		gestorPaginas.agregarPaginas("profesor","PUB_NOTAS","OK","/virtuaula/pages/profesor/curso/confirmacionPublicarNotas.jsp");
-		gestorPaginas.agregarPaginas("profesor","PUB_NOTAS","ERROR","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
-		//la de menuPrincipalProf esta hecha en consulta avisos
-		
-		//matricular alumno
-		gestorPaginas.agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_DOS","SIG","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","OK","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","OK","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MAT_ALUM_CUR","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MATRICULA","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
-		gestorPaginas.agregarPaginas("secretaria","MATRICULA","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
-		
-		
+		gestorPaginas.inializarGestorPaginas();
 
 		}
 	
