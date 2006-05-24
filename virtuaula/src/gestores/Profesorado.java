@@ -307,7 +307,7 @@ public class Profesorado {
 	 * @param usuario
 	 * @param nomina
 	 * @param contrato
-	 * @return
+	 * @return lista de errores
 	 */
 	public ListaObjetoBean contratarProfesor(ObjetoBean profesor,ObjetoBean usuario,ObjetoBean nomina,ObjetoBean contrato)
 	{
@@ -336,6 +336,10 @@ public class Profesorado {
 				GNC.insertarNomina(nomina);
 				GNC.insertarContrato(contrato);
 				
+				//mando los avisos a los secretarios y al contable
+				GestorAvisos gestorAvisos = new GestorAvisos();
+				gestorAvisos.avisoContables(profesor,contrato,nomina);
+				gestorAvisos.avisoSecretarios(profesor);
 			}   
 		}
 		

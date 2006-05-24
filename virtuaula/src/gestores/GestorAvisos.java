@@ -24,7 +24,7 @@ public class GestorAvisos {
 		return l;
 	}
 	/**
-	 * me borra el aviso y la relacion
+	 * me borra el aviso y la relacion 
 	 */
 	public boolean borraAviso(ObjetoBean beanAviso,ObjetoBean usuavi){
 		BBDDFachada bdf = BBDDFachada.getInstance();
@@ -42,11 +42,20 @@ public class GestorAvisos {
 		return bdf.editar(aviso);
 		
 	}
+	/**
+	 * inserta un aviso en el sistema
+	 * @param aviso
+	 * @return
+	 */
 	public boolean insertarAviso(ObjetoBean aviso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.insertar(aviso);
 	};
+	/**
+	 * te devuelve la fecha actual en formato dd/mm/aaaa
+	 * @return
+	 */
 	public String dameFecha()
 	{
 		//cojo la fecha del sistema
@@ -55,6 +64,13 @@ public class GestorAvisos {
 		String cadenafecha = formato.format(fecha);
 		return cadenafecha;
 	}
+	/**
+	 * manda un aviso al usuario indicandole que se ha matriculado de un curso
+	 * diciendole cual es su profesor, su aula y su horario
+	 * @param Alumno
+	 * @param Curso
+	 * @return
+	 */
 	public ListaObjetoBean alumnoSinPass(ObjetoBean Alumno,ObjetoBean Curso)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
@@ -121,7 +137,12 @@ public class GestorAvisos {
 		return liserror;
 	}
 	
-	
+	/**
+	 * Manda un aviso de bienvenida al alumno con su usuario y contraseña
+	 * @param Alumno
+	 * @param Usuario
+	 * @return
+	 */
 	public ListaObjetoBean passAlumno(ObjetoBean Alumno,ObjetoBean Usuario)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
@@ -161,7 +182,6 @@ public class GestorAvisos {
 			GestorAvisos GA=new GestorAvisos();
 			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
 			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
-			System.out.println(listaav.tamanio());
 			ObjetoBean aviso2 = listaav.dameObjeto(0);
 			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Bienvenido a Virtuaula");
 			
@@ -345,7 +365,12 @@ public class GestorAvisos {
         }
         return listaerror;
 	}
-	
+	/**
+	 * Manda un aviso de bienvenida al profesor con su usuario y contraseña
+	 * @param profesor
+	 * @param Usuario
+	 * @return
+	 */
 	public ListaObjetoBean passProfesor(ObjetoBean profesor,ObjetoBean Usuario)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
@@ -386,7 +411,6 @@ public class GestorAvisos {
 			GestorAvisos GA=new GestorAvisos();
 			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
 			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
-			System.out.println(listaav.tamanio());
 			ObjetoBean aviso2 = listaav.dameObjeto(0);
 			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Bienvenido a Virtuaula");
 			
@@ -410,6 +434,177 @@ public class GestorAvisos {
 	    }
 		}
 		return liserror;
+	}
+	/**
+	 * Me manda un aviso a todos los contables con informacion sobre la contratacion de
+	 * un profesor con la informacion de la nomina y del contrato
+	 *
+	 */
+	public ListaObjetoBean avisoContables(ObjetoBean profesor,ObjetoBean contrato,ObjetoBean nomina)
+	{
+		ListaObjetoBean liserror=new ListaObjetoBean();
+		CreadorBean creador = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();	
+		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
+		String DNI = profesor.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI);
+		String nombre= profesor.dameValor(Constantes.PROFESOR_NOMBRE);
+		String apellido=profesor.dameValor(Constantes.PROFESOR_APELLIDO1);
+		String apellido2=profesor.dameValor(Constantes.PROFESOR_APELLIDO2);
+		
+		//Creamos el aviso		
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporacion de personal. \n Datos personales: \n DNI:"+DNI+" " +nombre+" "+apellido+" "+apellido2+"." +
+				"\n Sueldo: "+nomina.dameValor(Constantes.NOMINA_CANTIDAD)+".\n" +
+				"Cuenta de ingresos: "+nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS)+". \n" +
+				"Tipo de contrato: "+contrato.dameValor(Constantes.CONTRATO_TIPO)+".");
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
+		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
+		
+		//Consultamos todos los contables que hay en la empresa para mandarles el aviso
+		ObjetoBean usuario=creador.crear(creador.Usuario);
+		usuario.cambiaValor(Constantes.USUARIO_PERFIL,"contable");
+		ListaObjetoBean listacontables=bdf.consultar(usuario);
+		int numcontables=listacontables.tamanio();
+		//mandamos el aviso a todos los contables del sistema
+		for (int i=0;i<numcontables;i++)
+		{
+			
+			if(!bdf.insertar(aviso))
+			{
+				String mensaje = "Error de Base de Datos al crear Aviso";
+				ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA, mensaje);
+				int tamaniio=liserror.tamanio();
+				liserror.insertar(tamaniio,error);
+				return liserror;
+			}
+			else
+			{	//si se ha insertado el aviso correctamente
+				
+				//Crear objeto bean especifico
+				GestorAvisos GA=new GestorAvisos();
+				aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+				ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+				ObjetoBean aviso2 = listaav.dameObjeto(0);
+				aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Personal contratado");
+				
+				if (GA.editarAviso(aviso2))
+				{
+						
+					Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
+					
+					//Relleanar bean
+					ObjetoBean usuar = listacontables.dameObjeto(i);
+									
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,usuar.dameValor(Constantes.ID_ISUSUARIO_DNI));
+					// Rellenar tabla intermedia de relacion Avisos-Usuario
+					if(!bdf.insertar(ahu))
+					{
+						String mensaje = "Error de Base de Datos al mandar Aviso";
+						ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+						error.cambiaValor(Constantes.CAUSA, mensaje);
+						int tamanioo=liserror.tamanio();
+						liserror.insertar(tamanioo,error);
+						return liserror;
+					}
+				}
+			}//fin else
+		}//fin del for
+		
+		return liserror;
+		
+	}
+	/**
+	 * Me manda un aviso a todos los secretariso con informacion sobre la contratacion
+	 * de un profesor con sus datos y los de su area
+	 */ 
+	public ListaObjetoBean avisoSecretarios(ObjetoBean profesor)
+	{
+		ListaObjetoBean liserror=new ListaObjetoBean();
+		CreadorBean creador = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();	
+		//saco los datos del profesor
+		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
+		String DNI = profesor.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI);
+		String nombre= profesor.dameValor(Constantes.PROFESOR_NOMBRE);
+		String apellido=profesor.dameValor(Constantes.PROFESOR_APELLIDO1);
+		String apellido2=profesor.dameValor(Constantes.PROFESOR_APELLIDO2);
+		//consigo el area del profesor
+		String idarea=profesor.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA);
+		ObjetoBean area=creador.crear(creador.Area);
+		area.cambiaValor(Constantes.ID_ISAREA,idarea);
+		GestorAreas gestorAreas = new GestorAreas();
+		ListaObjetoBean listarea=gestorAreas.consultaArea(area);
+		//como solo me va a devolver un area cojo el primer elemento
+		area=listarea.dameObjeto(0);
+		//Creamos el aviso		
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporacion de personal. \n Datos personales: \n DNI:"+DNI+" \n Nombre: " +nombre+" "+apellido+" "+apellido2+"." +
+		"\n Telefono: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+"\n " +
+		"Email: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+". \n" +
+		"Area tecnológica:"+area.dameValor(Constantes.AREA_NOMBRE)+".");
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
+		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
+		
+		//Consultamos todos los contables que hay en la empresa para mandarles el aviso
+		ObjetoBean usuario=creador.crear(creador.Usuario);
+		usuario.cambiaValor(Constantes.USUARIO_PERFIL,"secretaria");
+		ListaObjetoBean listacontables=bdf.consultar(usuario);
+		int numsecretarios=listacontables.tamanio();
+		//mandamos el aviso a todos los contables del sistema
+		for (int i=0;i<numsecretarios;i++)
+		{
+			
+			if(!bdf.insertar(aviso))
+			{
+				String mensaje = "Error de Base de Datos al crear Aviso";
+				ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA, mensaje);
+				int tamaniio=liserror.tamanio();
+				liserror.insertar(tamaniio,error);
+				return liserror;
+			}
+			else
+			{	//si se ha insertado el aviso correctamente
+				
+				//Crear objeto bean especifico
+				GestorAvisos GA=new GestorAvisos();
+				aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+				ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+				ObjetoBean aviso2 = listaav.dameObjeto(0);
+				aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo Profesor");
+				
+				if (GA.editarAviso(aviso2))
+				{
+						
+					Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
+					
+					//Relleanar bean
+					ObjetoBean usuar = listacontables.dameObjeto(i);
+									
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,usuar.dameValor(Constantes.ID_ISUSUARIO_DNI));
+					// Rellenar tabla intermedia de relacion Avisos-Usuario
+					if(!bdf.insertar(ahu))
+					{
+						String mensaje = "Error de Base de Datos al mandar Aviso";
+						ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+						error.cambiaValor(Constantes.CAUSA, mensaje);
+						int tamanioo=liserror.tamanio();
+						liserror.insertar(tamanioo,error);
+						return liserror;
+					}
+				}
+			}//fin else
+		}//fin del for
+		
+		return liserror;
+		
 	}
 	
 	
