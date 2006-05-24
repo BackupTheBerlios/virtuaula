@@ -1,5 +1,8 @@
 package gestores;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import subSistemaBBDD.BBDDFachada;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
@@ -62,9 +65,16 @@ public class GestorHorarios {
 		{
 			resul=resul+"V";
 			resul=resul+viernes;
-			resul=resul+"-";
+			//resul=resul+"-";
 		}
 		return resul;
 	}
-
+	public String dameFecha()
+	{
+		//cojo la fecha del sistema
+		Date fecha = new Date();
+		SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
+		String cadenafecha = formato.format(fecha);
+		return cadenafecha;
+	}
 }

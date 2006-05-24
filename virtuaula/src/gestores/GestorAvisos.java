@@ -52,18 +52,8 @@ public class GestorAvisos {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.insertar(aviso);
 	};
-	/**
-	 * te devuelve la fecha actual en formato dd/mm/aaaa
-	 * @return
-	 */
-	public String dameFecha()
-	{
-		//cojo la fecha del sistema
-		Date fecha = new Date();
-		SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
-		String cadenafecha = formato.format(fecha);
-		return cadenafecha;
-	}
+
+	
 	/**
 	 * manda un aviso al usuario indicandole que se ha matriculado de un curso
 	 * diciendole cual es su profesor, su aula y su horario
@@ -81,7 +71,8 @@ public class GestorAvisos {
 		ObjetoBean prof=bdf.dameProfesorCurso(Curso);
 		ObjetoBean aula=bdf.dameAulaCurso(Curso);
 		ObjetoBean horario=bdf.dameHorarioCurso(Curso);
-		String hor=this.convertirHorario(horario);
+		GestorHorarios GH=new GestorHorarios();
+		String hor=GH.convertirHorario(horario);
 		String nombreaula= aula.dameValor(Constantes.AULA_NOMBRE);
 		String nombrecurso= Curso.dameValor(Constantes.CURSO_NOMBRE);
 		String nombre=prof.dameValor(Constantes.PROFESOR_NOMBRE);
@@ -93,8 +84,8 @@ public class GestorAvisos {
 		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha matriculado del  curso " + nombrecurso + "\n El" +
 				"Profesor es " + nombre +" "+apellido1+ " "+ apellido2+ ". \n El aula es "+ nombreaula +". \n " +
 						" El horario es "+ hor +"." );
-		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -162,8 +153,9 @@ public class GestorAvisos {
 				"Te indicamos a continuacion tus datos de acceso: \n" +
 				"Usuario: "+DNI+" \n " +
 				"Contraseña: "+password+" " );
-		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		GestorHorarios GH =new GestorHorarios();
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -391,8 +383,9 @@ public class GestorAvisos {
 				"Te indicamos a continuacion tus datos de acceso: \n" +
 				"Usuario: "+DNI+" \n " +
 				"Contraseña: "+password+" " );
-		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		GestorHorarios GH =new GestorHorarios();
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -457,8 +450,9 @@ public class GestorAvisos {
 				"\n Sueldo: "+nomina.dameValor(Constantes.NOMINA_CANTIDAD)+".\n" +
 				"Cuenta de ingresos: "+nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS)+". \n" +
 				"Tipo de contrato: "+contrato.dameValor(Constantes.CONTRATO_TIPO)+".");
-		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		GestorHorarios GH =new GestorHorarios();
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -546,8 +540,9 @@ public class GestorAvisos {
 		"\n Telefono: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+"\n " +
 		"Email: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+". \n" +
 		"Area tecnológica:"+area.dameValor(Constantes.AREA_NOMBRE)+".");
-		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		GestorHorarios GH =new GestorHorarios();
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -606,46 +601,5 @@ public class GestorAvisos {
 		return liserror;
 		
 	}
-	
-	
-	private String convertirHorario(ObjetoBean horario)
-	{
-		String lunes = horario.dameValor(Constantes.HORARIO_LUNES);
-		String martes = horario.dameValor(Constantes.HORARIO_MARTES);
-		String miercoles = horario.dameValor(Constantes.HORARIO_MIERCOLES);
-		String jueves = horario.dameValor(Constantes.HORARIO_JUEVES);
-		String viernes = horario.dameValor(Constantes.HORARIO_VIERNES);
-		String resul="";
-		if (lunes!=null)
-		{
-			resul=resul+"L";
-			resul=resul+lunes;
-			resul=resul+"-";
-		}
-		if (martes!=null)
-		{
-			resul=resul+"M";
-			resul=resul+martes;
-			resul=resul+"-";
-		}
-		if (miercoles!=null)
-		{
-			resul=resul+"X";
-			resul=resul+miercoles;
-			resul=resul+"-";
-		}
-		if (jueves!=null)
-		{
-			resul=resul+"J";
-			resul=resul+jueves;
-			resul=resul+"-";
-		}
-		if (viernes!=null)
-		{
-			resul=resul+"V";
-			resul=resul+viernes;
-			resul=resul+"-";
-		}
-		return resul;
-	}
+		
 }
