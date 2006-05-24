@@ -128,6 +128,19 @@ public class Profesorado {
 		return bdf.publicarNota(beanCurso);
 	}
 
+	public ListaObjetoBean consultaContratos(ObjetoBean contrato)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.consultar(contrato);
+	}
+	
+	public ListaObjetoBean consultaNominas(ObjetoBean nomina)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.consultar(nomina);
+	}
+	
+	
 	public ListaObjetoBean dameExpedienteCurso(ObjetoBean curso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
