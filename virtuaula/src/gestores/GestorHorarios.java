@@ -1,8 +1,10 @@
 package gestores;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.Horario;
+import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
 public class GestorHorarios {
@@ -18,4 +20,51 @@ public class GestorHorarios {
 		ListaObjetoBean l = bdf.consultar(horario);
 		return l;
 	}
+	/**
+	 * Me transforma el horario en una cadena de String
+	 * 
+	 * @param horario
+	 * @return
+	 */
+	public String convertirHorario(ObjetoBean horario)
+	{
+		String lunes = horario.dameValor(Constantes.HORARIO_LUNES);
+		String martes = horario.dameValor(Constantes.HORARIO_MARTES);
+		String miercoles = horario.dameValor(Constantes.HORARIO_MIERCOLES);
+		String jueves = horario.dameValor(Constantes.HORARIO_JUEVES);
+		String viernes = horario.dameValor(Constantes.HORARIO_VIERNES);
+		String resul="";
+		if (lunes!=null)
+		{
+			resul=resul+"L";
+			resul=resul+lunes;
+			resul=resul+"-";
+		}
+		if (martes!=null)
+		{
+			resul=resul+"M";
+			resul=resul+martes;
+			resul=resul+"-";
+		}
+		if (miercoles!=null)
+		{
+			resul=resul+"X";
+			resul=resul+miercoles;
+			resul=resul+"-";
+		}
+		if (jueves!=null)
+		{
+			resul=resul+"J";
+			resul=resul+jueves;
+			resul=resul+"-";
+		}
+		if (viernes!=null)
+		{
+			resul=resul+"V";
+			resul=resul+viernes;
+			resul=resul+"-";
+		}
+		return resul;
+	}
+
 }
