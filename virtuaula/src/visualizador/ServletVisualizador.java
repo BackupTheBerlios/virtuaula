@@ -3,11 +3,12 @@ import java.io.*;
 
 
 import beans.beanEncapsulado.BeanEncapsulado;
-import controlador.Controlador;
-import gestorSesiones.GestorSesiones;
-import gestorPaginas.GestorPaginas;
-import gestorControlador.*;
 import javax.servlet.http.*;
+
+import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.gestorControlador.GestorControlador;
+import subSistemaControlador.gestorPaginas.GestorPaginas;
+import subSistemaControlador.gestorSesiones.GestorSesiones;
 
 /**
  * 
