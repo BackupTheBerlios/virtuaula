@@ -66,6 +66,7 @@ public class ControladorInsertaCurso extends Controlador{
 		{
 			this.setResuladooperacion("OK");
 			sesion.removeAttribute("error");
+			this.getSesion().removeAttribute("beanCurso");
 		}
 		
 		}
