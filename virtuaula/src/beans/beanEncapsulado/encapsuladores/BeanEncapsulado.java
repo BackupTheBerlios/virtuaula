@@ -1,4 +1,4 @@
-package beans.beanEncapsulado;
+package beans.beanEncapsulado.encapsuladores;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.ObjetoBean;
+import beans.beanEncapsulado.encapsuladores.encapsuladorBean.RequestContextFactory;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
 

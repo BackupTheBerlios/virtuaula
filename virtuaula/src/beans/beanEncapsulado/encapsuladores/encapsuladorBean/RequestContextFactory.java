@@ -1,4 +1,4 @@
-package beans.beanEncapsulado;
+package beans.beanEncapsulado.encapsuladores.encapsuladorBean;
 
 import javax.servlet.http.HttpServletRequest;
 import beans.ObjetoBean;

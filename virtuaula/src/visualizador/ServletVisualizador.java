@@ -2,7 +2,10 @@ package visualizador;
 import java.io.*;
 
 
-import beans.beanEncapsulado.BeanEncapsulado;
+import beans.beanEncapsulado.Encapsulador;
+import beans.beanEncapsulado.GestorEncapsuladores;
+import beans.beanEncapsulado.encapsuladores.BeanEncapsulado;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +35,7 @@ public class ServletVisualizador extends HttpServlet{
 	 *	Tabla de transición de comportamiento de las paginas con respecto a operaciones, operaciones resultado y perfil de usuario
 	 */
 	private GestorPaginas gestorPaginas;
+	private GestorEncapsuladores gestorEncapsuladores;
 	/**
 	 * Constructor
 	 */
@@ -42,12 +46,15 @@ public class ServletVisualizador extends HttpServlet{
 		gestorSesiones =new GestorSesiones();
 		gestorPaginas=new GestorPaginas();
 		gestorPaginas.inializarGestorPaginas();
-
+		gestorEncapsuladores=new GestorEncapsuladores();
 		}
 	
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
-		BeanEncapsulado.encapsular(req);
+		//BeanEncapsulado.encapsular(req);
+		Encapsulador encap=gestorEncapsuladores.dameEncapsulador(req);
+		encap.encapsular();
+		
 		if (gestorSesiones.indicaSiUsuarioIdentificado(sesion)){
 			//el usuario está validado
 			
