@@ -84,7 +84,7 @@ public class GestorAlumnos {
 	 * @param bean
 	 * @return
 	 */
-	private ListaObjetoBean comprobar(ObjetoBean bean)
+	public ListaObjetoBean comprobar(ObjetoBean bean)
 	{
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();
@@ -244,15 +244,6 @@ public class GestorAlumnos {
 			
 			if (bdf.consultar(Alumno).esVacio())
 			{
-				//generamos la contraeña
-				//int pass=this.generaContrasenia();
-				//Integer p=new Integer(pass);
-				//String password =p.toString();
-				//creamos un usuario con su DNI y la contraseña que hemos generado
-				//ObjetoBean usuario = creador.crear(creador.Usuario);
-				//usuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,Alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
-				//usuario.cambiaValor(Constantes.USUARIO_CONTRASENIA,password);
-				//usuario.cambiaValor(Constantes.USUARIO_PERFIL,"alumno");
 				if (!bdf.insertar(usuario))
 				{//genero un error
 					ObjetoBean error = creador.crear(creador.Error);

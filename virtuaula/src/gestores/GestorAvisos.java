@@ -8,6 +8,7 @@ import beans.Error;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
+import java.util.Date;
 
 public class GestorAvisos {
 
@@ -334,6 +335,74 @@ public class GestorAvisos {
         }
         return listaerror;
 	}
+	
+	public ListaObjetoBean passProfesor(ObjetoBean profesor,ObjetoBean Usuario)
+	{	
+		ListaObjetoBean liserror=new ListaObjetoBean();
+		//liserror=null;
+		CreadorBean creador = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();	
+		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
+		String password=Usuario.dameValor(Constantes.USUARIO_CONTRASENIA);
+		String DNI = Usuario.dameValor(Constantes.ID_ISUSUARIO_DNI);
+		String nombre= profesor.dameValor(Constantes.PROFESOR_NOMBRE);
+		String apellido=profesor.dameValor(Constantes.PROFESOR_APELLIDO1);
+		String apellido2=profesor.dameValor(Constantes.PROFESOR_APELLIDO2);
+		
+		//Date fecha = new Date();
+		
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Bienvenido a Virtuaula "+nombre+" "+apellido+" "+apellido2+". \n " +
+				"Te indicamos a continuacion tus datos de acceso: \n" +
+				"Usuario: "+DNI+" \n " +
+				"Contraseña: "+password+" " );
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
+		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
+		
+		if(!bdf.insertar(aviso)){
+			String mensaje = "Error de Base de Datos al crear Aviso";
+			ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA, mensaje);
+			int tamaniio=liserror.tamanio();
+			liserror.insertar(tamaniio,error);
+			return liserror;
+		}else
+		{
+//		 
+			
+			//Crear objeto bean especifico
+			GestorAvisos GA=new GestorAvisos();
+			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+			System.out.println(listaav.tamanio());
+			ObjetoBean aviso2 = listaav.dameObjeto(0);
+			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Bienvenido a Virtuaula");
+			
+			if (GA.editarAviso(aviso2))
+			{
+				
+			Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
+			//Relleanar bean
+										
+			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
+			ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,profesor.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI));
+			// Rellenar tabla intermedia de relacion Avisos-Usuario
+			if(!bdf.insertar(ahu)){
+				String mensaje = "Error de Base de Datos al mandar Aviso";
+				ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA, mensaje);
+				int tamanioo=liserror.tamanio();
+				liserror.insertar(tamanioo,error);
+				return liserror;
+			}
+	    }
+		}
+		return liserror;
+	}
+	
+	
 	private String convertirHorario(ObjetoBean horario)
 	{
 		String lunes = horario.dameValor(Constantes.HORARIO_LUNES);
