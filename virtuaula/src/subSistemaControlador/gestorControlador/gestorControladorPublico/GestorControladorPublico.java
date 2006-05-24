@@ -5,7 +5,7 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.controlOfertaFormativa.ControladorOfertaFormativa;
+import subSistemaControlador.controlador.ControladorPublico.controlOfertaFormativa.ControladorOfertaFormativa;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 ;
