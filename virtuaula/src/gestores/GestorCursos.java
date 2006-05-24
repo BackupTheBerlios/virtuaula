@@ -1,5 +1,8 @@
 package gestores;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import subSistemaBBDD.BBDDFachada;
 import beans.*;
 import beans.listaObjetoBeans.*;
@@ -341,6 +344,14 @@ public class GestorCursos {
 
 		return l;
 	}
+	public String dameFecha()
+	{
+		//cojo la fecha del sistema
+		Date fecha = new Date();
+		SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
+		String cadenafecha = formato.format(fecha);
+		return cadenafecha;
+	}
 
 	public ListaObjetoBean insertarCurso(ObjetoBean beanCurso,
 			ObjetoBean beanAula, ObjetoBean beanHorario) {
@@ -409,7 +420,7 @@ public class GestorCursos {
 				aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso a impartir");
 				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso " + beanCurso.dameValor(Constantes.CURSO_NOMBRE));
 				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
+				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 				aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 				GestorAvisos gestorAvisos= new GestorAvisos();

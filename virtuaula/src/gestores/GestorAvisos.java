@@ -8,6 +8,8 @@ import beans.Error;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GestorAvisos {
@@ -45,7 +47,14 @@ public class GestorAvisos {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.insertar(aviso);
 	};
-	
+	public String dameFecha()
+	{
+		//cojo la fecha del sistema
+		Date fecha = new Date();
+		SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
+		String cadenafecha = formato.format(fecha);
+		return cadenafecha;
+	}
 	public ListaObjetoBean alumnoSinPass(ObjetoBean Alumno,ObjetoBean Curso)
 	{	
 		ListaObjetoBean liserror=new ListaObjetoBean();
@@ -63,12 +72,13 @@ public class GestorAvisos {
 		String apellido1= prof.dameValor(Constantes.PROFESOR_APELLIDO1);
 		String apellido2= prof.dameValor(Constantes.PROFESOR_APELLIDO2);
 		
+				
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
 		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha matriculado del  curso " + nombrecurso + "\n El" +
 				"Profesor es " + nombre +" "+apellido1+ " "+ apellido2+ ". \n El aula es "+ nombreaula +". \n " +
 						" El horario es "+ hor +"." );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -132,7 +142,7 @@ public class GestorAvisos {
 				"Usuario: "+DNI+" \n " +
 				"Contraseña: "+password+" " );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
@@ -357,7 +367,7 @@ public class GestorAvisos {
 				"Usuario: "+DNI+" \n " +
 				"Contraseña: "+password+" " );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
-		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,"");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
 		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
 		
