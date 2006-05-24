@@ -6,9 +6,9 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.Contable.ControladorConContrato;
+import subSistemaControlador.controlador.Contable.ControladorConNomina;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
-import subSistemaControlador.controlador.controlConsultaContrato.ControladorConContrato;
-import subSistemaControlador.controlador.controlConsultaNomina.ControladorConNomina;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
