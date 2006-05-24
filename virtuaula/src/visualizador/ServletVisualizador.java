@@ -79,10 +79,12 @@ public class ServletVisualizador extends HttpServlet{
 		gestorPaginas.agregarPaginas("contable","desconectar","SIG","/virtuaula/index.jsp");
 		
 		//contable consulta nominas
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","SIG","/virtuaula/pages/contable/nomina/verNominas.jsp");
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","OK","/virtuaula/pages/contable/nomina/verNominas.jsp");
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_NOMINAS","ERROR","/virtuaula/pages/contable/nomina/verNominas.jsp");
 		
 		//contable consulta contratos
-		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","SIG","/virtuaula/pages/contable/contrato/verContratos.jsp");
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","OK","/virtuaula/pages/contable/contrato/verContratos.jsp");
+		gestorPaginas.agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","ERROR","/virtuaula/pages/contable/contrato/verContratos.jsp");
 		
 		//profesor consulta avisos
 		gestorPaginas.agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");

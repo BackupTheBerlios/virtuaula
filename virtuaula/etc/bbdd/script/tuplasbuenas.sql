@@ -44,7 +44,18 @@ INSERT INTO `isavisos` VALUES (2,NULL,NULL,'aviso de secretaria','La clase del d
 INSERT INTO `isavisos` VALUES (3,NULL,NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
 
 
-INSERT INTO `iscontrato` VALUES ('',0,NULL);
+
+INSERT INTO `iscontrato` VALUES ('51111111',1,'fijo');
+INSERT INTO `iscontrato` VALUES ('52222222',2,'beca de colaboración');
+INSERT INTO `iscontrato` VALUES ('53333333',3,'fijo');
+INSERT INTO `iscontrato` VALUES ('50000000',4,'por obra y servicio');
+
+INSERT INTO `isnomina` VALUES (1,'123123123123','1600');
+INSERT INTO `isnomina` VALUES (2,'123123123123','900');
+INSERT INTO `isnomina` VALUES (3,'123123123123','1600');
+INSERT INTO `isnomina` VALUES (4,'123123123123','1200');
+
+
 
 
 
