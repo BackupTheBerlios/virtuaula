@@ -55,7 +55,7 @@ public class ControladorInsertaCurso extends Controlador{
 		ListaObjetoBean listaError=(ListaObjetoBean)GC.insertarCurso(cur,aula,horario);
 		ObjetoBean curso=(ObjetoBean)GC.consultaCurso(cur).dameObjeto(0);
 	    sesion.setAttribute("beanCurso",curso);
-		//la inserccion ha fallado
+	    //la inserccion ha fallado
 		if (listaError!=null)
 		{
 			this.setResuladooperacion("ERROR");
@@ -64,9 +64,10 @@ public class ControladorInsertaCurso extends Controlador{
 		}
 		else if (listaError==null)
 		{
+			
 			this.setResuladooperacion("OK");
 			sesion.removeAttribute("error");
-			this.getSesion().removeAttribute("beanCurso");
+			//this.getSesion().removeAttribute("beanCurso");
 		}
 		
 		}
