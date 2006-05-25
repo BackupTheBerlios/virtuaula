@@ -44,6 +44,7 @@ public class GestorControladorAlumnos extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("AVIS_ALUM",new ControladorOp_Avis_Prof());
 		GestorControlador.tablaOperacionControlador.put("BOR_ALUM_AVIS",new BorraAviso());
 		GestorControlador.tablaOperacionControlador.put("LEER_AVIS_ALUM",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",new ControladorPasaPag());
 		//consulta expediente
 		GestorControlador.tablaOperacionControlador.put("CONS_EXP_ALUM",new ControladorConExpAlum());
 		
