@@ -4,6 +4,7 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorInicioMatricula;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlum;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatricula;
@@ -23,7 +24,7 @@ public class GestorControladorMatricularAlumno extends GestorControladorSecretar
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorInicioMatricula());
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",new ControladorMatAlum());
 		GestorControlador.tablaOperacionControlador.put("MATRICULA",new ControladorMatricula());
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_CUR",new ControladorMatAlumCur());
