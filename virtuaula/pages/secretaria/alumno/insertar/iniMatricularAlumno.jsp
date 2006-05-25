@@ -66,47 +66,55 @@
     		         </tr>
     			 </table>
     		</div>
+    			
+    	 <%
+            HttpSession sesion=request.getSession();
+            Alumno alumno = (Alumno) sesion.getAttribute("beanAlumno");
+            if (alumno == null) {alumno = new Alumno ();}
+        %>
+    		
     		<div style="position:relative; top:55px; left:80px; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">DNI</td>
-        					<td><input type="text" class="FormTxt" maxlength="9" name="ISUSUARIO_DNI"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="9" name="ISUSUARIO_DNI" value="<%=alumno.dameValor("ISUSUARIO_DNI")%>"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="NOMBRE"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="40" name="NOMBRE" value="<%=alumno.dameValor("NOMBRE")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Primer Apellido</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO1"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="40" name="APELLIDO1" value="<%=alumno.dameValor("APELLIDO1")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Segundo Apellido</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO2"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="40" name="APELLIDO2" value="<%=alumno.dameValor("APELLIDO2")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Telefono</td>
-        					<td><input type="text" class="FormTxt" maxlength="9" name="TELEFONO"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="9" name="TELEFONO" value="<%=alumno.dameValor("TELEFONO")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Correo electrónico</td>
-        					<td><input type="text" class="FormTxt" maxlength="50" name="EMAIL"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="50" name="EMAIL" value="<%=alumno.dameValor("EMAIL")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Dirección</td>
-        					<td><input type="text" class="FormTxt" maxlength="100" name="DIRECCION"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="100" name="DIRECCION" value="<%=alumno.dameValor("DIRECCION")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('insertarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('insertarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
-        				<tr>        				
-        					<td class="FormLiteral">Sexo</td>
+        				<tr>  
+        				<td class="FormLiteral">Sexo</td>
         					<td>
-                      <select name="SEXO" class="FormTxt">
+                      <select name="SEXO" class="FormTxt" value="<%=alumno.dameValor("SEXO")%>">
                          <option value="">Seleccione un sexo</option>
 	                       <option value="Masculino">Masculino</option>
 	                       <option value="Femenino">Femenino</option>
                       </select>                                    
                   </td>
+        					
         					<td></td>
         					<td class="FormLiteral">Curso</td>
         					<td class="info">
