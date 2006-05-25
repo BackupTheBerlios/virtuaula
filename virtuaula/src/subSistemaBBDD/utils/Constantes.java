@@ -142,4 +142,20 @@ public class Constantes {
 	public static final String EXPEDIENTEALUMNO_FECH_NACIMIENTO = "FECH_NACIMIENTO";
 	public static final String EXPEDIENTEALUMNO_SEXO = "SEXO";
 	public static final String EXPEDIENTEALUMNO_NOTAFINAL="NOTAFINAL";
+	
+	
+	//Nombres para obtener las distintas fachadas de la base de datos
+	public static final String FachadaAlumno="fachadaAlumno";
+	public static final String FachadaArea="fachadaArea";
+	public static final String FachadaAula="fachadaAula";
+	public static final String FachadaAviso="fachadaAviso";
+	public static final String FachadaCurso="fachadaCurso";
+	public static final String FachadaFicha="fachadaFicha";
+	public static final String FachadaHorario="fachadaHorario";
+	public static final String FachadaProfesor="fachadaProfesor";
+	public static final String FachadaUsuario="fachadaUsuario";
+	
+	
+	
+	
 }
