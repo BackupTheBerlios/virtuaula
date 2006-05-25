@@ -7,6 +7,7 @@ public class ControladorInicioMatricula extends Controlador{
 	public void procesarEvento() {
 		this.getSesion().removeAttribute("error");
 		this.setResuladooperacion("SIG");
+		this.getSesion().removeAttribute("beanAlumno");
 		
 	}
 
