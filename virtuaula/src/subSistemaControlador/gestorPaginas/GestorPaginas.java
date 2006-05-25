@@ -162,6 +162,10 @@ public class GestorPaginas {
 		agregarPaginas("alumno","VOLVER_ANTERIOR","SIG","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
 		agregarPaginas("alumno","BOR_ALUM_AVIS","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
 		agregarPaginas("alumno","BOR_ALUM_AVIS","ERROR","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		
+		//alumno consulta expediente
+		agregarPaginas("alumno","CONS_EXP_ALUM","OK","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
+		agregarPaginas("alumno","CONS_EXP_ALUM","ERROR","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
 
 		
 		//contable consulta nominas
