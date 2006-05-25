@@ -111,9 +111,8 @@ public class BBDDFachada {
 	
 	
 	protected EsquemaBBDD crearTablaAdecuada(ObjetoBBDD entidadBBDD){
-		
 		EsquemaBBDD esquemaAdecuado= creador.getCreadorEsquema().crear
-		( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getSimpleName())).intValue());
+		( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getName())).intValue());
 		
 		return esquemaAdecuado;
 	
@@ -124,8 +123,8 @@ public class BBDDFachada {
 		
 		
 		ObjetoCriterio criterioAdecuado =creador.getCreadorObjetoCriterio().crear
-								( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getSimpleName())).intValue());
-		
+								( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getName())).intValue());
+		System.out.println("HE ELEGIDO EL CRITERIO " + criterioAdecuado==null);
 		criterioAdecuado.convertir(entidadBBDD);
 		return criterioAdecuado;
 		
