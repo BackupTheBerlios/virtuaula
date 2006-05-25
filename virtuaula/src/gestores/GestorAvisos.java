@@ -1,6 +1,10 @@
 package gestores;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaAviso;
+import subSistemaBBDD.BBDDFachadaProfesor;
+import subSistemaBBDD.BBDDFachadaAula;
+import subSistemaBBDD.BBDDFachadaHorario;
 import subSistemaBBDD.utils.Constantes;
 import beans.Avisos_Has_Usuario;
 import beans.CreadorBean;
@@ -20,7 +24,8 @@ public class GestorAvisos {
 
 	public ListaObjetoBean consultaAvisos(ObjetoBean beanUsuario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		ListaObjetoBean l = bdf.dameAvisosUsuario(beanUsuario);
+		BBDDFachadaAviso bdfa = (BBDDFachadaAviso)(bdf.dameBBDDFachada(Constantes.FachadaAviso));
+		ListaObjetoBean l = bdfa.dameAvisosUsuario(beanUsuario);
 		return l;
 	}
 	/**
@@ -68,9 +73,12 @@ public class GestorAvisos {
 		CreadorBean creador = new CreadorBean();
 		BBDDFachada bdf = BBDDFachada.getInstance();	
 		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
-		ObjetoBean prof=bdf.dameProfesorCurso(Curso);
-		ObjetoBean aula=bdf.dameAulaCurso(Curso);
-		ObjetoBean horario=bdf.dameHorarioCurso(Curso);
+		BBDDFachadaProfesor bdfp=(BBDDFachadaProfesor) bdf.dameBBDDFachada(Constantes.FachadaProfesor);
+		BBDDFachadaAula bdfa=(BBDDFachadaAula) bdf.dameBBDDFachada(Constantes.FachadaAula);
+		BBDDFachadaHorario bdfh=(BBDDFachadaHorario) bdf.dameBBDDFachada(Constantes.FachadaHorario);
+		ObjetoBean prof=bdfp.dameProfesorCurso(Curso);
+		ObjetoBean aula=bdfa.dameAulaCurso(Curso);
+		ObjetoBean horario=bdfh.dameHorarioCurso(Curso);
 		GestorHorarios GH=new GestorHorarios();
 		String hor=GH.convertirHorario(horario);
 		String nombreaula= aula.dameValor(Constantes.AULA_NOMBRE);

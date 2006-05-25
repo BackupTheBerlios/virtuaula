@@ -1,6 +1,7 @@
 package gestores;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaAula;
 import subSistemaBBDD.utils.Constantes;
 import beans.Aula;
 import beans.CreadorBean;
@@ -25,7 +26,8 @@ public class GestorAulas {
 	
 	public ListaObjetoBean consultaAulasPorHorario (ObjetoBean beanHorario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		ListaObjetoBean l = bdf.dameAulasLibres(beanHorario);	
+		BBDDFachadaAula bdfa= (BBDDFachadaAula)(bdf.dameBBDDFachada(Constantes.FachadaAula));
+		ListaObjetoBean l = bdfa.dameAulasLibres(beanHorario);	
 		return l;
 	}
 	

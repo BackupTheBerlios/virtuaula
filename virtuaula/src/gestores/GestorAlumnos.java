@@ -9,6 +9,7 @@ import beans.Error;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
+import subSistemaBBDD.BBDDFachadaAlumno;
 import subSistemaBBDD.BBDDFachada;
 import subSistemaBBDD.utils.Constantes;
 
@@ -194,7 +195,8 @@ public class GestorAlumnos {
 	public ListaObjetoBean creaExpedienteAlumno(ObjetoBean alumno)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.creaExpedienteAlumno(alumno);
+		BBDDFachadaAlumno bdfa = (BBDDFachadaAlumno)(bdf.dameBBDDFachada(Constantes.FachadaAlumno));
+		return bdfa.creaExpedienteAlumno(alumno);
 		
 	}
 	/**

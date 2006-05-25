@@ -1,6 +1,8 @@
 package gestores;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaCurso;
+import subSistemaBBDD.BBDDFachadaFicha;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.Error;
@@ -16,8 +18,9 @@ public class GestorFichas {
 	}
 
 	public Ficha consultaFichaDeAlumno(ObjetoBean beanAlumno,ObjetoBean beanCurso) {	
-		BBDDFachada bdf = BBDDFachada.getInstance();	
-		return  (Ficha) bdf.dameFichaAlumnoCurso(beanAlumno, beanCurso);
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaFicha bdff= (BBDDFachadaFicha) (bdf.dameBBDDFachada(Constantes.FachadaFicha));
+		return  (Ficha) bdff.dameFichaAlumnoCurso(beanAlumno, beanCurso);
 	}
 	
 	public ListaObjetoBean editarFicha(ObjetoBean beanFicha){

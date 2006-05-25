@@ -8,6 +8,7 @@ import subSistemaBBDD.objetoBaseDatos.CreadorObjetoBBDD;
 import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
 import subSistemaBBDD.objetoCriterio.CreadorObjetoCriterio;
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
+import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
@@ -42,14 +43,14 @@ public class BBDDFachadaAula extends BBDDFachada {
 			
 			for (int i=0; i<aulasExistentes.tamanio();i++){
 				ObjetoBean aulaActual = ConversorBeanBBDD.convierteBBDDABean(aulasExistentes.dameObjeto(i));
-				ListaObjetoBean horariosOcupados= ((BBDDFachadaHorario)(BBDDFachada.dameBBDDFachada(Constantes.FachadaHorario)))
+				ListaObjetoBean horariosOcupados= ((BBDDFachadaHorario)(super.dameBBDDFachada(Constantes.FachadaHorario)))
 														.dameHorariosOcupadosAula(aulaActual);
 				//Para cada uno de los horarios en los cuales el aula está ocupado, compruebo si alguna de las horas
 				//de este horario coincide con el Bean horario que se me ha pasado como parámetro.
 				boolean libre=true;
 				for(int j=0;j<horariosOcupados.tamanio() && libre;j++){
 					ObjetoBean horarioActual = horariosOcupados.dameObjeto(j);
-					libre= ((BBDDFachadaHorario)(BBDDFachada.dameBBDDFachada(Constantes.FachadaHorario))).horariosCompatibles(horario,horarioActual);
+					libre= ((BBDDFachadaHorario)(super.dameBBDDFachada(Constantes.FachadaHorario))).horariosCompatibles(horario,horarioActual);
 				}
 				if(libre)
 					aulasLibresHorario.insertar(aulasLibresHorario.tamanio(),aulasExistentes.dameObjeto(i));
@@ -72,12 +73,12 @@ public class BBDDFachadaAula extends BBDDFachada {
 	 * @return true si el aula esta libre en ese horario, false e.o.c
 	 */
 	public boolean libreAula(ObjetoBean horario,ObjetoBean aula){
-		ListaObjetoBean horariosOcupadoAula=((BBDDFachadaHorario)(BBDDFachada.dameBBDDFachada(Constantes.FachadaHorario)))
+		ListaObjetoBean horariosOcupadoAula=((BBDDFachadaHorario)(super.dameBBDDFachada(Constantes.FachadaHorario)))
 											.dameHorariosOcupadosAula(aula);
 		boolean libre= true;
 		for(int i=0;i<horariosOcupadoAula.tamanio() && libre;i++){
 			ObjetoBean horario2= horariosOcupadoAula.dameObjeto(i);
-			if (!((BBDDFachadaHorario)(BBDDFachada.dameBBDDFachada(Constantes.FachadaHorario))).horariosCompatibles(horario,horario2))
+			if (!((BBDDFachadaHorario)(super.dameBBDDFachada(Constantes.FachadaHorario))).horariosCompatibles(horario,horario2))
 				libre=false;
 		}
 		return libre;
@@ -90,6 +91,17 @@ public class BBDDFachadaAula extends BBDDFachada {
 		EsquemaBBDD tablaAula =creadorAulas.crear(creadorAulas.EsqIsaula);
 		ListaObjetoBBDD result= this.inicializaTabla(tablaAula).consultar(criterioAula);
 		return ConversorBeanBBDD.convierteListaBBDD(result);
+	}
+	
+	public ObjetoBean dameAulaCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ListaObjetoBean horariosAula=this.consultar(horarioAula);
+		ObjetoBean areaCurso = horariosAula.dameObjeto(0);
+		ObjetoBean aula = creadorBean.crear(creadorBean.Aula);
+		aula.cambiaValor(Constantes.ID_ISAULA,areaCurso.dameValor(Constantes.ID_HAS_ISAULA_IDISAULA));
+		return this.consultar(aula).dameObjeto(0);
 	}
 	
 }

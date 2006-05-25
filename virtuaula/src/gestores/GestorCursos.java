@@ -2,11 +2,17 @@ package gestores;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import subSistemaBBDD.BBDDFachadaCurso;
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaHorario;
+import subSistemaBBDD.BBDDFachadaArea;
+import subSistemaBBDD.BBDDFachadaAlumno;
+import subSistemaBBDD.BBDDFachadaProfesor;
+import subSistemaBBDD.BBDDFachadaAula;
 import beans.*;
 import beans.listaObjetoBeans.*;
 import subSistemaBBDD.utils.Constantes;
+import sun.security.krb5.internal.crypto.b;
 
 public class GestorCursos {
 
@@ -21,39 +27,46 @@ public class GestorCursos {
 	}
 	public ListaObjetoBean consultaCurso(ObjetoBean beanCurso,ObjetoBean aula,ObjetoBean horario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		ListaObjetoBean l = bdf.dameCursosCumplan(beanCurso,aula,horario);
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		ListaObjetoBean l = bdfc.dameCursosCumplan(beanCurso,aula,horario);
 		return l;
 	}
 	
 	public Area consultaAreaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return (Area)bdf.dameAreaCurso(beanCurso);
+		BBDDFachadaArea bdfa= (BBDDFachadaArea) (bdf.dameBBDDFachada(Constantes.FachadaArea));
+		return (Area)bdfa.dameAreaCurso(beanCurso);
 	}
 	
 	public Horario consultaHorarioDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return (Horario)bdf.dameHorarioCurso(beanCurso);
+		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) (bdf.dameBBDDFachada(Constantes.FachadaHorario));
+		return (Horario)bdfh.dameHorarioCurso(beanCurso);
 	}
 	
 	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameAlumnosCurso(beanCurso);
+		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
+		return bdfa.dameAlumnosCurso(beanCurso);
 	}
 	
 	public ListaObjetoBean consultaCursosActivos(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameCursosActivos(beanProfesor);
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.dameCursosActivos(beanProfesor);
 	}
 	
 	
 	public Aula consultaAulaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return (Aula)bdf.dameAulaCurso(beanCurso);
+		BBDDFachadaAula bdfa= (BBDDFachadaAula) (bdf.dameBBDDFachada(Constantes.FachadaAula));
+		return (Aula)bdfa.dameAulaCurso(beanCurso);
 	}
 	
 	public Profesor consultaProfesorDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return (Profesor)bdf.dameProfesorCurso(beanCurso);
+		BBDDFachadaProfesor bdfp= (BBDDFachadaProfesor) (bdf.dameBBDDFachada(Constantes.FachadaProfesor));
+		return (Profesor)bdfp.dameProfesorCurso(beanCurso);
 	}
 	
 	public ListaObjetoBean consultaProfesores(){
@@ -459,7 +472,8 @@ public class GestorCursos {
 				}
 				
 			} else {
-				if (bdf.cursoYaExiste(beanCurso)){
+				BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+				if (bdfc.cursoYaExiste(beanCurso)){
 					String mensaje = "El curso introducido ya existe";
 					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -499,6 +513,7 @@ public class GestorCursos {
 	public ListaObjetoBean dameCursosActivos()
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.dameCursosActivos();
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.dameCursosActivos();
 	}
 }

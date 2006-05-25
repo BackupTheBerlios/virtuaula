@@ -4,6 +4,9 @@ import javax.servlet.http.*;
 import beans.*;
 //import subSistemaBBDD.beans.*;
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaProfesor;
+import subSistemaBBDD.BBDDFachadaUsuario;
+import subSistemaBBDD.utils.Constantes;
 public class GestorSesiones {
 	
 	public boolean indicaSiUsuarioIdentificado(HttpSession sesion){
@@ -15,11 +18,12 @@ public class GestorSesiones {
 		if (usuario!=null){
 			//venimos de la pag de inicio
 			BBDDFachada bbdd=BBDDFachada.getInstance();
-			if (bbdd.usuarioValido(usuario)){
+			BBDDFachadaUsuario bdfu= (BBDDFachadaUsuario) (bbdd.dameBBDDFachada(Constantes.FachadaUsuario));
+			if (bdfu.usuarioValido(usuario)){
 				//esta registrado
 				validado=Boolean.TRUE;
 				//saco su perfilUsuario
-				String perfilUsuario=bbdd.damePerfilUsuario(usuario);
+				String perfilUsuario=bdfu.damePerfilUsuario(usuario);
 				sesion.setAttribute("perfilUsuario",perfilUsuario);
 			}
 			else{

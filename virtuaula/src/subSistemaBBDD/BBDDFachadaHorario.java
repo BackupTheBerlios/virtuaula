@@ -9,6 +9,7 @@ import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
 import subSistemaBBDD.objetoCriterio.CreadorObjetoCriterio;
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
+import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
@@ -16,6 +17,55 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	protected BBDDFachadaHorario(){
 		
 	} 
+	
+	/**
+	 * Dado un profesor devuelve una lista con sus horarios.
+	 * @param profesor, el profesor del cual queremos consultar sus horarios
+	 * @return una lista con los horarios del profesor.
+	 */
+	public ListaObjetoBean dameHorariosOcupadosProfesor(ObjetoBean profesor){
+		
+		try{
+			ListaObjetoBean cursosProfesorActual = ((BBDDFachadaCurso)(super.dameBBDDFachada(Constantes.FachadaCurso)))
+													.dameCursosProfesor(profesor);
+			//Para cada curso del profesor actual obtengo el horario en el cual se imparte
+			ObjetoBean cursoActual;
+			ObjetoBBDD horarioAula;
+			ObjetoCriterio critHorarioAula;
+			//Aqui tendremos todos los horarios de todos los cursos que da el profesor actual.
+			ListaObjetoBBDD horariosOcupadoProfesorActual = this.creador.getCreadorListaObjetoBBDD().crear();
+			ObjetoBBDD horarioAulaCurso;
+			ObjetoBBDD hor= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().Ishorario);
+			ObjetoCriterio critHorario;
+			for(int j=0; j<cursosProfesorActual.tamanio();j++){
+				cursoActual= cursosProfesorActual.dameObjeto(j);
+				horarioAula = this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
+				horarioAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+				critHorarioAula = this.crearObjetoCriterioAdecuado(horarioAula);
+				horarioAulaCurso= this.inicializaTabla(this.crearTablaAdecuada(horarioAula)).consultar(critHorarioAula).dameObjeto(0);
+				hor.cambiaValor(Constantes.ID_ISHORARIO,horarioAulaCurso.dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
+				critHorario = this.crearObjetoCriterioAdecuado(hor);
+				ObjetoBBDD horarioCurso= this.inicializaTabla(this.crearTablaAdecuada(hor)).consultar(critHorario).dameObjeto(0);
+				horariosOcupadoProfesorActual.insertar(horariosOcupadoProfesorActual.tamanio(),horarioCurso);					
+			}
+			return ConversorBeanBBDD.convierteListaBBDD(horariosOcupadoProfesorActual);
+		}
+		catch( Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public ObjetoBean dameHorarioCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ListaObjetoBean horariosAula=this.consultar(horarioAula);
+		ObjetoBean areaCurso = horariosAula.dameObjeto(0);
+		ObjetoBean horario = creadorBean.crear(creadorBean.Horario);
+		horario.cambiaValor(Constantes.ID_ISHORARIO,areaCurso.dameValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO));
+		return this.consultar(horario).dameObjeto(0);
+	}
+	
 	/**
 	 * Devuelve una lista de beans con todos los horarios fijados en el sistema
 	 * @return la lista de beans mencionada

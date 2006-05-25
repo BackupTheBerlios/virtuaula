@@ -1,5 +1,9 @@
 package subSistemaBBDD;
 
+import subSistemaBBDD.esquemaBBDD.EsquemaBBDD;
+import subSistemaBBDD.listaObjeto.ListaObjetoBBDD;
+import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
+import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.ObjetoBean;
@@ -27,4 +31,44 @@ public class BBDDFachadaFicha extends BBDDFachada{
 		
 	}
 	
+	
+	
+	/**
+	 * Este metodo borra todas las fichas de un curso
+	 * @param curso
+	 * @return true si exito, false e.o.c
+	 */
+	public boolean borrarFichasCurso(ObjetoBean curso){
+		try{
+			ObjetoBBDD cursoAlumnoFicha = this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IscursoHasIsalumno);
+			cursoAlumnoFicha.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+			ObjetoCriterio critCursoAlumnoFicha= this.crearObjetoCriterioAdecuado(cursoAlumnoFicha);
+			EsquemaBBDD tablaCursoAlumFicha=  this.inicializaTabla(this.crearTablaAdecuada(cursoAlumnoFicha));
+			ListaObjetoBBDD fichasCursoAlumno=tablaCursoAlumFicha.consultar(critCursoAlumnoFicha);
+			ObjetoBBDD ficha=this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IsFicha);
+			ObjetoCriterio critFicha;
+			EsquemaBBDD tablaFicha = this.inicializaTabla(this.crearTablaAdecuada(ficha));
+			ObjetoBBDD fichaCursAlumActual;
+			ObjetoCriterio critFichAlumCur;
+			for(int i=0;i<fichasCursoAlumno.tamanio();i++){
+				fichaCursAlumActual= fichasCursoAlumno.dameObjeto(i);
+				ficha.cambiaValor(Constantes.ID_ISFICHA, fichaCursAlumActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA));
+				critFicha= this.crearObjetoCriterioAdecuado(ficha);
+				//	Borramos cada ficha			
+				tablaFicha.borrar(critFicha);
+				
+			//	Cambiamos el campo idficha de la tabla de relacion curso alumno al valor vacio.
+				fichaCursAlumActual.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA,"null");
+				critFichAlumCur= this.crearObjetoCriterioAdecuado(fichaCursAlumActual);
+				tablaCursoAlumFicha.editar(critFichAlumCur);
+				
+			}
+			return true;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
 }

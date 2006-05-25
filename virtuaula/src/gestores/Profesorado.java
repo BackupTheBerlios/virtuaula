@@ -3,6 +3,8 @@ package gestores;
 import java.util.Random;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaCurso;
+import subSistemaBBDD.BBDDFachadaProfesor;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.Error;
@@ -35,7 +37,8 @@ public class Profesorado {
 	 */
 	public ListaObjetoBean consultaProfesoresPorHorario (ObjetoBean beanHorario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		ListaObjetoBean l = bdf.dameProfesoresLibres(beanHorario);	
+		BBDDFachadaProfesor bdfp= (BBDDFachadaProfesor) (bdf.dameBBDDFachada(Constantes.FachadaProfesor));
+		ListaObjetoBean l = bdfp.dameProfesoresLibres(beanHorario);	
 		return l;
 	}
 	/**
@@ -75,7 +78,8 @@ public class Profesorado {
 	 */
 	public ListaObjetoBean consultaCursosProfesor(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		ListaObjetoBean l = bdf.dameCursosProfesor(beanProfesor);
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		ListaObjetoBean l = bdfc.dameCursosProfesor(beanProfesor);
 		return l;
 	}
 	/**
@@ -125,7 +129,8 @@ public class Profesorado {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"inactivo");
 		bdf.editar(beanCurso);
-		return bdf.publicarNota(beanCurso);
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.publicarNota(beanCurso);
 	}
 
 	public ListaObjetoBean consultaContratos(ObjetoBean contrato)
@@ -144,7 +149,8 @@ public class Profesorado {
 	public ListaObjetoBean dameExpedienteCurso(ObjetoBean curso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
-		return bdf.creaExpediente(curso);
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.creaExpediente(curso);
 	}
 	/**
 	 * Comprueba que los datos del profesor,de su nomina y su contraro sean correctos para insertarlo
