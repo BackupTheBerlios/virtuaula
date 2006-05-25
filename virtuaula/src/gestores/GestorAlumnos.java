@@ -246,11 +246,11 @@ public class GestorAlumnos {
 			{
 				if (!bdf.insertar(usuario))
 				{//genero un error
-					ObjetoBean error = creador.crear(creador.Error);
+					/*ObjetoBean error = creador.crear(creador.Error);
 					error.cambiaValor(Constantes.CAUSA,"El usuario ya existe");
 					int tamanio=liserror.tamanio();
 					liserror.insertar(tamanio,error);
-					return liserror;
+					return liserror;*/
 				}
 				else
 				{//inserto un alumno
