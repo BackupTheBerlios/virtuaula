@@ -12,6 +12,7 @@ public class GestorPaginas {
 	private HashMap mapProfesor;
 	private HashMap mapPublico;
 	private HashMap mapContable;
+	private HashMap mapAlumno;
 	
 	/**
 	 * Inicializa los atributos de la clase
@@ -22,6 +23,7 @@ public class GestorPaginas {
 		mapProfesor = new HashMap ();
 		mapPublico = new HashMap ();
 		mapContable = new HashMap ();
+		mapAlumno = new HashMap ();
 	}
 	
 	
@@ -50,6 +52,9 @@ public class GestorPaginas {
 		
 		if (tipoUsuario.equals("contable")) {
 			paginaSig = (String) this.mapContable.get(operacion.concat(operacionResultado));
+		}
+		if (tipoUsuario.equals("alumno")) {
+			paginaSig = (String) this.mapAlumno.get(operacion.concat(operacionResultado));
 		}
 		
 		return paginaSig;
@@ -82,6 +87,9 @@ public class GestorPaginas {
 		
 		if (tipoUsuario.equals("contable")) {
 			this.mapContable.put(operacion.concat(operacionResultado), paginaSig);
+		}
+		if (tipoUsuario.equals("alumno")) {
+			this.mapAlumno.put(operacion.concat(operacionResultado), paginaSig);
 		}
 	}
 	/**
@@ -141,6 +149,20 @@ public class GestorPaginas {
 		agregarPaginas("contable","LOGAR","SIG","/virtuaula/pages/contable/index.jsp");
 		agregarPaginas("contable","menuPrincipalCont","SIG","/virtuaula/pages/contable/index.jsp");
 		agregarPaginas("contable","desconectar","SIG","/virtuaula/index.jsp");
+		
+		//sesion alumno
+		agregarPaginas("alumno","LOGAR","SIG","/virtuaula/pages/alumno/index.jsp");
+		agregarPaginas("alumno","menuPrincipalAlum","SIG","/virtuaula/pages/alumno/index.jsp");
+		agregarPaginas("alumno","desconectar","SIG","/virtuaula/index.jsp");
+		
+		//alumno consulta avisos
+		agregarPaginas("alumno","AVIS_ALUM","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","AVIS_ALUM","ERROR","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","LEER_AVIS_ALUM","SIG","/virtuaula/pages/alumno/aviso/leerAviso.jsp");
+		agregarPaginas("alumno","VOLVER_ANTERIOR","SIG","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","BOR_ALUM_AVIS","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","BOR_ALUM_AVIS","ERROR","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+
 		
 		//contable consulta nominas
 		agregarPaginas("contable","OP_MOSTRAR_NOMINAS","OK","/virtuaula/pages/contable/nomina/verNominas.jsp");
