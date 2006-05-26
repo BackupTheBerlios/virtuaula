@@ -1,8 +1,11 @@
 package subSistemaBBDD;
 
+import subSistemaBBDD.esquemaBBDD.CreadorEsquemaBBDD;
 import subSistemaBBDD.esquemaBBDD.EsquemaBBDD;
 import subSistemaBBDD.listaObjeto.ListaObjetoBBDD;
 import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
+import beans.listaObjetoBeans.*;
+import subSistemaBBDD.objetoBaseDatos.CreadorObjetoBBDD;
 import subSistemaBBDD.objetoCriterio.CreadorObjetoCriterio;
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
@@ -16,6 +19,20 @@ import beans.ObjetoBean;
  */
 public class BBDDFachadaUsuario extends BBDDFachada{
 	protected BBDDFachadaUsuario(){
+		
+	}
+	/**
+	 * Devuelve una lista de usuarios segun el perfil especificado
+	 * @return
+	 */
+	public ListaObjetoBean dameUsuariosPerfil(String perfil){
+		CreadorObjetoBBDD creadorObjetoBBDD=this.creador.getCreadorObjetoBBDD();
+		ObjetoBBDD usuario= creadorObjetoBBDD.crear(creadorObjetoBBDD.Isusuario);
+		usuario.cambiaValor(Constantes.USUARIO_PERFIL,perfil);
+		ObjetoCriterio critUsuario= this.crearObjetoCriterioAdecuado(usuario);
+		EsquemaBBDD tablaUsuario =this.crearTablaAdecuada(usuario);
+		ListaObjetoBBDD result= this.inicializaTabla(tablaUsuario).consultar(critUsuario);
+		return ConversorBeanBBDD.convierteListaBBDD(result);
 		
 	}
 
@@ -103,5 +120,13 @@ public class BBDDFachadaUsuario extends BBDDFachada{
 		}
 			
 	}
+	//prueba dameUsuariosPerfil
+	/*public static void main(String args[]){
+		BBDDFachadaUsuario mia= new BBDDFachadaUsuario();
+		ListaObjetoBean lista= mia.dameUsuariosPerfil("contable");
+		for (int i=0;i<lista.tamanio();i++){
+			System.out.println(lista.dameObjeto(i).dameValor(Constantes.USUARIO_PERFIL));
+		}
+	}*/
 
 }

@@ -124,7 +124,6 @@ public class BBDDFachada {
 		
 		ObjetoCriterio criterioAdecuado =creador.getCreadorObjetoCriterio().crear
 								( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getName())).intValue());
-		System.out.println("HE ELEGIDO EL CRITERIO " + criterioAdecuado==null);
 		criterioAdecuado.convertir(entidadBBDD);
 		return criterioAdecuado;
 		
