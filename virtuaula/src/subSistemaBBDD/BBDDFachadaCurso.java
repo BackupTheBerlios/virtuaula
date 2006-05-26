@@ -203,15 +203,32 @@ public class BBDDFachadaCurso extends BBDDFachada{
 			
 			
 		}
-		//Si se han publicado con exito las notas de este curso borramos las fichas correspondientes al curso.
-		if(exito)
-			((BBDDFachadaFicha)super.dameBBDDFachada(Constantes.FachadaFicha)).borrarFichasCurso(curso); 
+		//Si se han publicado con exito las notas de este curso borramos las fichas correspondientes al curso
+		//y tambien liberamos el horario y el aula en el que se impartía el curso.
+		if(exito){
+			exito=((BBDDFachadaFicha)super.dameBBDDFachada(Constantes.FachadaFicha)).borrarFichasCurso(curso);
+			exito= this.liberarHorarioAulaDeCurso(curso);
+		}
+			 
+		
 			
 		return exito;
 	}
 	
 
-
+	/**
+	 * Libera el horario y el aula asociados al curso que se pasa como parametro
+	 * @param curso
+	 * @return
+	 */
+	public boolean liberarHorarioAulaDeCurso(ObjetoBean curso){
+		CreadorBean creadorBean = new CreadorBean();
+		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ListaObjetoBean horariosAula=this.consultar(horarioAula);
+		ObjetoBean horarioCurso = horariosAula.dameObjeto(0);
+		return this.eliminar(horarioCurso);
+	}
 	/**
 	 * Devuelve el numero de plazas libres de un curso.
 	 * @param curso, el curso a consultar
