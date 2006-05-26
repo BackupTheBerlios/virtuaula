@@ -152,6 +152,13 @@ public class BBDDFachadaCurso extends BBDDFachada{
 		return cursosActivosProfesor;
 	}
 	
+	public boolean darBajaCurso(ObjetoBean curso){
+		boolean exito=true;
+		exito= exito &&((BBDDFachadaFicha)super.dameBBDDFachada(Constantes.FachadaFicha)).borrarFichasCurso(curso);
+		exito= exito && this.liberarHorarioAulaDeCurso(curso);
+		exito= exito&& this.eliminar(curso);
+		return exito;
+	}
 	
 	/**
 	 * Metodo que se utiliza cuando un profesor quiere publicar las notas del curso que se pasa como parámetro

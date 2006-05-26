@@ -33,7 +33,7 @@ public class BBDDFachadaHorario extends BBDDFachada{
 		
 		try{
 			ListaObjetoBean cursosProfesorActual = ((BBDDFachadaCurso)(super.dameBBDDFachada(Constantes.FachadaCurso)))
-													.dameCursosProfesor(profesor);
+													.dameCursosActivos(profesor);
 			//Para cada curso del profesor actual obtengo el horario en el cual se imparte
 			ObjetoBean cursoActual;
 			ObjetoBBDD horarioAula;
@@ -122,6 +122,7 @@ public class BBDDFachadaHorario extends BBDDFachada{
 			EsquemaBBDD esHorAula = this.crearTablaAdecuada(horarioAula);
 			horarioAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,aula
 																 .dameValor(Constantes.ID_ISAULA));
+			
 			ObjetoCriterio critHorAula = this.crearObjetoCriterioAdecuado(horarioAula);
 			idHorariosOcupadoAula = this.inicializaTabla(esHorAula).consultar(critHorAula);
 			//Obtengo todos los horarios en los cuales el aulasExistentes[i] está ocupada y lo meto en horariosOcupados
