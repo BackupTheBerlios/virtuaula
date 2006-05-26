@@ -60,6 +60,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				horCursoAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
 				
 				if(aula!=null){
+					System.out.println("ENTROOOOOOOOOOOO aula");
 					String idAula=aula.dameValor(Constantes.ID_ISAULA);
 					if(idAula!=null)
 						horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
@@ -69,6 +70,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				else
 					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,"");
 				if(horario!=null){
+					System.out.println("ENTROOOOOOOOOOOO   horario");
 					String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
 					if (idHorario!=null)
 						horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
@@ -76,11 +78,14 @@ public class BBDDFachadaCurso extends BBDDFachada{
 						horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");
 				}
 				else
-					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");	
+					horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,"");
 							
 				critHorAulaCurso = this.crearObjetoCriterioAdecuado(horCursoAula);
 				cursosHorAula= this.inicializaTabla(this.crearTablaAdecuada(horCursoAula)).consultar(critHorAulaCurso);
-				if(!cursosHorAula.esVacio())
+				if(aula==null && horario==null){
+					cursosResultado.insertar(cursosResultado.tamanio(),cursoActual);
+				}
+				else if(!cursosHorAula.esVacio())
 						cursosResultado.insertar(cursosResultado.tamanio(),cursoActual);
 				
 						
