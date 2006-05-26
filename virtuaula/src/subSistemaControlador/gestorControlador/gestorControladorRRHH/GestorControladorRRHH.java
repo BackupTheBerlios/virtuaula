@@ -33,7 +33,7 @@ public class GestorControladorRRHH extends GestorControlador{
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		GestorControlador.tablaOperacionControlador.put("INI_INS_PROF",new ControladorIniInsProf());
 		GestorControlador.tablaOperacionControlador.put("INS_PROF",new ControladorInsProf());

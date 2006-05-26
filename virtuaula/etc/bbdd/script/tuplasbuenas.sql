@@ -11,6 +11,7 @@ DELETE FROM isavisos;
 DELETE FROM isaula;
 DELETE FROM isarea;
 DELETE FROM isalumno;
+DELETE FROM isnomina;
 
 
 INSERT INTO `isalumno` VALUES ('11111111','Pedro','Ruiz','Santos',914095454,'yotu@hotmail.com','Alcala n 49 2A','04/09/79','Varon');
