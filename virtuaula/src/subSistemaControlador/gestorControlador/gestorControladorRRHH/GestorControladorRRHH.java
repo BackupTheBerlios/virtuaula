@@ -1,12 +1,14 @@
 package subSistemaControlador.gestorControlador.gestorControladorRRHH;
 
 
+
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.Contable.ControladorConContrato;
+import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Contable.ControladorConNomina;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
@@ -33,7 +35,7 @@ public class GestorControladorRRHH extends GestorControlador{
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",new ControladorLogin());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		GestorControlador.tablaOperacionControlador.put("INI_INS_PROF",new ControladorIniInsProf());
 		GestorControlador.tablaOperacionControlador.put("INS_PROF",new ControladorInsProf());

@@ -2,7 +2,7 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 
 
 import java.util.Hashtable;
-
+import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
@@ -52,7 +52,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("MAT_ALUM_CUR",new GestorControladorMatricularAlumno());
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",new ControladorLogin());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",new ControladorPasaPag());

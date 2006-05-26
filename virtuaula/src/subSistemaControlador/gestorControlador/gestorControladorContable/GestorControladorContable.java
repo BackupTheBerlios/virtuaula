@@ -4,7 +4,7 @@ package subSistemaControlador.gestorControlador.gestorControladorContable;
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
-
+import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.Contable.ControladorConContrato;
 import subSistemaControlador.controlador.Contable.ControladorConNomina;
@@ -34,7 +34,7 @@ public class GestorControladorContable extends GestorControlador{
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",new ControladorLogin());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_NOMINAS",new ControladorConNomina());
 		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_CONTRATOS",new ControladorConContrato());
