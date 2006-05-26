@@ -7,7 +7,13 @@ import subSistemaBBDD.objetoCriterio.CreadorObjetoCriterio;
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
 import beans.ObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla usuario o
+ * con las tablas que la relacionan con otras.
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaUsuario extends BBDDFachada{
 	protected BBDDFachadaUsuario(){
 		

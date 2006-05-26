@@ -5,7 +5,13 @@ import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla aviso 
+ * o de las tablas que la relacionan con otras.
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaAviso extends BBDDFachada{
 	protected BBDDFachadaAviso(){
 		

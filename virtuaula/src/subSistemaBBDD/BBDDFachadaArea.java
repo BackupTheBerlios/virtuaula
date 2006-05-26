@@ -9,7 +9,12 @@ import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla area
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaArea extends BBDDFachada{
 
 	

@@ -12,7 +12,13 @@ import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla horario o
+ * con las tablas que la relacionan con otras.
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaHorario extends BBDDFachada{
 	protected BBDDFachadaHorario(){
 		

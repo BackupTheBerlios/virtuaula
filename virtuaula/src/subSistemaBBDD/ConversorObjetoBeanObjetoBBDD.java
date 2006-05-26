@@ -1,6 +1,12 @@
 package subSistemaBBDD;
 import beans.*;
 import subSistemaBBDD.objetoBaseDatos.*;
+/**
+ * Clase final que contiene metodos estáticos
+ * para la coneversion de ObjetoBean a ObjetoBBDD
+ * @author JORGE SANCHEZ
+ *
+ */
 public final class ConversorObjetoBeanObjetoBBDD {
 	private ConversorObjetoBeanObjetoBBDD(){
 		

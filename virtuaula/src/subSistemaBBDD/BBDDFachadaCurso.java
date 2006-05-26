@@ -12,7 +12,12 @@ import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla curso
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaCurso extends BBDDFachada{
 	protected BBDDFachadaCurso(){
 		

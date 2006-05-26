@@ -7,7 +7,12 @@ import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.ObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla ficha
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaFicha extends BBDDFachada{
 	protected BBDDFachadaFicha(){
 		

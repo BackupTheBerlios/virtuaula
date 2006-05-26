@@ -10,7 +10,12 @@ import subSistemaBBDD.utils.Constantes;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla alumno
+ * de la base de datos.
+ *  @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaAlumno extends BBDDFachada {
 	
 	

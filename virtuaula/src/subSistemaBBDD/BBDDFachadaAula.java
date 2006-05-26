@@ -12,7 +12,12 @@ import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
-
+/**
+ * Fachada especializada para operaciones con la tabla aula
+ * de la base de datos.
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaAula extends BBDDFachada {
 	
 	protected BBDDFachadaAula(){

@@ -4,7 +4,13 @@ import beans.listaObjetoBeans.*;
 import subSistemaBBDD.objetoBaseDatos.*;
 import subSistemaBBDD.listaObjeto.*;
 import subSistemaBBDD.utils.*;
-
+/**
+ * Clase final que contiene metodos estáticos
+ * de conversion entre ObjetoBean y ObjetoBBDD y entre
+ * ListaObjetoBean y ListaObjetoBBDD
+ * @author JORGE SANCHEZ
+ *
+ */
 public final class ConversorBeanBBDD {
 	private ConversorBeanBBDD(){
 		

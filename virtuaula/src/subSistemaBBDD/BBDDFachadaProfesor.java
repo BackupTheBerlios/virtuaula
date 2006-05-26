@@ -12,7 +12,13 @@ import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Fachada especializada para operaciones con la tabla profesor o
+ * con las tablas que la relacionan con otras.
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class BBDDFachadaProfesor extends BBDDFachada{
 	protected BBDDFachadaProfesor(){
 		
