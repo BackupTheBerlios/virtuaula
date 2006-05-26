@@ -223,10 +223,10 @@ public class Profesorado {
 			listaerror.insertar(i, error);
 			i++;
 		}
-		//La cuenta de ingresos debe ser un numero
+//		La cuenta de ingresos debe ser un numero
 		else if (!nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
 		  try {
-			int telf = Integer.parseInt(bean.dameValor(Constantes.NOMINA_CUENTA_INGRESOS));
+			int telf = Integer.parseInt(nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS));
 			if (telf < 0) {
 				mensaje = "El campo cuenta tiene un valor incorrecto. Debe ser" +
 						  "numerica";

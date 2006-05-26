@@ -2,13 +2,14 @@ package subSistemaControlador.gestorControlador;
 
 
 import javax.servlet.http.*;
-import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
+import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.gestorControladorAlumnos.GestorControladorAlumnos;
 import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorContable;
 import subSistemaControlador.gestorControlador.gestorControladorProfesor.GestorControladorProfesor;
 import subSistemaControlador.gestorControlador.gestorControladorPublico.GestorControladorPublico;
+import subSistemaControlador.gestorControlador.gestorControladorRRHH.GestorControladorRRHH;
 import subSistemaControlador.gestorControlador.gestorControladorSecretaria.GestorControladorSecretaria;
 
 import java.util.Hashtable;
@@ -38,6 +39,7 @@ public class GestorControlador {
 			tablaUsuarioGestor=new Hashtable();
 			GestorControlador.tablaOperacionControlador.put("LOGAR",new ControladorLogin());
 			
+			
 		}
 		public void inicializa(){
 			GestorControladorSecretaria gestorContSec=new GestorControladorSecretaria();
@@ -45,15 +47,18 @@ public class GestorControlador {
 			GestorControladorPublico gestorContPublico = new GestorControladorPublico();
 			GestorControladorContable gestorContContable = new GestorControladorContable();
 			GestorControladorAlumnos gestorContAlumno = new GestorControladorAlumnos();
+			GestorControladorRRHH gestorContRRHH = new GestorControladorRRHH();
 			gestorContSec.inicializa();
 			gestorContProf.inicializa();
 			gestorContContable.inicializa();
 			gestorContAlumno.inicializa();
+			gestorContRRHH.inicializa();
 			tablaUsuarioGestor.put("secretaria",gestorContSec);
 			tablaUsuarioGestor.put("profesor",gestorContProf);
 			tablaUsuarioGestor.put("publico",gestorContPublico);
 			tablaUsuarioGestor.put("contable",gestorContContable);
 			tablaUsuarioGestor.put("alumno",gestorContAlumno);
+			tablaUsuarioGestor.put("rrhh",gestorContRRHH);
 		}
 		public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 			Controlador controladorResultado;	

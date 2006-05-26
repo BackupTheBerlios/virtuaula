@@ -109,6 +109,7 @@ INSERT INTO `isusuario` VALUES ('123','123','secretaria');
 INSERT INTO `isusuario` values ('789','789','profesor');
 INSERT INTO `isusuario` values ('anonimo','anonimo','publico');
 INSERT INTO `isusuario` values ('000','000','contable');
+INSERT INTO `isusuario` values ('111','111','rrhh');
 
 INSERT INTO `isficha` values (10,'5','Falta repetidamente a clase',5.5);
 INSERT INTO `isficha` values (11,'8','Va progresando',8.5);
