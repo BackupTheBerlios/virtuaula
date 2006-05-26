@@ -85,7 +85,7 @@ public class GestorFichas {
 				i++;
 			}
 		}
-		if (!bean.dameValor(Constantes.FICHA_NOTAS).equals("")) {
+		/*if (!bean.dameValor(Constantes.FICHA_NOTAS).equals("")) {
 			try {
 				int numerico = Integer.parseInt(bean
 						.dameValor(Constantes.FICHA_NOTAS));
@@ -97,7 +97,7 @@ public class GestorFichas {
 				l.insertar(i, error);
 				i++;
 			}
-		}
+		}*/
 
 		return l;
 	}
