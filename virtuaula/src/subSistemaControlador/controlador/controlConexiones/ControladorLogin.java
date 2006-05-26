@@ -17,7 +17,8 @@ public class ControladorLogin extends Controlador{
 	public void procesarEvento(){
 		ObjetoBean usuario = (Usuario)this.getSesion().getAttribute("beanUsuario");
 		GestorAvisos GA= new GestorAvisos();
-		Integer numAvisos=Integer.valueOf(GA.numeroAvisosNuevos(usuario));
+		int numeroAvisos= GA.numeroAvisosNuevos(usuario);
+		Integer numAvisos= new Integer(numeroAvisos);			
 		this.setResuladooperacion("SIG");
 		this.getSesion().removeAttribute("error");
 		if (numAvisos.equals(null))
