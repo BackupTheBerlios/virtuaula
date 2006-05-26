@@ -7,7 +7,12 @@ import gestores.GestorAvisos;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.Usuario;
-
+/**
+ * Controlador que maneja el login de cualquier tipo de usuario, dejando en
+ * el objeto session el numero de mensajes que tiene sin leer 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class ControladorLogin extends Controlador{
 	public void procesarEvento(){
 		ObjetoBean usuario = (Usuario)this.getSesion().getAttribute("beanUsuario");
