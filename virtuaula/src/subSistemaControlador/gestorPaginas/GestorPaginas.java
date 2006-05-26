@@ -12,8 +12,8 @@ public class GestorPaginas {
 	private HashMap mapProfesor;
 	private HashMap mapPublico;
 	private HashMap mapContable;
+	private HashMap mapAlumno;
 	private HashMap mapRRHH;
-	
 	/**
 	 * Inicializa los atributos de la clase
 	 *
@@ -23,6 +23,7 @@ public class GestorPaginas {
 		mapProfesor = new HashMap ();
 		mapPublico = new HashMap ();
 		mapContable = new HashMap ();
+		mapAlumno = new HashMap ();
 		mapRRHH = new HashMap ();
 	}
 	
@@ -53,11 +54,12 @@ public class GestorPaginas {
 		if (tipoUsuario.equals("contable")) {
 			paginaSig = (String) this.mapContable.get(operacion.concat(operacionResultado));
 		}
-		
+		if (tipoUsuario.equals("alumno")) {
+			paginaSig = (String) this.mapAlumno.get(operacion.concat(operacionResultado));
+		}
 		if (tipoUsuario.equals("rrhh")) {
 			paginaSig = (String) this.mapRRHH.get(operacion.concat(operacionResultado));
 		}
-		
 		return paginaSig;
 		
 	}
@@ -89,11 +91,12 @@ public class GestorPaginas {
 		if (tipoUsuario.equals("contable")) {
 			this.mapContable.put(operacion.concat(operacionResultado), paginaSig);
 		}
-		
+		if (tipoUsuario.equals("alumno")) {
+			this.mapAlumno.put(operacion.concat(operacionResultado), paginaSig);
+		}
 		if (tipoUsuario.equals("rrhh")) {
 			this.mapRRHH.put(operacion.concat(operacionResultado), paginaSig);
 		}
-		
 	}
 	/**
 	 * Inicializa el redireccionamiento de cada una de las paginas con respecto a las operaciones, operaciones resultado de los controladores
@@ -153,6 +156,23 @@ public class GestorPaginas {
 		agregarPaginas("contable","menuPrincipalCont","SIG","/virtuaula/pages/contable/index.jsp");
 		agregarPaginas("contable","desconectar","SIG","/virtuaula/index.jsp");
 		
+		//sesion alumno
+		agregarPaginas("alumno","LOGAR","SIG","/virtuaula/pages/alumno/index.jsp");
+		agregarPaginas("alumno","menuPrincipalAlum","SIG","/virtuaula/pages/alumno/index.jsp");
+		agregarPaginas("alumno","desconectar","SIG","/virtuaula/index.jsp");
+		
+		//alumno consulta avisos
+		agregarPaginas("alumno","AVIS_ALUM","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","AVIS_ALUM","ERROR","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","LEER_AVIS_ALUM","SIG","/virtuaula/pages/alumno/aviso/leerAviso.jsp");
+		agregarPaginas("alumno","VOLVER_ANTERIOR","SIG","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","BOR_ALUM_AVIS","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		agregarPaginas("alumno","BOR_ALUM_AVIS","ERROR","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
+		
+		//alumno consulta expediente
+		agregarPaginas("alumno","CONS_EXP_ALUM","OK","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
+		agregarPaginas("alumno","CONS_EXP_ALUM","ERROR","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
+
 		//sesion rrhh
 		agregarPaginas("rrhh","LOGAR","SIG","/virtuaula/pages/rrhh/index.jsp");
 		agregarPaginas("rrhh","menuPrincipalRRHH","SIG","/virtuaula/pages/rrhh/index.jsp");
@@ -164,8 +184,6 @@ public class GestorPaginas {
 		agregarPaginas("rrhh","INS_PROF","OK","/virtuaula/pages/rrhh/profesor/insertar/ContratarProfesor.jsp");
 		agregarPaginas("rrhh","INS_PROF","ERROR","/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp");
 		agregarPaginas("rrhh","CONTRATO","SIG","/virtuaula/pages/rrhh/index.jsp");
-		
-		
 		
 		//contable consulta nominas
 		agregarPaginas("contable","OP_MOSTRAR_NOMINAS","OK","/virtuaula/pages/contable/nomina/verNominas.jsp");
