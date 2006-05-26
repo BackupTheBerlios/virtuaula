@@ -48,19 +48,33 @@
             </b>
           </div>
 		 </div>
-		<div style="position:relative; top:45px; z-index:-1;">
-	  		<!-- <img src="img/fondoMenu.jpg" height="98%" width="1003px"> -->
-		</div>
+    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">
+    	  			<div class="botonesSubMenu">
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalCont');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+    				  </div>
+    				</form>
+    		  </div>
+    		<div style="position:relative; top:4px; z-index:-1;">
+    			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
+    		         <tr>
+    				    <td class="lineaSep"></td>
+    		         </tr>
+    			 </table>
+    		</div>
 			<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              			  <B>CONTRATOS</B><BR>
+              			  <font face="Trebuchet MS" color="#095494" point-size="4"><B>CONTRATOS</B></font><BR>
+				<p>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
-        				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><b>DNI Profesor</th>
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Primer Apellido</th>
-        					<th class="FormLiteral"><b>Segundo Apellido</th>	
-        					<th class="FormLiteral"><b>Tipo Contrato</th>
+        				<tr bgcolor="#062e6d">        					
+        					<th class="FormLiteral"><font face="Trebuchet MS" color="#d6ffff" point-size="5"><b>DNI Profesor</b></font></th>
+        					<th class="FormLiteral"><font face="Trebuchet MS" color="#d6ffff" point-size="5"><b>Nombre</b></font></th>
+        					<th class="FormLiteral"><font face="Trebuchet MS" color="#d6ffff" point-size="5"><b>Primer Apellido</b></font></th>
+        					<th class="FormLiteral"><font face="Trebuchet MS" color="#d6ffff" point-size="5"><b>Segundo Apellido</b></font></th>	
+        					<th class="FormLiteral"><font face="Trebuchet MS" color="#d6ffff" point-size="5"><b>Tipo Contrato</b></font></th>
         				</tr>	
         			<%
                     HttpSession sesion=request.getSession();
