@@ -56,7 +56,6 @@ public class GestorPaginas {
 		if (tipoUsuario.equals("alumno")) {
 			paginaSig = (String) this.mapAlumno.get(operacion.concat(operacionResultado));
 		}
-		
 		return paginaSig;
 		
 	}

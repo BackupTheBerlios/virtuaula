@@ -609,5 +609,14 @@ public class GestorAvisos {
 		return liserror;
 		
 	}
+	/**
+	 * Devuelve el numero de avisos sin leer de un usuario 
+	 */
+	public int numeroAvisosNuevos(ObjetoBean beanUsuario){
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaAviso bdfa = (BBDDFachadaAviso)(bdf.dameBBDDFachada(Constantes.FachadaAviso));
+		ListaObjetoBean l = bdfa.dameAvisosUsuario(beanUsuario);
+		return l.tamanio();
+	}
 		
 }

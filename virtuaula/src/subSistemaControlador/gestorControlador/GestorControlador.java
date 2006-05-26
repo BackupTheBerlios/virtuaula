@@ -2,8 +2,8 @@ package subSistemaControlador.gestorControlador;
 
 
 import javax.servlet.http.*;
-
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.gestorControladorAlumnos.GestorControladorAlumnos;
 import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorContable;
@@ -35,10 +35,8 @@ public class GestorControlador {
 			if (GestorControlador.tablaOperacionControlador==null){
 				GestorControlador.tablaOperacionControlador=new Hashtable();
 			}
-			GestorControlador.tablaOperacionControlador.put("LOGAR",new ControladorPasaPag());		
-			
 			tablaUsuarioGestor=new Hashtable();
-			
+			GestorControlador.tablaOperacionControlador.put("LOGAR",new ControladorLogin());
 			
 		}
 		public void inicializa(){

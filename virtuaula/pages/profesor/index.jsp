@@ -56,7 +56,16 @@
 	  		<!-- <img src="img/fondoMenu.jpg" height="98%" width="1003px"> -->
 		</div>
 	  </div>
-
+	  <div style="position:relative; left:300px; top:150px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">                
+    		
+		<%
+		HttpSession sesion=request.getSession();
+		Integer numAvisos= (Integer) (sesion.getAttribute("numAvisos"));
+		int numeroAvisos= numAvisos.intValue();
+		out.println("<b>Tiene "+ numeroAvisos+ " mensajes nuevos.</b>");
+	  	%>
+	  </div>
       <map name="map">
         <area shape="rect" coords="450,0,510,50" href="./index.html">
       </map>
