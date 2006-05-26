@@ -2,7 +2,7 @@ package beans;
 
 import subSistemaBBDD.utils.Constantes;
 
-public class beanExpedienteCurso extends ObjetoBean{
+public class BeanExpedienteCurso extends ObjetoBean{
 	private String IDISCURSO;
 	private String ISPROFESOR_ISUSUARIO_DNI;
 	private String ISAREA_IDISAREA;
@@ -14,13 +14,13 @@ public class beanExpedienteCurso extends ObjetoBean{
 	private String PRECIO;
 	private String NOTAFINAL;
 	
-	public beanExpedienteCurso()
+	public BeanExpedienteCurso()
 	{
 		this.inicializar();
 	}
 	public ObjetoBean clonar() {
 		// TODO Auto-generated method stub
-		beanExpedienteCurso expedienteCurso = new beanExpedienteCurso();
+		BeanExpedienteCurso expedienteCurso = new BeanExpedienteCurso();
 		expedienteCurso.IDISCURSO=this.IDISCURSO;
 		expedienteCurso.ISPROFESOR_ISUSUARIO_DNI=this.ISPROFESOR_ISUSUARIO_DNI;
 		expedienteCurso.ISAREA_IDISAREA=this.ISAREA_IDISAREA;

@@ -2,7 +2,7 @@ package beans;
 
 import subSistemaBBDD.utils.Constantes;
 
-public class beanExpedienteAlumno extends ObjetoBean{
+public class BeanExpedienteAlumno extends ObjetoBean{
 	
 	private String ISUSUARIO_DNI;
 	private String NOMBRE;
@@ -20,7 +20,7 @@ public class beanExpedienteAlumno extends ObjetoBean{
 	 *Pone todos los atriburos de alumno a ""
 	 *
 	 */
-	public beanExpedienteAlumno()
+	public BeanExpedienteAlumno()
 	{
 		this.inicializar();
 	}
@@ -32,7 +32,7 @@ public class beanExpedienteAlumno extends ObjetoBean{
 	 * */
 	public ObjetoBean clonar() {
 		// TODO Auto-generated method stub
-		beanExpedienteAlumno a = new beanExpedienteAlumno();
+		BeanExpedienteAlumno a = new BeanExpedienteAlumno();
 		a.NOMBRE=this.NOMBRE;
 		a.ISUSUARIO_DNI=this.ISUSUARIO_DNI;
 		a.APELLIDO1=this.APELLIDO1;
