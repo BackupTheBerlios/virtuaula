@@ -110,7 +110,8 @@ public class Constantes {
 	public static final String objetoAvisoUsuario="subSistemaBBDD.objetoBaseDatos.IsAvisos_Has_IsUsuario";
 	public static final String TABLA_ISAVISOS_HAS_ISUSUARIO = "isavisos_has_isusuario";
 	public static final String ID_ISAVISOS_HAS_ISUSUARIO = "ISAVISOS_IDISAVISOS";
-	public static final String ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI = "ISUSUARIO_DNI";	
+	public static final String ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
+	public static final String ISAVISOS_HAS_ISUSUARIO_NUEVO= "NUEVO";
 	
 	//ISCURSO_HAS_ISALUMNO
 	public static final String objetoCursoAlumno="subSistemaBBDD.objetoBaseDatos.IsCurso_Has_IsAlumno";

@@ -14,6 +14,7 @@ public class Avisos_Has_Usuario extends ObjetoBean{
 
 	private String ISAVISOS_IDISAVISOS;
 	private String ISUSUARIO_DNI;
+	private String NUEVO;
 
 	public Avisos_Has_Usuario()
 	{
@@ -28,6 +29,7 @@ public class Avisos_Has_Usuario extends ObjetoBean{
 		Avisos_Has_Usuario aviusu=new Avisos_Has_Usuario();
 		aviusu.ISAVISOS_IDISAVISOS=this.ISAVISOS_IDISAVISOS;
 		aviusu.ISUSUARIO_DNI=this.ISUSUARIO_DNI;
+		aviusu.NUEVO= this.NUEVO;	
 		//aviusu.inicializar();
 		return aviusu;
 	}
@@ -47,7 +49,10 @@ public class Avisos_Has_Usuario extends ObjetoBean{
 		{
 			c=ISUSUARIO_DNI;
 		}
-		
+		else if (campo.equals(Constantes.ISAVISOS_HAS_ISUSUARIO_NUEVO))
+		{
+			c=NUEVO;
+		}
 		
 		return c;
 	}
@@ -64,6 +69,10 @@ public class Avisos_Has_Usuario extends ObjetoBean{
 		{
 			ISUSUARIO_DNI=valor;
 		}
+		else if (campo.equals(Constantes.ISAVISOS_HAS_ISUSUARIO_NUEVO))
+		{
+			NUEVO=valor;
+		}
 		
 		
 	}
@@ -74,6 +83,7 @@ public class Avisos_Has_Usuario extends ObjetoBean{
 		// TODO Auto-generated method stub
 		ISAVISOS_IDISAVISOS="";
 		ISUSUARIO_DNI="";
+		NUEVO="";
 			
 	}
 
