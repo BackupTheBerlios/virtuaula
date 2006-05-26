@@ -170,6 +170,11 @@ public class Constantes {
 	public static final String FachadaProfesor="fachadaProfesor";
 	public static final String FachadaUsuario="fachadaUsuario";
 	
+	//Tipos de usuarios
+	public static final String PERFILSECRETARIO="secretaria";
+	public static final String PERFILCONTABLE="contable";
+	public static final String PERFILRRHH="RRHH";
+	
 	
 	
 	
