@@ -50,13 +50,17 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:45px; z-index:-1;">
+    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-              <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
-     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
-    		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
+	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+    			          <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
+     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				
+    				  </div>
+    				</form>
+    		  </div>
+    		<div style="position:relative; top:4px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -70,7 +74,7 @@
             if (alumno == null) {alumno = new Alumno ();}
         %>
     		
-    		<div style="position:relative; top:55px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:40px; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
