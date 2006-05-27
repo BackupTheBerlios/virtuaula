@@ -1,7 +1,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Titulo </title>
+      <title> Opciones sobre profesores </title>
       <link href="../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       
       <script language=JavaScript type="text/JavaScript">        
@@ -13,6 +13,7 @@
      
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -48,8 +49,8 @@
      		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
       	  			<div class="botonesSubMenu">
-                  <a href="#">Editar</a>
-      					  <a href="JavaScript:lanzaFormulario('INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar Profesor';return true ">Consultar</a>
+                  <a href="#">Modificar datos</a>
+      					  <a href="JavaScript:lanzaFormulario('INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar datos';return true ">Consultar datos</a>
     	 			   </div>
             </form>        	 			   
     		</div>
@@ -61,7 +62,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:35px; z-index:-1;">
-    			Esto keda para pintar en profesores
+    		
     		</div>
 	  </div>
    </body>
