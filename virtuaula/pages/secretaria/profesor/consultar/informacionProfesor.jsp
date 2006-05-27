@@ -107,25 +107,29 @@
               
               </table>
               <p><p>
-                              
-            <table border="0" cellspacing="0" cellpadding="10">
-              <tr bgcolor="#3366CC">
-                <td colspan="7" align="center"><h3><font color="#FFFFFF">Cursos que imparte el Profesor</font></h3></td>
-              </tr>
-              <tr bgcolor="#3399FF">
-                <td><h4>Identificador</h4></td>
-                <td><h4>Nombre</h4></td>
-                <td><h4>N&uacute;mero de plazas</h4></td>
-                <td><h4>Estado</h4></td>
-                <td><h4>Fecha Inicio</h4></td>
-                <td><h4>Fecha Finalizaci&oacute;n</h4></td>
-                <td><h4>Precio</h4></td>
-              </tr>   
-        			<%
-                    ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
-                  	Curso curso;	
+              
+       <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+           Curso curso;	
+           if (listaCursos != null && !listaCursos.esVacio()){
+           
+out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
+out.println("            <tr bgcolor='#3366CC'>");
+out.println("               <td colspan='7' align='center'><h3><font color='#FFFFFF'>Cursos que imparte el Profesor</font></h3></td>");
+out.println("             </tr>");
+out.println("             <tr bgcolor='#3399FF'>");
+out.println("               <td><h4>Identificador</h4></td>");
+out.println("               <td><h4>Nombre</h4></td>");
+out.println("               <td><h4>N&uacute;mero de plazas</h4></td>");
+out.println("               <td><h4>Estado</h4></td>");
+out.println("               <td><h4>Fecha Inicio</h4></td>");
+out.println("               <td><h4>Fecha Finalizaci&oacute;n</h4></td>");
+out.println("               <td><h4>Precio</h4></td>");
+out.println("              </tr>   ");
+        	//		<%
+             //       ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+             //     	Curso curso;	
 
-                  	if (listaCursos != null && !listaCursos.esVacio()){
+           //       	if (listaCursos != null && !listaCursos.esVacio()){
                   	
                   	   for (int i=0; i<listaCursos.tamanio();i++) {
                     	
@@ -142,7 +146,10 @@
   	                  
                         }
                     }
-
+                    
+			else{
+			 out.println("<p><p>Este profesor no imparte ningún curso actualmente<p><p><p>");
+			}
                 %>                               
               	<tr>
 					         <td colspan="7" align="center">
