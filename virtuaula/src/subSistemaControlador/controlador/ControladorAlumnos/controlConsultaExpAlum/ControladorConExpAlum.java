@@ -18,6 +18,7 @@ public class ControladorConExpAlum extends Controlador{
 		GestorAlumnos GA = new GestorAlumnos();
 		ListaObjetoBean listaexp=GA.creaExpedienteAlumno(alumno);
 		
+		
 		if (listaexp!=null)
 		{//no ha fallado la base de datos
 			this.setResuladooperacion("OK");
