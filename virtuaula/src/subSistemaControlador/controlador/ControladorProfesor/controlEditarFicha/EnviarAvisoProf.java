@@ -24,11 +24,12 @@ public class EnviarAvisoProf extends Controlador{
 		ListaObjetoBean destino = (ListaObjetoBean)listaGrupos.get(op);
 		GestorAvisos GA= new GestorAvisos();
 		CreadorBean creador = new CreadorBean();
+		ListaObjetoBean errores= new ListaObjetoBean();
 		if (posi!=-1)
 		{
 			if (op.equals("secretaria"))
 			{//el aviso es para un grupo de secretarios(usuarios)
-				GA.avisoAGrupo(destino,aviso);
+				 errores=GA.avisoAGrupo(destino,aviso);
 			}
 			else if (op.equals("profesores"))
 			{//el aviso es para un grupo de profesores			
@@ -43,7 +44,7 @@ public class EnviarAvisoProf extends Controlador{
 					dest.insertar(i,usu);
 					
 				}
-				GA.avisoAGrupo(dest,aviso);
+				 errores=GA.avisoAGrupo(dest,aviso);
 			}
 			else
 			{//el aviso es para un grupo de alumnos
@@ -57,7 +58,18 @@ public class EnviarAvisoProf extends Controlador{
 					desti.insertar(i,usu);
 					
 				}
-				GA.avisoAGrupo(desti,aviso);
+				 errores=GA.avisoAGrupo(desti,aviso);
+			}
+			if (!errores.esVacio())
+			{//tenemos errores al enviar el aviso
+				this.setResuladooperacion("ERROR");
+				this.getSesion().setAttribute("error",errores);
+			}
+			else
+			{//todo ha funcionado bien
+				this.setResuladooperacion("OK");
+				this.getSesion().removeAttribute("error");
+				
 			}
 		}
 		else //la pos es -1, es decir no hay ninguno elegido
@@ -70,6 +82,7 @@ public class EnviarAvisoProf extends Controlador{
 			this.setResuladooperacion("ERROR");
 			
 		}
+		
 	}
 
 	public Controlador clonar() {
