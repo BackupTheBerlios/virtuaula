@@ -25,7 +25,7 @@ public class EnviarAvisoProf extends Controlador{
 		GestorAvisos GA= new GestorAvisos();
 		CreadorBean creador = new CreadorBean();
 		ListaObjetoBean errores= new ListaObjetoBean();
-		if (posi!=-1)
+		if (!op.equals(""))
 		{
 			if (op.equals("secretaria"))
 			{//el aviso es para un grupo de secretarios(usuarios)
@@ -72,7 +72,7 @@ public class EnviarAvisoProf extends Controlador{
 				
 			}
 		}
-		else //la pos es -1, es decir no hay ninguno elegido
+		else //no ha seleccionado nada en el combo
 		{
 			ObjetoBean error = creador.crear(creador.Error);
 			error.cambiaValor(Constantes.CAUSA,"Debe elegir algun destinatario");
