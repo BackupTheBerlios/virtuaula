@@ -20,6 +20,7 @@
 
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
@@ -52,12 +53,12 @@
               </font>
           </div>
    		  
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-                <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Menu curso</a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
+                <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu curso';return true ">Volver al menu curso</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -77,7 +78,10 @@
             if (curso == null) {curso = new Curso ();}
         %>
     		
-    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+			<div style="position:relative; left:10px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el aula del curso (paso 4/6)</b>                
+    		</div>
+    		<div style="position:relative; top:60px; left:175; z-index:-1;">
     			<form name="insertarCurso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -164,7 +168,7 @@ Se rellena posteriormente
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="listAula">
 					          <input type="hidden" name="evento" value="INS_CUR_PROF">
-						        <button type="submit" class="botonSimple">Seleccionar</button>
+						        <button type="submit" class="botonSimple">Siguiente</button>
 					         </td>
 		</tr>
 				       </table>
