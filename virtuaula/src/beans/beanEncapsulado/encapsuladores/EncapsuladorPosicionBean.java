@@ -1,5 +1,6 @@
 package beans.beanEncapsulado.encapsuladores;
 
+
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class EncapsuladorPosicionBean extends Encapsulador {
 		tablaIdListas.put("posAula","listaaula");
 		tablaIdListas.put("posHor","listahorario");
 		tablaIdListas.put("posCurso","listacurso");
-		
+		tablaIdListas.put("posAlumno","listaalumno");
 		
 	}
 	/**
@@ -51,6 +52,7 @@ public class EncapsuladorPosicionBean extends Encapsulador {
 		tablaIdBeans.put("posAula","beanAula");
 		tablaIdBeans.put("posHor","beanHorario");
 		tablaIdBeans.put("posCurso","beanCurso");
+		tablaIdBeans.put("posAlumno","beanAlumno");
 		
 	}
 	
@@ -64,7 +66,7 @@ public class EncapsuladorPosicionBean extends Encapsulador {
 		HttpSession sesion=request.getSession();
 		ListaObjetoBean lx;
 		ObjetoBean obj;
-		if (!request.getParameter(tipo).equals("")){
+		if (!(request.getParameter(tipo)==null) && !request.getParameter(tipo).equals("")){
 			int pos = Integer.parseInt(request.getParameter(tipo));
 			lx = (ListaObjetoBean) sesion.getAttribute((String)tablaIdListas.get(tipo));
 			obj = lx.dameObjeto(pos);
