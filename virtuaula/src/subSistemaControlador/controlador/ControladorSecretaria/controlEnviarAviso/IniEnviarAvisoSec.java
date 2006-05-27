@@ -1,4 +1,5 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlEnviarAviso;
+import gestores.GestorCursos;
 import gestores.GestorUsuarios;
 import gestores.Profesorado;
 
@@ -20,10 +21,10 @@ public class IniEnviarAvisoSec extends Controlador{
 		GestorUsuarios GU = new GestorUsuarios();
 		Profesorado profesorado=new Profesorado();
 		
-		
+		GestorCursos GC = new GestorCursos();
 		ListaObjetoBean listaCont =GU.dameUsuarios("contable");
 		ListaObjetoBean listaProf= profesorado.consultaProfesores();
-		ListaObjetoBean listaCur = profesorado.consultaCursosProfesor(profesor);
+		ListaObjetoBean listaCur = GC.dameCursosActivos();
 		
 		if (!listaCont.esVacio())
 		{
