@@ -36,10 +36,10 @@
 			   <div class="botones">
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Gestion de profesores';return true ">Gestion de profesores</a>
-  				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Gestion de alumnos';return true ">Gestion de alumnos</a>  
-  				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Gestion de cursos';return true ">Gestion de cursos</a>
-  				 	<a href="JavaScript:lanzaFormulario('OP_AVIS_SEC');" onmouseout="window.status=''" onmouseover="window.status='Gestion de avisos';return true ">Gestion de avisos</a>
+  				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Gestión de profesores';return true ">Gestión de profesores</a>
+  				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Gestión de alumnos';return true ">Gestión de alumnos</a>  
+  				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Gestión de cursos';return true ">Gestión de cursos</a>
+  				 	<a href="JavaScript:lanzaFormulario('OP_AVIS_SEC');" onmouseout="window.status=''" onmouseover="window.status='Gestión de avisos';return true ">Gestión de avisos</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
@@ -61,7 +61,7 @@
 		 <div align="right" style="position:relative; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"><font color="#660000">Salir</font></a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
@@ -74,8 +74,8 @@
     			  Desde esta pagina puede elegir qué desea hacer:<br><br>
     			  - Gestionar profesores: Modificar o buscar los datos un profesor de la academia<br>
     			  - Gestionar alumnos: Matricular un nuevo alumno, modificar o buscar los datos de un alumno matriculado en la academia<br>
-    			  - Gestionar cursos: Crear un nuevo curso, modificar o buscar los datos de un curso de los impartidos por la academia<br>
-    			  - Gestionar avisos: Leer avisos enviados por otros usuario, borrar dichos avisos o enviar avisos a otros usuarios
+    			  - Gestionar cursos: Crear un nuevo curso, buscar los datos de un curso o dar de baja uno de los cursos impartidos por la academia<br>
+    			  - Gestionar avisos: Leer avisos enviados por otros usuarios, borrar dichos avisos o enviar avisos a otros usuarios
     			</font>
      </div>
 	  <div style="position:relative; left:350px; top:100px; z-index:-1;">
@@ -89,7 +89,7 @@
 	  	%>
 	  </div>
       <map name="map">
-        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;">
+        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;">
       </map>
       <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:100px; width:50px"></div>	    
    </body>
