@@ -56,9 +56,9 @@ var i = 0;
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menu principal'; overlib('Pulse aquí si desea volver al menu principal'); return true;">Volver al menu principal</a>
-                        <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestion de cursos'; overlib('Pulse aquí si desea volver a gestion de cursos'); return true;">Volver a gestion de cursos</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"><font color="#660000">Salir</font></a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de cursos'; overlib('Pulse aquí si desea volver a gestión de cursos'); return true;">Volver a gestión de cursos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
@@ -75,7 +75,7 @@ var i = 0;
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">
     			   Debe rellenar los datos que conozca del curso que desea encontrar<br>
-    			   En caso de no conocer ningun dato, pulse "Buscar" y se mostraran todos los cursos impartidos en la academia
+    			   En caso de no conocer ningún dato, pulse "Buscar" y se mostrarán todos los cursos impartidos en la academia
     			</font>
     		</div>
     		<div style="position:relative; top:20px; left:150px; z-index:-1;">
