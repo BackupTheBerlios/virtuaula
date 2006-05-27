@@ -16,9 +16,9 @@ public class EnviarAvisoSec extends Controlador{
 		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAviso");
 		HashMap listaGrupos=(HashMap)this.getSesion().getAttribute("listagrupos");
 		//Esto no esta definido todavia
-		String op = (String)this.getSesion().getAttribute("clave");
-		Integer pos = (Integer)this.getSesion().getAttribute("posCombo");
-		int posi = pos.intValue();
+		String op = (String)this.getSesion().getAttribute("claveaviso");
+		//Integer pos = (Integer)this.getSesion().getAttribute("posCombo");
+		//int posi = pos.intValue();
 		ListaObjetoBean destino = (ListaObjetoBean)listaGrupos.get(op);
 		GestorAvisos GA= new GestorAvisos();
 		CreadorBean creador = new CreadorBean();
