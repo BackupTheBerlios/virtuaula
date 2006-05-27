@@ -1,5 +1,6 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur;
 
+import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
@@ -36,7 +37,7 @@ public class ControladorBajaConsCur extends Controlador{
 			//para poder coger el que seleccionamos.
 			ObjetoBean aula=(ObjetoBean)this.getSesion().getAttribute("beanAula");
 			ObjetoBean horario =(ObjetoBean)this.getSesion().getAttribute("beanHorario");
-						
+			curso.cambiaValor(Constantes.CURSO_ESTADO,"activo");			
 			ListaObjetoBean	listacurso=gestor.consultaCurso(curso,aula,horario);
 			this.getSesion().setAttribute("listacurso",listacurso);
 			
