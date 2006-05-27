@@ -58,8 +58,8 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-    		          <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
+	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
+    		          <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu de alumno';return true ">Volver al menu de alumno</a>
      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				
     				  </div>
     				</form>
@@ -81,7 +81,10 @@
             if (alumno == null) {alumno = new Alumno ();}
         %>
     		
-    		<div style="position:relative; top:20px; left:40px; z-index:-1;">
+    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
+					<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los datos del alumno (paso 1/3)</b>                
+    		</div>
+    		<div style="position:relative; top:40px; left:175; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
