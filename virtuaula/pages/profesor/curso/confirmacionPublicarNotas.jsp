@@ -1,6 +1,6 @@
 <%@ page import="beans.*" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
-<%@ page import="beans.beanExpedienteCurso" %>
+<%@ page import="beans.BeanExpedienteCurso" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -68,17 +68,16 @@
               			  <B>NOTAS PUBLICADAS</B><BR>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><b>DNI</th>	
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Primer Aplellido</th>
-        					<th class="FormLiteral"><b>Segundo Apellido</th>
-        					<th class="FormLiteral"><b>Nota Final</th>	
+        					<th class="FormLiteral"><b>DNI</b></th>	
+        					<th class="FormLiteral"><b>Nombre</b></th>
+        					<th class="FormLiteral"><b>Primer Aplellido</b></th>
+        					<th class="FormLiteral"><b>Segundo Apellido</b></th>
+        					<th class="FormLiteral"><b>Nota Final</b></th>	
         				</tr>	
         			<%
                     HttpSession sesion=request.getSession();
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaexpedientealumno"));
                     ObjetoBean expediente;	
-                    ObjetoBean alumno;	
                   	for(int i=0;i<listaObjetoBean.tamanio();i++){
                   	expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
                   	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
