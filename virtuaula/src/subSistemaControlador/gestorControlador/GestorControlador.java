@@ -4,7 +4,6 @@ package subSistemaControlador.gestorControlador;
 import javax.servlet.http.*;
 import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.gestorControladorAlumnos.GestorControladorAlumnos;
 import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorContable;
 import subSistemaControlador.gestorControlador.gestorControladorProfesor.GestorControladorProfesor;
@@ -14,7 +13,7 @@ import subSistemaControlador.gestorControlador.gestorControladorSecretaria.Gesto
 
 import java.util.Hashtable;
 /**
- * Clase que mantiene la tabla relacion entre un perfir de usuario, una operación y un Controlador 
+ * Clase que mantiene la tabla relacion entre un perfil de usuario, una operación y un Controlador 
  * encargado de llevarla a cabo
  * @author Fco Javier Pérez Escrivá
  *
@@ -41,6 +40,10 @@ public class GestorControlador {
 			
 			
 		}
+		/**
+		 * Inicializa las tablas de los gestores por perfil de usuario
+		 *
+		 */
 		public void inicializa(){
 			GestorControladorSecretaria gestorContSec=new GestorControladorSecretaria();
 			GestorControladorProfesor gestorContProf = new GestorControladorProfesor();

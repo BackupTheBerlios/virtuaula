@@ -2,13 +2,21 @@ package subSistemaControlador.gestorSesiones;
 import javax.servlet.http.*;
 
 import beans.*;
-//import subSistemaBBDD.beans.*;
 import subSistemaBBDD.BBDDFachada;
-import subSistemaBBDD.BBDDFachadaProfesor;
 import subSistemaBBDD.BBDDFachadaUsuario;
 import subSistemaBBDD.utils.Constantes;
-public class GestorSesiones {
-	
+/**
+ * Controla las sesiones de los usuarios
+ * @author Fco Javier Pérez Escrivá
+ *
+ */public class GestorSesiones {
+	/**
+	 * Indica si el usuario puede o no entrar en el sistema, siendo así mete los datos necesarios 
+	 * en la sesion
+	 * @param sesion objeto de la sesion actual
+	 * @return true en el caso de que el usuario este validado
+	 * false en otro caso.
+	 */
 	public boolean indicaSiUsuarioIdentificado(HttpSession sesion){
 		boolean resultado=false;
 		
@@ -55,10 +63,19 @@ public class GestorSesiones {
 		return resultado;
 	}
 	
-	
+	/**
+	 * Proporciona el evento univoco de la pagina
+	 * @param req objeto contenedor de la información de la pagina anterior
+	 * @return Valor del evento
+	 */
 	public String dameOperacion(HttpServletRequest req){
 		return req.getParameter("evento");
 	}
+	/**
+	 * Propociona el perfil del usuario que ha accedido al sistema
+	 * @param sesion objeto de la sesion actual
+	 * @return valor solicitado
+	 */
 	public String damePerfilUsuario(HttpSession sesion){
 	
 		return ((String)sesion.getAttribute("perfilUsuario"));
