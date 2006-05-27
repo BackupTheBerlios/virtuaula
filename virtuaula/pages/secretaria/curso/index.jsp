@@ -47,7 +47,7 @@
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
     					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Crear nuevo curso';return true">Crear nuevo curso</a>
-    					<a href="#">Dar de baja</a>
+    					<a href="JavaScript:lanzaFormulario('BAJA_INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Dar de baja';return true">Dar de baja</a>
              					 <a href="#">Modificar datos</a>
     					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Consultar datos';return true">Consultar datos</a>
     				</div>
