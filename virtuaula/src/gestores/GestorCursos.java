@@ -44,6 +44,12 @@ public class GestorCursos {
 		return (Horario)bdfh.dameHorarioCurso(beanCurso);
 	}
 	
+	public ListaObjetoBean consultarCursosDeAlumno(ObjetoBean alumno){
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.dameCursosAlumno(alumno);
+	}
+	
 	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
