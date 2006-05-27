@@ -6,6 +6,7 @@ import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
@@ -46,9 +47,10 @@ public class GestorControladorProfesor extends GestorControlador{
 
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalProf",new ControladorLogin());
-		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
-		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",new ControladorPasaPag());
+		CreadorControlador c= new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalProf",c.crear(CreadorControlador.ControladorLogin));
+		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
+		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",c.crear(CreadorControlador.ControladorPasaPag));
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
