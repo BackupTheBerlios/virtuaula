@@ -119,6 +119,26 @@ public class BeanEncapsulado extends HttpServlet {
 					lista = false;
 				}
 				
+				if (tipo.equals("consultarAlumno")){
+					RequestContextFactory test = new RequestContextFactory();					
+					
+					//rellenar bean alumno
+					ObjetoBean result = test.createRequestContext(request,"Alumno");
+					String nombreAtributo = "beanAlumno";					
+					sesion.setAttribute(nombreAtributo, result);				
+					
+					//rellenar bean profesor
+					result = test.createRequestContext(request,"Profesor");
+					nombreAtributo = "beanProfesor";					
+					sesion.setAttribute(nombreAtributo, result);
+					
+					//rellenar bean contrato
+					result = test.createRequestContext(request,"Contrato");
+					nombreAtributo = "beanContrato";					
+					sesion.setAttribute(nombreAtributo, result);
+					lista = false;
+				}
+				
 				if (tipo.equals("listProf")) {
 					int pos = Integer.parseInt(request.getParameter("posProf"));
 					sesion.setAttribute("posProf", new Integer(pos));

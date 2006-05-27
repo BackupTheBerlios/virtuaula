@@ -39,6 +39,7 @@ public class EncapsuladorPosicionBean extends Encapsulador {
 	private void inicializarTablaIdListas(){
 		tablaIdListas.put("posAula","listaaula");
 		tablaIdListas.put("posHor","listahorario");
+		tablaIdListas.put("posCurso","listacurso");
 		
 		
 	}
@@ -50,6 +51,7 @@ public class EncapsuladorPosicionBean extends Encapsulador {
 	private void inicializarTablaIdBeans(){
 		tablaIdBeans.put("posAula","beanAula");
 		tablaIdBeans.put("posHor","beanHorario");
+		tablaIdBeans.put("posCurso","beanCurso");
 		
 	}
 	
