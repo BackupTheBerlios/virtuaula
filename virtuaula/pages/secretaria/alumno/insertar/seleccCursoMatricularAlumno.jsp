@@ -38,6 +38,7 @@
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Matricular Alumno</b></font>                
     	   </div>                   			  	 
          <div align="right" style="position:relative; top:-5px">               
+           <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -49,6 +50,7 @@
                 // -->
                 </script>
               </font>
+            </b>
           </div>
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
@@ -104,7 +106,6 @@
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" disabled="true" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>"></td>
-                  </td>
         				</tr>
         				<tr>        				
         					<td class="FormLiteral">Sexo</td>
