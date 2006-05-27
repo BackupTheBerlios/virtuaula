@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.Contable.ControladorConContrato;
 import subSistemaControlador.controlador.Contable.ControladorConNomina;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
@@ -39,11 +40,11 @@ public class GestorControladorContable extends GestorControlador{
 		tablaOperacionGestor.put("BORRA_AVISO_CONT",new GestorControladorOpAvisCont());
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",new ControladorLogin());
-		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
-		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_NOMINAS",new ControladorConNomina());
-		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_CONTRATOS",new ControladorConContrato());
+		CreadorControlador c = new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",c.crear(CreadorControlador.ControladorLogin));
+		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
+		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_NOMINAS",c.crear(CreadorControlador.ControladorConNomina));
+		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_CONTRATOS",c.crear(CreadorControlador.ControladorConContrato));
 		tablaOperacionGestor.put("VOLVER_ANTERIOR_C",new ControladorPasaPag());
 		
 		
