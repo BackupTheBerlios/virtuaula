@@ -1,5 +1,6 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import gestores.GestorCursos;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import gestores.GestorCursos;
@@ -9,7 +10,7 @@ import gestores.GestorCursos;
  * @author JORGE SANCHEZ
  * Controla el paso de una pagina a otra al elegir una seretaria la opcion de consultar un alumno.
  */
-public class ControladorIniConsAlumno extends Controlador{
+public class ControladorIniConsAlumno extends ControladorConsultaAlumno{
 
 	/**
 	 * Constructora de la clase.
@@ -23,9 +24,6 @@ public class ControladorIniConsAlumno extends Controlador{
 	 */
 		public void procesarEvento() {
 			this.getSesion().removeAttribute("error");
-			this.getSesion().removeAttribute("posAlumno");
-			this.getSesion().removeAttribute("posCurso");
-			this.getSesion().removeAttribute("beanAlumno");
 			ListaObjetoBean	listaCursos = new ListaObjetoBean();
 			GestorCursos gestor = new GestorCursos();
 			listaCursos= gestor.dameCursosActivos();
