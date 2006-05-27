@@ -6,6 +6,7 @@ import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulProf.ControladorMostrarProf;
 import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.ControladorIniInsCur;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
@@ -33,6 +34,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 
 	}
 	public void inicializa(){
+		
 		//consulta de profesor concretos
 		tablaOperacionGestor.put("CONS_PROF",new GestorControladorConsultaProf());
 		tablaOperacionGestor.put("INI_CONS_PROF",new GestorControladorConsultaProf());	
@@ -65,22 +67,23 @@ public class GestorControladorSecretaria extends GestorControlador{
 	
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",new ControladorLogin());
-		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
-		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM",new ControladorPasaPag());
+		CreadorControlador c=new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",c.crear(CreadorControlador.ControladorLogin));
+		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
+		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
 		//consulta profesor
-		GestorControlador.tablaOperacionControlador.put("GES_PROF",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",new ControladorMostrarProf());
+		GestorControlador.tablaOperacionControlador.put("GES_PROF",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",c.crear(CreadorControlador.ControladorMostrarProf));
 		//insercion curso generales
-		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",new ControladorIniInsCur());
-		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("GES_CUR",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",c.crear(CreadorControlador.ControladorIniInsCur));
+		GestorControlador.tablaOperacionControlador.put("INS_CUR_CON_PROF",c.crear(CreadorControlador.ControladorPasaPag));
 		//consultar curso
-		GestorControlador.tablaOperacionControlador.put("GES_CUR",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("GES_CUR",c.crear(CreadorControlador.ControladorPasaPag));
 		
 		//matricular alumno
-		GestorControlador.tablaOperacionControlador.put("GES_ALUM",new ControladorPasaPag());	
-		tablaOperacionGestor.put("VOLVER_ANTERIOR_S",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("GES_ALUM",c.crear(CreadorControlador.ControladorPasaPag));	
+		tablaOperacionGestor.put("VOLVER_ANTERIOR_S",c.crear(CreadorControlador.ControladorPasaPag));
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

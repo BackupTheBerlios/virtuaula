@@ -4,6 +4,7 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
@@ -17,10 +18,11 @@ public GestorControladorOpAvisSec(){
 		
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("OP_AVIS_SEC",new ControladorOp_Avis());
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_SEC",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO_SEC",new BorraAviso());
-		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_S",new ControladorPasaPag());
+		CreadorControlador creadorcont=new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("OP_AVIS_SEC",creadorcont.crear(CreadorControlador.ControladorOp_Avis));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_SEC",creadorcont.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO_SEC",creadorcont.crear(CreadorControlador.BorraAviso));
+		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_S",creadorcont.crear(CreadorControlador.ControladorPasaPag));
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
 		

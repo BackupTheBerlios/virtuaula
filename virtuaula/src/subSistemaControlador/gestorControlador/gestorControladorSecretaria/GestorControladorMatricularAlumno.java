@@ -4,6 +4,7 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorInicioMatricula;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlum;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
@@ -24,10 +25,11 @@ public class GestorControladorMatricularAlumno extends GestorControladorSecretar
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
-		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorInicioMatricula());
-		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",new ControladorMatAlum());
-		GestorControlador.tablaOperacionControlador.put("MATRICULA",new ControladorMatricula());
-		GestorControlador.tablaOperacionControlador.put("'GES_ALUM'",new ControladorPasaPag());
+		CreadorControlador creadorcont=new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",creadorcont.crear(CreadorControlador.ControladorInicioMatricula));
+		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",creadorcont.crear(CreadorControlador.ControladorMatAlum));
+		GestorControlador.tablaOperacionControlador.put("MATRICULA",creadorcont.crear(CreadorControlador.ControladorMatricula));
+		GestorControlador.tablaOperacionControlador.put("'GES_ALUM'",creadorcont.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_CUR",new ControladorMatAlumCur());
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
