@@ -10,12 +10,13 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 /**
  * 
  * @author Alberto Macho
  *
  */
-public class ControladorMostrarCursoProf extends Controlador{
+public class ControladorMostrarCursoProf extends ControladorProfesor{
 /**
  * cogemos el dni del profesor de la session y buscamos con el gestor de profesores
  * todos los cursos que tiene ese profesor. Metemos la lista de cursos en la

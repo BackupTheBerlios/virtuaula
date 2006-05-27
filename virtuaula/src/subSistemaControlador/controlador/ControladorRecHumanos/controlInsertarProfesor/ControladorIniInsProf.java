@@ -2,12 +2,13 @@ package subSistemaControlador.controlador.ControladorRecHumanos.controlInsertarP
 import gestores.Profesorado;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorRecHumanos.ControladorRecHumanos;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
-public class ControladorIniInsProf extends Controlador{
+public class ControladorIniInsProf extends ControladorRecHumanos{
 
 	public void procesarEvento() {
 //		consultamos las areas disponibles en la academis y las metemos en sesion

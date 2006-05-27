@@ -4,6 +4,7 @@ import gestores.Profesorado;
 import javax.servlet.http.HttpSession;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
@@ -12,7 +13,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * @author Alberto Macho
  *
  */
-public class ListarAlumnosCurso extends Controlador{
+public class ListarAlumnosCurso extends ControladorProfesor{
 
 	public void procesarEvento() {
 		

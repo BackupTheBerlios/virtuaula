@@ -11,8 +11,9 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 
-public class IniEnviarAvisoProf extends Controlador{
+public class IniEnviarAvisoProf extends ControladorProfesor{
 
 	public void procesarEvento() {
 	 

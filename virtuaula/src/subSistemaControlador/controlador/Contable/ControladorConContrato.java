@@ -8,7 +8,7 @@ import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
-public class ControladorConContrato extends Controlador{
+public class ControladorConContrato extends ControladorContable{
 
 	public void procesarEvento() {
 		

@@ -1,6 +1,7 @@
 package subSistemaControlador.controlador.ControladorRecHumanos.controlInsertarProfesor;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorRecHumanos.ControladorRecHumanos;
 import gestores.Profesorado;
 import beans.CreadorBean;
 import beans.ObjetoBean;
@@ -10,7 +11,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * @author Alberto Macho
  *
  */
-public class ControladorInsProf extends Controlador{
+public class ControladorInsProf extends ControladorRecHumanos{
 
 	public void procesarEvento() {
 		

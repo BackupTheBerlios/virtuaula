@@ -9,13 +9,14 @@ import beans.Usuario;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorUsuario.ControladorUsuario;
 /**
  * 
  * @author Alberto Macho
  * Esta clase controla la operacion de borrar un aviso.
  *
  */
-public class BorraAviso extends Controlador{
+public class BorraAviso extends ControladorUsuario{
 
 	/**
 	 * Borra el aviso seleccionado en una posicion y vuelve a consultar la lista de avisos

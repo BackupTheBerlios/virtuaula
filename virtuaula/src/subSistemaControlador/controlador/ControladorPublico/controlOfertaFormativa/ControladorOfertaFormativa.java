@@ -6,7 +6,8 @@ import beans.CreadorBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*; 
 import subSistemaControlador.controlador.Controlador;
-public class ControladorOfertaFormativa extends Controlador{
+import subSistemaControlador.controlador.ControladorPublico.ControladorPublico;
+public class ControladorOfertaFormativa extends ControladorPublico{
 	
 	public void procesarEvento() {
 		

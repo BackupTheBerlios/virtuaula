@@ -9,7 +9,7 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-public class IniEnviarAvisoContable extends Controlador{
+public class IniEnviarAvisoContable extends ControladorContable{
 
 	public void procesarEvento() {
 		HashMap mapGrupos=new HashMap();

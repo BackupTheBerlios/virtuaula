@@ -2,6 +2,7 @@ package subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 import gestores.Profesorado;
 import beans.CreadorBean;
 import beans.ObjetoBean;
@@ -11,7 +12,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * @author Alberto Macho
  *
  */
-public class ActualizarFichaAlumno extends Controlador{
+public class ActualizarFichaAlumno extends ControladorProfesor{
 /**
  * Actualiza la ficha del alumno con los datos que le han pasado del alumno cogiendolos
  * de la sesion.

@@ -6,6 +6,7 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 /**
  * 
  * @author Alberto Macho
@@ -13,7 +14,7 @@ import subSistemaControlador.controlador.Controlador;
  * mostrarla en la sig pagina.
  *
  */
-public class PublicarNotas extends Controlador{
+public class PublicarNotas extends ControladorProfesor{
 /**
  * Consuta la lista de cursos de ese profesor y la mete en la session
  * Si la lista devuelta es null sera un error de la base de datos.

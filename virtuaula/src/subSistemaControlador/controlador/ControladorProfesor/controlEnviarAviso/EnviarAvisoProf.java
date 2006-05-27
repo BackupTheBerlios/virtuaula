@@ -10,8 +10,9 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
 
-public class EnviarAvisoProf extends Controlador{
+public class EnviarAvisoProf extends ControladorProfesor{
 
 	public void procesarEvento() {
 		
