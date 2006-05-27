@@ -11,6 +11,7 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.Con
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
+import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorOpAvisCont;
 /**
  * 
  * @author Fco Javier Pérez Escrivá
@@ -55,6 +56,11 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("MAT_ALUM_CUR",new GestorControladorMatricularAlumno());
 		//consultar alumno
 		tablaOperacionGestor.put("CONS_ALUM",new GestorControladorConsulAlumno());
+		//Avisos
+		tablaOperacionGestor.put("OP_AVIS_SEC",new GestorControladorOpAvisSec());
+		tablaOperacionGestor.put("MOSTRAR_AVISOS_SEC",new GestorControladorOpAvisSec());
+		tablaOperacionGestor.put("BORRA_AVISO_SEC",new GestorControladorOpAvisSec());
+	
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",new ControladorLogin());
@@ -71,6 +77,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		
 		//matricular alumno
 		GestorControlador.tablaOperacionControlador.put("GES_ALUM",new ControladorPasaPag());	
+		tablaOperacionGestor.put("VOLVER_ANTERIOR_S",new ControladorPasaPag());
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

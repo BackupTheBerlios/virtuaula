@@ -209,6 +209,23 @@ public class GestorPaginas {
 		agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","OK","/virtuaula/pages/contable/contrato/verContratos.jsp");
 		agregarPaginas("contable","OP_MOSTRAR_CONTRATOS","ERROR","/virtuaula/pages/contable/contrato/verContratos.jsp");
 		
+		//contable consulta avisos
+		agregarPaginas("contable","OP_AVIS_CONT","OK","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
+		agregarPaginas("contable","OP_AVIS_CONT","ERROR","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
+		agregarPaginas("contable","MOSTRAR_AVISOS_CONT","SIG","/virtuaula/pages/contable/aviso/leerAviso.jsp");
+		agregarPaginas("contable","VOLVER_ANTERIOR_C","SIG","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
+		agregarPaginas("contable","BORRA_AVISO_CONT","OK","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
+		agregarPaginas("contable","BORRA_AVISO_CONT","ERROR","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
+		
+		
+		//secretario consulta avisos
+		agregarPaginas("secretaria","OP_AVIS_SEC","OK","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
+		agregarPaginas("secretaria","OP_AVIS_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
+		agregarPaginas("secretaria","MOSTRAR_AVISOS_SEC","SIG","/virtuaula/pages/secretaria/aviso/leerAviso.jsp");
+		agregarPaginas("secretaria","VOLVER_ANTERIOR_S","SIG","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
+		agregarPaginas("secretaria","BORRA_AVISO_SEC","OK","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
+		agregarPaginas("secretaria","BORRA_AVISO_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp"); 
+		
 		//profesor consulta avisos
 		agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");

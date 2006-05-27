@@ -11,6 +11,7 @@ import subSistemaControlador.controlador.Contable.ControladorConNomina;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
+import subSistemaControlador.gestorControlador.gestorControladorProfesor.GestorControladorOpAvisProf;
 
 
 public class GestorControladorContable extends GestorControlador{
@@ -22,6 +23,8 @@ public class GestorControladorContable extends GestorControlador{
 	
 	public GestorControladorContable(){
 		
+		
+		
 		//añadimos a la tabla Operacion-Controlador los controladores comunes en secretaria
 		
 		tablaOperacionGestor= new Hashtable();
@@ -30,7 +33,10 @@ public class GestorControladorContable extends GestorControlador{
 
 	}
 	public void inicializa(){
-		
+//		AVISOS
+		tablaOperacionGestor.put("OP_AVIS_CONT",new GestorControladorOpAvisCont());
+		tablaOperacionGestor.put("MOSTRAR_AVISOS_CONT",new GestorControladorOpAvisCont());
+		tablaOperacionGestor.put("BORRA_AVISO_CONT",new GestorControladorOpAvisCont());
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
@@ -38,6 +44,8 @@ public class GestorControladorContable extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_NOMINAS",new ControladorConNomina());
 		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_CONTRATOS",new ControladorConContrato());
+		tablaOperacionGestor.put("VOLVER_ANTERIOR_C",new ControladorPasaPag());
+		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		

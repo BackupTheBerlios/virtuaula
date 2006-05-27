@@ -35,6 +35,7 @@
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_NOMINAS');" onmouseout="window.status=''" onmouseover="window.status='Nominas';return true ">Nóminas</a>
   				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CONTRATOS');" onmouseout="window.status=''" onmouseover="window.status='Contratos';return true ">Contratos</a>
+  				  	<a href="JavaScript:lanzaFormulario('OP_AVIS_CONT');" onmouseout="window.status=''" onmouseover="window.status='Menu aviso';return true ">Menu aviso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
