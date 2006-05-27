@@ -265,5 +265,11 @@ public class GestorPaginas {
 		
 		//--------------------------------------esto no se si es asi
 		agregarPaginas("alumno","BOR_ALUM_AVIS","ERROR","/virtuaula/pages/alumno/index.jsp");
+		
+		//profesor envia aviso
+		agregarPaginas("profesor","INI_AVI_PROF","OK","/virtuaula/pages/profesor/aviso/enviarAviso.jsp");
+		agregarPaginas("profesor","INI_AVI_PROF","ERROR","/virtuaula/pages/profesor/aviso/enviarAviso.jsp");
+		agregarPaginas("profesor","ENV_AVI_PROF","OK","/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp");
+		agregarPaginas("profesor","ENV_AVI_PROF","ERROR","/virtuaula/pages/profesor/aviso/enviarAviso.jsp");
 	}
 }
