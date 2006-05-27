@@ -14,6 +14,7 @@
       
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../img/fondo.jpg">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../img/cabF.jpg"><img src="../../img/cabI.jpg"></td>
@@ -57,8 +58,10 @@
 		 </div> 		
  		</div>
  		
- 		<h3 align="center">ACCESO RESTINGIDO AL PORTAL</h3>
-    <div style="position:relative; top:10px; left:360px; z-index:1; width : 329px; height : 117px;">
+ 	<div style="position:relative; left:380px; top:60px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>ACCESO RESTRINGIDO AL PORTAL</b>                
+    </div>
+    <div style="position:relative; top:70px; left:360px; z-index:1; width : 329px; height : 117px;">
           <form name="inicioControlAcceso" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -73,7 +76,7 @@
 					         <td colspan="7" align="center">
 	 				          <input type="hidden" name="evento" value="LOGAR">
 					         <input type="hidden" name="idBean" value="Usuario">
-						        <button type="submit" class="botonSimple" name="boton" value="acceso">Aceptar</button>
+						        <button type="submit" class="botonSimple" name="boton" value="acceso">Entrar</button>
 					         </td>
 				        </tr>	
               </table>
