@@ -2,7 +2,7 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlInsCur;
 
 import subSistemaControlador.controlador.Controlador;
 
-public class ControladorIniInsCur extends Controlador{
+public class ControladorIniInsCur extends ControladorInsertarCursoAbs{
 
 	public void procesarEvento() {
 		

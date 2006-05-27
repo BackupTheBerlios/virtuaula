@@ -12,7 +12,7 @@ import subSistemaControlador.controlador.Controlador;
  * 
  *
  */
-public class ControladorInsCurAula extends Controlador{
+public class ControladorInsCurAula extends ControladorInsertarCursoAbs{
 
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();

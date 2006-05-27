@@ -1,6 +1,7 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
 import gestores.GestorCursos;
@@ -13,7 +14,7 @@ import gestores.GestorCursos;
  * que tiene el curso seleccionado y los pasa a la session.
  *
  */
-public class ControladorBajaMostrarCur extends Controlador{
+public class ControladorBajaMostrarCur extends ControladorBajaCurso{
 
 	/**
 	 * Constructora de la clase.

@@ -13,7 +13,7 @@ import beans.ObjetoBean;
  * @author Alberto Macho
  *
  */
-public class ControladorInsCurHor extends Controlador{
+public class ControladorInsCurHor extends ControladorInsertarCursoAbs{
 
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();

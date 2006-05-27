@@ -2,6 +2,7 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur;
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
 import gestores.GestorCursos;
@@ -15,7 +16,7 @@ import gestores.GestorCursos;
  * mostrarlos en la pagina siguiente.
  *
  */
-public class ControladorBajaConsCur extends Controlador{
+public class ControladorBajaConsCur extends ControladorBajaCurso{
 
 	/**
 	 * Constructora de la clase.

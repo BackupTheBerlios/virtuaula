@@ -10,7 +10,8 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-public class IniEnviarAvisoSec extends Controlador{
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+public class IniEnviarAvisoSec extends ControladorAvisoSec{
 
 	public void procesarEvento() {
 		HashMap mapGrupos=new HashMap();

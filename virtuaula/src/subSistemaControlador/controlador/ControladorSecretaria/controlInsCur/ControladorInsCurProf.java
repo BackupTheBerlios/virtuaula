@@ -11,7 +11,7 @@ import subSistemaControlador.controlador.Controlador;
  * @author Alberto Macho
  *
  */
-public class ControladorInsCurProf extends Controlador{
+public class ControladorInsCurProf extends ControladorInsertarCursoAbs{
 
 	public void procesarEvento() {
 		

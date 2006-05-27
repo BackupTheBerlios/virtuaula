@@ -4,13 +4,14 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulPro
 
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 
 /**
  * 
  * @author Alberto Macho
  *
  */
-abstract public class ControladorConsProf extends Controlador {
+abstract public class ControladorConsProf extends ControladorSecretaria {
 
 	
 

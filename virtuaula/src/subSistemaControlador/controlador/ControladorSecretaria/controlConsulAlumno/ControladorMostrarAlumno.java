@@ -1,6 +1,7 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
 import gestores.GestorCursos;
@@ -9,7 +10,7 @@ import gestores.GestorCursos;
  * @author JORGE SANCHEZ
  *
  */
-public class ControladorMostrarAlumno extends Controlador{
+public class ControladorMostrarAlumno extends ControladorConsultaAlumno{
 	/**
 	 * Constructora de la clase.
 	 */

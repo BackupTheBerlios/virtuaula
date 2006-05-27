@@ -3,7 +3,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlMatricula
 import gestores.GestorAlumnos;
 import beans.ObjetoBean;
 import beans.CreadorBean;
-import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import beans.listaObjetoBeans.ListaObjetoBean;
 /**

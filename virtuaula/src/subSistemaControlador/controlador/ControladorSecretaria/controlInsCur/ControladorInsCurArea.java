@@ -12,7 +12,7 @@ import beans.ObjetoBean;
  * @author Alberto Macho
  *
  */
-public class ControladorInsCurArea extends Controlador{
+public class ControladorInsCurArea extends ControladorInsertarCursoAbs{
 /**
  * Consultamos las areas disponibles en el sistema y la metemos en la sesion.
  */

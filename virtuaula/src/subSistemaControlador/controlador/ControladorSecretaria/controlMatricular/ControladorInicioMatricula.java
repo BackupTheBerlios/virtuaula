@@ -2,7 +2,7 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlMatricula
 
 import subSistemaControlador.controlador.Controlador;
 
-public class ControladorInicioMatricula extends Controlador{
+public class ControladorInicioMatricula extends ControladorMatricular{
 
 	public void procesarEvento() {
 		this.getSesion().removeAttribute("error");

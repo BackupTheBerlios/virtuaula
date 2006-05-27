@@ -5,7 +5,8 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-public class ControladorBajaDefCurso extends Controlador{
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+public class ControladorBajaDefCurso extends ControladorBajaCurso{
 
 	public void procesarEvento() {
 		

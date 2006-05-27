@@ -10,7 +10,8 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-public class EnviarAvisoSec extends Controlador{
+import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+public class EnviarAvisoSec extends ControladorAvisoSec{
 
 	public void procesarEvento() {
 		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAviso");
