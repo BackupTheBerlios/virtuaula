@@ -56,9 +56,9 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			    <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menu principal'; overlib('Pulse aquí si desea volver al menu principal'); return true;">Volver al menu principal</a>
-                        <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestion de cursos'; overlib('Pulse aquí si desea volver a gestion de cursos'); return true;">Volver a gestion de cursos</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"><font color="#660000">Salir</font></a>
+    	  			    <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de cursos'; overlib('Pulse aquí si desea volver a gestión de cursos'); return true;">Volver a gestión de cursos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
@@ -84,7 +84,7 @@
     			<font face="Trebuchet MS" color="#616D7E">
     			   Debe indicar el nombre del nuevo curso<br>
     			   Debe indicar el precio del nuevo curso<br>
-    			   Asegurese que la fecha de finalizacion del curso es posterior a la de inicio
+    			   Asegúrese que la fecha de finalización del curso es posterior a la de inicio
     			</font>
     		</div>
     		<div style="position:relative; top:20px; left:175; z-index:-1;">
@@ -99,11 +99,11 @@
         				</tr>
         				<tr>
         					<td class="FormLiteral">Fecha inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO" value="<%=curso.dameValor("FECHA_INICIO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('insertarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_INICIO" value="<%=curso.dameValor("FECHA_INICIO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('insertarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
                   </td>
         					<td></td>
         					<td class="FormLiteral">Fecha finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" value="<%=curso.dameValor("FECHA_FIN")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" value="<%=curso.dameValor("FECHA_FIN")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('insertarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
                 <tr>
