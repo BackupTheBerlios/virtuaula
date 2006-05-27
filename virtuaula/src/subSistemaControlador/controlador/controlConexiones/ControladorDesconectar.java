@@ -20,6 +20,7 @@ public class ControladorDesconectar extends ControladorConexiones{
 		//Borro el atributo que me dice si el usuario esta validado o no
 		this.sesion.removeAttribute("validado");
 		this.sesion.removeAttribute("perfilUsuario");
+		this.sesion.removeAttribute("beanUsuario");
 		this.setResuladooperacion("SIG");
 		this.getSesion().removeAttribute("error");
 	}
