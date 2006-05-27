@@ -5,6 +5,7 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.ControladorIniConsAlumno;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.ControladorConsAlumno;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.ControladorMostrarAlumno;
@@ -21,9 +22,10 @@ public class GestorControladorConsulAlumno extends GestorControladorSecretaria{
 	public GestorControladorConsulAlumno(){}
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("CONS_ALUM",new ControladorIniConsAlumno());
-		GestorControlador.tablaOperacionControlador.put("CONS_ALUM2",new ControladorConsAlumno());
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_ALUM",new ControladorMostrarAlumno());
+		CreadorControlador c = new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("CONS_ALUM",c.crear(CreadorControlador.ControladorIniConsAlumno));
+		GestorControlador.tablaOperacionControlador.put("CONS_ALUM2",c.crear(CreadorControlador.ControladorConsAlumno));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_ALUM",c.crear(CreadorControlador.ControladorMostrarAlumno));
 		
 		
 		
