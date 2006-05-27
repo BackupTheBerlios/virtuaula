@@ -31,11 +31,11 @@ public class IniEnviarAvisoProf extends Controlador{
 		
 		if (!listaSec.esVacio())
 		{
-			mapGrupos.put("secretaria",listaSec);
+			mapGrupos.put("Secretaria",listaSec);
 		}
 		if (!listaProf.esVacio())
 		{
-			mapGrupos.put("profesor",listaProf);		
+			mapGrupos.put("Profesorado",listaProf);		
 		}
 		if (!listaCur.esVacio())
 		{

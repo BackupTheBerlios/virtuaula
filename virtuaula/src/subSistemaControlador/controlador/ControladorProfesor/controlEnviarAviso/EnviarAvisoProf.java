@@ -27,11 +27,11 @@ public class EnviarAvisoProf extends Controlador{
 		ListaObjetoBean errores= new ListaObjetoBean();
 		if (!op.equals(""))
 		{
-			if (op.equals("secretaria"))
+			if (op.equals("Secretaria"))
 			{//el aviso es para un grupo de secretarios(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
-			else if (op.equals("profesores"))
+			else if (op.equals("Profesorado"))
 			{//el aviso es para un grupo de profesores			
 				
 				int tama=destino.tamanio();
