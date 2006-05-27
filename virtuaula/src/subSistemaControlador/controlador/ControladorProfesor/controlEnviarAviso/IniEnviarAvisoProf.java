@@ -35,7 +35,7 @@ public class IniEnviarAvisoProf extends Controlador{
 		}
 		if (!listaProf.esVacio())
 		{
-			mapGrupos.put("profesores",listaProf);		
+			mapGrupos.put("profesor",listaProf);		
 		}
 		if (!listaCur.esVacio())
 		{
