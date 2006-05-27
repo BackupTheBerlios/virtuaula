@@ -43,6 +43,7 @@
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Seleccionar Aviso</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
+           <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -54,6 +55,7 @@
                 // -->
                 </script>
               </font>
+            </b>
           </div>
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
@@ -72,7 +74,7 @@
     			 </table>
     		</div>
 			<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un aviso y qué desea hacer</b>                
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un aviso y qué desea hacer</b></font>              
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
@@ -118,7 +120,7 @@
 		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('BORRA_AVISO');\" class='botonSimple'>Borrar</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('INI_AVI_PROF');\" class='botonSimple'>Enviar</button>");
 		         
 		                  
 		              }
