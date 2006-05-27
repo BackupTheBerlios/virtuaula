@@ -6,6 +6,7 @@ import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorAlumnos.controlConsultaExpAlum.ControladorConExpAlum;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
@@ -38,15 +39,16 @@ public class GestorControladorAlumnos extends GestorControlador{
 		
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalAlum",new ControladorLogin());
-		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
+		CreadorControlador c = new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalAlum",c.crear(CreadorControlador.ControladorLogin));
+		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
 		// avisos alumno
-		GestorControlador.tablaOperacionControlador.put("AVIS_ALUM",new ControladorOp_Avis());
-		GestorControlador.tablaOperacionControlador.put("BOR_ALUM_AVIS",new BorraAviso());
-		GestorControlador.tablaOperacionControlador.put("LEER_AVIS_ALUM",new ControladorPasaPag());
-		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("AVIS_ALUM",c.crear(CreadorControlador.ControladorOp_Avis));
+		GestorControlador.tablaOperacionControlador.put("BOR_ALUM_AVIS",c.crear(CreadorControlador.BorraAviso));
+		GestorControlador.tablaOperacionControlador.put("LEER_AVIS_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",c.crear(CreadorControlador.ControladorPasaPag));
 		//consulta expediente
-		GestorControlador.tablaOperacionControlador.put("CONS_EXP_ALUM",new ControladorConExpAlum());
+		GestorControlador.tablaOperacionControlador.put("CONS_EXP_ALUM",c.crear(CreadorControlador.ControladorConExpAlum));
 		
 			
 		
