@@ -518,8 +518,22 @@ public class GestorCursos {
 	}
 	public boolean darBajaCurso(ObjetoBean curso)
 	{
+		CreadorBean creador = new CreadorBean();
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		Profesorado profesorado=new Profesorado();
+		ListaObjetoBean listaAlum=profesorado.consultaAlumnosDeCurso(curso);
+		ListaObjetoBean listaUsu = new ListaObjetoBean();
+		for (int i=0;i<listaAlum.tamanio();i++)
+		{
+			ObjetoBean usuario=creador.crear(creador.Usuario);
+			usuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,listaAlum.dameObjeto(i).dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+			listaUsu.insertar(i,usuario);
+		}
+		GestorAvisos GA = new GestorAvisos();
+		ObjetoBean aviso = creador.crear(creador.Avisos);
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"El curso "+curso.dameValor(Constantes.CURSO_NOMBRE)+" ha sido cancelado");
+		GA.avisoAGrupo(listaUsu,aviso);
 		return bdfc.darBajaCurso(curso);
 	}
 }

@@ -635,12 +635,14 @@ public class GestorAvisos {
 		int numDest= grupo.tamanio();
 		String asunto = aviso.dameValor(Constantes.AVISOS_ASUNTO);
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
+		
 		if (numDest>0)
 		{
 			for (int i = 0; i<numDest;i++)
 			{//insertar el aviso y asignarlo al usuario correspondiente
-				
-	
+				Integer in = new Integer(i);
+				String clav= in.toString();
+				aviso.cambiaValor(Constantes.ID_ISAVISOS,clav);
 				if(!bdf.insertar(aviso))
 				{
 					String mensaje = "Error de Base de Datos al crear Aviso";
