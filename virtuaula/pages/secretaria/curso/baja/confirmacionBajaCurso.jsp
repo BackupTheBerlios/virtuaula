@@ -1,9 +1,10 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Buscar Profesor Consultar </title>
+      <title> Baja de Curso Realizada </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -13,6 +14,7 @@
       </script>    
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
@@ -44,16 +46,18 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-                <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Menu Secretaria</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+    	  			    <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menu principal'; overlib('Pulse aquí si desea volver al menu principal'); return true;">Volver al menu principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestion de cursos'; overlib('Pulse aquí si desea volver a gestion de cursos'); return true;">Volver a gestion de cursos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		  
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -78,5 +82,6 @@
           </form>
     		</div>
 	  </div>
+	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>	 
    </body>
 </html>
