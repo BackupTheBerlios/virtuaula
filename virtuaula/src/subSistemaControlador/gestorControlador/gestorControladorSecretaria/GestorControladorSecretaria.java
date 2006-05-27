@@ -38,6 +38,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//consulta de curso concretos
 		tablaOperacionGestor.put("CONS_CUR",new GestorControladorConsultaCurso());
 		tablaOperacionGestor.put("INI_CONS_CUR",new GestorControladorConsultaCurso());
+		//baja de cursos
+		tablaOperacionGestor.put("BAJA_CONS_CUR",new GestorControladorBajaCurso());
+		tablaOperacionGestor.put("BAJA_INI_CONS_CUR",new GestorControladorBajaCurso());
 		//insercion curso concretos
 		tablaOperacionGestor.put("INS_CUR_HOR",new GestorControladorInsCur());
 		tablaOperacionGestor.put("INS_CUR_AREA",new GestorControladorInsCur());
