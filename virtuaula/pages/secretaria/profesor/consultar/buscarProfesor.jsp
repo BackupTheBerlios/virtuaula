@@ -68,7 +68,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los campos conocidos del profesor (paso 1/3)</b>                
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los campos conocidos del profesor (paso 1/3)</b></font>                
     		</div>
     		<div style="position:relative; top:40px; left:150px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
