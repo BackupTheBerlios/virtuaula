@@ -1,12 +1,14 @@
 package beans.beanEncapsulado;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import beans.beanEncapsulado.encapsuladores.EncapsuladorPosicionBean;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaCurso;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorInsertarProfesor;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorListas;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorVacio;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaAlumno;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
-import beans.beanEncapsulado.encapsuladores.EncapsuladorEnviaAviso;
+
 import java.util.Hashtable;
 /**
  * Proporciona el encapsulador adecuado
@@ -52,6 +54,7 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("insertarProfesor",new EncapsuladorInsertarProfesor(req));
 		tablaEncapsuladores.put("consultaCurso",new EncapsuladorConsultaCurso(req));
 		tablaEncapsuladores.put("consultarAlumno",new EncapsuladorConsultaAlumno(req));
+		tablaEncapsuladores.put("posAlumno",new EncapsuladorPosicionBean("posAlumno",req));
 		tablaEncapsuladores.put("Alumno",new EncapsuladorBean("Alumno",req));
 		tablaEncapsuladores.put("Area",new EncapsuladorBean("Area",req));
 		tablaEncapsuladores.put("Aula",new EncapsuladorBean("Aula",req));
@@ -65,9 +68,10 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("Nomina",new EncapsuladorBean("Nomina",req));
 		tablaEncapsuladores.put("Profesor",new EncapsuladorBean("Profesor",req));
 		tablaEncapsuladores.put("Usuario",new EncapsuladorBean("Usuario",req));
+		tablaEncapsuladores.put("vacio",new EncapsuladorVacio());
 		tablaEncapsuladores.put("Ficha",new EncapsuladorBean("Ficha",req));
 		tablaEncapsuladores.put("Error",new EncapsuladorBean("Error",req));
-		tablaEncapsuladores.put("enviaaviso",new EncapsuladorEnviaAviso(req));
+
 		
 	}
 }
