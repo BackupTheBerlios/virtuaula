@@ -23,6 +23,7 @@
             
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="./../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="./../../../img/cabF.jpg"><img src="./../../../img/cabI.jpg"></td>
@@ -58,7 +59,7 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -69,6 +70,9 @@
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
+    		</div>
+			<div style="position:relative; left:10px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un aviso y qué desea hacer</b>                
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
