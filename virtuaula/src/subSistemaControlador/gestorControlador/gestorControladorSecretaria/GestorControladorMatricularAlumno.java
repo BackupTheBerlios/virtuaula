@@ -27,6 +27,7 @@ public class GestorControladorMatricularAlumno extends GestorControladorSecretar
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_DOS",new ControladorInicioMatricula());
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM",new ControladorMatAlum());
 		GestorControlador.tablaOperacionControlador.put("MATRICULA",new ControladorMatricula());
+		GestorControlador.tablaOperacionControlador.put("'GES_ALUM'",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("MAT_ALUM_CUR",new ControladorMatAlumCur());
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

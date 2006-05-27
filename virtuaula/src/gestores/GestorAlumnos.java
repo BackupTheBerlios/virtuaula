@@ -78,6 +78,14 @@ public class GestorAlumnos {
 		return l.dameObjeto(0);
 	
 	}
+	
+	public ListaObjetoBean consultaAlumnos(ObjetoBean Alumno)
+	{
+		BBDDFachada bd = BBDDFachada.getInstance(); 
+		ListaObjetoBean l=bd.consultar(Alumno);
+		return l;
+	
+	}
 	/**
 	 * Me comprueba que los datos introducidos son correctos, es decir, que los
 	 * campos obligatorios estan rellenos y si hay alguno numerico que no 

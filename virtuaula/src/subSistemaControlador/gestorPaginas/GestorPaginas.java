@@ -135,6 +135,22 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","MOSTRAR_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
 		agregarPaginas("secretaria","MOSTRAR_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
 	
+		//secretaria matricular alumno
+		agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
+		agregarPaginas("secretaria","MAT_ALUM_DOS","SIG","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		agregarPaginas("secretaria","MAT_ALUM","OK","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
+		agregarPaginas("secretaria","MAT_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		agregarPaginas("secretaria","MAT_ALUM_CUR","OK","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
+		agregarPaginas("secretaria","MAT_ALUM_CUR","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
+		agregarPaginas("secretaria","MATRICULA","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
+		agregarPaginas("secretaria","MATRICULA","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		
+		//secretaria consultar alumno
+		agregarPaginas("secretaria","CONS_ALUM","OK","/virtuaula/pages/secretaria/alumno/consultar/buscarAlumno.jsp");
+		agregarPaginas("secretaria","CONS_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
+		//cambiar la redireccion a una pagina nueva
+		agregarPaginas("secretaria","CONS_ALUM2","OK","/virtuaula/pages/secretaria/alumno/consultar/seleccionarAlumno.jsp");
+		agregarPaginas("secretaria","CONS_ALUM2","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
 		//secretaria insercion curso
 		agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		agregarPaginas("secretaria","INI_INS_CUR","SIG","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
@@ -203,15 +219,7 @@ public class GestorPaginas {
 		agregarPaginas("profesor","PUB_NOTAS","ERROR","/virtuaula/pages/profesor/curso/seleccionarCurso.jsp");
 		//la de menuPrincipalProf esta hecha en consulta avisos
 		
-		//matricular alumno
-		agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
-		agregarPaginas("secretaria","MAT_ALUM_DOS","SIG","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
-		agregarPaginas("secretaria","MAT_ALUM","OK","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
-		agregarPaginas("secretaria","MAT_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
-		agregarPaginas("secretaria","MAT_ALUM_CUR","OK","/virtuaula/pages/secretaria/alumno/insertar/insertarAlumno.jsp");
-		agregarPaginas("secretaria","MAT_ALUM_CUR","ERROR","/virtuaula/pages/secretaria/alumno/insertar/seleccCursoMatricularAlumno.jsp");
-		agregarPaginas("secretaria","MATRICULA","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
-		agregarPaginas("secretaria","MATRICULA","ERROR","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
+		
 		
 		//sesion alumno
 		agregarPaginas("alumno","LOGAR","SIG","/virtuaula/pages/alumno/index.jsp");
