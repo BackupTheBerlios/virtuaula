@@ -6,6 +6,7 @@ import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaCurso;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorInsertarProfesor;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorListas;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorVacio;
+import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaAlumno;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
 
 import java.util.Hashtable;
@@ -52,6 +53,7 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("listProf",new EncapsuladorListas("listProf",req));
 		tablaEncapsuladores.put("insertarProfesor",new EncapsuladorInsertarProfesor(req));
 		tablaEncapsuladores.put("consultaCurso",new EncapsuladorConsultaCurso(req));
+		tablaEncapsuladores.put("consultarAlumno",new EncapsuladorConsultaAlumno(req));
 		tablaEncapsuladores.put("Alumno",new EncapsuladorBean("Alumno",req));
 		tablaEncapsuladores.put("Area",new EncapsuladorBean("Area",req));
 		tablaEncapsuladores.put("Aula",new EncapsuladorBean("Aula",req));
