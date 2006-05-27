@@ -1,4 +1,4 @@
-package subSistemaControlador.controlador.ControladorAlumnos.controlConsultaExpAlum;
+package subSistemaControlador.controlador.ControladorAlumnos;
 
 import subSistemaControlador.controlador.Controlador;
 

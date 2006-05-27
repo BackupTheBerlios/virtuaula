@@ -7,6 +7,7 @@ import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorAlumnos.ControladorAlumnos;
 public class ControladorConExpAlum extends ControladorAlumnos{
 
 	public void procesarEvento() {
