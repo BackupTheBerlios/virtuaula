@@ -59,10 +59,10 @@
     	  			    <div class="botonesSubMenu">
     	  			        <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
                       <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
-     					        <a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
+     					        <a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				
     		          </div>
     				</form>
-    		          
+    		  </div>     
     		<div style="position:relative; top:4px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
@@ -107,7 +107,6 @@
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" disabled="true" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>"></td>
-                  </td>
         				</tr>
         				<tr>        				
         					<td class="FormLiteral">Sexo</td>
@@ -140,7 +139,6 @@
         					<td></td>
         					<td class="FormLiteral">Precio</td>
         					<td><input type="text" class="FormTxt" readonly="true" name="PRECIO" disabled="true" value="<%=curso.dameValor("PRECIO")%>"></td>
-                  </td>
         				</tr>        				
         				<tr>
         					<td class="FormLiteral">Fecha Inicio</td>
@@ -148,7 +146,6 @@
         					<td></td>
         					<td class="FormLiteral">Fecha Finalización</td>
         					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>"></td>
-                  </td>
         				</tr>   
 
 
