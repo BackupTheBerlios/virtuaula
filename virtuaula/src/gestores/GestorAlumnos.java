@@ -10,6 +10,7 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.BBDDFachadaAlumno;
+import subSistemaBBDD.BBDDFachadaUsuario;
 import subSistemaBBDD.BBDDFachada;
 import subSistemaBBDD.utils.Constantes;
 
@@ -314,6 +315,14 @@ public class GestorAlumnos {
 						GestorAvisos GA = new GestorAvisos();
 						ListaObjetoBean ListaError=GA.alumnoSinPass(Alumno,Curso);
 						
+						ObjetoBean aviso = creador.crear(creador.Avisos);
+						aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo ingreso");
+						aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha producido un ingreso de "+Curso.dameValor(Constantes.CURSO_PRECIO)+"" +
+								"euros por nueva matricula");
+						
+						BBDDFachadaUsuario bdfu = (BBDDFachadaUsuario)(bdf.dameBBDDFachada(Constantes.FachadaUsuario));
+						ListaObjetoBean listausu= bdfu.dameUsuariosPerfil("contable");
+						GA.avisoAGrupo(listausu,aviso);
 						if (!ListaError.esVacio())
 						{//se ha producido un error al enviar el aviso.
 							return ListaError;
