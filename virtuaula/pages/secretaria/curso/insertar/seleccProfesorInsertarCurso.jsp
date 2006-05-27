@@ -69,7 +69,7 @@
 		<div style="position:relative; left:10px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un profesor para el curso (paso 5/6)</b>                
     		</div>
-    		<div style="position:relative; top:60px; left:200; z-index:-1;">
+    		<div style="position:relative; top:10px; left:200; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
         				
         				<%
