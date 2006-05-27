@@ -14,15 +14,18 @@
       
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../img/fondo.jpg">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td width="3000" background="../../img/cabF.jpg"><img src="../../img/cabI.jpg"></td>
+            <td width="3000" background="../../img/cabF.jpg">
+            <img src="../../img/cabI.jpg" width="392" height="78"></td>
             <td><img src="../../img/cabD.jpg" width="537" height="78" border="0" usemap="#Map"></td>
          </tr>
       </table>
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td background="../../img/barF.gif"><img src="../../img/barF.gif" border="0"></td>
+            <td background="../../img/barF.gif">
+            <img src="../../img/barF.gif" border="0" width="1" height="40"></td>
          </tr>
          <tr>
             <td background="../../img/ContenidoF.gif" height="40">&nbsp;</td>
@@ -33,9 +36,9 @@
 			   <div class="botones">
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Profesor</a>
-  				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Alumno</a>  
-  				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
+  				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Menu profesor</a>
+  				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>  
+  				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Menu curso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
