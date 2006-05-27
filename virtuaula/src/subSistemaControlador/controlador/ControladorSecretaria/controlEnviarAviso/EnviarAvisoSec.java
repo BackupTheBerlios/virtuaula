@@ -25,11 +25,11 @@ public class EnviarAvisoSec extends Controlador{
 		ListaObjetoBean errores= new ListaObjetoBean();
 		if (!op.equals(""))
 		{
-			if (op.equals("contable"))
+			if (op.equals("Departamento Contable"))
 			{//el aviso es para un grupo de contables(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
-			else if (op.equals("profesores"))
+			else if (op.equals("Profesorado"))
 			{//el aviso es para un grupo de profesores			
 				
 				int tama=destino.tamanio();

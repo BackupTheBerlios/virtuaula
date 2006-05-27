@@ -28,11 +28,11 @@ public class IniEnviarAvisoSec extends Controlador{
 		
 		if (!listaCont.esVacio())
 		{
-			mapGrupos.put("contables",listaCont);
+			mapGrupos.put("Departamento Contable",listaCont);
 		}
 		if (!listaProf.esVacio())
 		{
-			mapGrupos.put("profesores",listaProf);		
+			mapGrupos.put("Profesorado",listaProf);		
 		}
 		if (!listaCur.esVacio())
 		{
