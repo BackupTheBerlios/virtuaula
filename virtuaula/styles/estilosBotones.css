@@ -8,10 +8,8 @@
     font-family: Verdana;
     font-size: 9px;
     font-weight: bold;
-    padding: 12px 36px 12px 36px;
-    margin: 0.1em 0em 0em 0em;
     color: #000099;
-    background-image: url(../img/bf.gif);
+    background-image: url('../img/bf.gif');
     background-repeat: repeat-x;
     background-position: 0 0px;
 /*    background: #E9E9F9; */
@@ -20,24 +18,19 @@
     border-left: 1px solid #6666CC;
     border-right: 1px solid #9999CC;
     text-decoration: none;
-    -moz-border-radius: 5px;
+    -moz-border-radius: 5px; margin-left:0em; margin-right:0em; margin-top:0.1em; margin-bottom:0em; padding-left:36px; padding-right:36px; padding-top:12px; padding-bottom:12px
 }
 .botones a:hover {
-    font-family: Verdana;
+    border:1px solid #CC9900; font-family: Verdana;
     font-size: 9px;
     font-weight: bold;
     text-decoration: none;
-    background-image: url(../img/bf.gif);
+    background-image: url('../img/bf.gif');
     background-repeat: repeat-x;
-    background-position: 0 0px;
     background-position: 0 -40px;
 /*    background: #F9F6D9; */
-    border-top: 1px solid #CC9900;
-    border-bottom: 1px solid #CC9900;
-    border-left: 1px solid #CC9900;
-    border-right: 1px solid #CC9900;
     color: #996600;
-    -moz-border-radius: 5px;
+    -moz-border-radius: 5px
 }
 
 
@@ -59,39 +52,29 @@ Ejemplos de uso:
 }
 
 .botonesSubMenu a {
-	font-family:Verdana;
+	border:1px solid #CFCFCF; font-family:Verdana;
 	font-size: 11px;
 	font-weight: bold;
-	padding:0px 30px 0px 30px;	
 	color:#000099;
-	background-image:url(../img/f_Boton.gif);
+	background-image:url('../img/f_Boton.gif');
 	background-repeat:repeat-x;
 	text-decoration: none;
-	border-width:1px;
-	border-color:#CFCFCF;
 	height:21px;
 	letter-spacing:0.1em;
-	border-width:1px;
-	border-style:solid;
-	/*-moz-border-radius: 5px;*/
+	padding-left:30px; padding-right:30px; padding-top:0px; padding-bottom:0px
 
 }
 
 .botonesSubMenu a:hover {
-	background-image:url(../img/f_Boton_s.gif);
+	border:1px solid #0ECDE4; background-image:url('../img/f_Boton_s.gif');
 	background-repeat:no-repeat;
 	background-repeat:repeat-x;
 	font-family:Verdana;
 	font-size: 11px;
 	font-weight:bold;
 	letter-spacing:0.1em;
-	padding:0px 30px 0px 30px;
-	border-width:1px;
-	border-style:solid;
-	border-color:#0ECDE4;
 	color:#000099;
-	height:21px;
-	/*-moz-border-radius: 5px;*/
+	height:21px; padding-left:30px; padding-right:30px; padding-top:0px; padding-bottom:0px
 }
 
 /*
@@ -106,11 +89,9 @@ Ejemplos de uso:
 
 
 span.iconoAlert a {
-    padding: 0px 10px 0px 0px;
-    margin: 0 2px 0 0;
     color: transparent;
-	background-image:url(../img/exclamacion.jpg);
-    background-position: 0 0px;
+	background-image:url('../img/exclamacion.jpg');
+    background-position: 0 0px; margin-left:0; margin-right:2px; margin-top:0; margin-bottom:0; padding-left:0px; padding-right:10px; padding-top:0px; padding-bottom:0px
 }
 
 
@@ -129,20 +110,18 @@ span.iconoAlert a {
 	padding: 0px 0px 0px 0px;
     background:#638cb5;
     border:0px;
-    width:70px;
-    height:15px;
+    width:100px;
+    height:20px;
 	cursor:hand;
 }
 
 .botonSimpleGrande {
-	font-size:16px;
+	font-size:10px;
 	font-family:Verdana,Helvetica;
     font-weight:bold;
     color:white;
     background:#638cb5;
     border:0px;
-    width:180px;
-    height:30px;        
-    cursor:hand;  
+    width:150px;
+    height:20px;          
 }
-
