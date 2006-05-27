@@ -7,6 +7,7 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.Contable.ControladorConContrato;
 import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Contable.ControladorConNomina;
@@ -34,12 +35,12 @@ public class GestorControladorRRHH extends GestorControlador{
 		
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		
-		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",new ControladorLogin());
-		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
-		GestorControlador.tablaOperacionControlador.put("INI_INS_PROF",new ControladorIniInsProf());
-		GestorControlador.tablaOperacionControlador.put("INS_PROF",new ControladorInsProf());
-		GestorControlador.tablaOperacionControlador.put("CONTRATO",new ControladorPasaPag());
+		CreadorControlador c = new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",c.crear(CreadorControlador.ControladorLogin));
+		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
+		GestorControlador.tablaOperacionControlador.put("INI_INS_PROF",c.crear(CreadorControlador.ControladorIniInsProf));
+		GestorControlador.tablaOperacionControlador.put("INS_PROF",c.crear(CreadorControlador.ControladorInsProf));
+		GestorControlador.tablaOperacionControlador.put("CONTRATO",c.crear(CreadorControlador.ControladorPasaPag));
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

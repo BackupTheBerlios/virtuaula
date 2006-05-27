@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorPublico.controlOfertaFormativa.ControladorOfertaFormativa;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
@@ -34,9 +35,10 @@ public class GestorControladorPublico extends GestorControlador{
 		
 		}
 		public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-			GestorControlador.tablaOperacionControlador.put("OFERTA_FORMATIVA",new ControladorOfertaFormativa());
-			GestorControlador.tablaOperacionControlador.put("PRINCIPAL_PUBLICO",new ControladorPasaPag());
-			GestorControlador.tablaOperacionControlador.put("ZONA_RESTRINGIDA",new ControladorPasaPag());
+			CreadorControlador c= new CreadorControlador();
+			GestorControlador.tablaOperacionControlador.put("OFERTA_FORMATIVA",c.crear(CreadorControlador.ControladorOfertaFormativa));
+			GestorControlador.tablaOperacionControlador.put("PRINCIPAL_PUBLICO",c.crear(CreadorControlador.ControladorPasaPag));
+			GestorControlador.tablaOperacionControlador.put("ZONA_RESTRINGIDA",c.crear(CreadorControlador.ControladorPasaPag));
 			Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 			
 			
