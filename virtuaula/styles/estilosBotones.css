@@ -142,6 +142,7 @@ span.iconoAlert a {
     background:#638cb5;
     border:0px;
     width:180px;
-    height:30px;          
+    height:30px;        
+    cursor:hand;  
 }
 
