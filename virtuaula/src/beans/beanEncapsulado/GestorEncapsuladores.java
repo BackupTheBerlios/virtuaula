@@ -1,14 +1,12 @@
 package beans.beanEncapsulado;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaCurso;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorInsertarProfesor;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorListas;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorVacio;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaAlumno;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
-
+import beans.beanEncapsulado.encapsuladores.EncapsuladorEnviaAviso;
 import java.util.Hashtable;
 /**
  * Proporciona el encapsulador adecuado
@@ -69,7 +67,7 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("Usuario",new EncapsuladorBean("Usuario",req));
 		tablaEncapsuladores.put("Ficha",new EncapsuladorBean("Ficha",req));
 		tablaEncapsuladores.put("Error",new EncapsuladorBean("Error",req));
-
+		tablaEncapsuladores.put("enviaaviso",new EncapsuladorEnviaAviso(req));
 		
 	}
 }

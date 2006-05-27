@@ -1,6 +1,5 @@
 package beans.beanEncapsulado.encapsuladores;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;

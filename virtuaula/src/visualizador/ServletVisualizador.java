@@ -4,8 +4,6 @@ import java.io.*;
 
 import beans.beanEncapsulado.Encapsulador;
 import beans.beanEncapsulado.GestorEncapsuladores;
-import beans.beanEncapsulado.encapsuladores.BeanEncapsulado;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +33,9 @@ public class ServletVisualizador extends HttpServlet{
 	 *	Tabla de transición de comportamiento de las paginas con respecto a operaciones, operaciones resultado y perfil de usuario
 	 */
 	private GestorPaginas gestorPaginas;
+	/**
+	 * Gestiona qué encapsulador tiene que ejecutarse en cada momento
+	 */
 	private GestorEncapsuladores gestorEncapsuladores;
 	/**
 	 * Constructor
@@ -51,7 +52,6 @@ public class ServletVisualizador extends HttpServlet{
 	
 	public void doPost (HttpServletRequest req, HttpServletResponse rep) throws IOException{
 		HttpSession sesion=req.getSession(true);
-		//BeanEncapsulado.encapsular(req);
 		Encapsulador encap=gestorEncapsuladores.dameEncapsulador(req);
 		encap.encapsular();
 		
