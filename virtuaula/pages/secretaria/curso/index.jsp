@@ -32,7 +32,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		<div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Gestion de cursos</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Gestión de cursos</b></font>                
     	   </div>   	 
          <div align="right">               
            <b>
@@ -55,7 +55,7 @@
             <div align="right" style="position:relative; top:16px;style="position:relative; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"><font color="#660000">Salir</font></a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
@@ -66,7 +66,6 @@
     				     <input type="hidden" name="evento">
     					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Crear nuevo curso';return true">Crear nuevo curso</a>
     					<a href="JavaScript:lanzaFormulario('BAJA_INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Dar de baja';return true">Dar de baja</a>
-             					 <a href="#">Modificar datos</a>
     					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Buscar curso';return true">Buscar curso</a>
     				</div>
     		</div>
@@ -82,15 +81,14 @@
 	  </div>
 	   <div style="position:relative; left:50px; top:50px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">
-    			  Desde esta pagina puede elegir qué desea hacer:<br><br>
+    			  Desde esta página puede elegir qué desea hacer:<br><br>
     			  - Crear un nuevo curso que se va a impartir en la academia<br>
     			  - Dar de baja un curso de los que se imparten en la academia<br>
-    			  - Modificar los datos de un curso que se esta impartiendo<br>
     			  - Buscar un curso de los impartidos en la academia
     			</font>
      </div>
 	  <map name="map">
-        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación.'); return true;"></a>
+        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"></a>
       </map>
       <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:100px; width:50px"></div>	    
    </body>
