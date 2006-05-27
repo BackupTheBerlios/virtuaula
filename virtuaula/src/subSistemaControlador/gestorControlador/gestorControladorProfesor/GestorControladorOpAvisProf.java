@@ -4,6 +4,8 @@ package subSistemaControlador.gestorControlador.gestorControladorProfesor;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorProfesor.controlEnviarAviso.EnviarAvisoProf;
+import subSistemaControlador.controlador.ControladorProfesor.controlEnviarAviso.IniEnviarAvisoProf;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis_Prof;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
@@ -25,6 +27,8 @@ public GestorControladorOpAvisProf(){
 		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_PROF",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO",new BorraAviso());
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_PROF_OPCIONES",new ControladorPasaPag());
+		GestorControlador.tablaOperacionControlador.put("INI_AVI_PROF",new IniEnviarAvisoProf());
+		GestorControlador.tablaOperacionControlador.put("ENV_AVI_PROF",new EnviarAvisoProf());
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
 		return controladorResultado;
