@@ -134,7 +134,18 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","INI_CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
 		agregarPaginas("secretaria","MOSTRAR_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
 		agregarPaginas("secretaria","MOSTRAR_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/informacionCurso.jsp");
-	
+		
+		//secretaria da de baja un curso
+		agregarPaginas("secretaria","BAJA_CONS_CUR","OK","/virtuaula/pages/secretaria/curso/baja/bajaseleccionarCurso.jsp");
+		agregarPaginas("secretaria","BAJA_CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/baja/bajaerrorConsultarCurso.jsp");
+		agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
+		agregarPaginas("secretaria","BAJA_INI_CONS_CUR","OK","/virtuaula/pages/secretaria/curso/baja/bajabuscarCurso.jsp");
+		agregarPaginas("secretaria","BAJA_INI_CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/baja/bajaerrorConsultarCurso.jsp");
+		agregarPaginas("secretaria","BAJA_MOSTRAR_CUR","OK","/virtuaula/pages/secretaria/curso/baja/bajainformacionCurso.jsp");
+		agregarPaginas("secretaria","BAJA_MOSTRAR_CUR","ERROR","/virtuaula/pages/secretaria/curso/baja/bajainformacionCurso.jsp");
+		agregarPaginas("secretaria","BAJA_DEF_CURSO","OK","/virtuaula/pages/secretaria/curso/baja/confirmacionBajaCurso.jsp");
+		agregarPaginas("secretaria","BAJA_DEF_CURSO","ERROR","/virtuaula/pages/secretaria/curso/baja/bajaerrorConsultarCurso.jsp");
+		
 		//secretaria matricular alumno
 		agregarPaginas("secretaria","GES_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
 		agregarPaginas("secretaria","MAT_ALUM_DOS","SIG","/virtuaula/pages/secretaria/alumno/insertar/iniMatricularAlumno.jsp");
