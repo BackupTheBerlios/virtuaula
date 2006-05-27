@@ -251,7 +251,8 @@ public class GestorPaginas {
 		
 		//sesion alumno
 		agregarPaginas("alumno","LOGAR","SIG","/virtuaula/pages/alumno/index.jsp");
-		agregarPaginas("alumno","CONS_EXP_ALUM","","/virtuaula/pages/alumno/index.jsp");
+		agregarPaginas("alumno","CONS_EXP_ALUM","OK","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
+		agregarPaginas("alumno","CONS_EXP_ALUM","ERROR","/virtuaula/pages/alumno/expediente/consultaExpediente.jsp");
 		agregarPaginas("alumno","AVIS_ALUM","OK","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
 		agregarPaginas("alumno","menuPrincipalAlum","SIG","/virtuaula/pages/alumno/index.jsp");
 		agregarPaginas("alumno","VOLVER_ANTERIOR","SIG","/virtuaula/pages/alumno/aviso/seleccionarAviso.jsp");
