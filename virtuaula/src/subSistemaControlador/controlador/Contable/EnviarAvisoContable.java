@@ -24,7 +24,7 @@ public class EnviarAvisoContable extends Controlador{
 		ListaObjetoBean errores= new ListaObjetoBean();
 		if (!op.equals(""))
 		{
-			if (op.equals("secretaria"))
+			if (op.equals("Secretaria"))
 			{//el aviso es para un grupo de secretarios(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}

@@ -24,7 +24,7 @@ public class IniEnviarAvisoContable extends Controlador{
 		
 		if (!listaSec.esVacio())
 		{
-			mapGrupos.put("secretaria",listaSec);
+			mapGrupos.put("Secretaria",listaSec);
 		}
 		
 		if ((!listaSec.esVacio()))
