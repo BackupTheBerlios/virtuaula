@@ -516,4 +516,10 @@ public class GestorCursos {
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.dameCursosActivos();
 	}
+	public boolean darBajaCurso(ObjetoBean curso)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		return bdfc.darBajaCurso(curso);
+	}
 }
