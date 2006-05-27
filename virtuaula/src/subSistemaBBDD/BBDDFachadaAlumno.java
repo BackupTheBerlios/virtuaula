@@ -5,9 +5,10 @@ import subSistemaBBDD.esquemaBBDD.EsquemaBBDD;
 import subSistemaBBDD.listaObjeto.ListaObjetoBBDD;
 import subSistemaBBDD.objetoBaseDatos.CreadorObjetoBBDD;
 import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
+
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
-import beans.ObjetoBean;
+import beans.*;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 /**
@@ -95,9 +96,8 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 		CreadorObjetoBBDD creadorObjetoBBDD= this.creador.getCreadorObjetoBBDD();			
 		ObjetoBBDD cursoAlumno = creadorObjetoBBDD.crear(creadorObjetoBBDD.IscursoHasIsalumno);
 		cursoAlumno.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO, curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
-		ObjetoCriterio critCursoAlumno = this.creador.getCreadorObjetoCriterio().crear(this.creador.getCreadorObjetoCriterio().ObjetoCriterioIscursoHasIsalumno);
+		ObjetoCriterio critCursoAlumno = this.crearObjetoCriterioAdecuado(cursoAlumno);
 		
-		critCursoAlumno.convertir(cursoAlumno);
 		CreadorEsquemaBBDD creadorTablas = this.creador.getCreadorEsquema();
 		EsquemaBBDD tablaCursoAlumno= creadorTablas.crear(creadorTablas.EsqIscursoHasIsalumno);
 		//Obtengo una lista de beans de tipo CursoHasAlumno que me relacionan los id de los alumno que están matriculados en el curso dado.
@@ -114,6 +114,67 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 			resultado.insertar(resultado.tamanio(),alumnoResult.dameObjeto(0));		
 		}
 		return resultado;
+	}
+	
+	/**
+	 * Dado un curso y un alumno, devuelve una lista de alumnos que cumplen los criterios establecidos por
+	 * estos parámetros.
+	 * @param curso
+	 * @param alumno
+	 * @return
+	 */
+	public ListaObjetoBean dameAlumnosCumplan(ObjetoBean curso,ObjetoBean alumno){
+		
+		
+		ListaObjetoBBDD alumnosResultado= this.creador.getCreadorListaObjetoBBDD().crear();
+		
+		
+		
+		if(curso!=null && alumno!=null){
+			ListaObjetoBean alumnosCumplenAlumno= this.consultar(alumno);
+			ListaObjetoBean alumnosCumplenCurso=this.dameAlumnosCurso(curso);
+			for(int i=0;i<alumnosCumplenAlumno.tamanio();i++){
+				ObjetoBean alumnoAlumnoActual= alumnosCumplenAlumno.dameObjeto(i);
+				for(int j=0;j<alumnosCumplenCurso.tamanio();j++){
+					if(alumnosCumplenCurso.dameObjeto(j).dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI)
+								.equals(alumnoAlumnoActual.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI))){
+						try{
+							alumnosResultado.insertar(alumnosResultado.tamanio(),ConversorBeanBBDD.convierteBeanABBDD(alumnoAlumnoActual));
+						}
+						catch(Exception e){
+							e.printStackTrace();
+							return null;
+						}	
+					}
+					
+				}
+			}
+			return ConversorBeanBBDD.convierteListaBBDD(alumnosResultado);
+		}
+		else if(alumno!=null){
+			ListaObjetoBean alumnosCumplenAlumno= this.consultar(alumno);
+			return alumnosCumplenAlumno;
+		}
+		else if(curso!=null){
+			ListaObjetoBean alumnosCumplenCurso=this.dameAlumnosCurso(curso);
+			return alumnosCumplenCurso;
+		}
+		else{
+			ObjetoBean alumnovacio= this.creador.getCreadorBean().crear(this.creador.getCreadorBean().Alumno);
+			return this.consultar(alumnovacio);
+		}
+		
+		
+		
+		
+	}
+	
+	public static void main(String[] args){
+		BBDDFachadaAlumno mia= new BBDDFachadaAlumno();
+		ObjetoBean curso= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Curso);
+		curso.cambiaValor(Constantes.CURSO_NOMBRE,"Curso basico de internet");
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		System.out.println(mia.dameAlumnosCurso(curso).tamanio());
 	}
 	
 }

@@ -34,6 +34,12 @@ public class GestorAlumnos {
 	{
 		return null;
 	}*/
+	public ListaObjetoBean consultaAlumnosCumplan(ObjetoBean curso,ObjetoBean alumno){
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaAlumno bdfa = (BBDDFachadaAlumno)(bdf.dameBBDDFachada(Constantes.FachadaAlumno));
+		return bdfa.dameAlumnosCumplan(curso,alumno);
+	}
+	
 	public ObjetoBean consultaProfesorCurso(ObjetoBean Curso)
 	{
 		GestorCursos GC = new GestorCursos();

@@ -22,7 +22,7 @@ public class ControladorIniConsAlumno extends Controlador{
 	 * tiene que pasar. 
 	 */
 		public void procesarEvento() {
-			
+			this.getSesion().removeAttribute("error");
 			ListaObjetoBean	listaCursos = new ListaObjetoBean();
 			GestorCursos gestor = new GestorCursos();
 			listaCursos= gestor.dameCursosActivos();

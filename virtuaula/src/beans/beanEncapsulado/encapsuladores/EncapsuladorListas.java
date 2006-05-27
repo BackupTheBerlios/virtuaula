@@ -33,6 +33,7 @@ public class EncapsuladorListas extends Encapsulador{
 		tablaIdentificadores.put("listAula","posAula");
 		tablaIdentificadores.put("listAviso","posAviso");
 		tablaIdentificadores.put("listCurso","posCurso");
+		tablaIdentificadores.put("listacurso","posCurso");
 		
 		
 	}

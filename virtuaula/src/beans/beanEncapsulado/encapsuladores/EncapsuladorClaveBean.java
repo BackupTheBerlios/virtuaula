@@ -38,6 +38,7 @@ public class EncapsuladorClaveBean extends Encapsulador{
 	private void inicializarTablaIdListas(){
 		tablaIdListas.put("ISPROFESOR_ISUSUARIO_DNI","listaprofesor");
 		tablaIdListas.put("ISAREA_IDISAREA","listaarea");
+		tablaIdListas.put("ISCURSO_IDISCURSO","listacurso");
 		
 	}
 	/**
@@ -48,7 +49,7 @@ public class EncapsuladorClaveBean extends Encapsulador{
 	private void inicializarTablaIdBeans(){
 		tablaIdBeans.put("ISPROFESOR_ISUSUARIO_DNI","beanProfesor");
 		tablaIdBeans.put("ISAREA_IDISAREA","beanArea");
-		
+		tablaIdBeans.put("ISCURSO_IDISCURSO","beanCurso");
 	}
 	/**
 	 *	Tabla de correspondencia de la clave, con el identificador clave
@@ -58,7 +59,7 @@ public class EncapsuladorClaveBean extends Encapsulador{
 	private void inicializarTablaIdClaveBase(){
 		tablaIdClaveBase.put("ISPROFESOR_ISUSUARIO_DNI","ISUSUARIO_DNI");
 		tablaIdClaveBase.put("ISAREA_IDISAREA","IDISAREA");
-		
+		tablaIdClaveBase.put("ISCURSO_IDISCURSO","IDISCURSO");
 	}
 	
 	public void encapsular(){

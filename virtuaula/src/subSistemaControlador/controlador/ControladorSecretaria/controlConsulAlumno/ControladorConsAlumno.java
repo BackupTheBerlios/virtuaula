@@ -20,14 +20,23 @@ public class ControladorConsAlumno extends Controlador {
 		public void procesarEvento() {
 
 			ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
+			//ListaObjetoBean lcurso= (ListaObjetoBean)this.getSesion().getAttribute("listacurso");
+			//System.out.println("peta por posCurso que no lo encuentra");
+			//int posCurso= ((Integer)(this.getSesion().getAttribute("posCurso"))).intValue();
+			//System.out.println("selecciono la pos de curso " + posCurso);
 			GestorAlumnos GA = new GestorAlumnos();
+			ListaObjetoBean listaAlumnos;
+			ObjetoBean curso=(ObjetoBean)this.getSesion().getAttribute("beanCurso");
+			listaAlumnos =GA.consultaAlumnosCumplan(curso,alumno);
 			
-			//Realmente hay que hacer la consulta por el curso y el alumno.
-			ListaObjetoBean listaAlumnos =GA.consultaAlumnos(alumno);
 			
+			
+			this.getSesion().setAttribute("listaalumno",listaAlumnos);
 			if (listaAlumnos!=null){
+				this.getSesion().removeAttribute("beanCurso");
+				this.getSesion().removeAttribute("beanAlumno");
 				this.setResuladooperacion("OK");
-				this.getSesion().setAttribute("listaAlumno",listaAlumnos);
+				
 			}	
 			else {
 				this.setResuladooperacion("ERROR");
