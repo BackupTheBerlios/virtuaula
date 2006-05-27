@@ -159,7 +159,8 @@ public class GestorPaginas {
 		//secretaria consultar alumno
 		agregarPaginas("secretaria","CONS_ALUM","OK","/virtuaula/pages/secretaria/alumno/consultar/buscarAlumno.jsp");
 		agregarPaginas("secretaria","CONS_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
-		//cambiar la redireccion a una pagina nueva
+		agregarPaginas("secretaria","MOSTRAR_ALUM","OK","/virtuaula/pages/secretaria/alumno/consultar/informacionAlumno.jsp");
+		agregarPaginas("secretaria","MOSTRAR_ALUM","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
 		agregarPaginas("secretaria","CONS_ALUM2","OK","/virtuaula/pages/secretaria/alumno/consultar/seleccionarAlumno.jsp");
 		agregarPaginas("secretaria","CONS_ALUM2","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
 		agregarPaginas("secretaria","VUELTA_ALUM","SIG","/virtuaula/pages/secretaria/alumno/consultar/buscarAlumno.jsp");
