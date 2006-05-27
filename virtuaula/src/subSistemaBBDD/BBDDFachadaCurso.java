@@ -337,6 +337,37 @@ public class BBDDFachadaCurso extends BBDDFachada{
 			return null;
 		}
 	}
+	/**
+	 * Dado un alumno devuelve una lista de sus cursos.
+	 * @param alumno
+	 * @return
+	 */
+	public ListaObjetoBean dameCursosAlumno(ObjetoBean alumno){
+		try{
+			
+			CreadorObjetoBBDD creadorCursoAlumno = this.creador.getCreadorObjetoBBDD();
+			ObjetoBBDD cursoAlumno= creadorCursoAlumno.crear(creadorCursoAlumno.IscursoHasIsalumno);
+			cursoAlumno.cambiaValor(Constantes.ID_HAS_ISALUMNO_ISUSUARIO_DNI,alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+			ObjetoCriterio criterioCursoAlumno = this.crearObjetoCriterioAdecuado(cursoAlumno);
+			EsquemaBBDD tablaAdecuada= this.crearTablaAdecuada(cursoAlumno);
+			ListaObjetoBBDD resultParcial =(ListaObjetoBBDD) this.inicializaTabla(tablaAdecuada).consultar(criterioCursoAlumno);
+			CreadorListaObjetoBean creadorListaBean= new CreadorListaObjetoBean();
+			ListaObjetoBean resultados= creadorListaBean.crear();
+			ObjetoBean curso= this.creador.getCreadorBean().crear(this.creador.getCreadorBean().Curso);
+			//Tenemos tuplas codAlumno,codCurso
+			for(int i=0;i<resultParcial.tamanio();i++){
+				curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,resultParcial.dameObjeto(i).dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
+				ObjetoBean cursoAdentro= this.consultar(curso).dameObjeto(0);
+				if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
+					resultados.insertar(resultados.tamanio(),cursoAdentro);
+			}
+			return resultados;
+		}
+			catch (Exception e){
+				e.printStackTrace();
+				return null;
+			}
+	}
 
 	
 }

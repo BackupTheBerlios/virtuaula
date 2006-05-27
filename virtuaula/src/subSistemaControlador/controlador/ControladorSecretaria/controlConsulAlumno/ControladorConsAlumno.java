@@ -3,7 +3,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlu
 import gestores.GestorAlumnos;
 
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 /**
@@ -11,7 +10,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * @author JORGE SANCHEZ
  *
  */
-public class ControladorConsAlumno extends ControladorConsultaAlumno {
+public class ControladorConsAlumno extends Controlador {
 
 	
 	/**
