@@ -67,7 +67,7 @@
     					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Crear nuevo curso';return true">Crear nuevo curso</a>
     					<a href="JavaScript:lanzaFormulario('BAJA_INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Dar de baja';return true">Dar de baja</a>
              					 <a href="#">Modificar datos</a>
-    					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Buscar curso';return true">Buscar datos</a>
+    					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Buscar curso';return true">Buscar curso</a>
     				</div>
     		</div>
     		<div style="position:relative; top:43px; z-index:-1;">
