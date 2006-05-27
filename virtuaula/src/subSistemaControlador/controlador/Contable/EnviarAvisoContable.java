@@ -22,7 +22,7 @@ public class EnviarAvisoContable extends Controlador{
 		GestorAvisos GA= new GestorAvisos();
 		CreadorBean creador = new CreadorBean();
 		ListaObjetoBean errores= new ListaObjetoBean();
-		if (posi!=-1)
+		if (!op.equals(""))
 		{
 			if (op.equals("secretaria"))
 			{//el aviso es para un grupo de secretarios(usuarios)
