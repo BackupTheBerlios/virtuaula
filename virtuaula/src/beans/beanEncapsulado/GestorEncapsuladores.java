@@ -27,9 +27,13 @@ public class GestorEncapsuladores {
 		
 		try {
 			tipo = req.getParameter("idBean");
+			System.out.println("TIPO= " + tipo);
 			if ((tipo != null)&& (!tipo.equals(""))){
+				System.out.println("FALLA AL INICIALIZAR");
 				this.inicializar(req);
+				System.out.println("ME HE METIDO");
 				encapResultado=(Encapsulador)tablaEncapsuladores.get(tipo);
+				System.out.println("ES NULL EL RESULTADO "+ encapResultado==null);
 			}
 			else{
 				encapResultado=new EncapsuladorVacio();
@@ -71,7 +75,9 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("vacio",new EncapsuladorVacio());
 		tablaEncapsuladores.put("Ficha",new EncapsuladorBean("Ficha",req));
 		tablaEncapsuladores.put("Error",new EncapsuladorBean("Error",req));
+		
 
 		
 	}
+	
 }
