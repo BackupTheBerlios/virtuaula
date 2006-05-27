@@ -135,13 +135,13 @@ span.iconoAlert a {
 }
 
 .botonSimpleGrande {
-	font-size:10px;
+	font-size:16px;
 	font-family:Verdana,Helvetica;
     font-weight:bold;
     color:white;
     background:#638cb5;
     border:0px;
-    width:120px;
-    height:15px;          
+    width:180px;
+    height:30px;          
 }
 
