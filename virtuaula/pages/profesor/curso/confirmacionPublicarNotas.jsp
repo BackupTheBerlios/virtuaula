@@ -16,6 +16,7 @@
       </script>    
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -47,11 +48,11 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-                <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Menu profesor';return true ">Menu profesor</a>
+                <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu profesor';return true ">Volver al menu profesor</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -63,10 +64,12 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:30px; left:80px; z-index:-1;">
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              			  <B>NOTAS PUBLICADAS</B><BR>
-              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
+              			  <B>Ha publicado las notas del curso</B><BR>
+              <div style="position:relative; top:30px; left:30px; z-index:-1;">
+              <table width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#877fff">        					
         					<th class="FormLiteral"><b>DNI</b></th>	
         					<th class="FormLiteral"><b>Nombre</b></th>
@@ -98,6 +101,7 @@
                       }
                 %>  
                 </table>
+                </div>
                 <BR><BR>
               <table border="0" align="center" cellspacing="0" cellpadding="5">                 	                      				                      				
               	<tr >

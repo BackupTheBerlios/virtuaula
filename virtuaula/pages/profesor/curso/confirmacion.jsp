@@ -13,6 +13,7 @@
       </script>    
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -44,7 +45,7 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -60,12 +61,12 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:100px; left:300px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
               	<tr>
 					         <td class="info">
-					           Ficha insertarda correctamente
+					           Ficha insertada correctamente
 					         </td>
 				        </tr>	                       				
               	<tr>
