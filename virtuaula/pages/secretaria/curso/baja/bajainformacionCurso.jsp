@@ -267,7 +267,7 @@
               	<tr align="center">
 					        <td align="center"> 
 					          <input type="hidden" name="evento" value="BAJA_DEF_CURSO">
-						        <button type="submit" class="botonSimple">Dar de baja curso</button>
+						        <button type="submit" class="botonSimpleGrande">Dar de baja curso</button>
 					         </td>
 				        </tr>	                       				
         			</table>
