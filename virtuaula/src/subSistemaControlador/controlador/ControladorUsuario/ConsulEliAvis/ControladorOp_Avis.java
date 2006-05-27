@@ -11,22 +11,14 @@ import beans.Usuario;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-/**
- * 
- * @author Alberto Macho
- * Esto es un controlador para la cosulta de los avisos del profesor.
- *
- */
-public class ControladorOp_Avis_Prof extends Controlador{
+
+public class ControladorOp_Avis extends Controlador{
 /**
  * Con el idusuario que cogemos de la session buscamos los avisos de ese usuario
  * y metemos la lista resultante de avisos en la session.
  */
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();
-		ObjetoBean beanUsuario =creador.crear(creador.Profesor);
-		HttpSession sesion = this.getSesion();
-		//idusuario me tiene que decir Javi si es asi
 		ObjetoBean idusu=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");
 		GestorAvisos GA = new GestorAvisos();
 		ListaObjetoBean lista= GA.consultaAvisos(idusu);
@@ -57,7 +49,7 @@ public class ControladorOp_Avis_Prof extends Controlador{
 
 	public Controlador clonar() {
 
-		return new ControladorOp_Avis_Prof();
+		return new ControladorOp_Avis();
 	}
 
 }

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorAlumnos.controlConsultaExpAlum.ControladorConExpAlum;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis_Prof;
+import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
@@ -41,7 +41,7 @@ public class GestorControladorAlumnos extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalAlum",new ControladorLogin());
 		GestorControlador.tablaOperacionControlador.put("desconectar",new ControladorDesconectar());
 		// avisos alumno
-		GestorControlador.tablaOperacionControlador.put("AVIS_ALUM",new ControladorOp_Avis_Prof());
+		GestorControlador.tablaOperacionControlador.put("AVIS_ALUM",new ControladorOp_Avis());
 		GestorControlador.tablaOperacionControlador.put("BOR_ALUM_AVIS",new BorraAviso());
 		GestorControlador.tablaOperacionControlador.put("LEER_AVIS_ALUM",new ControladorPasaPag());
 		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR",new ControladorPasaPag());
