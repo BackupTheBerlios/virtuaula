@@ -5,6 +5,7 @@
       <link href="../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -45,10 +46,10 @@
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
-    					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Insertar Curso';return true">Insertar</a>
-    					<a href="#">Baja</a>
-             					 <a href="#">Editar</a>
-    					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Consultar Curso';return true">Consultar</a>
+    					<a href="JavaScript:lanzaFormulario('INI_INS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Crear nuevo curso';return true">Crear nuevo curso</a>
+    					<a href="#">Dar de baja</a>
+             					 <a href="#">Modificar datos</a>
+    					<a href="JavaScript:lanzaFormulario('INI_CONS_CUR');" onmouseout="window.status=''" onmouseover="window.status='Consultar datos';return true">Consultar datos</a>
     				</div>
     		</div>
     		<div style="position:relative; top:43px; z-index:-1;">
@@ -58,8 +59,7 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:55px; z-index:-1;">
-    			Esto keda para pintar en cursos
+    		<div style="position:relative; top:90px; left:50px; z-index:-1;">
     		</div>
 	  </div>
    </body>
