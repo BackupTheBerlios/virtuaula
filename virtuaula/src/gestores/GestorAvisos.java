@@ -618,5 +618,72 @@ public class GestorAvisos {
 		ListaObjetoBean l = bdfa.dameAvisosUsuario(beanUsuario);
 		return l.tamanio();
 	}
+
+	/**
+	 * Manda un aviso a un grupo de usuarios contenidos en la listaObjetoBean
+	 * @param grupo de usuarios a los que mandamos el mensaje
+	 * @param aviso que queremos mandar
+	 * @return
+	 */
+	public ListaObjetoBean avisoAGrupo(ListaObjetoBean grupo,ObjetoBean aviso)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		CreadorBean creador = new CreadorBean();
+		GestorHorarios GH = new GestorHorarios();
+		ListaObjetoBean liserror=new ListaObjetoBean();
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
+		int numDest= grupo.tamanio();
+		String asunto = aviso.dameValor(Constantes.AVISOS_ASUNTO);
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
+		for (int i = 0; i<numDest;i++)
+		{//insertar el aviso y asignarlo al usuario correspondiente
+			
+
+			if(!bdf.insertar(aviso))
+			{
+				String mensaje = "Error de Base de Datos al crear Aviso";
+				ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+				error.cambiaValor(Constantes.CAUSA, mensaje);
+				int tamaniio=liserror.tamanio();
+				liserror.insertar(tamaniio,error);
+				return liserror;
+			}
+			else
+			{	//si se ha insertado el aviso correctamente
+				
+				//Crear objeto bean especifico
+				GestorAvisos GA=new GestorAvisos();
+				aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+				ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+				ObjetoBean aviso2 = listaav.dameObjeto(0);
+				aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,asunto);
+				
+				if (GA.editarAviso(aviso2))
+				{
+						
+					Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
+					
+					//Relleanar bean
+					ObjetoBean usuar = grupo.dameObjeto(i);
+									
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
+					ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,usuar.dameValor(Constantes.ID_ISUSUARIO_DNI));
+					// Rellenar tabla intermedia de relacion Avisos-Usuario
+					if(!bdf.insertar(ahu))
+					{
+						String mensaje = "Error de Base de Datos al mandar Aviso";
+						ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+						error.cambiaValor(Constantes.CAUSA, mensaje);
+						int tamanioo=liserror.tamanio();
+						liserror.insertar(tamanioo,error);
+						return liserror;
+					}
+				}
+			}//fin else
+			
+			
+		}
+		return liserror;
+	}
 		
 }
