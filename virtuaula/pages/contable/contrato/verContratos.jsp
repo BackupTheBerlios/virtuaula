@@ -15,6 +15,7 @@
       
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -52,7 +53,7 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalCont');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalCont');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
     				  </div>
     				</form>
@@ -66,7 +67,8 @@
     		</div>
 			<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              			  <font face="Trebuchet MS" color="#095494" point-size="4"><B>CONTRATOS</B></font><BR>
+              	<font face="Trebuchet MS" color="#616D7E" point-size="5">
+			  <B>Información sobre contratos de profesores</B><BR>
 				<p>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#062e6d">        					

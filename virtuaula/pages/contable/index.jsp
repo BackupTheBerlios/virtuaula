@@ -13,6 +13,7 @@
       
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../img/fondo.jpg">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../img/cabF.jpg"><img src="../../img/cabI.jpg"></td>
