@@ -23,7 +23,7 @@ public class EnviarAvisoSec extends Controlador{
 		GestorAvisos GA= new GestorAvisos();
 		CreadorBean creador = new CreadorBean();
 		ListaObjetoBean errores= new ListaObjetoBean();
-		if (posi!=-1)
+		if (!op.equals(""))
 		{
 			if (op.equals("contable"))
 			{//el aviso es para un grupo de contables(usuarios)
