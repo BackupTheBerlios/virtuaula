@@ -13,6 +13,7 @@
       
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../img/fondo.jpg">
          <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../img/cabF.jpg"><img src="../../img/cabI.jpg"></td>
@@ -32,8 +33,8 @@
 			   <div class="botones">
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CURSO_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Curso</a>
-  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu aviso';return true ">Aviso</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CURSO_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu curso';return true ">Menu curso</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_AVIS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Menu aviso';return true ">Menu aviso</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
