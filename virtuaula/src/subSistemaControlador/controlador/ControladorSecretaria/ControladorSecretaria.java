@@ -1,4 +1,4 @@
-package subSistemaControlador.controlador.ControladorSecretaria.controlSecretaria;
+package subSistemaControlador.controlador.ControladorSecretaria;
 
 
 
