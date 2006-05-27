@@ -13,6 +13,9 @@ public class ControladorIniInsProf extends Controlador{
 //		consultamos las areas disponibles en la academis y las metemos en sesion
 		Profesorado profesorado = new Profesorado();
 		ListaObjetoBean listaareas=profesorado.consultaAreas();
+		//borramos el bean profesor de la sesion por las anteriores veces, 
+		//ya que vamos a empezar de nuevo
+		sesion.removeAttribute("beanProfesor");
 		
 		if (listaareas!=null)
 		{//si no ha fallado la base de datos
