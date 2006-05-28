@@ -70,6 +70,11 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("OP_AVIS_SEC",new GestorControladorOpAvisSec());
 		tablaOperacionGestor.put("MOSTRAR_AVISOS_SEC",new GestorControladorOpAvisSec());
 		tablaOperacionGestor.put("BORRA_AVISO_SEC",new GestorControladorOpAvisSec());
+		
+		tablaOperacionGestor.put("ENV_AVISO_INI_SEC",new GestorControladorOpAvisSec());
+		tablaOperacionGestor.put("ENV_AVI_SEC",new GestorControladorOpAvisSec());
+		
+		
 		//Horarios
 		tablaOperacionGestor.put("CONS_HOR",new GestorControladorOpConsHor());
 		tablaOperacionGestor.put("CONS_HOR_SEL",new GestorControladorOpConsHor());

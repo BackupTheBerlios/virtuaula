@@ -125,7 +125,7 @@
 		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('BORRA_AVISO_SEC');\" class='botonSimple'>Borrar</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('ENV_AVISO_INI_SEC');\" class='botonSimple'>Enviar</button>");
 		         
 		                  
 		              }

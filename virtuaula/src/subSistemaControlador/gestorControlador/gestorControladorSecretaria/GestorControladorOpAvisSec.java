@@ -24,8 +24,8 @@ public GestorControladorOpAvisSec(){
 		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO_SEC",creadorcont.crear(CreadorControlador.BorraAviso));
 		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_S",creadorcont.crear(CreadorControlador.ControladorPasaPag));
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
-		
-		
+		GestorControlador.tablaOperacionControlador.put("ENV_AVISO_INI_SEC",creadorcont.crear(CreadorControlador.IniEnviarAvisoSec));
+		GestorControlador.tablaOperacionControlador.put("ENV_AVI_SEC",creadorcont.crear(CreadorControlador.EnviarAvisoSec));
 		return controladorResultado;
 	}
 }

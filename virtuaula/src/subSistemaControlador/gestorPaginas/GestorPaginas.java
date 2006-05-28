@@ -5,6 +5,9 @@ package subSistemaControlador.gestorPaginas;
 
 import java.util.HashMap;
 
+import subSistemaControlador.controlador.CreadorControlador;
+import subSistemaControlador.gestorControlador.GestorControlador;
+
 
 public class GestorPaginas {
 
@@ -241,13 +244,21 @@ public class GestorPaginas {
 		agregarPaginas("contable","BORRA_AVISO_CONT","ERROR","/virtuaula/pages/contable/aviso/seleccionarAviso.jsp");
 		
 		
-		//secretario consulta avisos
+		//secretario  avisos
 		agregarPaginas("secretaria","OP_AVIS_SEC","OK","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
 		agregarPaginas("secretaria","OP_AVIS_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
 		agregarPaginas("secretaria","MOSTRAR_AVISOS_SEC","SIG","/virtuaula/pages/secretaria/aviso/leerAviso.jsp");
 		agregarPaginas("secretaria","VOLVER_ANTERIOR_S","SIG","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
 		agregarPaginas("secretaria","BORRA_AVISO_SEC","OK","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
-		agregarPaginas("secretaria","BORRA_AVISO_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp"); 
+		agregarPaginas("secretaria","BORRA_AVISO_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
+		
+		
+		agregarPaginas("secretaria","ENV_AVISO_INI_SEC","OK","/virtuaula/pages/secretaria/aviso/enviarAviso.jsp");
+		agregarPaginas("secretaria","ENV_AVISO_INI_SEC","ERROR","/virtuaula/pages/secretaria/aviso/enviarAviso.jsp");
+		agregarPaginas("secretaria","ENV_AVI_SEC","OK","/virtuaula/pages/secretaria/aviso/confirmacionAvisoEnviado.jsp");
+		agregarPaginas("secretaria","ENV_AVI_SEC","ERROR","/virtuaula/pages/secretaria/aviso/enviarAviso.jsp");
+		
+		
 		
 		//secretario gestiona horarios
 		agregarPaginas("secretaria","OP_MENU_HOR","SIG","/virtuaula/pages/secretaria/horario/index.jsp");
