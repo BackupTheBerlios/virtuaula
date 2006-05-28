@@ -1,7 +1,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Opciones sobre profesores </title>
+      <title> Pagina Principal Gestion de Profesores </title>
       <link href="../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../script/overlib_mini.js"></script>
       
