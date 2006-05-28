@@ -29,10 +29,12 @@ public class ControladorConsAlumno extends ControladorConsultaAlumno {
 		
 			this.getSesion().setAttribute("listaalumno",listaAlumnos);
 			if (listaAlumnos!=null){
+				this.getSesion().removeAttribute("beanCurso");
 				this.setResuladooperacion("OK");
 				
 			}	
 			else {
+				this.getSesion().removeAttribute("beanCurso");
 				this.setResuladooperacion("ERROR");
 			}		
 		}
