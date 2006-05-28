@@ -87,7 +87,7 @@
 		                <div style="position:relative; left:-30px; top:-40px; z-index:-1;">
     		         	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un aviso y qué desea hacer con él (paso 1/2)</b><br>
     		         	 Puede leer un aviso, borrarlo o enviar un aviso a algún usuario<br>
-    		         	 Pulse el botón correspondiente a la opción deseada               
+    		         	 Pulse el botón correspondiente a la opción deseada   </font>            
     		          </div>
 		                <%
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
@@ -132,15 +132,18 @@
 		              else{	%>
 		              <div style="position:relative; left:-30px; top:-40px; z-index:-1;">
     		         	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No tiene ningún aviso</b><br>
-    		         	 Pulse "Atrás" para volver a la página anterior               
+    		         	 Pulse "Atrás" para volver a la página anterior</font>               
     		          </div>
 		              <%
-		              out.println("<font class='error'>No tiene ningún aviso</font>");
+		              //out.println("<font class='error'>No tiene ningún aviso</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
 		      	             out.println("			          <input type='hidden' name='evento' value='menuPrincipalSec'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
+		                    out.println("</td>");
+		                    out.println("<td>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
 
 		
 		                  }
