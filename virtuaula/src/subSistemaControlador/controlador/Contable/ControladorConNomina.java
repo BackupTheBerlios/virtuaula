@@ -70,7 +70,7 @@ public class ControladorConNomina extends ControladorContable{
 
 	public Controlador clonar() {
 		
-		return new ControladorConContrato();
+		return new ControladorConNomina();
 	}
 
 }
