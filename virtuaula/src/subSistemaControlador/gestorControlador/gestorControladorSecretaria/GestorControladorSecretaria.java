@@ -9,6 +9,7 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.*;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulProf.ControladorMostrarProf;
+import subSistemaControlador.controlador.ControladorSecretaria.controlEditarProf.ControladorEditaProf;
 import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.ControladorIniInsCur;
 import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
@@ -42,6 +43,10 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//consulta de curso concretos
 		tablaOperacionGestor.put("CONS_CUR",new GestorControladorConsultaCurso());
 		tablaOperacionGestor.put("INI_CONS_CUR",new GestorControladorConsultaCurso());
+		//edicion de un profesor
+		tablaOperacionGestor.put("EDI_CONS_PROF",new GestorControladorEditarProfesor());
+		tablaOperacionGestor.put("EDI_INI_CONS_PROF",new GestorControladorEditarProfesor());
+		tablaOperacionGestor.put("EDITA_PROF",new GestorControladorEditarProfesor());
 		//baja de cursos
 		tablaOperacionGestor.put("BAJA_CONS_CUR",new GestorControladorBajaCurso());
 		tablaOperacionGestor.put("BAJA_INI_CONS_CUR",new GestorControladorBajaCurso());
@@ -80,6 +85,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",c.crear(CreadorControlador.ControladorMostrarProf));
+		//edicion de profesor
+		GestorControlador.tablaOperacionControlador.put("EDI_INI_CONS_PROF",c.crear(CreadorControlador.ControladorProfAreas));
+		GestorControlador.tablaOperacionControlador.put("EDITA_PROF",new ControladorEditaProf());
 		//insercion curso generales
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("INI_INS_CUR",c.crear(CreadorControlador.ControladorIniInsCur));
