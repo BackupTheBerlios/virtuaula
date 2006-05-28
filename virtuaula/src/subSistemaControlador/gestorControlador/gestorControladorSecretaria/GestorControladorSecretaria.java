@@ -73,6 +73,14 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//Horarios
 		tablaOperacionGestor.put("CONS_HOR",new GestorControladorOpConsHor());
 		tablaOperacionGestor.put("CONS_HOR_SEL",new GestorControladorOpConsHor());
+		//editar un alumno
+		tablaOperacionGestor.put("EDITAR_ALUM_INI",new GestorControladorEditarAlumno());
+		tablaOperacionGestor.put("BUSCAR_ALUM_EDITAR",new GestorControladorEditarAlumno());
+		tablaOperacionGestor.put("SELEC_EDITAR_ALUMNO",new GestorControladorEditarAlumno());
+		tablaOperacionGestor.put("CONF_EDITAR_ALUMNO",new GestorControladorEditarAlumno());
+		tablaOperacionGestor.put("FIN_EDITAR_ALUMNO",new GestorControladorEditarAlumno());
+		
+		
 	
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
@@ -81,6 +89,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",c.crear(CreadorControlador.ControladorLogin));
 		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
 		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM2",c.crear(CreadorControlador.ControladorPasaPag));
 		tablaOperacionGestor.put("CONS_ALUM2",new ControladorConsAlumno());
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",c.crear(CreadorControlador.ControladorPasaPag));
