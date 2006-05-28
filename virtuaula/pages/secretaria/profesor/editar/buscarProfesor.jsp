@@ -3,7 +3,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Rellenar datos de Profesor a Busca para posteriormente modificar </title>
+      <title> Rellenar datos de Profesor </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
 
@@ -35,7 +35,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Rellenar datos de profesor para posteriormente modificar</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Rellenar datos de profesor </b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
            <b>
@@ -70,7 +70,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los campos conocidos del profesor que quiera modificar (paso 1/3)</b></font>                
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los campos conocidos del profesor que quiera modificar (paso 1/4)</b></font>                
     		</div>
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">

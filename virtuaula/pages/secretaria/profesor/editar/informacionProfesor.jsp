@@ -67,7 +67,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Datos del profesor modificado (paso 3/3)</b></font>                
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Datos del profesor modificado (paso 4/4)</b></font>                
     		</div>
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">

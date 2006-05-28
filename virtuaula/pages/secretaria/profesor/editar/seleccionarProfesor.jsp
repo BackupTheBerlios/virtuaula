@@ -3,7 +3,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Seleccionar Profesor que quiera modificar</title>
+      <title> Seleccionar Profesor A Modificar</title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
@@ -34,7 +34,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Seleccionar profesor que quiera modificar</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Seleccionar profesor a modificar</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -67,7 +67,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el profesor que desea modificar (paso 2/3)</b>                
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el profesor que desea modificar (paso 2/4)</b>                
     		</div>
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">
