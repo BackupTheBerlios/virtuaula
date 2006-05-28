@@ -50,8 +50,8 @@
     	  			<div class="botonesSubMenu">
         					<a href="JavaScript:lanzaFormulario('MAT_ALUM_DOS');" onmouseout="window.status=''" onmouseover="window.status='Matrcular Alumno';return true ">Matricular</a>
         					<a href="#">Baja</a>
-                  				<a href="#">Editar</a>
-        					<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Consultar los datos de un alumno';return true ">Consultar datos Alumno</a>
+                  <a href="JavaScript:lanzaFormulario('EDITAR_ALUM_INI');" onmouseout="window.status=''" onmouseover="window.status='Modificar los datos de un Alumno';return true ">Modificar datos alumno</a>
+                	<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Consultar los datos de un alumno';return true ">Consultar datos Alumno</a>
     				  </div>
             </form>     				
     		</div>
