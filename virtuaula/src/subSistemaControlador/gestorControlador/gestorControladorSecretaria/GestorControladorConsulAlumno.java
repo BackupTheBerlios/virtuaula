@@ -22,13 +22,13 @@ public class GestorControladorConsulAlumno extends GestorControladorSecretaria{
 	public GestorControladorConsulAlumno(){}
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
-		CreadorControlador c = new CreadorControlador();
-		GestorControlador.tablaOperacionControlador.put("CONS_ALUM",c.crear(CreadorControlador.ControladorIniConsAlumno));
-		GestorControlador.tablaOperacionControlador.put("CONS_ALUM2",c.crear(CreadorControlador.ControladorConsAlumno));
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_ALUM",c.crear(CreadorControlador.ControladorMostrarAlumno));
+		CreadorControlador creador= new CreadorControlador();
+		GestorControlador.tablaOperacionControlador.put("CONS_ALUM",creador.crear(CreadorControlador.ControladorIniConsAlumno));
+		GestorControlador.tablaOperacionControlador.put("CONS_ALUM2",creador.crear(CreadorControlador.ControladorConsAlumno));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_ALUM",creador.crear(CreadorControlador.ControladorMostrarAlumno));
+		GestorControlador.tablaOperacionControlador.put("FIN_CONS_ALUM",creador.crear(CreadorControlador.ControladorPasaPag));
 		
-		
-		
+  	    
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
