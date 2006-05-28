@@ -19,87 +19,146 @@ public class GestorCursos {
 	public GestorCursos() {
 		super();
 	}
-
+/**
+ * nos devuelve una lista de cursos que se corresponda con las caracteristicas del beancurso
+ * @param beanCurso
+ * @return
+ */
 	public ListaObjetoBean consultaCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l = bdf.consultar(beanCurso);
 		return l;
 	}
+	/**
+	 * Nos devuelve una lista con los cursos que se correspondan con los parametros que se pasan 
+	 * @param beanCurso
+	 * @param aula
+	 * @param horario
+	 * @return
+	 */
 	public ListaObjetoBean consultaCurso(ObjetoBean beanCurso,ObjetoBean aula,ObjetoBean horario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		ListaObjetoBean l = bdfc.dameCursosCumplan(beanCurso,aula,horario);
 		return l;
 	}
-	
+	/**
+	 * Nos devuelve el area de un curso
+	 * @param beanCurso
+	 * @return
+	 */
 	public Area consultaAreaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaArea bdfa= (BBDDFachadaArea) (bdf.dameBBDDFachada(Constantes.FachadaArea));
 		return (Area)bdfa.dameAreaCurso(beanCurso);
 	}
-	
+	/**
+	 * Nos devuelve el horario de un curso
+	 * @param beanCurso
+	 * @return
+	 */
 	public Horario consultaHorarioDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) (bdf.dameBBDDFachada(Constantes.FachadaHorario));
 		return (Horario)bdfh.dameHorarioCurso(beanCurso);
 	}
-	
+	/**
+	 * Nos devuelve una lista de cursos que tiene un alumno en concreto
+	 * @param alumno
+	 * @return
+	 */
 	public ListaObjetoBean consultarCursosDeAlumno(ObjetoBean alumno){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.dameCursosAlumno(alumno);
 	}
-	
+	/**
+	 * Nos devuelve una lista de los alumnos de un curso en concreto
+	 * @param beanCurso
+	 * @return
+	 */
 	public ListaObjetoBean consultaAlumnosDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
 		return bdfa.dameAlumnosCurso(beanCurso);
 	}
-	
+	/**
+	 * Nos da una lista de los cursos activos
+	 * @param beanProfesor
+	 * @return
+	 */
 	public ListaObjetoBean consultaCursosActivos(ObjetoBean beanProfesor) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.dameCursosActivos(beanProfesor);
 	}
 	
-	
+	/**
+	 * Nos devuelve el aula de un curso en concreto
+	 * @param beanCurso
+	 * @return
+	 */
 	public Aula consultaAulaDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAula bdfa= (BBDDFachadaAula) (bdf.dameBBDDFachada(Constantes.FachadaAula));
 		return (Aula)bdfa.dameAulaCurso(beanCurso);
 	}
-	
+	/**
+	 * Nos devuelve el profesor que imparte un curso
+	 * @param beanCurso
+	 * @return
+	 */
 	public Profesor consultaProfesorDeCurso(ObjetoBean beanCurso) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaProfesor bdfp= (BBDDFachadaProfesor) (bdf.dameBBDDFachada(Constantes.FachadaProfesor));
 		return (Profesor)bdfp.dameProfesorCurso(beanCurso);
 	}
-	
+	/**
+	 * Nos devuelve una lista de todos los profesores
+	 * @return
+	 */
 	public ListaObjetoBean consultaProfesores(){
 		Profesorado p = new Profesorado();
 		return p.consultaProfesores();
 	}
-	
+	/**
+	 * Nos devuelve una lista de los profesores libres en un horario
+	 * @param beanHorario
+	 * @return
+	 */
 	public ListaObjetoBean consultaProfesoresPorHorario (ObjetoBean beanHorario) {
 		Profesorado p = new Profesorado();
 		return p.consultaProfesoresPorHorario(beanHorario);
 	}
-	
+	/**
+	 * Nos devulve una lista de todas las aulas
+	 * @return
+	 */
 	public ListaObjetoBean consultaAulas() {
 		GestorAulas ga = new GestorAulas();
 		return ga.consultaAulas();
 	}
-	
+	/**
+	 * Nos devulve una lista de las aulas libres en un horario
+	 * @param beanHorario
+	 * @return
+	 */
 	public ListaObjetoBean consultaAulasPorHorario (ObjetoBean beanHorario) {
 		GestorAulas ga = new GestorAulas();
 		return ga.consultaAulasPorHorario(beanHorario);
 	}
-	
+	/**
+	 * Nos devulve todos los horarios existentes
+	 * @return
+	 */
 	public ListaObjetoBean consultaHorarios() {
 		GestorHorarios gh = new GestorHorarios();
 		return gh.consultaHorarios();
 	}
-	
+	/**
+	 * Nos devuelve todas las areas
+	 * @return
+	 */
 	public ListaObjetoBean consultaAreas() {
 		GestorAreas ga = new GestorAreas();
 		return ga.consultaAreas();
@@ -163,7 +222,7 @@ public class GestorCursos {
 		int annio1 = 0;
 		int annio2 = 0;
 		
-		if ((!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals("")) && (!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals(""))) {
+		if ((!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals("")) && (!bean.dameValor(Constantes.CURSO_FECHA_FIN).equals(""))) {
 		boolean fechasValidas = false;
 		String fechaFin = bean.dameValor(Constantes.CURSO_FECHA_FIN);
 		String fechaInicio = bean.dameValor(Constantes.CURSO_FECHA_INICIO);
@@ -198,6 +257,11 @@ public class GestorCursos {
 		return l;
 
 	}
+	/**
+	 * Comprueba que los datos introducidos sean correctos.
+	 * @param bean
+	 * @return
+	 */
 	
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
@@ -269,7 +333,7 @@ public class GestorCursos {
 		int annio1 = 0;
 		int annio2 = 0;
 		
-		if ((!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals("")) && (!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals(""))) {
+		if ((!bean.dameValor(Constantes.CURSO_FECHA_INICIO).equals("")) && (!bean.dameValor(Constantes.CURSO_FECHA_FIN).equals(""))) {
 		boolean fechasValidas = false;
 		String fechaFin = bean.dameValor(Constantes.CURSO_FECHA_FIN);
 		String fechaInicio = bean.dameValor(Constantes.CURSO_FECHA_INICIO);
@@ -375,6 +439,13 @@ public class GestorCursos {
 		String cadenafecha = formato.format(fecha);
 		return cadenafecha;
 	}
+	/**
+	 * Inserta un curso que le pasemos con un aula y un horario
+	 * @param beanCurso
+	 * @param beanAula
+	 * @param beanHorario
+	 * @return
+	 */
 
 	public ListaObjetoBean insertarCurso(ObjetoBean beanCurso,
 			ObjetoBean beanAula, ObjetoBean beanHorario) {
@@ -511,17 +582,31 @@ public class GestorCursos {
 	}
 
 }
+	/**
+	 * modifica el curso con los nuevos datos
+	 * @param curso
+	 * @return
+	 */
 	public boolean editaCurso(ObjetoBean curso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.editar(curso);
 	}
+	/**
+	 * Devuelve una lista de los cursos activos
+	 * @return
+	 */
 	public ListaObjetoBean dameCursosActivos()
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.dameCursosActivos();
 	}
+	/**
+	 * Da de baja un curso, pone la nota de los alumnos a -2 y pasa el curso a inactivo
+	 * @param curso
+	 * @return
+	 */
 	public boolean darBajaCurso(ObjetoBean curso)
 	{
 		CreadorBean creador = new CreadorBean();
