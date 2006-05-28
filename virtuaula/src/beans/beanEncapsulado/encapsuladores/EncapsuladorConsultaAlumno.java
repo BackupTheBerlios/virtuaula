@@ -1,8 +1,6 @@
 package beans.beanEncapsulado.encapsuladores;
 import javax.servlet.http.HttpServletRequest;
 
-
-
 import beans.beanEncapsulado.EncapsuladorCompuesto;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorClaveBean;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorPosicionBean;
