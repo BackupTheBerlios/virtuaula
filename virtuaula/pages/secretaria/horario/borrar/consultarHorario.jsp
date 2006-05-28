@@ -229,7 +229,29 @@
 					         </td>
 				        </tr>	                       				
         			</table>
-              	
+        			
+ <table>
+<%HttpSession sesion2=request.getSession();
+ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");%>
+<% 
+if (lista != null) 
+{
+int numeroElementos = lista.tamanio();
+for (int i=0; i < numeroElementos; i++)
+{
+Error error = (Error) lista.dameObjeto(i);
+%>
+<tr class="error">
+<td width="34%" align="left" height="18" bordercolor="#800000" bgcolor="#FFFFFF">  
+<%= error.dameValor("CAUSA_ERROR")%>
+</td>
+</tr>
+<%
+}
+}
+%>        
+		
+        			</table>             	
           </form>
     		</div>
 	  </div>	  	  
