@@ -172,6 +172,19 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","CONS_ALUM2","OK","/virtuaula/pages/secretaria/alumno/consultar/seleccionarAlumno.jsp");
 		agregarPaginas("secretaria","CONS_ALUM2","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
 		agregarPaginas("secretaria","VUELTA_ALUM","SIG","/virtuaula/pages/secretaria/alumno/consultar/buscarAlumno.jsp");
+		
+		
+		//secretaria modifica un alumno
+		agregarPaginas("secretaria","EDITAR_ALUM_INI","SIG","/virtuaula/pages/secretaria/alumno/editar/buscarAlumnoEditar.jsp");
+		agregarPaginas("secretaria","BUSCAR_ALUM_EDITAR","OK","/virtuaula/pages/secretaria/alumno/editar/seleccionarAlumnoEditar.jsp");
+		agregarPaginas("secretaria","BUSCAR_ALUM_EDITAR","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
+		agregarPaginas("secretaria","SELEC_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/editar/editarAlumno.jsp");
+		agregarPaginas("secretaria","SELEC_EDITAR_ALUMNO","ERRPR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
+		agregarPaginas("secretaria","CONF_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/editar/confirmarEditar.jsp");
+		agregarPaginas("secretaria","CONF_EDITAR_ALUMNO","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
+		agregarPaginas("secretaria","FIN_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/index.jsp");
+		agregarPaginas("secretaria","FIN_EDITAR_ALUMNO","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
+		agregarPaginas("secretaria","VUELTA_ALUM2","SIG","/virtuaula/pages/secretaria/alumno/editar/buscarAlumnoEditar.jsp");
 		//secretaria insercion curso
 		agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		agregarPaginas("secretaria","INI_INS_CUR","SIG","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
