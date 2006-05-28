@@ -3,7 +3,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Informacion Curso Consultar </title>
+      <title> Informacion Curso Consultado </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
