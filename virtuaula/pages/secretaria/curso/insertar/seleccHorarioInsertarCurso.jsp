@@ -113,26 +113,42 @@
                             <input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECHA_FIN" disabled="true" value="<%=curso.dameValor("FECHA_FIN")%>" size="20"></td>
         				</tr>
         				<tr>
-        					<td class="error" width="62">Horario</td>
-        					<td width="141">
-                  <%
-                      ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
-                      
-                      if (listaHorarios != null && !listaHorarios.esVacio()) {
-              	        Horario horario;	
-              	        out.println("<select name='posHor' class='FormTxt'>");
-              	        out.println("<option value='-1'>Seleccione un horario</option>");                	                            	            
-                        for (int i = 0; i < listaHorarios.tamanio(); i++) {
-                            horario = (Horario) listaHorarios.dameObjeto(i);
-                            out.println("<option value='"+i+"'>"+String.valueOf(horario.dameValor("IDISHORARIO"))+"</option>");
-              	              }
-                        out.println("</select>");
-                      } else 
-                          {
-                          	out.println("<font class='FormLiteral'>No hay creada ningún horario.</font>");                                
-                          }
-                  %>        					        					
-        					</td>
+        					<td class="error">Horario</td>
+        					<td>      					       					
+              				<%  sesion=request.getSession();
+              				    ListaObjetoBean listaHorarios =((ListaObjetoBean)sesion.getAttribute("listahorario"));
+              
+                          if (listaHorarios != null && !listaHorarios.esVacio()) {
+                	            Horario horario;	
+                	            out.println("<select name='posHor' class='FormTxt'>");
+                	            out.println("<option value='-1'>Seleccione un horario</option>");                	                            	            
+                              for (int i = 0; i < listaHorarios.tamanio(); i++) {
+                                  horario = (Horario) listaHorarios.dameObjeto(i);
+                                  out.println("<option value='"+String.valueOf(i)+ "'>"); 
+								  if (!(String.valueOf(horario.dameValor("L"))).equals("null")){
+								  out.println("L" + String.valueOf(horario.dameValor("L")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("M"))).equals("null")){
+								  out.println("M" + String.valueOf(horario.dameValor("M")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("X"))).equals("null")){
+								  out.println("X" + String.valueOf(horario.dameValor("X")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("J"))).equals("null")){
+								  out.println("J" + String.valueOf(horario.dameValor("J")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("V"))).equals("null")){
+								  out.println("V" + String.valueOf(horario.dameValor("V")) );
+								  }
+								  out.println("</option>");
+      			                  }
+                              out.println("</select>");
+                          } else 
+                                {
+                                out.println("<font class='FormLiteral'>No hay creado ningún horario.</font>");                                
+                                }
+                      %>
+                  </td>
         					<td width="127"></td>
         					<td class="FormLiteral" width="95">Area</td>
         					<td class="info" width="113">
