@@ -5,11 +5,10 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Contratar Profesor </title>
+      <title> Profesor Contratado </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
-      <script language="JavaScript" src="../../../../script/calendar.js"></script>
 
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -20,6 +19,7 @@
 
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
@@ -36,7 +36,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Contratar Profesor</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Profesor Contratado</b></font>                
     	   </div>                   			  	 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -51,22 +51,33 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
-    	  			    <div class="botonesSubMenu">
-    	  			        <a href="JavaScript:lanzaFormulario('menuPrincipalRRHH');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-     					        <a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    	</div>			
-    		          </div>
+    	  			<div class="botonesSubMenu">
+    	  			    <a href="JavaScript:lanzaFormulario('menuPrincipalRRHH');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
+    				  </div>
     				</form>
-    		          
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		  </div>
+    		  
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
+    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E"><b>Profesor ha sido contratado (paso 2/2)</b></font>
+    		</div>
+    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			    Aquí tiene los datos del profesor contratado<br>
+    			    Informe al profesor de su usuario y contraseña para acceder al sistema
+    			</font>
+    		</div>
+
     		
     	 <%
             HttpSession sesion=request.getSession();
@@ -78,7 +89,7 @@
             if (contrato == null) {contrato = new Contrato ();}
         %>
     		
-    		<div style="position:relative; top:55px; left:80px; z-index:-1;">
+    		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form name="insertarProfesor" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -138,7 +149,7 @@
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="">
 					          <input type="hidden" name="evento" value="CONTRATO">					         
-						        <button type="submit" class="botonSimple">Contratar</button>
+						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
 				        </tr>	                       				
         			</table>
