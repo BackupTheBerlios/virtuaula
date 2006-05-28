@@ -121,7 +121,12 @@
                 %>
               
               </table>
-              <p><p>
+             
+       <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+           Curso curso;	
+           if (listaCursos != null && !listaCursos.esVacio()){
+           %>
+            <p><p>
               <font face="Trebuchet MS" color="#616D7E" point-size="5">
 			  <B>DATOS DEL CURSO</B><BR>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
@@ -134,9 +139,7 @@
         					<th class="FormLiteral"><b>Precio</th>
         					<th class="FormLiteral"><b>Área</th>
         				</tr>
-       <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
-           Curso curso;	
-           if (listaCursos != null && !listaCursos.esVacio()){
+           <%
            
 
         	//		<%
