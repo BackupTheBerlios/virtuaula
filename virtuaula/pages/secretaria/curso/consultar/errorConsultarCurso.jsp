@@ -65,7 +65,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
-    	   	<font class="error">Error al consultar el curso especificado.</font>          
+    	   	<font class="error">Error al buscar el curso especificado</font>          
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
               	<tr>
