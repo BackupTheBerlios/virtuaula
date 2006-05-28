@@ -119,7 +119,7 @@
 		      	             out.println("		         <td colspan='7' align='center'> ");
 		      	             out.println("			          <input type='hidden' name='evento' value='VUELTA_ALUM'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
-				     			       //ListaObjetoBean  listaAlumnos = 
+				     			/*       //ListaObjetoBean  listaAlumnos = 
 				     			       ObjetoBean curso = ((ObjetoBean)(sesion.getAttribute("beanCurso")));
 				     			       String pos= ((String) ( sesion.getAttribute("IDISCURSO")));
 												 out.println(pos);
@@ -128,7 +128,7 @@
 													for(int i=0;atributos.hasMoreElements();i++){
 										String cosa=(String)atributos.nextElement();
 				out.println(cosa);
-			}
+			}*/
 		                  } 
 				          out.println("</td>");		                
 				          out.println("</tr>");		    
