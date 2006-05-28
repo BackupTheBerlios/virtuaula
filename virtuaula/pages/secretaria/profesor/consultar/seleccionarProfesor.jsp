@@ -3,9 +3,10 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Seleccionar Profesor Consultar </title>
+      <title> Seleccionar Profesor </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -33,7 +34,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Consultar Profesor</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Seleccionar profesor</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -52,13 +53,13 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
-                <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu profesor';return true ">Volver al menu de profesor</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de profesores'; overlib('Pulse aquí si desea volver a gestión de profesores'); return true;">Volver a gestión de profesores</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -67,6 +68,12 @@
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el profesor que desea consultar (paso 2/3)</b>                
+    		</div>
+    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Estos son los profesores encontrados con los datos que introdujo<br>
+    			   Seleccione el profesor deseado y pulse "Seleccionar" en el botón del fondo de la página
+    			</font>
     		</div>
     		<div style="position:relative; top:20px; left:150px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
@@ -129,5 +136,6 @@
           </form>
     		</div>
 	  </div>
+	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
