@@ -122,18 +122,17 @@
               
               </table>
               <p><p>
-              <font face="Trebuchet MS" color="#616D7E" point-size="5">
+              <font face="Trebuchet MS" color="#616D7E" point-size="5"></font>
 			  <B>DATOS DEL CURSO</B><BR>
-              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
-        				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><b>Nombre Curso</th>
-        					<th class="FormLiteral"><b>Número de plazas</th>
-        					<th class="FormLiteral"><b>Estado</th>
-        					<th class="FormLiteral"><b>Fecha Inicio</th>
-        					<th class="FormLiteral"><b>Fecha Fin</th>	
-        					<th class="FormLiteral"><b>Precio</th>
-        					<th class="FormLiteral"><b>Área</th>
-        				</tr>
+              
+        				        					
+        					
+        					
+        					
+        					
+        						
+        					
+        					
        <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
            Curso curso;	
            if (listaCursos != null && !listaCursos.esVacio()){
@@ -145,6 +144,16 @@
 
            //       	if (listaCursos != null && !listaCursos.esVacio()){
                   	
+                  		out.println("<table  width='90%' border='0' cellspacing='0' cellpadding='10' >");
+                  		out.println("<tr bgcolor='#877fff'>");
+                  		out.println("<th class='FormLiteral'><b>Nombre Curso</th>");
+                  		out.println("<th class='FormLiteral'><b>Número de plazas</th>");
+                  		out.println("<th class='FormLiteral'><b>Estado</th>");
+                  		out.println("<th class='FormLiteral'><b>Fecha Inicio</th>");
+                  		out.println("<th class='FormLiteral'><b>Fecha Fin</th>");
+                  		out.println("<th class='FormLiteral'><b>Precio</th>");
+                  		out.println("<th class='FormLiteral'><b>Área</th>");
+                  		out.println("</tr>");
                   	   for (int i=0; i<listaCursos.tamanio();i++) {
                     	
                         curso = (Curso) listaCursos.dameObjeto(i);
