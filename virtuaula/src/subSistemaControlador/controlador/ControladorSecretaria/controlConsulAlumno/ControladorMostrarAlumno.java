@@ -33,8 +33,7 @@ public class ControladorMostrarAlumno extends ControladorConsultaAlumno{
 			//ObjetoBean curso=gestor.con
 			
 			if(alumno!=null){
-				this.getSesion().removeAttribute("listaalumno");
-				this.getSesion().removeAttribute("posAlumno");
+				
 				this.getSesion().setAttribute("beanAlumno",alumno);
 				this.setResuladooperacion("OK");
 			}
