@@ -169,12 +169,14 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 		
 	}
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		BBDDFachadaAlumno mia= new BBDDFachadaAlumno();
 		ObjetoBean curso= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Curso);
-		curso.cambiaValor(Constantes.CURSO_NOMBRE,"Curso basico de internet");
-		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
-		System.out.println(mia.dameAlumnosCurso(curso).tamanio());
-	}
+		ObjetoBean alumno= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Alumno);
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"9");
+		//alumno.cambiaValor()
+		//curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
+		System.out.println(mia.dameAlumnosCumplan(null,null).tamanio());
+	}*/
 	
 }

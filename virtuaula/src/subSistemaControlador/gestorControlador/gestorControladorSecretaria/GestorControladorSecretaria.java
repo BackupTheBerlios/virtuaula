@@ -6,6 +6,7 @@ import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.*;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulProf.ControladorMostrarProf;
 import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.ControladorIniInsCur;
@@ -58,9 +59,8 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("MAT_ALUM_CUR",new GestorControladorMatricularAlumno());
 		//consultar alumno
 		tablaOperacionGestor.put("CONS_ALUM",new GestorControladorConsulAlumno());
-		tablaOperacionGestor.put("CONS_ALUM2",new GestorControladorConsulAlumno());
+		//tablaOperacionGestor.put("CONS_ALUM2",new ControladorConsAlumno());
 		tablaOperacionGestor.put("MOSTRAR_ALUM",new GestorControladorConsulAlumno());
-		tablaOperacionGestor.put("FIN_CONS_ALUM",new GestorControladorConsulAlumno());
 		//Avisos
 		tablaOperacionGestor.put("OP_AVIS_SEC",new GestorControladorOpAvisSec());
 		tablaOperacionGestor.put("MOSTRAR_AVISOS_SEC",new GestorControladorOpAvisSec());
@@ -68,10 +68,12 @@ public class GestorControladorSecretaria extends GestorControlador{
 	
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
+		System.out.println("la operacion es " + operacion);
 		CreadorControlador c=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalSec",c.crear(CreadorControlador.ControladorLogin));
 		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
 		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
+		tablaOperacionGestor.put("CONS_ALUM2",new ControladorConsAlumno());
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("MOSTRAR_PROF",c.crear(CreadorControlador.ControladorMostrarProf));
@@ -93,7 +95,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		if (controladorResultado==null){
 			controladorResultado=((GestorControlador)tablaOperacionGestor.get(operacion)).dameControlador(perfilUsuario,operacion,sesion);	
 		}
-		
+		System.out.println("Controladoe que le madno es " + controladorResultado.getClass().getName());
 		
 		return controladorResultado;
 	}
