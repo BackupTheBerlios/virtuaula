@@ -124,8 +124,16 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","INI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/buscarProfesor.jsp");
 		agregarPaginas("secretaria","INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/consultar/errorConsultarProfesor.jsp");
 		agregarPaginas("secretaria","MOSTRAR_PROF","OK","/virtuaula/pages/secretaria/profesor/consultar/informacionProfesor.jsp");
+		//secretaria edita profesor
+		agregarPaginas("secretaria","EDI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/editar/seleccionarProfesor.jsp");
+		agregarPaginas("secretaria","EDI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/editar/errorConsultarProfesor.jsp");
+		agregarPaginas("secretaria","GES_PROF","SIG","/virtuaula/pages/secretaria/profesor/index.jsp");
+		agregarPaginas("secretaria","EDI_INI_CONS_PROF","OK","/virtuaula/pages/secretaria/profesor/editar/buscarProfesor.jsp");
+		agregarPaginas("secretaria","EDI_INI_CONS_PROF","ERROR","/virtuaula/pages/secretaria/profesor/editar/errorConsultarProfesor.jsp");
+		agregarPaginas("secretaria","EDI_MOSTRAR_PROF","OK","/virtuaula/pages/secretaria/profesor/editar/modificarProfesor.jsp");
+		agregarPaginas("secretaria","EDITA_PROF","OK","/virtuaula/pages/secretaria/profesor/editar/informacionProfesor.jsp");
 		
-		
+	
 		//secretaria cosulta curso
 		agregarPaginas("secretaria","CONS_CUR","OK","/virtuaula/pages/secretaria/curso/consultar/seleccionarCurso.jsp");
 		agregarPaginas("secretaria","CONS_CUR","ERROR","/virtuaula/pages/secretaria/curso/consultar/errorConsultarCurso.jsp");
