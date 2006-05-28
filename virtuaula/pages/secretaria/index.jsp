@@ -40,7 +40,7 @@
   				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Gestión de alumnos';return true ">Gestión de alumnos</a>  
   				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Gestión de cursos';return true ">Gestión de cursos</a>
   				    <a href="JavaScript:lanzaFormulario('OP_MENU_HOR');" onmouseout="window.status=''" onmouseover="window.status='Gestión de horarios';return true ">Gestión de horarios</a>
-  				 	<a href="JavaScript:lanzaFormulario('OP_AVIS_SEC');" onmouseout="window.status=''" onmouseover="window.status='Gestión de avisos';return true ">Gestión de avisos</a>
+  				 	<a href="JavaScript:lanzaFormulario('OP_AVIS_SEC');" onmouseout="window.status=''" onmouseover="window.status='Avisos';return true ">Avisos</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:12px">               
@@ -66,9 +66,6 @@
     				  </div>
     				</form>
     		  </div>
-		<div style="position:relative; top:45px; z-index:-1;">
-	  		<!-- <img src="img/fondoMenu.jpg" height="98%" width="1003px"> -->
-		</div>
 	  </div>
 	  <div style="position:relative; left:50px; top:50px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">
