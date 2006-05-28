@@ -84,7 +84,7 @@
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">
     			   Debe seleccionar un area de la lista<br>
-    			   Un area es un campo de conocimiento en el que se engloban varios cursos con características comunes
+    			   Un área es un campo de conocimiento en el que se engloban varios cursos con características comunes
     			</font>
     		</div>
     		<div style="position:relative; top:40px; left:175; z-index:-1;">
