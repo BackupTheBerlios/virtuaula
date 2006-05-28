@@ -5,7 +5,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Matricular Alumno </title>
+      <title> Rellenar Datos Alumno </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
@@ -38,7 +38,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Matricular Alumno</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Rellenar Datos</b></font>                
     	   </div>                   			  	 
          <div align="right" style="position:relative; top:-5px">               
            <b>
@@ -55,25 +55,34 @@
               </font>
             </b>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
-    		          <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu de alumno';return true ">Volver al menu de alumno</a>
-     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de alumnos'; overlib('Pulse aquí si desea volver a gestión de alumnos'); return true;">Volver a gestión de alumnos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
-
-
+    		<div style="position:relative; left:10px; z-index:-1;">
+					<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los datos del alumno (paso 1/3)</b></font><br>
+    		</div>
+    		<div style="position:relative; left:20px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Debe indicar los datos personales del alumno<br>
+    			   Asegúrese que el DNI y el teléfono son datos numéricos<br>
+    			   Seleccione la fecha de nacimiento en el calendario<br>
+    			   Seleccione el sexo del alumno de la lista
+    			</font>
+    		</div>
 
     			
     	 <%
@@ -81,11 +90,7 @@
             Alumno alumno = (Alumno) sesion.getAttribute("beanAlumno");
             if (alumno == null) {alumno = new Alumno ();}
         %>
-    		
-    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-					<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Rellene los datos del alumno (paso 1/3)</b>                
-    		</div>
-    		<div style="position:relative; top:40px; left:175; z-index:-1;">
+    		<div style="position:relative; left:175; z-index:-1;">
     			<form name="insertarAlumno" method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
@@ -114,7 +119,7 @@
         					<td><input type="text" class="FormTxt"  maxlength="100" name="DIRECCION" value="<%=alumno.dameValor("DIRECCION")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('insertarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('insertarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
         				<tr>  
