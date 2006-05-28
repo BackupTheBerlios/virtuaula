@@ -32,7 +32,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Profesor</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Error búsqueda de curso</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
