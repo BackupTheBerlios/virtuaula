@@ -9,6 +9,7 @@ import subSistemaBBDD.objetoCriterio.CreadorObjetoCriterio;
 import subSistemaBBDD.objetoCriterio.ObjetoCriterio;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
+import beans.Curso;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
@@ -156,12 +157,49 @@ public class BBDDFachadaCurso extends BBDDFachada{
 		ListaObjetoBean cursosActivosProfesor = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaCurso).consultar(critCurso));
 		return cursosActivosProfesor;
 	}
-	
+	/**
+	 * Da de baja el curso seleccionado que debe contener un valor en su campo clave.
+	 * @param curso
+	 * @return
+	 */
 	public boolean darBajaCurso(ObjetoBean curso){
 		boolean exito=true;
-		exito= exito &&((BBDDFachadaFicha)super.dameBBDDFachada(Constantes.FachadaFicha)).borrarFichasCurso(curso);
-		exito= exito && this.liberarHorarioAulaDeCurso(curso);
-		exito= exito&& this.eliminar(curso);
+		if(curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO).equals("")||curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO)==null)
+			return false;
+		else{
+			if(curso.dameValor(Constantes.CURSO_ESTADO).equals("activo")||(curso.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))){
+				BBDDFachada bf= BBDDFachada.getInstance();
+				exito= exito &&((BBDDFachadaFicha)bf.dameBBDDFachada(Constantes.FachadaFicha)).borrarFichasCurso(curso);
+				curso.cambiaValor(Constantes.CURSO_ESTADO,"inactivo");
+				this.editar(curso);
+			}
+			
+			exito= exito && this.liberarHorarioAulaDeCurso(curso);
+		//	hallo todas las filas de iscurso_has_isalumno cuyo codCurso coincida con el de curso
+			CreadorObjetoBBDD creadorObjetoBBDD= this.creador.getCreadorObjetoBBDD();			
+			ObjetoBBDD cursoAlumno = creadorObjetoBBDD.crear(creadorObjetoBBDD.IscursoHasIsalumno);
+			//hallo todas las filas de iscurso_has_isalumno que tengan CodCurso igual que curso
+			ObjetoBBDD Iscurso;
+			try{
+				Iscurso= ConversorBeanBBDD.convierteBeanABBDD(curso);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return false;
+			}
+			cursoAlumno.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO, Iscurso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+			System.out.println("id del objetobbdd "+ cursoAlumno.dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
+			ObjetoCriterio critCursoAlumno =this.crearObjetoCriterioAdecuado(cursoAlumno); 
+			ListaObjetoBean cursoAlumnoFicha =ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(this.crearTablaAdecuada(cursoAlumno)).consultar(critCursoAlumno));
+			
+			for(int i=0;i<cursoAlumnoFicha.tamanio();i++){
+				System.out.println(cursoAlumnoFicha.dameObjeto(i).dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
+				cursoAlumnoFicha.dameObjeto(i).cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,"-2");
+				exito = exito & this.editar(cursoAlumnoFicha.dameObjeto(i));
+			}
+		}
+		
+		
 		return exito;
 	}
 	
@@ -198,7 +236,6 @@ public class BBDDFachadaCurso extends BBDDFachada{
 			ListaObjetoBean fichaCurso = ConversorBeanBBDD.convierteListaBBDD(this.inicializaTabla(tablaFicha).consultar(critFicha));
 			//solo habrá una ficha en fichaCurso puesto que el criterio de busqueda era la clave de la tabla isficha
 			ObjetoBean fichaBean = fichaCurso.dameObjeto(0);
-			System.out.println("el valor del campo notasejercicios es "+ fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
 			if(!fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS).equals(null)){
 				float nota_ejercicios= Float.parseFloat(fichaBean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
 				cursoAlumnoFicha.dameObjeto(i).cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,Float.toString(nota_ejercicios));
@@ -234,11 +271,22 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	 * @return
 	 */
 	public boolean liberarHorarioAulaDeCurso(ObjetoBean curso){
-		CreadorBean creadorBean = new CreadorBean();
-		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
-		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,curso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
-		ListaObjetoBean horariosAula=this.consultar(horarioAula);
-		ObjetoBean horarioCurso = horariosAula.dameObjeto(0);
+		ObjetoBBDD iscurso;
+		try{
+			iscurso= ConversorBeanBBDD.convierteBeanABBDD(curso);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		
+		ObjetoBBDD horarioAula= this.creador.getCreadorObjetoBBDD().crear(this.creador.getCreadorObjetoBBDD().IshorarioHasIsaula);
+		horarioAula.cambiaValor(Constantes.ISHORARIO_HAS_ISAULA_ISCURSO_IDISCURSO,iscurso.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		ObjetoCriterio critHA= this.crearObjetoCriterioAdecuado(horarioAula);
+		EsquemaBBDD tablaHA = this.inicializaTabla(this.crearTablaAdecuada(horarioAula));
+		ListaObjetoBBDD horariosAula=tablaHA.consultar(critHA);
+		ListaObjetoBean hA= ConversorBeanBBDD.convierteListaBBDD(horariosAula);
+		ObjetoBean horarioCurso = hA.dameObjeto(0);
 		return this.eliminar(horarioCurso);
 	}
 	/**
@@ -353,11 +401,11 @@ public class BBDDFachadaCurso extends BBDDFachada{
 			ListaObjetoBBDD resultParcial =(ListaObjetoBBDD) this.inicializaTabla(tablaAdecuada).consultar(criterioCursoAlumno);
 			CreadorListaObjetoBean creadorListaBean= new CreadorListaObjetoBean();
 			ListaObjetoBean resultados= creadorListaBean.crear();
-			ObjetoBean curso= this.creador.getCreadorBean().crear(this.creador.getCreadorBean().Curso);
+			Curso curso=(Curso) this.creador.getCreadorBean().crear(this.creador.getCreadorBean().Curso);
 			//Tenemos tuplas codAlumno,codCurso
 			for(int i=0;i<resultParcial.tamanio();i++){
 				curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,resultParcial.dameObjeto(i).dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
-				ObjetoBean cursoAdentro= this.consultar(curso).dameObjeto(0);
+				Curso cursoAdentro=(Curso) this.consultar(curso).dameObjeto(0);
 				if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
 					resultados.insertar(resultados.tamanio(),cursoAdentro);
 			}
@@ -368,6 +416,14 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				return null;
 			}
 	}
-
+	//prueba de darbajacurso
+	public static void main(String[] args){
+		BBDDFachadaCurso mia= new BBDDFachadaCurso();
+		Curso curso= new Curso();
+		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"1");
+		Curso dos=(Curso)mia.consultar(curso).dameObjeto(0);
+		mia.darBajaCurso(dos);
+		
+	}
 	
 }

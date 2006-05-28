@@ -48,6 +48,14 @@ public class BBDDFachada {
 		this.password="adminwww";
 		this.url="jdbc:mysql://localhost/"+ this.nombreBD;
 		this.inicializaEntidadesBD();
+		try{
+	
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		
 		
 	}
 	
