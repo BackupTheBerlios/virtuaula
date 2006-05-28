@@ -29,6 +29,6 @@ public class ControladorConsHorBor3 extends ControladorConsultaHorario{
 			this.getSesion().removeAttribute("posHor");
 		}
 		public Controlador clonar(){
-			return new ControladorConsHorSel();
+			return new ControladorConsHorBor3();
 		}
 }

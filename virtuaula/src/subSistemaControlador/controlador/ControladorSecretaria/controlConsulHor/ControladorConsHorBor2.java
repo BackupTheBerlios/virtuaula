@@ -42,6 +42,6 @@ public class ControladorConsHorBor2 extends ControladorConsultaHorario{
 			}		
 		}
 		public Controlador clonar(){
-			return new ControladorConsHorSel();
+			return new ControladorConsHorBor2();
 		}
 }
