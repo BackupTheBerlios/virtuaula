@@ -24,10 +24,6 @@ public class ControladorConsAlumno extends ControladorConsultaAlumno {
 			ListaObjetoBean lcurso= (ListaObjetoBean)this.getSesion().getAttribute("listacurso");
 			
 			int posCurso= ((Integer)this.getSesion().getAttribute("posCurso")).intValue();
-		
-			System.out.println("selecciono la pos de curso " + posCurso);
-			System.out.println("selecciono la pos de curso " + posCurso);
-			System.out.println("selecciono la pos de curso " + posCurso);
 			GestorAlumnos GA = new GestorAlumnos();
 			ListaObjetoBean listaAlumnos;
 			//ObjetoBean curso=(ObjetoBean)this.getSesion().getAttribute("beanCurso");
