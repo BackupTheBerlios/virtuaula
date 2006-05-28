@@ -17,7 +17,7 @@ public class EncapsuladorEnviaAviso extends EncapsuladorCompuesto{
 		
 	}
 	protected void inicializarTabla(){
-		this.tablaEncapsuladores.add(0,new EncapsuladorBean("Aviso",request));
+		this.tablaEncapsuladores.add(0,new EncapsuladorBean("Avisos",request));
 		this.tablaEncapsuladores.add(1,new EncapsuladorString("claveaviso",request));
 	}
 	
