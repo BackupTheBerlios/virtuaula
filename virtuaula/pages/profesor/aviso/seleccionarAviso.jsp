@@ -130,7 +130,8 @@
 		      	             out.println("		         <td colspan='7' align='center'> ");
 		      	             out.println("			          <input type='hidden' name='evento' value='menuPrincipalProf'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
-
+		      	           out.println("<td>");
+		      	           out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('INI_AVI_PROF');\" class='botonSimple'>Enviar</button>");
 		
 		                  }
 		              out.println("</td>");
