@@ -1,5 +1,4 @@
 package beans.beanEncapsulado.encapsuladores;
-
 import java.io.IOException;
 
 import javax.servlet.http.HttpServlet;
