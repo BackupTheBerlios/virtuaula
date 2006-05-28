@@ -7,6 +7,7 @@
       <title> Seleccionar Profesor Consultar </title>
       <link href="./../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="./../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="./../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -58,20 +59,17 @@
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+						<a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
-    		</div>
-    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un curso (paso 1/3)</b>
     		</div>
     		<div style="position:relative; top:20px; left:150px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
@@ -82,9 +80,17 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		                %>
+		                <div style="position:relative; left:-100px; top:-50px; z-index:-1;">
+    						<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un curso y qué desea hacer con él (paso 1/3)</b><br>
+    						Puede buscar y modificar las fichas de los alumnos o publicar las notas del curso<br>
+    		         	    Pulse el botón correspondiente a la opción deseada   </font>       
+    					</div>
+    					<div style="position:relative; top:-20px; z-index:-1;">
+		                <%
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
-                        out.println("	<th class='FormLiteral'><b>Seleccion</th>");			
+                            out.println("	<th class='FormLiteral'><b>Seleccion</th>");			
         		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
         		            out.println("	<th class='FormLiteral'><b>Fecha Inicio</th>");
         		            out.println("	<th class='FormLiteral'><b>Fecha Finalización</th>");
@@ -116,9 +122,18 @@
 		                    out.println("</td>");
 		                    out.println("<td>");
 		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('PUB_NOTAS');\" class='botonSimpleGrande'>Publicar Notas</button>");                        		                    		         
-		                  
+		                  %>
+		                  </div>
+		                  <%
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              else{	
+		              %>
+		              <div style="position:relative; left:-50px; top:-20px; z-index:-1;">
+    		         	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No está asociado a ningún curso</b><br>
+    		         	 Pulse "Atrás" para volver a la página anterior</font>               
+    		          </div>
+		              <%
+		              out.println("<font class='error'>No tiene ningún curso asociado</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
@@ -156,5 +171,6 @@
           </form>
     		</div>
 	  </div>
+	    <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
