@@ -19,7 +19,7 @@ public class IniEnviarAvisoContable extends ControladorContable{
 		profesor.cambiaValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI,usuario.dameValor(Constantes.ID_ISUSUARIO_DNI));
 		GestorUsuarios GU = new GestorUsuarios();
 			
-		ListaObjetoBean listaSec =GU.dameUsuarios("secreataria");
+		ListaObjetoBean listaSec =GU.dameUsuarios("secretaria");
 		
 		
 		if (!listaSec.esVacio())
