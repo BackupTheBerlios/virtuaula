@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       <title> Seleccionar Profesor Consultar </title>
-      <link href="./../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
+      <link href="./../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="./../../../styles/application.css" rel="stylesheet" type="text/css"/>
       
       <script language=JavaScript type="text/JavaScript">        
@@ -41,7 +41,8 @@
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Área de Conocimiento</b></font>                
     	   </div> 
-         <div align="right" style="position:relative; top:-5px">               
+         <div align="right" style="position:relative; top:-5px">
+         	<b>               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -53,6 +54,7 @@
                 // -->
                 </script>
               </font>
+          	</b>
           </div>
     		  
     		<div style="position:relative; top:4px; z-index:-1;">
