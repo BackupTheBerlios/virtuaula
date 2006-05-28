@@ -1,5 +1,6 @@
 package beans.beanEncapsulado.encapsuladores;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import beans.beanEncapsulado.EncapsuladorCompuesto;
