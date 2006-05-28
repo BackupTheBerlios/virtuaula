@@ -1,3 +1,5 @@
+<%@ page import="beans.*" %>
+<%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -54,35 +56,43 @@
     		<div style="position:relative; top:55px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
+              	<%
+                    HttpSession sesion=request.getSession();
+                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
+                    Integer posicionLista =((Integer)sesion.getAttribute("posProf"));
+                    int posi=posicionLista.intValue();
+                  	ObjetoBean profesor=listaObjetoBean.dameObjeto(posi);	
+                  	Area area = (Area) sesion.getAttribute("beanArea");
+
+                  %>
         				<tr>
         					<td class="FormLiteral">DNI</td>
-        					<td><input type="text" class="FormTxt" maxlength="9" name="ISUSUARIODNI" value="12398752"></td>
+        					<td><input type="text"  class="FormTxt" disabled="true" maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt" name="NOMBRE" value="nombre"></td>
+        					<td><input type="text" class="FormTxt" name="NOMBRE" value="<%=profesor.dameValor("NOMBRE")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Primer Apellido</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO1" value="apellido1"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO1" value="<%=profesor.dameValor("APELLIDO1")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Segundo Apellido</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO2" value="apellido2"></td>
+        					<td><input type="text" class="FormTxt" maxlength="40" name="APELLIDO2" value="<%=profesor.dameValor("APELLIDO2")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Telefono</td>
-        					<td><input type="text" class="FormTxt" maxlength="9" name="TELEFONO" value="123456789"></td>
+        					<td><input type="text" class="FormTxt" maxlength="9" name="TELEFONO" value="<%=profesor.dameValor("TELEFONO")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Correo electrónico</td>
-        					<td><input type="text" class="FormTxt" maxlength="50" name="EMAIL" value="pp@virtuaula.com"></td>
+        					<td><input type="text" class="FormTxt" maxlength="50" name="EMAIL" value="<%=profesor.dameValor("EMAIL")%>"></td>
         				</tr>
         				<tr>
-        					<td class="FormLiteral">Area</td>
-        					<td><input type="text" class="FormTxt" name="area" value="ISAREA_IDISAREA"></td>
         				</tr>
               	<tr>
 					         <td colspan="7" align="center">
-					          <input type="hidden" name="editar" value="modificarProfesor">
-						        <button type="submit" class="botonSimple">Modificar</button>
+					          <input type="hidden" name="idBean" value="Profesor">
+					          <input type="hidden" name="evento" value="EDITA_PROF">
+					             <button type="submit" class="botonSimple">Modificar</button>
 					         </td>
 				        </tr>	                       				
         			</table>
