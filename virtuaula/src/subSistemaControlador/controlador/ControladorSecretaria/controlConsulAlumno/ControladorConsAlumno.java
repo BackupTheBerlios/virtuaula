@@ -1,5 +1,6 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno;
 
+
 import gestores.GestorAlumnos;
 
 import subSistemaControlador.controlador.Controlador;

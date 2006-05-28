@@ -1,5 +1,6 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno;
 
+
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.ListaObjetoBean;
