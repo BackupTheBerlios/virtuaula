@@ -110,6 +110,11 @@ public class Profesorado {
 		GestorCursos gc = new GestorCursos();
 		return gc.consultaAlumnosDeCurso(beanCurso);
 	}
+	public boolean editar(ObjetoBean profesor)
+	{
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		return bdf.editar(profesor);
+	}
 	/**
 	 * Consulta los cursos activos en ese momento
 	 * @param beanProfesor
