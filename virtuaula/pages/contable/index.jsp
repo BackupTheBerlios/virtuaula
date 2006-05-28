@@ -3,6 +3,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       <title> Menu principal Contable </title>
       <link href="../../styles/estilosBotones.css" rel="stylesheet" type="text/css">
+      <script language="JavaScript" src="../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -33,9 +34,9 @@
 			   <div class="botones">
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_NOMINAS');" onmouseout="window.status=''" onmouseover="window.status='Nominas';return true ">Nóminas</a>
-  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CONTRATOS');" onmouseout="window.status=''" onmouseover="window.status='Contratos';return true ">Contratos</a>
-  				  	<a href="JavaScript:lanzaFormulario('OP_AVIS_CONT');" onmouseout="window.status=''" onmouseover="window.status='Menu aviso';return true ">Menu aviso</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_NOMINAS');" onmouseout="window.status=''" onmouseover="window.status='Ver nóminas';return true ">Ver nóminas</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_MOSTRAR_CONTRATOS');" onmouseout="window.status=''" onmouseover="window.status='Ver contratos';return true ">Ver contratos</a>
+  				  	<a href="JavaScript:lanzaFormulario('OP_AVIS_CONT');" onmouseout="window.status=''" onmouseover="window.status='Gestión de avisos';return true ">Gestión de avisos</a>
   				  </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
@@ -54,12 +55,27 @@
             </b>
           </div>
 		 </div>
+		 <div align="right" style="position:relative; z-index:-1;">
+    		      <input type="hidden" name="evento">
+    	  			<div class="botonesSubMenu">
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
+    				  </div>
+    				</form>
+    		  </div>
 		<div style="position:relative; top:45px; z-index:-1;">
 	  		<!-- <img src="img/fondoMenu.jpg" height="98%" width="1003px"> -->
 		</div>
 	  </div>
-	  <div style="position:relative; left:300px; top:150px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5">                
+	  <div style="position:relative; left:50px; top:50px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">
+    			  Desde esta pagina puede elegir qué desea hacer:<br><br>
+    			  - Ver las nóminas de todos los empleados de la academia<br>
+    			  - Ver los contratos de todos los empleados de la academia<br>
+    			  - Gestionar avisos: Leer avisos enviados por otros usuarios, borrar dichos avisos o enviar avisos a otros usuarios
+    			</font>
+     </div>
+	  <div style="position:relative; left:350px; top:100px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">             
     		
 		<%
 		HttpSession sesion=request.getSession();
@@ -71,5 +87,6 @@
       <map name="map">
         <area shape="rect" coords="450,0,510,50" href="./index.html">
       </map>
+      <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:100px; width:50px"></div>	    
    </body>
 </html>
