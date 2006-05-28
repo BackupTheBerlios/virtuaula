@@ -4,9 +4,10 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Seleccionar Aviso Profesor </title>
+      <title> Seleccionar Aviso Alumno </title>
       <link href="./../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="./../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="./../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -23,6 +24,7 @@
             
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="./../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="./../../../img/cabF.jpg"><img src="./../../../img/cabI.jpg"></td>
@@ -54,16 +56,16 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalAlum');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+						<a href="JavaScript:lanzaFormulario('menuPrincipalAlum');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -79,6 +81,13 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaaviso"));
                   	Avisos aviso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		                %>
+		                <div style="position:relative; left:-30px; top:-40px; z-index:-1;">
+    		         	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un aviso y qué desea hacer con él (paso 1/2)</b><br>
+    		         	 Puede leer un aviso o borrarlo<br>
+    		         	 Pulse el botón correspondiente a la opción deseada   </font>            
+    		          </div>
+		                <%
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");			
@@ -118,7 +127,14 @@
 		         
 		                  
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              else{	
+		              %>
+		              <div style="position:relative; left:-30px; top:-40px; z-index:-1;">
+    		         	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No tiene ningún aviso</b><br>
+    		         	 Pulse "Atrás" para volver a la página anterior</font>               
+    		          </div>
+		              <%
+		              out.println("<font class='error'>No tiene ningún aviso</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
@@ -156,5 +172,6 @@
           </form>
     		</div>
 	  </div>
+	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
