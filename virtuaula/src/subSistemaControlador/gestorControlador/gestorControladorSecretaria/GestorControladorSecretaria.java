@@ -78,6 +78,10 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//Horarios
 		tablaOperacionGestor.put("CONS_HOR",new GestorControladorOpConsHor());
 		tablaOperacionGestor.put("CONS_HOR_SEL",new GestorControladorOpConsHor());
+		tablaOperacionGestor.put("ELIM_HOR_PAS1",new GestorControladorOpConsHor());
+		tablaOperacionGestor.put("ELIM_HOR_PAS2",new GestorControladorOpConsHor());
+		tablaOperacionGestor.put("ELIM_HOR_PAS3",new GestorControladorOpConsHor());
+		
 		//editar un alumno
 		tablaOperacionGestor.put("EDITAR_ALUM_INI",new GestorControladorEditarAlumno());
 		tablaOperacionGestor.put("BUSCAR_ALUM_EDITAR",new GestorControladorEditarAlumno());

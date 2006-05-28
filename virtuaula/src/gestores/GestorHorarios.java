@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import subSistemaBBDD.BBDDFachada;
+import subSistemaBBDD.BBDDFachadaHorario;
 import subSistemaBBDD.utils.Constantes;
 import beans.CreadorBean;
 import beans.Horario;
@@ -23,6 +24,20 @@ public class GestorHorarios {
 		ListaObjetoBean l = bdf.consultar(horario);
 		return l;
 	}
+	
+	public ListaObjetoBean consultaHorariosDisponibles() {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) bdf.dameBBDDFachada(Constantes.FachadaHorario);
+		ListaObjetoBean l = bdfh.dameHorariosDisponibles();
+		return l;
+	}
+	
+	public boolean eliminaHorario(ObjetoBean horario) {
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) bdf.dameBBDDFachada(Constantes.FachadaHorario);
+		return  bdfh.eliminar(horario);
+	}
+	
 	/**
 	 * Me transforma el horario en una cadena de String
 	 * 

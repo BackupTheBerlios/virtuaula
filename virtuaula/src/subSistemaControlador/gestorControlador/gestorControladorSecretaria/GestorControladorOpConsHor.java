@@ -18,6 +18,10 @@ public GestorControladorOpConsHor(){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("CONS_HOR",creadorcont.crear(CreadorControlador.ControladorConsultarHorario));
 		GestorControlador.tablaOperacionControlador.put("CONS_HOR_SEL",creadorcont.crear(CreadorControlador.ControladorConsultarHorarioSel));
+		GestorControlador.tablaOperacionControlador.put("ELIM_HOR_PAS1",creadorcont.crear(CreadorControlador.ControladorConsultarHorarioBor));
+		GestorControlador.tablaOperacionControlador.put("ELIM_HOR_PAS2",creadorcont.crear(CreadorControlador.ControladorConsultarHorarioBor2));
+		GestorControlador.tablaOperacionControlador.put("ELIM_HOR_PAS3",creadorcont.crear(CreadorControlador.ControladorConsultarHorarioBor3));
+		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		

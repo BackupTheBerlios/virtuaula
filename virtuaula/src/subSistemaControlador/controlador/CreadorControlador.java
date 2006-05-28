@@ -13,6 +13,9 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorIniConsCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorMostrarCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHor;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHorBor;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHorBor2;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHorBor3;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHorSel;
 
 import subSistemaControlador.controlador.ControladorRecHumanos.controlInsertarProfesor.ControladorInsProf;
@@ -109,7 +112,9 @@ public class CreadorControlador {
 	static final public int ControladorSelecEditarAlum=49;
 	static final public int ControladorFinEditarAlum=50;
 	static final public int ControladorConfEditarAlum=51; 
-	
+	static final public int ControladorConsultarHorarioBor=52;
+	static final public int ControladorConsultarHorarioBor2=53;
+	static final public int ControladorConsultarHorarioBor3=54;
 	
 	
 	private ArrayList tablaControladoresPrototipos;
@@ -173,7 +178,9 @@ public class CreadorControlador {
 		tablaControladoresPrototipos.add(49,new ControladorSelecEditarAlum());
 		tablaControladoresPrototipos.add(50,new ControladorFinEditarAlum());
 		tablaControladoresPrototipos.add(51,new ControladorConfEditarAlum());
-		
+		tablaControladoresPrototipos.add(52,new ControladorConsHorBor());
+		tablaControladoresPrototipos.add(53,new ControladorConsHorBor2());
+		tablaControladoresPrototipos.add(54,new ControladorConsHorBor3());
 		
 		
 		
