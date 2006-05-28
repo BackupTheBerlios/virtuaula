@@ -228,6 +228,16 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","BORRA_AVISO_SEC","OK","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp");
 		agregarPaginas("secretaria","BORRA_AVISO_SEC","ERROR","/virtuaula/pages/secretaria/aviso/seleccionarAviso.jsp"); 
 		
+		//secretario gestiona horarios
+		agregarPaginas("secretaria","OP_MENU_HOR","SIG","/virtuaula/pages/secretaria/horario/index.jsp");
+		agregarPaginas("secretaria","CONS_HOR","OK","/virtuaula/pages/secretaria/horario/consultar/consultarHorario.jsp");
+		agregarPaginas("secretaria","CONS_HOR","ERROR","/virtuaula/pages/secretaria/horario/consultar/consultarHorario.jsp");
+		agregarPaginas("secretaria","CONS_HOR_SEL","OK","/virtuaula/pages/secretaria/horario/consultar/consultarHorario.jsp");
+		agregarPaginas("secretaria","CONS_HOR_SEL","ERROR","/virtuaula/pages/secretaria/horario/consultar/consultarHorario.jsp");
+		agregarPaginas("secretaria","GES_HOR","SIG","/virtuaula/pages/secretaria/horario/index.jsp");
+		
+
+		
 		//profesor consulta avisos
 		agregarPaginas("profesor","OP_AVIS_PROF","OK","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");
 		agregarPaginas("profesor","OP_AVIS_PROF","ERROR","/virtuaula/pages/profesor/aviso/seleccionarAviso.jsp");

@@ -65,6 +65,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("OP_AVIS_SEC",new GestorControladorOpAvisSec());
 		tablaOperacionGestor.put("MOSTRAR_AVISOS_SEC",new GestorControladorOpAvisSec());
 		tablaOperacionGestor.put("BORRA_AVISO_SEC",new GestorControladorOpAvisSec());
+		//Horarios
+		tablaOperacionGestor.put("CONS_HOR",new GestorControladorOpConsHor());
+		tablaOperacionGestor.put("CONS_HOR_SEL",new GestorControladorOpConsHor());
 	
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
@@ -87,6 +90,10 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//matricular alumno
 		GestorControlador.tablaOperacionControlador.put("GES_ALUM",c.crear(CreadorControlador.ControladorPasaPag));	
 		tablaOperacionGestor.put("VOLVER_ANTERIOR_S",c.crear(CreadorControlador.ControladorPasaPag));
+		
+		//Horarios
+		GestorControlador.tablaOperacionControlador.put("OP_MENU_HOR",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("GES_HOR",c.crear(CreadorControlador.ControladorPasaPag));
 		
 		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));

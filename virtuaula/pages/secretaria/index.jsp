@@ -39,10 +39,11 @@
   				    <a href="JavaScript:lanzaFormulario('GES_PROF');" onmouseout="window.status=''" onmouseover="window.status='Gestión de profesores';return true ">Gestión de profesores</a>
   				    <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Gestión de alumnos';return true ">Gestión de alumnos</a>  
   				    <a href="JavaScript:lanzaFormulario('GES_CUR');" onmouseout="window.status=''" onmouseover="window.status='Gestión de cursos';return true ">Gestión de cursos</a>
+  				    <a href="JavaScript:lanzaFormulario('OP_MENU_HOR');" onmouseout="window.status=''" onmouseover="window.status='Gestión de horarios';return true ">Gestión de horarios</a>
   				 	<a href="JavaScript:lanzaFormulario('OP_AVIS_SEC');" onmouseout="window.status=''" onmouseover="window.status='Gestión de avisos';return true ">Gestión de avisos</a>
   				  </form>
 		  	 </div>		  	 		  	
-		  	 <div align="right" style="position:relative; top:-35px">               
+		  	 <div align="right" style="position:relative; top:12px">               
            <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
@@ -58,7 +59,7 @@
             </b>
           </div>
 		 </div>
-		 <div align="right" style="position:relative; z-index:-1;">
+		 <div align="right" style="position:relative; z-index:-1; top:-40px; left:30px;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>

@@ -37,9 +37,10 @@ public class EncapsuladorListas extends Encapsulador{
 	}
 	public void encapsular(){
 		HttpSession sesion=request.getSession();
-		int pos = Integer.parseInt(request.getParameter((String)tablaIdentificadores.get(this.tipo)));
-		sesion.setAttribute((String)tablaIdentificadores.get(this.tipo), new Integer(pos));
-	
+		if (!request.getParameter((String)tablaIdentificadores.get(this.tipo)).equals("")){
+			int pos = Integer.parseInt(request.getParameter((String)tablaIdentificadores.get(this.tipo)));
+			sesion.setAttribute((String)tablaIdentificadores.get(this.tipo), new Integer(pos));
+		}
 		
 	}
 }

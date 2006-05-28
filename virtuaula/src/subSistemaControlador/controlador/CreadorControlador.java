@@ -11,6 +11,8 @@ import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.Contro
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorConsCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorIniConsCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorMostrarCur;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHor;
+import subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor.ControladorConsHorSel;
 
 import subSistemaControlador.controlador.ControladorRecHumanos.controlInsertarProfesor.ControladorInsProf;
 
@@ -100,7 +102,8 @@ public class CreadorControlador {
 	static final public int ControladorLogin=43;
 	static final public int ControladorPasaPag=44;
 	static final public int ControladorMostrarAlumno=45;
-	
+	static final public int ControladorConsultarHorario=46;
+	static final public int ControladorConsultarHorarioSel=47;
 	
 	
 	
@@ -159,7 +162,8 @@ public class CreadorControlador {
 		tablaControladoresPrototipos.add(43,new ControladorLogin());
 		tablaControladoresPrototipos.add(44,new ControladorPasaPag());
 		tablaControladoresPrototipos.add(45,new ControladorMostrarAlumno());
-		
+		tablaControladoresPrototipos.add(46,new ControladorConsHor());
+		tablaControladoresPrototipos.add(47,new ControladorConsHorSel());
 		
 		
 		
