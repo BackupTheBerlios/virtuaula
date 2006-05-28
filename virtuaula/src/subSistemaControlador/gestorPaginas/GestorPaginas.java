@@ -5,9 +5,6 @@ package subSistemaControlador.gestorPaginas;
 
 import java.util.HashMap;
 
-import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.gestorControlador.GestorControlador;
-
 
 public class GestorPaginas {
 
@@ -321,5 +318,14 @@ public class GestorPaginas {
 		agregarPaginas("profesor","INI_AVI_PROF","ERROR","/virtuaula/pages/profesor/aviso/enviarAviso.jsp");
 		agregarPaginas("profesor","ENV_AVI_PROF","OK","/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp");
 		agregarPaginas("profesor","ENV_AVI_PROF","ERROR","/virtuaula/pages/profesor/aviso/enviarAviso.jsp");
+
+		
+		//contable envia aviso
+		agregarPaginas("contable","INI_AVI_CONT","OK","/virtuaula/pages/contable/aviso/enviarAviso.jsp");
+		agregarPaginas("contable","INI_AVI_CONT","ERROR","/virtuaula/pages/contable/aviso/enviarAviso.jsp");
+		agregarPaginas("contable","ENV_AVI_CONT","OK","/virtuaula/pages/contable/aviso/confirmacionAvisoEnviado.jsp");
+		agregarPaginas("contable","ENV_AVI_CONT","ERROR","/virtuaula/pages/contable/aviso/enviarAviso.jsp");
+
+		
 	}
 }
