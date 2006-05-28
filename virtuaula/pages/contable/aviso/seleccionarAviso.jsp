@@ -125,7 +125,7 @@
 		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('BORRA_AVISO_CONT');\" class='botonSimple'>Borrar</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('INI_AVI_CONT');\" class='botonSimple'>Enviar</button>");
 		         
 		                  
 		              }
@@ -136,12 +136,15 @@
     		         	 Pulse "Atrás" para volver a la página anterior</font>               
     		          </div>
 		              <%
-		              out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              //out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
 		      	             out.println("			          <input type='hidden' name='evento' value='menuPrincipalCont'>");
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
+		                    out.println("</td>");
+		                    out.println("<td>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('INI_AVI_CONT');\" class='botonSimple'>Enviar</button>");
 
 		
 		                  }
