@@ -17,6 +17,16 @@ public class GestorHorarios {
 		super();
 	}
 
+	
+	
+	
+	public boolean horarioUtilizado(ObjetoBean horario){
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaHorario bdfh= (BBDDFachadaHorario)bdf.dameBBDDFachada(Constantes.FachadaHorario);
+		return bdfh.horarioUtilizado(horario);
+	}
+	
+	
 	public ListaObjetoBean consultaHorarios() {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean cBean = new CreadorBean();

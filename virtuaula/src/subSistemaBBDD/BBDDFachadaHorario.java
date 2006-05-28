@@ -139,4 +139,43 @@ public class BBDDFachadaHorario extends BBDDFachada{
 			return null;
 		}
 	}
+	
+	/**
+	 * Nos dice si algun curso utiliza el horario pasado como parámetro
+	 * @param horario
+	 * @return
+	 */
+	public boolean horarioUtilizado(ObjetoBean horario){
+		boolean utilizada;
+		if(horario==null){
+			utilizada=true;
+		}
+		else{
+			CreadorObjetoBBDD creadorOB= this.creador.getCreadorObjetoBBDD();
+			ObjetoBBDD horarioAula = creadorOB.crear(creadorOB.IshorarioHasIsaula);
+			EsquemaBBDD esHorAula = this.crearTablaAdecuada(horarioAula);
+			horarioAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,horario
+																 .dameValor(Constantes.ID_ISHORARIO));
+			ListaObjetoBBDD listaCursoHorario = this.creador.getCreadorListaObjetoBBDD().crear();
+			ObjetoCriterio critHorAula = this.crearObjetoCriterioAdecuado(horarioAula);
+			listaCursoHorario= this.inicializaTabla(esHorAula).consultar(critHorAula);
+			if(listaCursoHorario.esVacio())
+				utilizada=false;
+			else{
+				utilizada=true;
+			}
+		}
+		return utilizada;
+	
+	
+	}
+	
+	/*public static void main(String[] args){
+		BBDDFachadaHorario mia= new BBDDFachadaHorario();
+		ObjetoBean horario= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Horario);
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
+		System.out.println(mia.horarioUtilizado(horario));
+		
+	}*/
+	
 }
