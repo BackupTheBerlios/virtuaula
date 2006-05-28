@@ -4,7 +4,7 @@
       <title> Confirmacion Horario Borrado </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
-      <script language="JavaScript" src="./../../../script/overlib_mini.js"></script>
+      <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -14,10 +14,10 @@
       </script>    
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-   <body background="./../../../../img/fondo.jpg">
+   <body background="../../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td width="3000" background="../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
+            <td width="3000" background="../../../../img/cabF.jpg"><img src="../../../../img/cabI.jpg"></td>
             <td><img src="../../../../img/cabD.jpg" width="537px" height="78px" border="0"></td>
          </tr>
       </table>
