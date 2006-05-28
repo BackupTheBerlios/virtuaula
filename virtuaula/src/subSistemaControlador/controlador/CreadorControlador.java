@@ -2,6 +2,7 @@ package subSistemaControlador.controlador;
 
 import java.util.ArrayList;
 
+import subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlum.*;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlum;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatricula;
@@ -104,6 +105,10 @@ public class CreadorControlador {
 	static final public int ControladorMostrarAlumno=45;
 	static final public int ControladorConsultarHorario=46;
 	static final public int ControladorConsultarHorarioSel=47;
+	static final public int ControladorBuscarAlumEditar=48;
+	static final public int ControladorSelecEditarAlum=49;
+	static final public int ControladorFinEditarAlum=50;
+	static final public int ControladorConfEditarAlum=51; 
 	
 	
 	
@@ -164,6 +169,14 @@ public class CreadorControlador {
 		tablaControladoresPrototipos.add(45,new ControladorMostrarAlumno());
 		tablaControladoresPrototipos.add(46,new ControladorConsHor());
 		tablaControladoresPrototipos.add(47,new ControladorConsHorSel());
+		tablaControladoresPrototipos.add(48,new ControladorBuscarAlumEditar());
+		tablaControladoresPrototipos.add(49,new ControladorSelecEditarAlum());
+		tablaControladoresPrototipos.add(50,new ControladorFinEditarAlum());
+		tablaControladoresPrototipos.add(51,new ControladorConfEditarAlum());
+		
+		
+		
+		
 		
 		
 		
