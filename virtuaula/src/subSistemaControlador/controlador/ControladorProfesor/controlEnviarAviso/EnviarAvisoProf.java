@@ -16,7 +16,7 @@ public class EnviarAvisoProf extends ControladorProfesor{
 
 	public void procesarEvento() {
 		
-		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAviso");
+		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAvisos");
 		HashMap listaGrupos=(HashMap)this.getSesion().getAttribute("listagrupos");
 		//Esto no esta definido todavia
 		String op = (String)this.getSesion().getAttribute("claveaviso");
