@@ -170,12 +170,71 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	
 	}
 	
+	public boolean camposIguales(String uno,String dos){
+		if(!(uno==null) &&  !(dos==null)){
+			if(uno.equals(dos))
+				return true;
+			
+			else{
+				return false;
+			}
+		}
+		else
+			return true;
+		
+	}
+	/**
+	 * Dado un horario devuelve true si ya existe otro con el mismo nombre o contenido.
+	 * @param horario
+	 * @return
+	 */
+	public boolean horarioYaExiste(ObjetoBean horario){
+		ListaObjetoBean horariosExistentes=	this.dameHorariosDisponibles();
+		ObjetoBean horarioActual;
+		boolean exitoParcial=false;
+		
+		
+		for(int i=0;i<horariosExistentes.tamanio()&& !exitoParcial;i++){
+			horarioActual= horariosExistentes.dameObjeto(i);
+			String valor1= horario.dameValor(Constantes.ID_ISHORARIO);
+			String valor2= horario.dameValor(Constantes.HORARIO_LUNES);
+			String valor3= horario.dameValor(Constantes.HORARIO_MARTES);
+			String valor4= horario.dameValor(Constantes.HORARIO_MIERCOLES);
+			String valor5= horario.dameValor(Constantes.HORARIO_JUEVES);
+			String valor6= horario.dameValor(Constantes.HORARIO_VIERNES);
+			if(this.camposIguales(valor1,horarioActual.dameValor(Constantes.ID_ISHORARIO))) 
+				exitoParcial=true;
+			else{
+				if( this.camposIguales(valor2,horarioActual.dameValor(Constantes.HORARIO_LUNES))&&
+				this.camposIguales(valor3,horarioActual.dameValor(Constantes.HORARIO_MARTES))&&
+				this.camposIguales(valor4,horarioActual.dameValor(Constantes.HORARIO_MIERCOLES))&&
+				this.camposIguales(valor5,horarioActual.dameValor(Constantes.HORARIO_JUEVES))&&
+				this.camposIguales(valor6,horarioActual.dameValor(Constantes.HORARIO_VIERNES)))
+					exitoParcial=true;
+					
+			}
+				
+		}
+		return exitoParcial;
+	}
+	
+	
 	/*public static void main(String[] args){
 		BBDDFachadaHorario mia= new BBDDFachadaHorario();
 		ObjetoBean horario= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Horario);
 		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
 		System.out.println(mia.horarioUtilizado(horario));
 		
+	}*/
+	
+	/*public static void main(String[] args){
+	BBDDFachadaHorario mia= new BBDDFachadaHorario();
+	ObjetoBean horario= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Horario);
+	horario.cambiaValor(Constantes.HORARIO_LUNES,"T");
+	horario.cambiaValor(Constantes.HORARIO_JUEVES,"M");
+	horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"T");
+	System.out.println(mia.horarioYaExiste(horario));
+	
 	}*/
 	
 }
