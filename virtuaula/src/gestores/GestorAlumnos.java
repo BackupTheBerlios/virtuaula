@@ -40,6 +40,12 @@ public class GestorAlumnos {
 		return bdfa.dameAlumnosCumplan(curso,alumno);
 	}
 	
+	public boolean editarAlumno(ObjetoBean alumno){
+		BBDDFachada bdf= BBDDFachada.getInstance();
+		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
+		return bdfa.editar(alumno);
+	}
+	
 	public ObjetoBean consultaProfesorCurso(ObjetoBean Curso)
 	{
 		GestorCursos GC = new GestorCursos();
