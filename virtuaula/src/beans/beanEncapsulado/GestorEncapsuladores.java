@@ -8,6 +8,7 @@ import beans.beanEncapsulado.encapsuladores.EncapsuladorListas;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorVacio;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaAlumno;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
+import beans.beanEncapsulado.encapsuladores.*;
 
 import java.util.Hashtable;
 /**
@@ -71,6 +72,7 @@ public class GestorEncapsuladores {
 		tablaEncapsuladores.put("vacio",new EncapsuladorVacio());
 		tablaEncapsuladores.put("Ficha",new EncapsuladorBean("Ficha",req));
 		tablaEncapsuladores.put("Error",new EncapsuladorBean("Error",req));
+		tablaEncapsuladores.put("enviaaviso",new EncapsuladorEnviaAviso(req));
 		
 
 		
