@@ -24,15 +24,17 @@ public class ControladorIniConsAlumno extends ControladorConsultaAlumno{
 	 */
 		public void procesarEvento() {
 			this.getSesion().removeAttribute("error");
-			this.getSesion().removeAttribute("listaalumno");
-			this.getSesion().removeAttribute("beanAlumno");
 			ListaObjetoBean	listaCursos = new ListaObjetoBean();
 			GestorCursos gestor = new GestorCursos();
 			listaCursos= gestor.dameCursosActivos();
+			this.getSesion().removeAttribute("beanAlumno");
+			this.getSesion().removeAttribute("posCurso");
+			this.getSesion().removeAttribute("posAula");
+			this.getSesion().removeAttribute("posAlumno");
+			this.getSesion().removeAttribute("beanAlumno");
 			
 			if (listaCursos!=null){
 				this.setResuladooperacion("OK");
-			
 				this.getSesion().setAttribute("listacurso",listaCursos);
 			}	
 			else {

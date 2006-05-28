@@ -5,6 +5,7 @@ import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecret
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
 import gestores.GestorCursos;
+import gestores.GestorAlumnos;
 /**
  * 
  * @author JORGE SANCHEZ
@@ -29,17 +30,16 @@ public class ControladorMostrarAlumno extends ControladorConsultaAlumno{
 
 			int posa= posAlum.intValue();
 			ObjetoBean alumno=(ObjetoBean)listaAlumno.dameObjeto(posa);
-			//GestorCursos gestor = new GestorCursos();
-			//ObjetoBean curso=gestor.con
+			GestorCursos gestor = new GestorCursos();
+			ListaObjetoBean cursos= gestor.consultarCursosDeAlumno(alumno);
+			
 			
 			if(alumno!=null){
-				
-				this.getSesion().setAttribute("beanAlumno",alumno);
+				this.getSesion().removeAttribute("beanCurso");
+				this.getSesion().setAttribute("listacurso",cursos);
 				this.setResuladooperacion("OK");
 			}
 			else{
-				this.getSesion().removeAttribute("listaalumno");
-				this.getSesion().removeAttribute("posAlumno");
 				this.setResuladooperacion("ERROR");
 			}
 		

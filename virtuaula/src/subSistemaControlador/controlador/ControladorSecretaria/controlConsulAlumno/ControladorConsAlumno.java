@@ -3,9 +3,9 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlu
 import gestores.GestorAlumnos;
 
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
+
 /**
  * Controlador intermedio de consultar un alumno por parte de un secretario
  * @author JORGE SANCHEZ
@@ -19,24 +19,16 @@ public class ControladorConsAlumno extends ControladorConsultaAlumno {
 	 * tiene que pasar. 
 	 */
 		public void procesarEvento() {
-
+			System.out.println("entra en controlador cons alumno");
 			ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
-			ListaObjetoBean lcurso= (ListaObjetoBean)this.getSesion().getAttribute("listacurso");
-			
-			int posCurso= ((Integer)this.getSesion().getAttribute("posCurso")).intValue();
 			GestorAlumnos GA = new GestorAlumnos();
 			ListaObjetoBean listaAlumnos;
-			//ObjetoBean curso=(ObjetoBean)this.getSesion().getAttribute("beanCurso");
-			
-			ObjetoBean curso=(ObjetoBean)lcurso.dameObjeto(posCurso);
+			ObjetoBean curso=(ObjetoBean)this.getSesion().getAttribute("beanCurso");
 			listaAlumnos =GA.consultaAlumnosCumplan(curso,alumno);
-			
-			
-			
+						
+		
 			this.getSesion().setAttribute("listaalumno",listaAlumnos);
 			if (listaAlumnos!=null){
-				//this.getSesion().removeAttribute("beanCurso");
-				//this.getSesion().removeAttribute("beanAlumno");
 				this.setResuladooperacion("OK");
 				
 			}	
