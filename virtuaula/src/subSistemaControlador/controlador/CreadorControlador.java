@@ -107,7 +107,7 @@ public class CreadorControlador {
 	private ArrayList tablaControladoresPrototipos;
 	
 	public CreadorControlador(){
-		tablaControladoresPrototipos=new ArrayList();
+		this.tablaControladoresPrototipos=new ArrayList();
 		this.inicializar();
 	}
 	private void inicializar(){
@@ -169,7 +169,7 @@ public class CreadorControlador {
 	 * @param tipo constante q especifica el tipo a pasar
 	 * @return Instanciacion del controlador solicitado
 	 */
-	 public Controlador crear (int tipo){
+	public Controlador crear (int tipo){
 		try{
 			return ((Controlador)tablaControladoresPrototipos.get(tipo)).clonar();
 		}
