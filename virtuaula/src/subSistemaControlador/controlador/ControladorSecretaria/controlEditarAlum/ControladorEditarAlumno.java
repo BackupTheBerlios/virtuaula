@@ -3,7 +3,11 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 
 
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
-
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 abstract public class ControladorEditarAlumno extends ControladorSecretaria {
 
 

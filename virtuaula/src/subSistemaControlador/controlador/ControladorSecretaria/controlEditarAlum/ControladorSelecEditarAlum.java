@@ -6,7 +6,11 @@ import subSistemaBBDD.utils.*;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaControlador.controlador.*;
 
-
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class ControladorSelecEditarAlum extends ControladorEditarAlumno {
 	
 	public Controlador clonar(){

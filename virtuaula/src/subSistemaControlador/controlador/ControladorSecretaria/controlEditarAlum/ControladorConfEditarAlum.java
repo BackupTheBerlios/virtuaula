@@ -2,6 +2,11 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 import beans.ObjetoBean;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaBBDD.utils.*;
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class ControladorConfEditarAlum extends ControladorEditarAlumno{
 
 	

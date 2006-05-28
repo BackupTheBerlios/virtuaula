@@ -6,6 +6,11 @@ import subSistemaControlador.controlador.*;
 import beans.ObjetoBean;
 import gestores.GestorAlumnos;
 import subSistemaBBDD.utils.*;
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class ControladorFinEditarAlum extends ControladorEditarAlumno{
 
 	

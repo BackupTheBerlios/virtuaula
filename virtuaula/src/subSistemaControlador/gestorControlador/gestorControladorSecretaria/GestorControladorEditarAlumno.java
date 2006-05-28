@@ -5,7 +5,11 @@ import javax.servlet.http.HttpSession;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
-
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class GestorControladorEditarAlumno extends GestorControladorSecretaria {
 	
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){

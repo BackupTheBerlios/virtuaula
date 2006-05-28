@@ -5,7 +5,11 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.ControladorConsAlumno;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class ControladorBuscarAlumEditar extends ControladorEditarAlumno {
 
 	
