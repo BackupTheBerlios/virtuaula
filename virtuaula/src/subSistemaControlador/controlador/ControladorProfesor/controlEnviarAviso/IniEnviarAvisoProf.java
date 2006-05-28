@@ -26,7 +26,7 @@ public class IniEnviarAvisoProf extends ControladorProfesor{
 		Profesorado profesorado=new Profesorado();
 		
 		
-		ListaObjetoBean listaSec =GU.dameUsuarios("secreataria");
+		ListaObjetoBean listaSec =GU.dameUsuarios("secretaria");
 		ListaObjetoBean listaProf= profesorado.consultaProfesores();
 		ListaObjetoBean listaCur = profesorado.consultaCursosProfesor(profesor);
 		
