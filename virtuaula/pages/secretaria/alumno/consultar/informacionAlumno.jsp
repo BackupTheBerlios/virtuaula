@@ -66,22 +66,27 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <table border="0" cellspacing="0" cellpadding="10">
-        				<tr>        					
-        					<th class="FormLiteral"><b>DNI</th>        					
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Primer Apellido</th>
-        					<th class="FormLiteral"><b>Segundo Apellido</th>
-        					<th class="FormLiteral"><b>Teléfono</th>
-        					<th class="FormLiteral"><b>Correo electrónico</th>
-        					<th class="FormLiteral"><b>Dirección</th>
-        				</tr>
+              <!--<table border="0" cellspacing="0" cellpadding="10">
+        			-->
         				
         				
         			<%
                     HttpSession sesion=request.getSession();
-                    
+                    	out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
+out.println("            <tr bgcolor='#3366CC'>");
+out.println("               <td colspan='7' align='center'><h3><font color='#FFFFFF'>Datos del alumno</font></h3></td>");
+out.println("             </tr>");
+out.println("             <tr bgcolor='#3399FF'>");
+out.println("               <td><h4>Identificador</h4></td>");
+out.println("               <td><h4>Nombre</h4></td>");
+out.println("               <td><h4>Apellido1</h4></td>");
+out.println("               <td><h4>Apellido2</h4></td>");
+out.println("               <td><h4>Telefono</h4></td>");
+out.println("               <td><h4>Correo elcectronico</h4></td>");
+out.println("               <td><h4>Direccion</h4></td>");
+out.println("              </tr>   ");
                     
                   	   ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaalumno"));
                     	 Integer posicionLista =((Integer)sesion.getAttribute("posAlumno"));	
@@ -92,7 +97,9 @@
                         	Alumno alumno = (Alumno) listaObjetoBean.dameObjeto(posicionLista.intValue());
                         	  %> <tr bgcolor="#dbecff">
     	                  <%
+                  	  	
                   	  	out.println("<tr>");
+    	                  out.println("<tr bgcolor='#99CCFF'>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO1"))+"</td>");
@@ -108,6 +115,7 @@
                 %>
               
               </table>
+            </tr>
               <p><p>
               
        <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
