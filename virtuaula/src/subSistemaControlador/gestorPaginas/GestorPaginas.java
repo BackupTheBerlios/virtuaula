@@ -164,7 +164,6 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","CONS_ALUM2","OK","/virtuaula/pages/secretaria/alumno/consultar/seleccionarAlumno.jsp");
 		agregarPaginas("secretaria","CONS_ALUM2","ERROR","/virtuaula/pages/secretaria/alumno/consultar/errorConsultarAlumno.jsp");
 		agregarPaginas("secretaria","VUELTA_ALUM","SIG","/virtuaula/pages/secretaria/alumno/consultar/buscarAlumno.jsp");
-		agregarPaginas("secretaria","FIN_CONS_ALUM","SIG","/virtuaula/pages/secretaria/alumno/index.jsp");
 		//secretaria insercion curso
 		agregarPaginas("secretaria","GES_CUR","SIG","/virtuaula/pages/secretaria/curso/index.jsp");
 		agregarPaginas("secretaria","INI_INS_CUR","SIG","/virtuaula/pages/secretaria/curso/insertar/iniInsertarCurso.jsp");
