@@ -22,7 +22,11 @@ public GestorControladorOpAvisCont(){
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_CONT",c.crear(CreadorControlador.ControladorOp_Avis));
 		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_CONT",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO_CONT",c.crear(CreadorControlador.BorraAviso));
-		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_C",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_C",c.crear(CreadorControlador.ControladorPasaPag));	
+		GestorControlador.tablaOperacionControlador.put("INI_AVI_CONT",c.crear(CreadorControlador.IniEnviarAvisoContable));
+		GestorControlador.tablaOperacionControlador.put("ENV_AVI_CONT",c.crear(CreadorControlador.EnviarAvisoContable));
+		
+		
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
 		

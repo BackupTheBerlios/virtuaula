@@ -38,6 +38,8 @@ public class GestorControladorContable extends GestorControlador{
 		tablaOperacionGestor.put("OP_AVIS_CONT",new GestorControladorOpAvisCont());
 		tablaOperacionGestor.put("MOSTRAR_AVISOS_CONT",new GestorControladorOpAvisCont());
 		tablaOperacionGestor.put("BORRA_AVISO_CONT",new GestorControladorOpAvisCont());
+		tablaOperacionGestor.put("INI_AVI_CONT",new GestorControladorOpAvisCont());
+		tablaOperacionGestor.put("ENV_AVI_CONT",new GestorControladorOpAvisCont());
 	}
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
