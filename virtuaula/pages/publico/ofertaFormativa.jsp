@@ -148,7 +148,17 @@
                         }
                         out.println("</table>");
                     }
-              %>        			
+              %> 
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>											
+						<td>
+							<a style="text-decoration: none;" class="botonesSubMenu" href="/virtuaula/documents/Formulario_Inscripcion.doc" onmouseout="window.status=''; return true;" onmouseover="window.status='Obtener formulario de inscripción'; return true;">              
+	              				<img height="20px" width="20px" src="/virtuaula/img/msword_logo.gif" alt="Obtener formulario de inscripción" border="0" align="middle"/>
+	              				<font face="Trebuchet MS" color="#006699" point-size="5"><b>Pulse aquí para obtener el formulario de inscripción</b></font>
+              				</a>       			
+              			</td>
+              		</tr>
+              </table>
           </form>
     		</div>
 	  </div>
