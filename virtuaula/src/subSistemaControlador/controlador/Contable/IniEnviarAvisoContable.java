@@ -20,11 +20,16 @@ public class IniEnviarAvisoContable extends ControladorContable{
 		GestorUsuarios GU = new GestorUsuarios();
 			
 		ListaObjetoBean listaSec =GU.dameUsuarios("secretaria");
+		ListaObjetoBean listaRRHH = GU.dameUsuarios("rrhh");
 		
 		
 		if (!listaSec.esVacio())
 		{
 			mapGrupos.put("Secretaria",listaSec);
+		}
+		if (!listaSec.esVacio())
+		{
+			mapGrupos.put("Departamento RRHH",listaRRHH);
 		}
 		
 		if ((!listaSec.esVacio()))

@@ -28,6 +28,10 @@ public class EnviarAvisoContable extends ControladorContable{
 			{//el aviso es para un grupo de secretarios(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
+			if (op.equals("Departamento RRHH"))
+			{//el aviso es para un grupo de RRHH(usuarios)
+				 errores=GA.avisoAGrupo(destino,aviso);
+			}
 						
 			if (!errores.esVacio())
 			{//tenemos errores al enviar el aviso
