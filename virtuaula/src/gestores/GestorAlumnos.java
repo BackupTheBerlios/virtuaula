@@ -34,30 +34,53 @@ public class GestorAlumnos {
 	{
 		return null;
 	}*/
+	
+	/**
+	 * Nos devuelve los alumnos que cumplan con los parametros que se les pasan , un curso y las caracteristicas de un alumno
+	 */
 	public ListaObjetoBean consultaAlumnosCumplan(ObjetoBean curso,ObjetoBean alumno){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAlumno bdfa = (BBDDFachadaAlumno)(bdf.dameBBDDFachada(Constantes.FachadaAlumno));
 		return bdfa.dameAlumnosCumplan(curso,alumno);
 	}
-	
+	/**
+	 * Nos modifica al alumno existente en la estructura de datos con el alumno que le pasamos por paramtro
+	 * @param alumno
+	 * @return
+	 */
 	public boolean editarAlumno(ObjetoBean alumno){
 		BBDDFachada bdf= BBDDFachada.getInstance();
 		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
 		return bdfa.editar(alumno);
 	}
 	
+	/**
+	 * Nos devuelve el profesor que imparte un curso
+	 * @param Curso
+	 * @return
+	 */
 	public ObjetoBean consultaProfesorCurso(ObjetoBean Curso)
 	{
 		GestorCursos GC = new GestorCursos();
 		return GC.consultaProfesorDeCurso(Curso);
 		
 	}
+	/**
+	 * Nos devuelve el aula en el que se imparte un curso
+	 * @param Curso
+	 * @return
+	 */
 	public ObjetoBean consultaAulaCurso(ObjetoBean Curso)
 	{
 		GestorCursos GC = new GestorCursos();
 		return GC.consultaAulaDeCurso(Curso);
 	
 	}
+	/**
+	 * Nos devuelve el horario en el que se imparte un curso
+	 * @param Curso
+	 * @return
+	 */
 	public ObjetoBean consultaHorarioCurso(ObjetoBean Curso)
 	{	
 		GestorCursos GC = new GestorCursos();
@@ -68,6 +91,9 @@ public class GestorAlumnos {
 	{
 		return null;
 	}*/
+	/**
+	 * Nos devuelve true o false dependiendo de si el alumno que le pasamos por parametro existe o no
+	 */
 	public boolean existeAlumno(ObjetoBean Alumno)
 	{
 		BBDDFachada bd = BBDDFachada.getInstance(); 
@@ -91,7 +117,11 @@ public class GestorAlumnos {
 		return l.dameObjeto(0);
 	
 	}
-	
+	/**
+	 * Nos devuelve una lista de alumnos que cumplen las caracteristicas del alumno que le pasamos
+	 * @param Alumno
+	 * @return
+	 */
 	public ListaObjetoBean consultaAlumnos(ObjetoBean Alumno)
 	{
 		BBDDFachada bd = BBDDFachada.getInstance(); 
@@ -236,6 +266,15 @@ public class GestorAlumnos {
 		}
 		return contrasenia;
 	}
+	/**
+	 * Me matricula un alumno en el sistema, esto es. Me asigna un alumno a un curso, manda mensaje con el ingreso del precio
+	 * del curso al contable, me manda avisos al alumno con usuario y contraseña y con el horario e informacion del curso.Ademas me 
+	 * crea una ficha para el alumno y el curso matriculado
+	 * @param Alumno
+	 * @param Curso
+	 * @param usuario
+	 * @return
+	 */
 	public ListaObjetoBean marticularAlumno(ObjetoBean Alumno,ObjetoBean Curso,ObjetoBean usuario)
 	{
 		ListaObjetoBean liserror=this.comprobar(Alumno);

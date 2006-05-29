@@ -10,7 +10,11 @@ import beans.CreadorBean;
 import beans.Horario;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * 
+ * Realiza operaciones sobre los horarios
+ * @author AL
+ */
 public class GestorHorarios {
 
 	public GestorHorarios() {
@@ -18,20 +22,30 @@ public class GestorHorarios {
 	}
 
 	
-	
-	
+	/**
+	 * Nos dice si algun curso utiliza el horario pasado como parámetro
+	 * @param horario
+	 * @return
+	 */	
 	public boolean horarioUtilizado(ObjetoBean horario){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaHorario bdfh= (BBDDFachadaHorario)bdf.dameBBDDFachada(Constantes.FachadaHorario);
 		return bdfh.horarioUtilizado(horario);
 	}
-	
+	/**
+	 * Dado un horario devuelve true si ya existe otro con el mismo nombre o contenido.
+	 * @param horario
+	 * @return
+	 */
 	public boolean horarioYaExiste(ObjetoBean horario){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaHorario bdfh= (BBDDFachadaHorario)bdf.dameBBDDFachada(Constantes.FachadaHorario);
 		return bdfh.horarioYaExiste(horario);
 	}
-	
+	/**
+	 * Nos devuelve una lista de horarios existentes
+	 * @return
+	 */
 	public ListaObjetoBean consultaHorarios() {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean cBean = new CreadorBean();
@@ -39,14 +53,21 @@ public class GestorHorarios {
 		ListaObjetoBean l = bdf.consultar(horario);
 		return l;
 	}
-	
+	/**
+	 * Devuelve una lista de beans con todos los horarios fijados en el sistema
+	 * @return la lista de beans mencionada
+	 */
 	public ListaObjetoBean consultaHorariosDisponibles() {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) bdf.dameBBDDFachada(Constantes.FachadaHorario);
 		ListaObjetoBean l = bdfh.dameHorariosDisponibles();
 		return l;
 	}
-	
+	/**
+	 * elimina el horario que le pasamos por parametro
+	 * @param horario
+	 * @return cierto o falso dependiendo del resustado de la op
+	 */
 	public boolean eliminaHorario(ObjetoBean horario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaHorario bdfh= (BBDDFachadaHorario) bdf.dameBBDDFachada(Constantes.FachadaHorario);
@@ -99,6 +120,10 @@ public class GestorHorarios {
 		}
 		return resul;
 	}
+	/**
+	 * Te devuelve la fecha del sistema
+	 * @return
+	 */
 	public String dameFecha()
 	{
 		//cojo la fecha del sistema

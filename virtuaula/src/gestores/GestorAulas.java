@@ -9,13 +9,20 @@ import beans.Error;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * Se encarga de realizar las operaciones sobre las Aulas
+ * @author AL
+ *
+ */
 public class GestorAulas {
 
 	public GestorAulas() {
 		super();
 	}
-
+/**
+ * 
+ * @return Me devulve una lista con todas las aulas existentes
+ */
 	public ListaObjetoBean consultaAulas() {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean cBean = new CreadorBean();
@@ -23,14 +30,22 @@ public class GestorAulas {
 		ListaObjetoBean l = bdf.consultar(aula);
 		return l;
 	}
-	
+	/**
+	 * 
+	 * @param beanHorario
+	 * @return me devuelve las aulas que estan libres en el horario que le pasamos
+	 */
 	public ListaObjetoBean consultaAulasPorHorario (ObjetoBean beanHorario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAula bdfa= (BBDDFachadaAula)(bdf.dameBBDDFachada(Constantes.FachadaAula));
 		ListaObjetoBean l = bdfa.dameAulasLibres(beanHorario);	
 		return l;
 	}
-	
+	/**
+	 * Hace una comparacion del aula que le pasamos por parametro
+	 * @param bean
+	 * @return lista de errores
+ 	 */
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();

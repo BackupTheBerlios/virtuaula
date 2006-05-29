@@ -15,13 +15,21 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * Realiza las operaciones sobre los avisos
+ * @author Alberto Macho
+ *
+ */
 public class GestorAvisos {
 
 	public GestorAvisos() {
 		super();
 	}
-
+/**
+ * 
+ * @param beanUsuario
+ * @return me devuelve una lista de los avisos que tiene un usuario
+ */
 	public ListaObjetoBean consultaAvisos(ObjetoBean beanUsuario) {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAviso bdfa = (BBDDFachadaAviso)(bdf.dameBBDDFachada(Constantes.FachadaAviso));
@@ -35,12 +43,23 @@ public class GestorAvisos {
 		BBDDFachada bdf = BBDDFachada.getInstance();
     	return   ((bdf.eliminar(usuavi)) && (bdf.eliminar(beanAviso)) );
 	}
+	/**
+	 * Me consulta todos los avisos con las caracteristicas del aviso que le pasmos por parametro
+	 * @param aviso
+	 * @return una lista de avisos
+	 */
 	public ListaObjetoBean consultarAvisos(ObjetoBean aviso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		ListaObjetoBean l= bdf.consultar(aviso);
 		return l;
 	}
+	/**
+	 * Modifica el aviso que existiera en el sistema con el mismo identificador que el aviso 
+	 * que le pasamos pero cambiando todo lo demas que sea distinto
+	 * @param aviso
+	 * @return cierto o falso dependiendo de si modifica correctamente el aviso
+	 */
 	public boolean editarAviso(ObjetoBean aviso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
@@ -208,7 +227,11 @@ public class GestorAvisos {
 	}
 	
 	
-	
+	/**
+	 * Comprueba el aviso que le pasamos por parametro
+	 * @param bean
+	 * @return devuelve una lista de errores
+	 */
 	private ListaObjetoBean comprobar(ObjetoBean bean) {
 		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
 		CreadorBean cBean = new CreadorBean();

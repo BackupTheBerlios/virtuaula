@@ -13,7 +13,11 @@ import beans.ObjetoBean;
 import beans.Profesor;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * 
+ * @author Alberto Macho
+ *
+ */
 public class Profesorado {
 	
 	public Profesorado() {
@@ -137,20 +141,35 @@ public class Profesorado {
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.publicarNota(beanCurso);
 	}
-
+/**
+ * COnsulta los contratos y devulve una lista con los que se correspondan con el contrato
+ * que le psasmos
+ * @param contrato
+ * @return
+ */
 	public ListaObjetoBean consultaContratos(ObjetoBean contrato)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.consultar(contrato);
 	}
-	
+	/**
+	 * Devuelve una lista de nominas que se correspondan con la que le 
+	 * pasamos por parametro
+	 * @param nomina
+	 * @return
+	 */
 	public ListaObjetoBean consultaNominas(ObjetoBean nomina)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		return bdf.consultar(nomina);
 	}
 	
-	
+	/**
+	 * Genera y devuelve el expediente de un curso que se compone de los alumnos
+	 * de este curso y de sus notas finales correspondientes.
+	 * @param curso, del cual queremos hallar su expediente
+	 * @return el expediente del curso deseado.
+	 */
 	public ListaObjetoBean dameExpedienteCurso(ObjetoBean curso)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
