@@ -78,7 +78,7 @@
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
               <font face="Trebuchet MS" color="#616D7E" point-size="5">
-			  <B>DATOS DEL PROFESOR</B><BR>
+			  <B>DATOS DEL PROFESOR</B><BR></font>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#877fff">        					
         					<th class="FormLiteral"><b>DNI</th>        					
