@@ -404,11 +404,16 @@ public class BBDDFachadaCurso extends BBDDFachada{
 			ListaObjetoBean resultados= creadorListaBean.crear();
 			Curso curso=(Curso) this.creador.getCreadorBean().crear(this.creador.getCreadorBean().Curso);
 			//Tenemos tuplas codAlumno,codCurso
+			ObjetoBean cursoAdentro;
 			for(int i=0;i<resultParcial.tamanio();i++){
 				curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,resultParcial.dameObjeto(i).dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
-				Curso cursoAdentro=(Curso) this.consultar(curso).dameObjeto(0);
-				if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
-					resultados.insertar(resultados.tamanio(),cursoAdentro);
+				ListaObjetoBean cursosAlumno=this.consultar(curso);
+				if(cursosAlumno.tamanio()>0){
+					cursoAdentro= cursosAlumno.dameObjeto(0);
+					if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
+						resultados.insertar(resultados.tamanio(),cursoAdentro);
+				}
+					
 			}
 			return resultados;
 		}
