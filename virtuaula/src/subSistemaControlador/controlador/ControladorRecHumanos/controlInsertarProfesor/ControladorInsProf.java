@@ -9,10 +9,15 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controlador que controla la navegacion entre dos paginas de
+ *insertar un profesor y que realiza la accion de insertar profesor
  */
 public class ControladorInsProf extends ControladorRecHumanos{
-
+/**
+ * Procesa la informacion necesaria de la sesion y realiza
+ * la insercion del profesor, dependiende del resultado, 
+ * pondra en el resultadooperacion OK o ERROR
+ */
 	public void procesarEvento() {
 		
 		//Comprobar que los datos sean correctos y insertar el profesor

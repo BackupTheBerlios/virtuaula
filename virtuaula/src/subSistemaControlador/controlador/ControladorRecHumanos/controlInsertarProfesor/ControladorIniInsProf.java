@@ -7,9 +7,17 @@ import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * 
+ * @author Alberto Macho
+ *Controlador para iniciar la insercion de un profesor.
+ *
+ */
 public class ControladorIniInsProf extends ControladorRecHumanos{
-
+/**
+ * Consulta las areas y las mete en sesion
+ * El resultado de la operacion depende de esta consulta
+ */
 	public void procesarEvento() {
 //		consultamos las areas disponibles en la academis y las metemos en sesion
 		Profesorado profesorado = new Profesorado();
