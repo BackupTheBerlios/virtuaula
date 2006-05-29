@@ -123,5 +123,6 @@ span.iconoAlert a {
     background:#638cb5;
     border:0px;
     width:150px;
-    height:20px;          
+    height:20px; 
+	cursor:hand;        
 }
