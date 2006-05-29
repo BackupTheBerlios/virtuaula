@@ -51,6 +51,18 @@ public class GestorAlumnos {
 	public boolean editarAlumno(ObjetoBean alumno){
 		BBDDFachada bdf= BBDDFachada.getInstance();
 		BBDDFachadaAlumno bdfa= (BBDDFachadaAlumno) (bdf.dameBBDDFachada(Constantes.FachadaAlumno));
+		//mandamos aviso al alumno diciendo que sus datos se han modificado
+		//primero me creo el aviso
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean usu = creador.crear(creador.Usuario);
+		usu.cambiaValor(Constantes.ID_ISUSUARIO_DNI,alumno.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+		ObjetoBean aviso = creador.crear(creador.Avisos);
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Datos personales modificados");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Sus datos personales han sido modificados");
+		ListaObjetoBean lista = new ListaObjetoBean();
+		lista.insertar(0,usu);
+		GestorAvisos gestAvisos = new GestorAvisos();
+		gestAvisos.avisoAGrupo(lista,aviso);
 		return bdfa.editar(alumno);
 	}
 	
