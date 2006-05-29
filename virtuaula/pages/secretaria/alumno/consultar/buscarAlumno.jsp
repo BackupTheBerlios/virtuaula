@@ -76,8 +76,8 @@
     		</div>
     		<div style="position:relative; left:20px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">
-    			   Debe rellenar los datos que conozca del profesor que desea encontrar<br>
-    			   En caso de no conocer ningún dato, pulse "Buscar" y se mostrarán todos los profesores asociados a la academia
+    			   Debe rellenar los datos que conozca del alumno que desea encontrar<br>
+    			   En caso de no conocer ningún dato, pulse "Buscar" y se mostrarán todos los alumnos matriculados en la academia
     			</font>
     		</div>    		
     			

@@ -9,7 +9,6 @@
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
-      <script language="JavaScript" src="../../../../script/calendar.js"></script>
 
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -20,6 +19,7 @@
 
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../../img/fondo.jpg">   
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
       	 
          <tr>
@@ -37,9 +37,10 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Confirmacion modificacion</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Confirmar modificación</b></font>                
     	   </div>                   			  	 
          <div align="right" style="position:relative; top:-5px">               
+    			 <b>            
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -51,20 +52,36 @@
                 // -->
                 </script>
               </font>
-             </div>
-    		  <div align="right" style="position:relative; top:45px; z-index:-1;">
+              </b>
+          </div>
+    		  <div align="right" style="position:relative; z-index:-1;">
+    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Menu principal';return true ">Menu principal</a>
-              <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Menu alumno';return true ">Menu alumno</a>
-     					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>    				</div>
-    		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de alumnos'; overlib('Pulse aquí si desea volver a gestión de alumnos'); return true;">Volver a gestión de alumnos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
+    				  </div>
+    				</form>
+    		  </div>
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
+    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Confirme los cambios introducidos (paso 4/4)</b></font>                
+    		</div>
+    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Asegúrese que los cambios que va a introducir son correctos<br>
+    			   Pulse el botón "Confirmar" para que los cambios queden registrados
+    			</font>
+    		</div>
+    		<div style="position:relative; top:-20px; left:150px; z-index:-1;">
+    			<form method=post action="/virtuaula/ServletVisualizador">
     		
     			
     	 <%
