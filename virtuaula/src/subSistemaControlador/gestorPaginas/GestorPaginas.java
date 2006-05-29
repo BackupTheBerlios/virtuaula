@@ -180,7 +180,7 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","BUSCAR_ALUM_EDITAR","OK","/virtuaula/pages/secretaria/alumno/editar/seleccionarAlumnoEditar.jsp");
 		agregarPaginas("secretaria","BUSCAR_ALUM_EDITAR","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
 		agregarPaginas("secretaria","SELEC_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/editar/editarAlumno.jsp");
-		agregarPaginas("secretaria","SELEC_EDITAR_ALUMNO","ERRPR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
+		agregarPaginas("secretaria","SELEC_EDITAR_ALUMNO","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
 		agregarPaginas("secretaria","CONF_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/editar/confirmarEditar.jsp");
 		agregarPaginas("secretaria","CONF_EDITAR_ALUMNO","ERROR","/virtuaula/pages/secretaria/alumno/editar/errorAlumnoEditar.jsp");
 		agregarPaginas("secretaria","FIN_EDITAR_ALUMNO","OK","/virtuaula/pages/secretaria/alumno/editar/exitoEditarAlumno.jsp");
