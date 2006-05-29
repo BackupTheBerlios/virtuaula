@@ -109,10 +109,18 @@
 			                    else{
    		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posAviso'>");
 			                         }
+			                         
+			                    if (aviso.dameValor("ACTIVO").equals ("S")) {      
 	                   	    out.println("</td>");
-	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</td>");
-	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</td>");
-	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</td>");
+	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</b><font></td>");
+	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</b><font></td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</b><font></td>");
+	                  	    } else {
+       	    	                   	  out.println("</td>");
+	                	                out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</b><font></td>");
+          	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</b><font></td>");
+          	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</b><font></td>");
+                                } 
 		                    }//fin for
 		      
 		                    out.println("<tr>");
@@ -179,3 +187,4 @@
 	   <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
+
