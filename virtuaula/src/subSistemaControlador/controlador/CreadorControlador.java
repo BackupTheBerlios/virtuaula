@@ -57,7 +57,7 @@ import subSistemaControlador.controlador.controlConexiones.*;
 
 /**
  * Proporciona un interfaz de creación de cualquier controlador
- * @author Fco Javier Pérez Escrivá
+ * @author Fco Javier Pérez Escrivá  && Alberto Macho 
  *
  */
 public class CreadorControlador {
