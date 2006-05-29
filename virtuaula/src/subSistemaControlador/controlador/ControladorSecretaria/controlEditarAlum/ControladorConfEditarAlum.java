@@ -1,5 +1,7 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlum;
+import gestores.GestorAlumnos;
 import beans.ObjetoBean;
+import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaBBDD.utils.*;
 /**
@@ -16,10 +18,14 @@ public class ControladorConfEditarAlum extends ControladorEditarAlumno{
 		ObjetoBean alumnoEdicion= (ObjetoBean)(this.getSesion().getAttribute("beanAlumno"));
 		alumnoEdicion.cambiaValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI,claveAlumno);
 		this.getSesion().setAttribute("beanAlumno",alumnoEdicion);
-		if(claveAlumno!=null){
+		GestorAlumnos GA= new GestorAlumnos();
+		ListaObjetoBean camposErroneos= GA.comprobar(alumnoEdicion);
+		if(claveAlumno!=null && camposErroneos.esVacio()){
 			this.setResuladooperacion("OK");
+			this.getSesion().removeAttribute("claveAlumno");
 		}
 		else{
+			this.getSesion().setAttribute("error",camposErroneos);
 			this.setResuladooperacion("ERROR");
 		}
 	}

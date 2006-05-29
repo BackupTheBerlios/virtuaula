@@ -35,7 +35,6 @@ public class ControladorSelecEditarAlum extends ControladorEditarAlumno {
 			this.setResuladooperacion("ERROR");
 		}
 		this.getSesion().removeAttribute("posAlumno");
-		this.getSesion().removeAttribute("listaalumno");
 	}
 	
 }

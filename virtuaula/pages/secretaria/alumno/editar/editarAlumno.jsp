@@ -97,7 +97,7 @@
         					<td><input type="text" class="FormTxt"  maxlength="9" name="TELEFONO" value="<%=alumno.dameValor("TELEFONO")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
-        					<td><input type="text" class="FormTxt" maxlength="10"  name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('buscarAlumnoEditar.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" readonly="true" maxlength="10"  name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('buscarAlumnoEditar.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
         				</tr>
         				<tr>
         					<td class="FormLiteral">Dirección</td>
@@ -131,30 +131,7 @@
 					         </td>
 				        </tr>	                       				
         			</table>
-              <%
               
-                  HttpSession sesion2=request.getSession();
-                
-                  ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");
-                 
-                 
-                  if (lista != null) 
-                  {
-                      out.println("<table>");
-                      int numeroElementos = lista.tamanio();
-                      for (int i=0; i < numeroElementos; i++)
-                      {
-                          Error error = (Error) lista.dameObjeto(i);
-                  
-                          out.println("<tr class='error'>");            
-                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
-                          out.println(""+error.dameValor("CAUSA_ERROR")+"");
-                          out.println("     </td>");
-                          out.println("</tr>");                                                
-                        }
-                        out.println("</table>");
-                    }
-              %>         			
           </form>
     		</div>
 	  </div>	  	  

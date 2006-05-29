@@ -99,6 +99,7 @@ public class GestorControladorSecretaria extends GestorControlador{
 		GestorControlador.tablaOperacionControlador.put("desconectar",c.crear(CreadorControlador.ControladorDesconectar));
 		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("VUELTA_ALUM2",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("VUELT_EDIT_ALUM",c.crear(CreadorControlador.ControladorPasaPag));
 		tablaOperacionGestor.put("CONS_ALUM2",new ControladorConsAlumno());
 		//consulta profesor
 		GestorControlador.tablaOperacionControlador.put("GES_PROF",c.crear(CreadorControlador.ControladorPasaPag));

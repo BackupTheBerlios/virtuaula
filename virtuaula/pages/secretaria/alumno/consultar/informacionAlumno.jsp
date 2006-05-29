@@ -4,7 +4,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Informacion Profesor Consultar </title>
+      <title> Consultar Informacion Alumno  </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       
@@ -34,7 +34,7 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
-          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Profesor</b></font>                
+          <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Alumno</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
@@ -87,7 +87,7 @@ out.println("               <td><h4>Apellido2</h4></td>");
 out.println("               <td><h4>Telefono</h4></td>");
 out.println("               <td><h4>Correo elcectronico</h4></td>");
 out.println("               <td><h4>Direccion</h4></td>");
-out.println("              </tr>   ");
+out.print("              </tr>   ");
                     
                   	   ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaalumno"));
                     	 Integer posicionLista =((Integer)sesion.getAttribute("posAlumno"));	
@@ -96,12 +96,12 @@ out.println("              </tr>   ");
                     			if (posicionLista != null) {
                     	
                         	Alumno alumno = (Alumno) listaObjetoBean.dameObjeto(posicionLista.intValue());
-                        	  %> <tr bgcolor="#dbecff">
+                        	  %> <tr bgcolor="#99CCFF">
     	                  <%
                   	  	
-                  	  	out.println("<tr>");
-    	                  out.println("<tr bgcolor='#99CCFF'>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
+                  	  	
+    	                  
+    	                  out.print("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO1"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO2"))+"</td>");

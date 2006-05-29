@@ -125,35 +125,12 @@
 					         <td colspan="7" align="center">     
 					          <input type="hidden" name="idBean" value="Alumno">
 						  		 <input type="hidden" name="evento" value="BUSCAR_ALUM_EDITAR">					         
-						        <button type="submit" class="botonSimple">Siguiente</button>
+						        <button type="submit" class="botonSimple">Buscar</button>
 						      
 					         </td>
 				        </tr>	                       				
         			</table>
-              <%
-              
-                  HttpSession sesion2=request.getSession();
-                
-                  ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");
-                 
-                 
-                  if (lista != null) 
-                  {
-                      out.println("<table>");
-                      int numeroElementos = lista.tamanio();
-                      for (int i=0; i < numeroElementos; i++)
-                      {
-                          Error error = (Error) lista.dameObjeto(i);
-                  
-                          out.println("<tr class='error'>");            
-                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>");                  
-                          out.println(""+error.dameValor("CAUSA_ERROR")+"");
-                          out.println("     </td>");
-                          out.println("</tr>");                                                
-                        }
-                        out.println("</table>");
-                    }
-              %>         			
+             
           </form>
     		</div>
 	  </div>	  	  

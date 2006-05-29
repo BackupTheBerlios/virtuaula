@@ -117,6 +117,7 @@ public class CreadorControlador {
 	static final public int ControladorConsultarHorarioBor2=53;
 	static final public int ControladorConsultarHorarioBor3=54;
 	static final public int ControladorLeerAviso=55;
+	static final public int ContEditarAlumnoIni=56;
 	
 	
 	private ArrayList tablaControladoresPrototipos;
@@ -184,6 +185,7 @@ public class CreadorControlador {
 		tablaControladoresPrototipos.add(53,new ControladorConsHorBor2());
 		tablaControladoresPrototipos.add(54,new ControladorConsHorBor3());
 		tablaControladoresPrototipos.add(55,new ControladorLeerAviso());
+		tablaControladoresPrototipos.add(56,new ContEditarAlumnoIni());
 		
 		
 		

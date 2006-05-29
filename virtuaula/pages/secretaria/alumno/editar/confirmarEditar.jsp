@@ -107,17 +107,12 @@
                   </td>
         				</tr>
         				<tr>  
+        				
         				<td class="FormLiteral">Sexo</td>
-        					<td>
-                      <select name="SEXO" class="FormTxt"  disabled="true" value="<%=alumno.dameValor("SEXO")%>">
-                         <option value="">Seleccione un sexo</option>
-	                       <option value="Masculino">Masculino</option>
-	                       <option value="Femenino">Femenino</option>
-                      </select>                                    
-                  </td>
-        					
-        					<td></td>
-        					
+        					<td><input type="text" class="FormTxt" disabled="true" maxlength="100" name="DIRECCION" value="<%=alumno.dameValor("SEXO")%>"></td>
+        				<td></td>
+        				   				
+        			        					
       			
         				</td>
                                   
@@ -126,7 +121,7 @@
 					         <td colspan="7" align="center">     
 					          <!--<input type="hidden" name="idBean" value="Alumno">-->
 						  		 <input type="hidden" name="evento" value="FIN_EDITAR_ALUMNO">					         
-						        <button type="submit" class="botonSimple">Siguiente</button>
+						        <button type="submit" class="botonSimple">Confirmar</button>
 						      
 					         </td>
 				        </tr>	                       				
