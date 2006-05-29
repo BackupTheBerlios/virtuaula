@@ -91,9 +91,9 @@
 
                   %>
         				<tr>
-        					<td class="FormLiteral">DNI</td>
-        					<td><input type="text"  class="FormTxt" disabled="true" maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>"></td>
-        					<td width="100"></td>
+        					
+        					<input type="hidden"  class="FormTxt"  maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>">
+        					
         					<td class="FormLiteral">Nombre</td>
         					<td><input type="text" class="FormTxt" name="NOMBRE" value="<%=profesor.dameValor("NOMBRE")%>"></td>
         				</tr>
