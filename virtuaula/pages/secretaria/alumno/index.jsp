@@ -77,7 +77,6 @@
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">
     			  Desde esta página puede elegir qué desea hacer:<br><br>
     			  - Matricular un alumno en un curso impartido por la academia<br>
-    			  - Dar de baja un alumno de del curso en el que está matriculado<br>
     			  - Modificar los datos de un alumno matriculado en la academia<br>
     			  - Buscar un alumno de entre todos los matriculados
     			</font>
