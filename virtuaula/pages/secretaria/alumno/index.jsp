@@ -1,8 +1,9 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-      <title> Pagina Principal de Alumno </title>
+      <title> Pagina Principal Gestion de Alumnos </title>
       <link href="../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
+      <script language="JavaScript" src="../../../script/overlib_mini.js"></script>
 
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -13,6 +14,7 @@
       
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   <body background="../../../img/fondo.jpg">
       <table width="983px" border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td width="3000" background="../../../img/cabF.jpg"><img src="../../../img/cabI.jpg"></td>
@@ -43,28 +45,46 @@
                 </script>
               </font>
             </b>
-          </div>
-    		  <div style="position:relative; top:25px; z-index:-1;">
-     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+            <div align="right" style="position:relative; top:23px;style="position:relative; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-        					<a href="JavaScript:lanzaFormulario('MAT_ALUM_DOS');" onmouseout="window.status=''" onmouseover="window.status='Matrcular Alumno';return true ">Matricular</a>
-        					<a href="#">Baja</a>
-                  <a href="JavaScript:lanzaFormulario('EDITAR_ALUM_INI');" onmouseout="window.status=''" onmouseover="window.status='Modificar los datos de un Alumno';return true ">Modificar datos alumno</a>
-                	<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Consultar los datos de un alumno';return true ">Consultar datos Alumno</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
-            </form>     				
+    				</form>
+    		  </div>
+          </div>
+    		  <div style="position:relative; top:5px; z-index:-1;">
+    	  			<div class="botonesSubMenu">
+    				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    				     <input type="hidden" name="evento">
+    					<a href="JavaScript:lanzaFormulario('MAT_ALUM_DOS');" onmouseout="window.status=''" onmouseover="window.status='Matricular alumno';return true ">Matricular alumno</a>
+        					<a href="#">Dar de baja</a>
+                  				<a href="#">Modificar datos de alumno</a>
+        					<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Buscar alumno';return true ">Buscar alumno</a>
+    				</div>
     		</div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:43px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; top:55px; z-index:-1;">
-    			Esto keda para pintar en alumnos
+    		<div style="position:relative; top:90px; left:50px; z-index:-1;">
     		</div>
 	  </div>
+	   <div style="position:relative; left:50px; top:50px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">
+    			  Desde esta página puede elegir qué desea hacer:<br><br>
+    			  - Matricular un alumno en un curso impartido por la academia<br>
+    			  - Dar de baja un alumno de del curso en el que está matriculado<br>
+    			  - Modificar los datos de un alumno matriculado en la academia<br>
+    			  - Buscar un alumno de entre todos los matriculados
+    			</font>
+     </div>
+	  	  <map name="map">
+        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"></a>
+      </map>
+      <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:100px; width:50px"></div>	    
    </body>
 </html>

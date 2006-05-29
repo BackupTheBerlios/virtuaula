@@ -7,6 +7,7 @@
       <title> Consultar Informacion Alumno  </title>
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
+      <script type="text/javascript" language="JavaScript" src="../../../../script/overlib_mini.js"></script>
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -37,6 +38,7 @@
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Información Alumno</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
+    		  	<b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -48,38 +50,45 @@
                 // -->
                 </script>
               </font>
+              </b>
           </div>
-    		  <div align="right" style="position:relative; top:25px; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
-    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu principal';return true ">Volver al menu principal</a>
-                <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Volver al menu de profesor';return true ">Volver al menu de alumno</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''" onmouseover="window.status='Desconectar';return true "><font color="#660000">Desconectar</font></a>
+    	  			  <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+                        <a href="JavaScript:lanzaFormulario('GES_ALUM');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver a gestión de alumnos'; overlib('Pulse aquí si desea volver a gestión de alumnos'); return true;">Volver a gestión de alumnos</a>
+      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
     		  </div>
-    		<div style="position:relative; top:4px; z-index:-1;">
+    		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
     		         </tr>
     			 </table>
     		</div>
+    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Datos del alumno seleccionado (paso 3/3)</b></font>                
+    		</div>
+    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   A continuación se le muestran los datos del alumno seleccionado<br>
+    			   Pulse "Aceptar" en el botón del fondo de la página
+    			</font>
+    		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <!--<table border="0" cellspacing="0" cellpadding="10">
-        			-->
-        				
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5">
+			  <B>DATOS DEL ALUMNO</B><BR></font>
+              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
+<font face="Trebuchet MS" color="#616D7E" point-size="5">       				
         				
         			<%
                     HttpSession sesion=request.getSession();
-                    	out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
-out.println("            <tr bgcolor='#3366CC'>");
-out.println("               <td colspan='7' align='center'><h3><font color='#FFFFFF'>Datos del alumno</font></h3></td>");
-out.println("             </tr>");
-out.println("             <tr bgcolor='#3399FF'>");
+out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
+out.println("             <tr bgcolor='#877fff'>");
 out.println("               <td><h4>Identificador</h4></td>");
 out.println("               <td><h4>Nombre</h4></td>");
 out.println("               <td><h4>Apellido1</h4></td>");
@@ -96,7 +105,7 @@ out.print("              </tr>   ");
                     			if (posicionLista != null) {
                     	
                         	Alumno alumno = (Alumno) listaObjetoBean.dameObjeto(posicionLista.intValue());
-                        	  %> <tr bgcolor="#99CCFF">
+                        	  %> <tr bgcolor="#dbecff">
     	                  <%
                   	  	
                   	  	
@@ -124,10 +133,7 @@ out.print("              </tr>   ");
            if (listaCursos != null && !listaCursos.esVacio()){
            
 out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
-out.println("            <tr bgcolor='#3366CC'>");
-out.println("               <td colspan='7' align='center'><h3><font color='#FFFFFF'>Cursos en los cuales está matriculado el alumno</font></h3></td>");
-out.println("             </tr>");
-out.println("             <tr bgcolor='#3399FF'>");
+out.println("             <tr bgcolor='#877fff'>");
 out.println("               <td><h4>Identificador</h4></td>");
 out.println("               <td><h4>Nombre</h4></td>");
 out.println("               <td><h4>N&uacute;mero de plazas</h4></td>");
@@ -145,7 +151,7 @@ out.println("              </tr>   ");
                   	   for (int i=0; i<listaCursos.tamanio();i++) {
                     	
                         curso = (Curso) listaCursos.dameObjeto(i);
-    	                  out.println("<tr bgcolor='#99CCFF'>");
+    	                  out.println("<tr bgcolor='#dbecff'>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("IDISCURSO"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
@@ -186,8 +192,10 @@ out.println("              </tr>   ");
 					         </td>
 				        </tr>	                       				
         			</table>
+        			</font>
           </form>
     		</div>
 	  </div>
+    <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>	 	  
    </body>
 </html>
