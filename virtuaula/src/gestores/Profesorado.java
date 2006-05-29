@@ -117,6 +117,18 @@ public class Profesorado {
 	public boolean editar(ObjetoBean profesor)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
+//		mandamos aviso al alumno diciendo que sus datos se han modificado
+		//primero me creo el aviso
+		CreadorBean creador = new CreadorBean();
+		ObjetoBean usu = creador.crear(creador.Usuario);
+		usu.cambiaValor(Constantes.ID_ISUSUARIO_DNI,profesor.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI));
+		ObjetoBean aviso = creador.crear(creador.Avisos);
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Datos personales modificados");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Sus datos personales han sido modificados");
+		ListaObjetoBean lista = new ListaObjetoBean();
+		lista.insertar(0,usu);
+		GestorAvisos gestAvisos = new GestorAvisos();
+		gestAvisos.avisoAGrupo(lista,aviso);
 		return bdf.editar(profesor);
 	}
 	/**
