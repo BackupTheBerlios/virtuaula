@@ -30,6 +30,10 @@ public class EnviarAvisoSec extends ControladorAvisoSec{
 			{//el aviso es para un grupo de contables(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
+			if (op.equals("Departamento RRHH"))
+			{//el aviso es para un grupo de RRHH(usuarios)
+				 errores=GA.avisoAGrupo(destino,aviso);
+			}
 			else if (op.equals("Profesorado"))
 			{//el aviso es para un grupo de profesores			
 				

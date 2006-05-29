@@ -24,9 +24,14 @@ public class IniEnviarAvisoSec extends ControladorAvisoSec{
 		
 		GestorCursos GC = new GestorCursos();
 		ListaObjetoBean listaCont =GU.dameUsuarios("contable");
+		ListaObjetoBean listaRRHH = GU.dameUsuarios("rrhh");
 		ListaObjetoBean listaProf= profesorado.consultaProfesores();
 		ListaObjetoBean listaCur = GC.dameCursosActivos();
 		
+		if (!listaRRHH.esVacio())
+		{
+			mapGrupos.put("Departamento RRHH",listaRRHH);
+		}
 		if (!listaCont.esVacio())
 		{
 			mapGrupos.put("Departamento Contable",listaCont);
