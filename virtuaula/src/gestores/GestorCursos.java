@@ -309,7 +309,7 @@ public class GestorCursos {
 		}
 
 		if (bean.dameValor(Constantes.CURSO_ISAREA_IDISAREA).equals("")) {
-			mensaje = "El campo area no ha sido rellenado";
+			mensaje = "El campo área no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
@@ -389,7 +389,7 @@ public class GestorCursos {
 				int numerico = Integer.parseInt(bean
 						.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
 				if (numerico < 0) {
-					mensaje = "El campo numero de plazas tiene un valor incorrecto";
+					mensaje = "El campo número de plazas tiene un valor incorrecto";
 					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					l.insertar(i, error);
@@ -397,7 +397,7 @@ public class GestorCursos {
 				}
 			} catch (Exception e) {
 				// No es número
-				mensaje = "El campo numero de plazas debe ser numérico";
+				mensaje = "El campo número de plazas debe ser numérico";
 				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				l.insertar(i, error);
@@ -500,7 +500,7 @@ public class GestorCursos {
 				
 				// Insertar en tabla intermedia de relacion Horario-Aula
 				if(!bdf.insertar(hha)){
-					String mensaje = "Error de Base de Datos al crear relacion";
+					String mensaje = "Error de Base de Datos al crear relación";
 					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 					error.cambiaValor("CAUSA_ERROR", mensaje);
 					result.insertar(0, error);
