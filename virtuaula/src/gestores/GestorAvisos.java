@@ -638,7 +638,8 @@ public class GestorAvisos {
 	public int numeroAvisosNuevos(ObjetoBean beanUsuario){
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		BBDDFachadaAviso bdfa = (BBDDFachadaAviso)(bdf.dameBBDDFachada(Constantes.FachadaAviso));
-		ListaObjetoBean l = bdfa.dameAvisosUsuario(beanUsuario);
+		ListaObjetoBean l = bdfa.dameAvisosNuevosUsuario(beanUsuario);
+		
 		return l.tamanio();
 	}
 
