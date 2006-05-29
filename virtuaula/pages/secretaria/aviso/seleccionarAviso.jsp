@@ -111,15 +111,16 @@
 			                         }
 			                         
 			                    if (aviso.dameValor("ACTIVO").equals ("S")) {      
+			                    
 	                   	    out.println("</td>");
-	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</b><font></td>");
-	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</b><font></td>");
-	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856'><b>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</b><font></td>");
+	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"<font></td>");
+	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"<font></td>");
+	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"<font></td>");
 	                  	    } else {
        	    	                   	  out.println("</td>");
-	                	                out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</b><font></td>");
-          	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</b><font></td>");
-          	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0'><b>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</b><font></td>");
+	                	                out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"<font></td>");
+          	                	      out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"<font></td>");
+          	                  	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"<font></td>");
                                 } 
 		                    }//fin for
 		      
