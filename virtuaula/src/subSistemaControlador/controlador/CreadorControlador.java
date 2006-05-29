@@ -7,6 +7,7 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatricula;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
+import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorLeerAviso;
 import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
 
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorConsCur;
@@ -115,6 +116,7 @@ public class CreadorControlador {
 	static final public int ControladorConsultarHorarioBor=52;
 	static final public int ControladorConsultarHorarioBor2=53;
 	static final public int ControladorConsultarHorarioBor3=54;
+	static final public int ControladorLeerAviso=55;
 	
 	
 	private ArrayList tablaControladoresPrototipos;
@@ -181,6 +183,8 @@ public class CreadorControlador {
 		tablaControladoresPrototipos.add(52,new ControladorConsHorBor());
 		tablaControladoresPrototipos.add(53,new ControladorConsHorBor2());
 		tablaControladoresPrototipos.add(54,new ControladorConsHorBor3());
+		tablaControladoresPrototipos.add(55,new ControladorLeerAviso());
+		
 		
 		
 		
