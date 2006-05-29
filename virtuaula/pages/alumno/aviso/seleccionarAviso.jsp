@@ -107,10 +107,19 @@
 			                    else{
    		         	               out.println("<input type='radio' class='FormTxt' value='"+i+"' name='posAviso'>");
 			                         }
-	                   	    out.println("</td>");
-	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"</td>");
-	                	      out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"</td>");
-	                  	    out.println("    <td class='FormLiteral' align='center'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"</td>");
+			                    if (aviso.dameValor("ACTIVO").equals ("S")) {      
+			                    
+	                   	    		out.println("</td>");
+	                	      		out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"<font></td>");
+	                	      		out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"<font></td>");
+	                  	    		out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#2B3856' size='2'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"<font></td>");
+	                  	    } else {
+       	    	                   	out.println("</td>");
+	                	              out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("IDISAVISOS"))+"<font></td>");
+          	                	    out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("ASUNTO"))+"<font></td>");
+          	                  	  out.println("    <td class='FormLiteral' align='center'><font face='Trebuchet MS' color='#C0C0C0' size='2'>"+String.valueOf(aviso.dameValor("FECHA_AVISO"))+"<font></td>");
+                                } 	
+
 		                    }//fin for
 		      
 		                    out.println("<tr>");
