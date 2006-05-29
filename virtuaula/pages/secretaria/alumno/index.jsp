@@ -48,6 +48,7 @@
             <div align="right" style="position:relative; top:23px;style="position:relative; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
+    	  			     <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Menú principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				  </div>
     				</form>
@@ -58,8 +59,7 @@
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
     					<a href="JavaScript:lanzaFormulario('MAT_ALUM_DOS');" onmouseout="window.status=''" onmouseover="window.status='Matricular alumno';return true ">Matricular alumno</a>
-        					<a href="#">Dar de baja</a>
-                  				<a href="#">Modificar datos de alumno</a>
+							<a href="JavaScript:lanzaFormulario('EDITAR_ALUM_INI');" onmouseout="window.status=''" onmouseover="window.status='Buscar alumno';return true ">Modificar datos de alumno</a>
         					<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Buscar alumno';return true ">Buscar alumno</a>
     				</div>
     		</div>
