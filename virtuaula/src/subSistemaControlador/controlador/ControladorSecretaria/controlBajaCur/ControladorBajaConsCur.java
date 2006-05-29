@@ -9,7 +9,7 @@ import gestores.GestorCursos;
 
 /**
  * 
- * @author Sergio Piqueras Martínez
+ * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
  * en la consulta de un curso. En este paso consultará los cursos que cumplen las
  * características de los datos introducidos en la página anterior para poder 

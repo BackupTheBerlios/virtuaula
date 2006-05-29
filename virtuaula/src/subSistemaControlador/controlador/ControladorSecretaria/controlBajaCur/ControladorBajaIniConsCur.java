@@ -7,7 +7,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 /**
  * 
- * @author Sergio Piqueras Martínez
+ * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
  * en la consulta de un curso. En este paso consultará las areas, los horarios, 
  * los profesore y las aulas disponibles en el sistema para poder mostrarlas en 

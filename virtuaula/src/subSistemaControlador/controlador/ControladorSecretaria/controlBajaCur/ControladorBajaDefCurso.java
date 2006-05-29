@@ -6,6 +6,15 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+/**
+ * 
+ * @author Alberto Macho
+ * Controla la navegacion entre dos paginas.
+ * Concretamente este controlador da de baja el curso
+ * y devuelve OK o ERROR en el resultado para
+ * que pase a una u otra pagina
+ *
+ */
 public class ControladorBajaDefCurso extends ControladorBajaCurso{
 
 	public void procesarEvento() {

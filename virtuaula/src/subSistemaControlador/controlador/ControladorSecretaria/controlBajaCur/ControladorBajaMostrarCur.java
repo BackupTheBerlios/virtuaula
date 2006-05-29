@@ -8,7 +8,7 @@ import gestores.GestorCursos;
 
 /**
  * 
- * @author Sergio Piqueras Martínez
+ * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
  * en la consulta de un curso. En este paso buscará el profesor, horario, aula y área
  * que tiene el curso seleccionado y los pasa a la session.
