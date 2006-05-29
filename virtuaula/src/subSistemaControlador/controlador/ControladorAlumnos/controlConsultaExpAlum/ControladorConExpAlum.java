@@ -25,7 +25,10 @@ public class ControladorConExpAlum extends ControladorAlumnos{
 			this.setResuladooperacion("OK");
 			this.getSesion().removeAttribute("error");
 			this.getSesion().setAttribute("listaexpedientealumno",listaexp);
-			
+			ListaObjetoBean listaA=GA.consultaAlumnos(alumno);
+			//Como solo encontrara un alumno por ese DNI lo cojo de la pos cero
+			ObjetoBean alum = listaA.dameObjeto(0);
+			this.getSesion().setAttribute("beanAlumno",alum);
 		}
 		else if (listaexp==null)
 		{
