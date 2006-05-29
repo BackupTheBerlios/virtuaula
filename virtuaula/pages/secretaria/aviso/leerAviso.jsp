@@ -93,17 +93,15 @@
               if (aviso == null) {aviso = new Avisos ();}
               
           %>    			
-            <table border='0' cellspacing='0' cellpadding='10'>  
+            <table border='0' cellspacing='0' cellpadding='20'>  
         				<tr>
         					<td class="FormLiteral">Asunto</td>
-        					<td><input type="text" class="FormTxt" name="ASUNTO" disabled="true" value="<%=aviso.dameValor("ASUNTO")%>"></td>
+        					<td><input size="50" type="text" class="FormTxt" name="ASUNTO" disabled="true" value="<%=aviso.dameValor("ASUNTO")%>"></td>
 
         					<td></td>
         					<td class="FormLiteral">Fecha Aviso</td>
-        					<td><input type="text" class="FormTxt" name="FECHA_AVISO" disabled="true" value="<%=aviso.dameValor("FECHA_AVISO")%>"></td>
+        					<td><input size="15" type="text" class="FormTxt" name="FECHA_AVISO" disabled="true" value="<%=aviso.dameValor("FECHA_AVISO")%>"></td>
         					<td></td>
-        					
-
         				</tr>
         		</table> 
         		<table border='0' cellspacing='0' cellpadding='10'>  		

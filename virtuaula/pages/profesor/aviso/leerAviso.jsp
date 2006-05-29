@@ -102,7 +102,7 @@
 
         					<td></td>
         					<td class="FormLiteral">Fecha Aviso</td>
-        					<td><input type="text" class="FormTxt" name="FECHA_AVISO" disabled="true" value="<%=aviso.dameValor("FECHA_AVISO")%>"></td>
+        					<td><input size="15" type="text" class="FormTxt" name="FECHA_AVISO" disabled="true" value="<%=aviso.dameValor("FECHA_AVISO")%>"></td>
         					<td></td>
         				</tr>
         		</table> 
