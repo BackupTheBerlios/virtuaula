@@ -63,18 +63,20 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 	        	curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,cursoAlumnoFichaNotaActual.dameValor(Constantes.ID_HAS_ISCURSO_IDISCURSO));
 	        	critCurso= this.crearObjetoCriterioAdecuado(curso);
 	        	cursoActual = tablaCurso.consultar(critCurso).dameObjeto(0);
-					
-	        	expedienteActual.cambiaValor(Constantes.ID_EXPEDIENTECURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
-	        	expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ESTADO,cursoActual.dameValor(Constantes.CURSO_ESTADO));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_FIN,cursoActual.dameValor(Constantes.CURSO_FECHA_FIN));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_INICIO,cursoActual.dameValor(Constantes.CURSO_FECHA_INICIO));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISAREA_IDISAREA,cursoActual.dameValor(Constantes.CURSO_ISAREA_IDISAREA));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISPROFESOR_ISUSUARIO_DNI,cursoActual.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOMBRE,cursoActual.dameValor(Constantes.CURSO_NOMBRE));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOTAFINAL,cursoAlumnoFichaNotaActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NUMERO_PLAZAS,cursoActual.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
-				expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_PRECIO,cursoActual.dameValor(Constantes.CURSO_PRECIO));
-				expedientesCursos.insertar(expedientesCursos.tamanio(),expedienteActual);
+			    if(cursoActual!=null){
+			    	expedienteActual.cambiaValor(Constantes.ID_EXPEDIENTECURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
+		        	expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ESTADO,cursoActual.dameValor(Constantes.CURSO_ESTADO));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_FIN,cursoActual.dameValor(Constantes.CURSO_FECHA_FIN));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_FECHA_INICIO,cursoActual.dameValor(Constantes.CURSO_FECHA_INICIO));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISAREA_IDISAREA,cursoActual.dameValor(Constantes.CURSO_ISAREA_IDISAREA));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_ISPROFESOR_ISUSUARIO_DNI,cursoActual.dameValor(Constantes.CURSO_ISPROFESOR_ISUSUARIO_DNI));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOMBRE,cursoActual.dameValor(Constantes.CURSO_NOMBRE));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NOTAFINAL,cursoAlumnoFichaNotaActual.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_NUMERO_PLAZAS,cursoActual.dameValor(Constantes.CURSO_NUMERO_PLAZAS));
+					expedienteActual.cambiaValor(Constantes.EXPEDIENTECURSO_PRECIO,cursoActual.dameValor(Constantes.CURSO_PRECIO));
+					expedientesCursos.insertar(expedientesCursos.tamanio(),expedienteActual);
+			    }
+	        	
 			}
 			return expedientesCursos;
 		}

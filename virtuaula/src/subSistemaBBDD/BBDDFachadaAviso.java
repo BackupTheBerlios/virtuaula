@@ -33,8 +33,13 @@ public class BBDDFachadaAviso extends BBDDFachada{
 		for (int i=0;i <avisosUsuario.tamanio();i++){
 			ObjetoBean avisoBuscado = creadorBean.crear(creadorBean.Avisos);
 			avisoBuscado.cambiaValor(Constantes.ID_ISAVISOS,avisosUsuario.dameObjeto(i).dameValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO));
-			ObjetoBean avisoUsu =this.consultar(avisoBuscado).dameObjeto(0);
-			avisos.insertar(avisos.tamanio(),avisoUsu);		
+			ListaObjetoBean avisosNuevos= this.consultar(avisoBuscado);
+			if(avisosNuevos.tamanio()>0){
+				ObjetoBean avisoUsu =avisosNuevos.dameObjeto(0);
+				avisos.insertar(avisos.tamanio(),avisoUsu);
+			}
+			
+					
 		}
 		return avisos;
 	}
@@ -57,9 +62,14 @@ public class BBDDFachadaAviso extends BBDDFachada{
 		for (int i=0;i <avisosUsuario.tamanio();i++){
 			ObjetoBean avisoBuscado = creadorBean.crear(creadorBean.Avisos);
 			avisoBuscado.cambiaValor(Constantes.ID_ISAVISOS,avisosUsuario.dameObjeto(i).dameValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO));
-			ObjetoBean avisoUsu =this.consultar(avisoBuscado).dameObjeto(0);
-			if(avisoUsu.dameValor(Constantes.AVISOS_ACTIVO).equals("S"))
-				avisos.insertar(avisos.tamanio(),avisoUsu);		
+			ListaObjetoBean avisosNuevos= this.consultar(avisoBuscado);
+			if(avisosNuevos.tamanio()>0){
+				ObjetoBean avisoUsu =avisosNuevos.dameObjeto(0);
+				if(avisoUsu.dameValor(Constantes.AVISOS_ACTIVO)!=null && avisoUsu.dameValor(Constantes.AVISOS_ACTIVO).equals("S"))
+					avisos.insertar(avisos.tamanio(),avisoUsu);
+			}
+			
+					
 		}
 		return avisos;
 	}
