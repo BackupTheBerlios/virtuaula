@@ -634,6 +634,7 @@ public class GestorAvisos {
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		int numDest= grupo.tamanio();
 		String asunto = aviso.dameValor(Constantes.AVISOS_ASUNTO);
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
 		
 		if (numDest>0)
