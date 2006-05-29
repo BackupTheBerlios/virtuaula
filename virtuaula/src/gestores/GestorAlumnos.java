@@ -158,7 +158,7 @@ public class GestorAlumnos {
 		
 		//Compruebo que el DNI no se haya dejado vacio
 		if (bean.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI).equals("")) {
-			mensaje = "El campo DNI no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo DNI no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -185,7 +185,7 @@ public class GestorAlumnos {
 		}
 		//Compruebo que el Nombre no se haya dejado vacío
 		if (bean.dameValor(Constantes.ALUMNO_NOMBRE).equals("")) {
-			mensaje = "El campo Nombre no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo Nombre no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -193,7 +193,7 @@ public class GestorAlumnos {
 		}
 		//Compruebo que el campo Apellido1 no se haya dejado en blanco
 		if (bean.dameValor(Constantes.ALUMNO_APELLIDO1).equals("")) {
-			mensaje = "El campo Apellido1 no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo Apellido1 no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -201,7 +201,7 @@ public class GestorAlumnos {
 		}
 		//Compruebo que el campo Apellido2 no se haya dejado en blanco
 		if (bean.dameValor(Constantes.ALUMNO_APELLIDO2).equals("")) {
-			mensaje = "El campo Apellido2 no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo Apellido2 no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -209,7 +209,7 @@ public class GestorAlumnos {
 		}
 		//Compruebo que el telefono no se deja sin rellenar
 		if (bean.dameValor(Constantes.ALUMNO_TELEFONO).equals("")) {
-			mensaje = "El campo Telefono no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo Telefono no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -220,7 +220,7 @@ public class GestorAlumnos {
 			int numerico = Integer.parseInt(bean
 					.dameValor(Constantes.ALUMNO_TELEFONO));
 			if (numerico < 0) {
-				mensaje = "El campo Telefono tiene un valor incorrecto";
+				mensaje = "El campo Teléfono tiene un valor incorrecto";
 				ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 				error.cambiaValor("CAUSA_ERROR", mensaje);
 				l.insertar(i, error);
@@ -228,7 +228,7 @@ public class GestorAlumnos {
 			}
 		} catch (Exception e) {
 			// No es número
-			mensaje = "El campo Telefono debe ser numérico";
+			mensaje = "El campo Teléfono debe ser numérico";
 			ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
 			l.insertar(i, error);
@@ -236,7 +236,7 @@ public class GestorAlumnos {
 		}
 		//compruebo que el campo email no se deja sin rellenar
 		if (bean.dameValor(Constantes.ALUMNO_EMAIL).equals("")) {
-			mensaje = "El campo Email no ha sido rellenado,por favor introduzca uno";
+			mensaje = "El campo Email no ha sido rellenado, por favor introduzca uno";
 			ObjetoBean error = cBean.crear(cBean.Error);
 			error.cambiaValor(Constantes.CAUSA, mensaje);
 			l.insertar(i, error);
@@ -380,7 +380,7 @@ public class GestorAlumnos {
 						
 						ObjetoBean aviso = creador.crear(creador.Avisos);
 						aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo ingreso");
-						aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha producido un ingreso de "+Curso.dameValor(Constantes.CURSO_PRECIO)+"" +
+						aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha producido un ingreso de "+Curso.dameValor(Constantes.CURSO_PRECIO)+" " +
 								"euros por nueva matricula");
 						
 						BBDDFachadaUsuario bdfu = (BBDDFachadaUsuario)(bdf.dameBBDDFachada(Constantes.FachadaUsuario));
