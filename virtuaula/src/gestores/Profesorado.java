@@ -150,7 +150,22 @@ public class Profesorado {
 		BBDDFachada bdf = BBDDFachada.getInstance();
 		beanCurso.cambiaValor(Constantes.CURSO_ESTADO,"inactivo");
 		bdf.editar(beanCurso);
+		CreadorBean creador = new CreadorBean();
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
+		ListaObjetoBean listaAlum =this.consultaAlumnosDeCurso(beanCurso);
+		ListaObjetoBean listaUsu = new ListaObjetoBean();
+		for (int i=0;i<listaAlum.tamanio();i++)
+		{
+			ObjetoBean usuario=creador.crear(creador.Usuario);
+			usuario.cambiaValor(Constantes.ID_ISUSUARIO_DNI,listaAlum.dameObjeto(i).dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+			listaUsu.insertar(i,usuario);
+		}
+		//me creo el aviso a mandar
+		ObjetoBean aviso = creador.crear(creador.Avisos);
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Notas publicadas");
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Las notas del curso "+beanCurso.dameValor(Constantes.CURSO_NOMBRE)+" han sido publicadas");
+		GestorAvisos gestAvisos = new GestorAvisos();
+		gestAvisos.avisoAGrupo(listaUsu,aviso);
 		return bdfc.publicarNota(beanCurso);
 	}
 /**
