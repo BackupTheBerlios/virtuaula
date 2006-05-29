@@ -20,7 +20,7 @@ public GestorControladorOpAvisSec(){
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_SEC",creadorcont.crear(CreadorControlador.ControladorOp_Avis));
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_SEC",creadorcont.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_SEC",creadorcont.crear(CreadorControlador.ControladorLeerAviso));
 		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO_SEC",creadorcont.crear(CreadorControlador.BorraAviso));
 		GestorControlador.tablaOperacionControlador.put("VOLVER_ANTERIOR_S",creadorcont.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("ENV_AVISO_INI_SEC",creadorcont.crear(CreadorControlador.IniEnviarAvisoSec));

@@ -26,7 +26,7 @@ public GestorControladorOpAvisProf(){
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_PROF",c.crear(CreadorControlador.ControladorOp_Avis));
-		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_PROF",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("MOSTRAR_AVISOS_PROF",c.crear(CreadorControlador.ControladorLeerAviso));
 		GestorControlador.tablaOperacionControlador.put("BORRA_AVISO",c.crear(CreadorControlador.BorraAviso));
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_PROF_OPCIONES",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("INI_AVI_PROF",c.crear(CreadorControlador.IniEnviarAvisoProf));
