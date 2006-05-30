@@ -51,7 +51,7 @@
               </font>
             </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -87,13 +87,9 @@
                     Integer posicionLista =((Integer)sesion.getAttribute("posProf"));
                     int posi=posicionLista.intValue();
                   	ObjetoBean profesor=listaObjetoBean.dameObjeto(posi);	
-                  	Area area = (Area) sesion.getAttribute("beanArea");
 
-                  %>
-        				<tr>
-        					
-        					<input type="hidden"  class="FormTxt"  maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>">
-        					
+                  %>                  		
+        				<tr>        					        					
         					<td class="FormLiteral">Nombre</td>
         					<td><input type="text" class="FormTxt" name="NOMBRE" value="<%=profesor.dameValor("NOMBRE")%>"></td>
         				</tr>
@@ -113,7 +109,7 @@
         				</tr>
         				<tr>
         				</tr>
-              	<tr>
+              			<tr>
 					         <td colspan="7" align="center">
 					          <input type="hidden" name="idBean" value="Profesor">
 					          <input type="hidden" name="evento" value="EDITA_PROF">
@@ -121,6 +117,7 @@
 					         </td>
 				        </tr>	                       				
         			</table>
+					<input type="hidden"  class="FormTxt"  maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>">
           </form>
     		</div>
 	  </div>

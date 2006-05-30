@@ -49,7 +49,7 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -81,13 +81,13 @@
 			  <B>DATOS DEL PROFESOR</B><BR></font>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><b>DNI</th>        					
-        					<th class="FormLiteral"><b>Nombre</th>
-        					<th class="FormLiteral"><b>Primer Apellido</th>
-        					<th class="FormLiteral"><b>Segundo Apellido</th>
-        					<th class="FormLiteral"><b>Teléfono</th>
-        					<th class="FormLiteral"><b>Correo electrónico</th>
-        					<th class="FormLiteral"><b>Área</th>
+        					<th class="FormLiteral"><b>DNI</b></th>        					
+        					<th class="FormLiteral"><b>Nombre</b></th>
+        					<th class="FormLiteral"><b>Primer Apellido</b></th>
+        					<th class="FormLiteral"><b>Segundo Apellido</b></th>
+        					<th class="FormLiteral"><b>Teléfono</b></th>
+        					<th class="FormLiteral"><b>Correo electrónico</b></th>
+        					<th class="FormLiteral"><b>Área</b></th>
         				</tr>
         				
         				
@@ -131,13 +131,13 @@
 			  <B>DATOS DEL CURSO</B><BR>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
         				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><b>Nombre Curso</th>
-        					<th class="FormLiteral"><b>Número de plazas</th>
-        					<th class="FormLiteral"><b>Estado</th>
-        					<th class="FormLiteral"><b>Fecha Inicio</th>
-        					<th class="FormLiteral"><b>Fecha Fin</th>	
-        					<th class="FormLiteral"><b>Precio</th>
-        					<th class="FormLiteral"><b>Área</th>
+        					<th class="FormLiteral"><b>Nombre Curso</b></th>
+        					<th class="FormLiteral"><b>Número de plazas</b></th>
+        					<th class="FormLiteral"><b>Estado</b></th>
+        					<th class="FormLiteral"><b>Fecha Inicio</b></th>
+        					<th class="FormLiteral"><b>Fecha Fin</b></th>	
+        					<th class="FormLiteral"><b>Precio</b></th>
+        					<th class="FormLiteral"><b>Área</b></th>
         				</tr>
            <%
            
