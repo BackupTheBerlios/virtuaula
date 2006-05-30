@@ -55,7 +55,7 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -133,7 +133,6 @@
     		         	 Pulse "Atrás" para volver a la página anterior</font>               
     		          </div>
 		              <%
-		              out.println("<font class='error'>No tiene ningún curso asociado</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
