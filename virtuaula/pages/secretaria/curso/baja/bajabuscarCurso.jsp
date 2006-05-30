@@ -41,6 +41,7 @@ var i = 0;
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Buscar curso</b></font>                
     	   </div> 
          <div align="right" style="position:relative; top:-5px">               
+    		  	 <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type="text/JavaScript">
                 <!--   // Array ofmonth Names
@@ -52,6 +53,7 @@ var i = 0;
                 // -->
                 </script>
               </font>
+              </b>
           </div>
     		    <div align="right" style="position:relative; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">

@@ -38,7 +38,8 @@
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Curso Insertado</b></font>                
     	   </div>                   			  	 
-         <div align="right" style="position:relative; top:-5px">               
+         <div align="right" style="position:relative; top:-5px"> 
+         <b>              
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -50,6 +51,7 @@
                 // -->
                 </script>
               </font>
+              </b>
           </div>
     		  <div align="right" style="position:relative; top:25px; z-index:-1;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
