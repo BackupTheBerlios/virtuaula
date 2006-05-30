@@ -660,7 +660,18 @@ public class GestorAvisos {
 		String asunto = aviso.dameValor(Constantes.AVISOS_ASUNTO);
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		
+		//comprobar que la longitud del texto es menor que 255
+		if (aviso.dameValor(Constantes.AVISOS_TEXTO).length()>250)
+		{
+			String mensaje = "La longitud del texto no pede superar los 250 caracteres";
+			ObjetoBean error = (ObjetoBean) creador.crear(creador.Error);
+			error.cambiaValor(Constantes.CAUSA, mensaje);
+			int tamaniio=liserror.tamanio();
+			liserror.insertar(tamaniio,error);
+			
+		}
+		else
+		{//la longitud del aviso es la permitirda
 		if (numDest>0)
 		{
 			for (int i = 0; i<numDest;i++)
@@ -675,7 +686,7 @@ public class GestorAvisos {
 					error.cambiaValor(Constantes.CAUSA, mensaje);
 					int tamaniio=liserror.tamanio();
 					liserror.insertar(tamaniio,error);
-					return liserror;
+					//return liserror;
 				}
 				else
 				{	//si se ha insertado el aviso correctamente
@@ -705,13 +716,14 @@ public class GestorAvisos {
 							error.cambiaValor(Constantes.CAUSA, mensaje);
 							int tamanioo=liserror.tamanio();
 							liserror.insertar(tamanioo,error);
-							return liserror;
+							//return liserror;
 						}
 					}
 				}//fin else
 				
 				
 			}
+		}
 		}
 		return liserror;
 	}
