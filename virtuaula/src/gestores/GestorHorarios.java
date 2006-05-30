@@ -21,6 +21,14 @@ public class GestorHorarios {
 		super();
 	}
 
+	public boolean insertarHorario(ObjetoBean horario){
+		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachadaHorario bdfh= (BBDDFachadaHorario)bdf.dameBBDDFachada(Constantes.FachadaHorario);
+		return bdfh.insertar(horario);
+	}
+	
+	
 	
 	/**
 	 * Nos dice si algun curso utiliza el horario pasado como parámetro

@@ -81,6 +81,8 @@ public class GestorControladorSecretaria extends GestorControlador{
 		tablaOperacionGestor.put("ELIM_HOR_PAS1",new GestorControladorOpConsHor());
 		tablaOperacionGestor.put("ELIM_HOR_PAS2",new GestorControladorOpConsHor());
 		tablaOperacionGestor.put("ELIM_HOR_PAS3",new GestorControladorOpConsHor());
+		tablaOperacionGestor.put("INS_HOR2",new GestorControladorOpInsHor());
+		
 		
 		//editar un alumno
 		tablaOperacionGestor.put("EDITAR_ALUM_INI",new GestorControladorEditarAlumno());
@@ -121,8 +123,10 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//Horarios
 		GestorControlador.tablaOperacionControlador.put("OP_MENU_HOR",c.crear(CreadorControlador.ControladorPasaPag));
 		GestorControlador.tablaOperacionControlador.put("GES_HOR",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("INS_HOR",c.crear(CreadorControlador.ControladorPasaPag));
+		GestorControlador.tablaOperacionControlador.put("VER_HOR",c.crear(CreadorControlador.ControladorPasaPag));
 		
-		
+				
 		Controlador controladorResultado=((Controlador)GestorControlador.tablaOperacionControlador.get(operacion));
 		
 		

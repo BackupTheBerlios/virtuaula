@@ -65,7 +65,7 @@
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
-    					<a href="#">Crear Horario</a>
+    												<a href="JavaScript:lanzaFormulario('INS_HOR');" onmouseout="window.status=''" onmouseover="window.status='Crear Horario';return true ">Crear Horario</a>        					
         					<a href="JavaScript:lanzaFormulario('CONS_HOR');" onmouseout="window.status=''" onmouseover="window.status='Consultar Horario';return true ">Consultar Horario</a>
         					<a href="JavaScript:lanzaFormulario('ELIM_HOR_PAS1');" onmouseout="window.status=''" onmouseover="window.status='Crear Horario';return true ">Borrar Horario</a>
         					</div>

@@ -279,6 +279,10 @@ public class GestorPaginas {
 		agregarPaginas("secretaria","ELIM_HOR_PAS2","ERROR","/virtuaula/pages/secretaria/horario/borrar/consultarHorario.jsp");
 		agregarPaginas("secretaria","ELIM_HOR_PAS3","OK","/virtuaula/pages/secretaria/horario/borrar/confirmacionHorarioBorrado.jsp");
 		agregarPaginas("secretaria","ELIM_HOR_PAS3","ERROR","/virtuaula/pages/secretaria/horario/borrar/consultarHorario.jsp");
+		agregarPaginas("secretaria","INS_HOR","SIG","/virtuaula/pages/secretaria/horario/insertar/crearHorario.jsp");
+		agregarPaginas("secretaria","INS_HOR2","OK","/virtuaula/pages/secretaria/horario/insertar/verHorario.jsp");
+		agregarPaginas("secretaria","INS_HOR2","ERROR","/virtuaula/pages/secretaria/horario/insertar/crearHorario.jsp");
+		agregarPaginas("secretaria","VER_HOR","SIG","/virtuaula/pages/secretaria/horario/index.jsp");
 		
 
 		
