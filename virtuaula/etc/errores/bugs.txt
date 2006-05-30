@@ -1,4 +1,9 @@
 --------------------------------------------------------------------------
--               FORMATO DEL DOCUMENTO
-solucionada | pendiente : descripcion del error.
+               		FORMATO DEL DOCUMENTO
+solucionada | pendiente | enProceso : descripcion del error.
+
+Descripcion:
+	solucionada si la incidencia ya está.
+	pendiente nada más crearla.
+	enProceso la pone el responsable de la solución.
 --------------------------------------------------------------------------
