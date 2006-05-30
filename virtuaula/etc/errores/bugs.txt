@@ -18,3 +18,4 @@ pendiente : en rrhh al contratar un profesor al dar a contratar desde http://loc
 solucionada: en secretaria al modificar un alumno en la pagina de editarAlumno.jsp los botones de la derecha no funcionaban
 solucionada: en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
 solucionada: en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
+pendiente: en http://localhost:8080/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
