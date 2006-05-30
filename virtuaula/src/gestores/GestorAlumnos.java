@@ -381,7 +381,7 @@ public class GestorAlumnos {
 						ObjetoBean aviso = creador.crear(creador.Avisos);
 						aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo ingreso");
 						aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha producido un ingreso de "+Curso.dameValor(Constantes.CURSO_PRECIO)+" " +
-								"euros por nueva matricula");
+								"euros por nueva matrícula");
 						
 						BBDDFachadaUsuario bdfu = (BBDDFachadaUsuario)(bdf.dameBBDDFachada(Constantes.FachadaUsuario));
 						ListaObjetoBean listausu= bdfu.dameUsuariosPerfil("contable");
