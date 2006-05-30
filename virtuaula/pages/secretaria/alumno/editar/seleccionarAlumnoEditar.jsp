@@ -71,15 +71,7 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el alumno que desea buscar (paso 2/4)</b>                
-    		</div>
-    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E">
-    			   Estos son los alumnos encontrados con los datos que introdujo<br>
-    			   Seleccione el alumno deseado y pulse "Seleccionar" en el botón del fondo de la página
-    			</font>
-    		</div>
+    		
     		<div style="position:relative; top:20px; left:150px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
         				
@@ -89,6 +81,18 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaalumno"));
                   	Alumno alumno;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		                %>
+		                <div style="position:relative; left:-120px; top:-45px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el alumno que desea buscar (paso 2/4)</b>                
+    		</div>
+    		<div style="position:relative; left:-120px;  top:-35px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Estos son los alumnos encontrados con los datos que introdujo<br>
+    			   Seleccione el alumno deseado y pulse "Seleccionar" en el botón del fondo de la página
+    			</font>
+    		</div>
+		                <%
+		                
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");
@@ -128,7 +132,18 @@
 		         
 		                  
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              else{	
+		              %>
+		                <div style="position:relative; left:-120px; top:-45px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No se ha encontrado ningún alumno con los criterios que introdujo</b></font>        
+    		</div>
+    		<div style="position:relative; left:-120px;  top:-35px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Pulse "Atrás" para volver a introducir un criterio de búsqueda
+    			</font>
+    		</div>
+		                <%
+		              out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
