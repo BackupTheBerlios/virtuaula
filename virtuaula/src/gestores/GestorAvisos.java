@@ -79,7 +79,56 @@ public class GestorAvisos {
 
 	
 	/**
-	 * manda un aviso al usuario indicandole que se ha matriculado de un curso
+	 * Manda un aviso a un alumno o profesor indicandole que sus datos se han modificado bien
+	 * @param alumno
+	 * @return
+	 */
+	public boolean enviarAvisoModificacionAlumno(ObjetoBean alumProf){
+			
+		CreadorBean creador = new CreadorBean();
+		BBDDFachada bdf = BBDDFachada.getInstance();
+		ObjetoBean aviso = (ObjetoBean) creador.crear(creador.Avisos);
+		GestorHorarios GH=new GestorHorarios();
+		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"mi aviso guay"+ alumProf.dameValor(Constantes.ID_ISUSUARIO_DNI));
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Sus datos han sido modificados correctamente por secretaria");
+		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
+		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
+		aviso.cambiaValor(Constantes.ID_ISAVISOS,"1");
+		if(!bdf.insertar(aviso)){
+			return false;
+		}
+		else
+		{
+//		 
+			
+			//Crear objeto bean especifico
+			GestorAvisos GA=new GestorAvisos();
+			aviso.cambiaValor(Constantes.ID_ISAVISOS,"");
+			ListaObjetoBean listaav= GA.consultarAvisos(aviso);
+			ObjetoBean aviso2 = listaav.dameObjeto(0);
+			aviso2.cambiaValor(Constantes.AVISOS_ASUNTO,"Datos modificados");
+			
+			if (GA.editarAviso(aviso2))
+			{
+				
+				Avisos_Has_Usuario ahu = (Avisos_Has_Usuario) creador.crear(creador.AvisosHasUario);
+				//Relleanar bean
+										
+				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO,aviso2.dameValor(Constantes.ID_ISAVISOS));
+				ahu.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,alumProf.dameValor(Constantes.ID_ISALUMNO_ISUSUARIO_DNI));
+				// Rellenar tabla intermedia de relacion Avisos-Usuario
+				if(!bdf.insertar(ahu)){
+					
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+		/*
+ * 	
+		* manda un aviso al usuario indicandole que se ha matriculado de un curso
 	 * diciendole cual es su profesor, su aula y su horario
 	 * @param Alumno
 	 * @param Curso
