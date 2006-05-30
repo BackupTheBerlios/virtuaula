@@ -1,7 +1,4 @@
 <%@ page import="beans.*" %>
-<%@ page import="beans.Error" %>
-<%@ page import="beans.listaObjetoBeans.*" %>
-
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -55,7 +52,7 @@
               </font>
               </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -131,15 +128,12 @@
 	                       <option value="Femenino">Femenino</option>
                       </select>                                    
                   </td>	
-                  </td>
         				</tr>
         				<tr>  
         				
         					
         					<td></td>
         					
-      			
-        				</td>
                                   
         				</tr>
               	<tr>
