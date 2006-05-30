@@ -154,7 +154,7 @@
 	    	                  			String Nota=String.valueOf(expediente.dameValor("NOTAFINAL"));
 	    	                  			if ((String.valueOf(expediente.dameValor("NOTAFINAL")).equals("null")) || (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-1")))
 	    	                  			{
-	    	                	  			Nota = "No presentado";
+	    	                	  			Nota = "No Calificado";
 	    	                  			}
 	    	                  			if (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-2"))
 	    	                  			{
