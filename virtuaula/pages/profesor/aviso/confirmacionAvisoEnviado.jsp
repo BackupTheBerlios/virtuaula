@@ -46,14 +46,15 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
-    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
-    		      <input type="hidden" name="evento">
-    	  			<div class="botonesSubMenu">
-						<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
-    				  </div>
-    				</form>
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
+    		    <div class="botonesSubMenu">
+	    		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+	    		      <input type="hidden" name="evento">
+							<a href="JavaScript:lanzaFormulario('menuPrincipalProf');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
+	      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
+	    				</form>
+  				  </div>
+
     		  </div>
     		<div style="position:relative; top:-16px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
