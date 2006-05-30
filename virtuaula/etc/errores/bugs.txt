@@ -15,9 +15,10 @@ Descripcion:
 pendiente : en rrhh al contratar un profesor los errores salen uno a uno en lugar de sacarlos en una lista como cuando matriculas el alumno. (http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp)
 pendiente : en rrhh al contratar un profesor el campo de la cuenta bancaria deberia tener un maxlength de 30 que es lo que tiene en la bbdd
 pendiente : en rrhh al contratar un profesor al dar a contratar desde http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp da un null pointer
-solucionada: en secretaria al modificar un alumno en la pagina de editarAlumno.jsp los botones de la derecha no funcionaban
-solucionada: en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
-solucionada: en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
-pendiente: en http://localhost:8080/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
-pendiente: en http://localhost:8080/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
-pendiente: en http://localhost:8080/virtuaula/pages/profesor/curso/confirmacionPublicarNotas.jsp si no hay ningún alumno deberia sacar el mensaje correspondiente y tampoco sacar la cabecera de la tabla
+solucionada : en secretaria al modificar un alumno en la pagina de editarAlumno.jsp los botones de la derecha no funcionaban
+solucionada : en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
+solucionada : en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
+pendiente : en http://localhost:8080/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
+pendiente : en http://localhost:8080/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
+pendiente : en http://localhost:8080/virtuaula/pages/profesor/curso/confirmacionPublicarNotas.jsp si no hay ningún alumno deberia sacar el mensaje correspondiente y tampoco sacar la cabecera de la tabla
+pendiente : http://localhost:8080/virtuaula/pages/secretaria/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
