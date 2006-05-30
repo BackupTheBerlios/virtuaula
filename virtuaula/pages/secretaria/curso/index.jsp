@@ -52,7 +52,7 @@
                 </script>
               </font>
             </b>
-            <div align="right" style="position:relative; top:16px;style="position:relative; z-index:-1;">
+            <div align="right" style="position:relative; top:24px; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
 	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
