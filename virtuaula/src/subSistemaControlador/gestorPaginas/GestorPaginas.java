@@ -223,6 +223,14 @@ public class GestorPaginas {
 		agregarPaginas("rrhh","INS_PROF","ERROR","/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp");
 		agregarPaginas("rrhh","CONTRATO","SIG","/virtuaula/pages/rrhh/index.jsp");
 		
+		//rrhh envia aviso
+		agregarPaginas("rrhh","AVIS_RRHH","OK","/virtuaula/pages/rrhh/aviso/seleccionarAviso.jsp");
+		agregarPaginas("rrhh","AVIS_RRHH","ERROR","/virtuaula/pages/rrhh/aviso/seleccionarAviso.jsp");
+		agregarPaginas("rrhh","LEER_AVIS_RRHH","SIG","/virtuaula/pages/rrhh/aviso/leerAviso.jsp");
+		agregarPaginas("rrhh","VOLVER_ANTERIOR","SIG","/virtuaula/pages/rrhh/aviso/seleccionarAviso.jsp");
+		agregarPaginas("rrhh","BOR_RRHH_AVIS","OK","/virtuaula/pages/rrhh/aviso/seleccionarAviso.jsp");
+		agregarPaginas("rrhh","BOR_RRHH_AVIS","ERROR","/virtuaula/pages/rrhh/aviso/seleccionarAviso.jsp");
+		
 		
 		
 		//contable consulta nominas
@@ -326,7 +334,7 @@ public class GestorPaginas {
 		agregarPaginas("contable","INI_AVI_CONT","ERROR","/virtuaula/pages/contable/aviso/enviarAviso.jsp");
 		agregarPaginas("contable","ENV_AVI_CONT","OK","/virtuaula/pages/contable/aviso/confirmacionAvisoEnviado.jsp");
 		agregarPaginas("contable","ENV_AVI_CONT","ERROR","/virtuaula/pages/contable/aviso/enviarAviso.jsp");
-
+		
 		
 	}
 }
