@@ -37,7 +37,7 @@
 			      <input type="hidden" name="DNI" value="anonimo">
 			      <input type="hidden" name="CONTRASENIA" value="anonimo">
     	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('PRINCIPAL_PUBLICO');" onmouseout="window.status=''" onmouseover="window.status='Pagina Principal';return true ">Pagina Principal</a>
+  				    <a href="JavaScript:lanzaFormulario('PRINCIPAL_PUBLICO');" onmouseout="window.status=''" onmouseover="window.status='Página Principal';return true ">Página Principal</a>
   				  </form>
 		  	 </div>	
       
