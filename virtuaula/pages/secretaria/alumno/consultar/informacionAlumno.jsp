@@ -140,7 +140,6 @@ out.print("              </tr>   ");
            
 out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
 out.println("             <tr bgcolor='#877fff'>");
-out.println("               <td><h4>Identificador</h4></td>");
 out.println("               <td><h4>Nombre</h4></td>");
 out.println("               <td><h4>N&uacute;mero de plazas</h4></td>");
 out.println("               <td><h4>Estado</h4></td>");
@@ -159,7 +158,6 @@ out.println("              </tr>   ");
                     	
                         expediente = (ObjetoBean) listaexp.dameObjeto(i);
     	                  out.println("<tr bgcolor='#dbecff'>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("IDISCURSO"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NUMERO_PLAZAS"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("ESTADO"))+"</td>");    	                  
