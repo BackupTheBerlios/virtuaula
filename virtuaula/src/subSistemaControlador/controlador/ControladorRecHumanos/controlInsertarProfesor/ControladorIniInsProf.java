@@ -25,6 +25,8 @@ public class ControladorIniInsProf extends ControladorRecHumanos{
 		//borramos el bean profesor de la sesion por las anteriores veces, 
 		//ya que vamos a empezar de nuevo
 		sesion.removeAttribute("beanProfesor");
+		this.getSesion().removeAttribute("beanNomina");
+		this.getSesion().removeAttribute("beanContrato");
 		
 		if (listaareas!=null)
 		{//si no ha fallado la base de datos
