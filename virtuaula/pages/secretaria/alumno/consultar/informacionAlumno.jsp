@@ -1,5 +1,6 @@
 
 <%@ page import="beans.*" %>
+<%@ page import="java.util.*" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
@@ -86,7 +87,9 @@
 <font face="Trebuchet MS" color="#616D7E" point-size="5">       				
         				
         			<%
+        						
                     HttpSession sesion=request.getSession();
+                  
 out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
 out.println("             <tr bgcolor='#877fff'>");
 out.println("               <td><h4>Identificador</h4></td>");
@@ -127,10 +130,13 @@ out.print("              </tr>   ");
               </table>
             </tr>
               <p><p>
-              
-       <%  ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
-           Curso curso;	
-           if (listaCursos != null && !listaCursos.esVacio()){
+              <font face="Trebuchet MS" color="#616D7E" point-size="5">
+			  <B>NOTAS DEL ALUMNO</B><BR></font>
+       <%  //ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
+           //Curso curso;	
+           ListaObjetoBean listaexp =((ListaObjetoBean)sesion.getAttribute("listaexp"));
+           ObjetoBean expediente;	
+           if (listaexp != null && !listaexp.esVacio()){
            
 out.println("          <table border='0' cellspacing='0' cellpadding='10'>");
 out.println("             <tr bgcolor='#877fff'>");
@@ -141,6 +147,7 @@ out.println("               <td><h4>Estado</h4></td>");
 out.println("               <td><h4>Fecha Inicio</h4></td>");
 out.println("               <td><h4>Fecha Finalizaci&oacute;n</h4></td>");
 out.println("               <td><h4>Precio</h4></td>");
+out.println("               <td><h4>Nota actual</h4></td>");
 out.println("              </tr>   ");
         	//		<%
              //       ListaObjetoBean listaCursos =((ListaObjetoBean)sesion.getAttribute("listacurso"));
@@ -148,25 +155,25 @@ out.println("              </tr>   ");
 
            //       	if (listaCursos != null && !listaCursos.esVacio()){
                   	
-                  	   for (int i=0; i<listaCursos.tamanio();i++) {
+                  	   for (int i=0; i<listaexp.tamanio();i++) {
                     	
-                        curso = (Curso) listaCursos.dameObjeto(i);
+                        expediente = (ObjetoBean) listaexp.dameObjeto(i);
     	                  out.println("<tr bgcolor='#dbecff'>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("IDISCURSO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");    	                  
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("IDISCURSO"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NUMERO_PLAZAS"))+"</td>");
+    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("ESTADO"))+"</td>");    	                  
     	                  	
-			String fechaInicio= curso.dameValor("FECHA_INICIO");
-			String fechaFin=curso.dameValor("FECHA_FIN");
+			String fechaInicio= expediente.dameValor("FECHA_INICIO");
+			String fechaFin=expediente.dameValor("FECHA_FIN");
 			if(fechaInicio!=null){
-				out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
+				out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_INICIO"))+"</td>");
 	     }
 	     else{
     	                  out.println("<td class='FormLiteral' align='center'>Sin especificar</td>");
     	                  }	
       if(fechaFin!=null){
-			out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
+			out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_FIN"))+"</td>");
 			}
 		
 			else{
@@ -175,10 +182,19 @@ out.println("              </tr>   ");
 			
                         
 
-		out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	                    	                   	                    
+		out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("PRECIO"))+"</td>");	                    	                   	                    
+		if(expediente.dameValor("ESTADO").equals("activo") && expediente.dameValor("NOTAFINAL")==null)
+	 out.println("<td class='FormLiteral' align='center'>"+String.valueOf("Sin evaluar")+"</td>");    	                    
+	 else if(expediente.dameValor("NOTAFINAL")==null){
+	 	out.println("<td class='FormLiteral' align='center'>"+String.valueOf("No presentado")+"</td>");    	                    
+	 }
+	 
+		else {out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");    	                    
+   }
     	                  out.println("</tr>");
-  	                  
+  	               
                         }
+                    
                     }
                     
 			else{
