@@ -64,6 +64,27 @@
     		         </tr>
     			 </table>
     		</div>
+
+    		<div style="position:relative; top:20px; left:180px; z-index:-1;">
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Si desea usted matricularse en algunos de los cursos abajo ofertados,</b></font>
+    		<br/>
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>debe descargue el formulario y traerlo relleno a:</b></font>
+    		<br/>
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>C\Friki nº 13</b></font>
+
+			<p></p>
+    		
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>											
+						<td>
+							<a style="text-decoration: none;" class="botonesSubMenu" href="/virtuaula/documents/Formulario_Inscripcion.doc" onmouseout="window.status=''; return true;" onmouseover="window.status='Obtener formulario de inscripción'; return true;">              
+	              				<img height="20px" width="20px" src="/virtuaula/img/msword_logo.gif" alt="Obtener formulario de inscripción" border="0" align="middle"/>
+	              				<font face="Trebuchet MS" color="#006699" point-size="5"><b>Pulse aquí para obtener el formulario de inscripción</b></font>
+              				</a>       			
+              			</td>
+              		</tr>
+              </table>
+			</div>    		
     		<div style="position:relative; top:20px; left:180px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador" name="formPrincipal">
         				
@@ -149,16 +170,7 @@
                         out.println("</table>");
                     }
               %> 
-				<table border="0" cellspacing="0" cellpadding="0">
-					<tr>											
-						<td>
-							<a style="text-decoration: none;" class="botonesSubMenu" href="/virtuaula/documents/Formulario_Inscripcion.doc" onmouseout="window.status=''; return true;" onmouseover="window.status='Obtener formulario de inscripción'; return true;">              
-	              				<img height="20px" width="20px" src="/virtuaula/img/msword_logo.gif" alt="Obtener formulario de inscripción" border="0" align="middle"/>
-	              				<font face="Trebuchet MS" color="#006699" point-size="5"><b>Pulse aquí para obtener el formulario de inscripción</b></font>
-              				</a>       			
-              			</td>
-              		</tr>
-              </table>
+
           </form>
     		</div>
 	  </div>
