@@ -19,3 +19,4 @@ solucionada: en secretaria al modificar un alumno en la pagina de editarAlumno.j
 solucionada: en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
 solucionada: en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
 pendiente: en http://localhost:8080/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
+pendiente: en http://localhost:8080/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
