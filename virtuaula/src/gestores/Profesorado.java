@@ -226,7 +226,7 @@ public class Profesorado {
 			i++;
 		}
 		//El área no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("")){
+		if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("-1")){
 			mensaje = "El campo Area no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -234,7 +234,7 @@ public class Profesorado {
 			i++;
 		}
 //		El nombre no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_NOMBRE).equals("")){
+		if (bean.dameValor(Constantes.PROFESOR_NOMBRE).equals("")){
 			mensaje = "El campo Nombre no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -242,7 +242,7 @@ public class Profesorado {
 			i++;
 		}
 //		El apellido no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO1).equals("")){
+		if (bean.dameValor(Constantes.PROFESOR_APELLIDO1).equals("")){
 			mensaje = "El campo Apellido1 no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -250,7 +250,7 @@ public class Profesorado {
 			i++;
 		}
 //		El apellido no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
+		if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
 			mensaje = "El campo Apellido2 no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -259,7 +259,7 @@ public class Profesorado {
 		}
 
 //		El  tipo del contrato no puede ser vacio
-		else if (contrato.dameValor(Constantes.CONTRATO_TIPO).equals("")){
+		if (contrato.dameValor(Constantes.CONTRATO_TIPO).equals("")){
 			mensaje = "El campo tipo de contrato no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -267,7 +267,7 @@ public class Profesorado {
 			i++;
 		}
 //		La cuenta de ingresos de la nomina no puede ser vacio
-		else if (nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
+		if (nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
 			mensaje = "El campo cuenta de ingresos no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -275,7 +275,7 @@ public class Profesorado {
 			i++;
 		}
 //		La cuenta de ingresos debe ser un numero
-		else if (!nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
+		if (!nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS).equals("")){
 		  try {
 			int telf = Integer.parseInt(nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS));
 			if (telf < 0) {
@@ -299,7 +299,7 @@ public class Profesorado {
 		}
 		
 //		El sueldo de la nomina no puede ser vacio
-		else if (nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
+		if (nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
 			mensaje = "El campo cantidad de ingresos no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -307,9 +307,9 @@ public class Profesorado {
 			i++;
 		}
 //		La cantidad de ingresos debe ser un numero
-		else if (!nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
+		if (!nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals("")){
 		  try {
-			int telf = Integer.parseInt(bean.dameValor(Constantes.NOMINA_CANTIDAD));
+			int telf = Integer.parseInt(nomina.dameValor(Constantes.NOMINA_CANTIDAD));
 			if (telf < 0) {
 				mensaje = "El campo cantidad de ingresos tiene un valor incorrecto. Debe ser" +
 						  "numerico";
@@ -331,7 +331,7 @@ public class Profesorado {
 		}
 		
 		//El telefono debe ser un entero mayor que 0
-		else if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
+	    if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
 		  try {
 			int telf = Integer.parseInt(bean.dameValor(Constantes.PROFESOR_TELEFONO));
 			if (telf < 0) {
