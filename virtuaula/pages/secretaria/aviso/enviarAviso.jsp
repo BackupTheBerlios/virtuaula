@@ -77,7 +77,7 @@
     			   Rellene el asunto y el contenido del mensaje<br>
     			   Seleccione el grupo de destinatarios de la lista<br>
     			   Los destinatarios pueden ser: el departamento contable, el departamento RRHH, el profesorado o un grupo de alumnos matriculados<br>
-    			    en un determindo curso<br>
+    			    en un determinado curso<br>
     			   Cuando haya terminado de escribir el aviso pulse "Enviar"<br>
     			</font>
     		</div>
