@@ -51,7 +51,7 @@
               </font>
               </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:1; top:5px">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -69,16 +69,7 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; left:10px; top:-15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el curso que desea dar de baja (paso 2/3)</b></font>        
-    		</div>
-    		<div style="position:relative; left:20px; top:-15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E">
-    			   Estos son los cursos encontrados con los datos que introdujo<br>
-    			   Seleccione el curso deseado y pulse "Seleccionar" en el botón del fondo de la página
-    			</font>
-    		</div>
-    		<div sty
+    		
     		<div style="position:relative; top:-30px; left:200px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
         				
@@ -88,6 +79,18 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listacurso"));
                   	Curso curso;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		                %>
+		                <div style="position:relative; left:-170px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el curso que desea dar de baja (paso 2/3)</b></font>        
+    		</div>
+    		<div style="position:relative; left:-150px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Estos son los cursos encontrados con los datos que introdujo<br>
+    			   Seleccione el curso deseado y pulse "Seleccionar" en el botón del fondo de la página
+    			</font>
+    		</div>
+		                <%
+		                
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");
@@ -127,7 +130,18 @@
 		         
 		                  
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              else{	
+		              %>
+		              <div style="position:relative; left:-170px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No se ha encontrado ningún curso con los criterios que introdujo</b></font>        
+    		</div>
+    		<div style="position:relative; left:-150px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E">
+    			   Pulse "Atrás" para volver a introducir un criterio de búsqueda
+    			</font>
+    		</div>
+		              <%
+		              out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
