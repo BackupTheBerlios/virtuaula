@@ -14,15 +14,15 @@ DELETE FROM isalumno;
 DELETE FROM isnomina;
 
 
-INSERT INTO `isalumno` VALUES ('00000000','Pedro','Ruiz','Santos',914095454,'yotu@hotmail.com','Alcala n 49 2A','04/09/79','Varon');
-INSERT INTO `isalumno` VALUES ('22222222','Juan','Sanchez','Sanchez',918569545,'juans@hotmail.com','Avenida de Brasil 12 1C','08/05/90','Varon');
-INSERT INTO `isalumno` VALUES ('33333333','Ana','Gonzalez','Garcia',917775264,'anag@hotmail.com','Serrano 85 1C','04/03/89','Mujer');
-INSERT INTO `isalumno` VALUES ('44444444','Belen','Gutierrez','Jimenez',912648579,'beleng@gmail.com','Agastia 42 1C','04/04/79','Mujer');
-INSERT INTO `isalumno` VALUES ('55555555','Pepe','Gonzalez','Medina',914582564,'pepeg@hotmail.com','Paseo del Prado 12 1C','07/07/89','Varon');
-INSERT INTO `isalumno` VALUES ('66666666','Paco','Porras','Gomez',914646544,'eloga@hotmail.com','Alcala 212 1C','09/11/90','Varon');
-INSERT INTO `isalumno` VALUES ('77777777','Laura','Benitez','Arizmendi',915486434,'lalilohotmail.com','Canillejas 12 1C','25/05/85','Varon');
-INSERT INTO `isalumno` VALUES ('88888888','Alberto','Tirado','Solis',915484534,'spaci@hotmail.com','Genova 24 1C','08/12/80','Varon');
-INSERT INTO `isalumno` VALUES ('99999999','Daniel','Rodriguez','Manada',914556464,'espai@hotmail.com','Castellana 145 1C','12/07/89','Varon');
+INSERT INTO `isalumno` VALUES ('00000000','Pedro','Ruiz','Santos',914095454,'yotu@hotmail.com','Alcala n 49 2A','04-09-79','Masculino');
+INSERT INTO `isalumno` VALUES ('22222222','Juan','Sanchez','Sanchez',918569545,'juans@hotmail.com','Avenida de Brasil 12 1C','08-05-90','Masculino');
+INSERT INTO `isalumno` VALUES ('33333333','Ana','Gonzalez','Garcia',917775264,'anag@hotmail.com','Serrano 85 1C','04-03-89','Femenino');
+INSERT INTO `isalumno` VALUES ('44444444','Belen','Gutierrez','Jimenez',912648579,'beleng@gmail.com','Agastia 42 1C','04-04-79','Femenino');
+INSERT INTO `isalumno` VALUES ('55555555','Pepe','Gonzalez','Medina',914582564,'pepeg@hotmail.com','Paseo del Prado 12 1C','07-07-89','Masculino');
+INSERT INTO `isalumno` VALUES ('66666666','Paco','Porras','Gomez',914646544,'eloga@hotmail.com','Alcala 212 1C','09-11-90','Masculino');
+INSERT INTO `isalumno` VALUES ('77777777','Laura','Benitez','Arizmendi',915486434,'lalilohotmail.com','Canillejas 12 1C','25-05-85','Masculino');
+INSERT INTO `isalumno` VALUES ('88888888','Alberto','Tirado','Solis',915484534,'spaci@hotmail.com','Genova 24 1C','08-12-80','Masculino');
+INSERT INTO `isalumno` VALUES ('99999999','Daniel','Rodriguez','Manada',914556464,'espai@hotmail.com','Castellana 145 1C','12-07-89','Masculino');
 
 
 
@@ -52,14 +52,14 @@ INSERT INTO `isaula` VALUES (9,'aula9',15,'planta baja');
 INSERT INTO `isaula` VALUES (10,'aula10',25,'planta baja');
 
 
-INSERT INTO `isavisos` VALUES (1,'25/04/06',NULL,'aviso automatico','Ha sido seleccionado para impartir un curso',NULL);
-INSERT INTO `isavisos` VALUES (2,'08/04/06',NULL,'aviso de secretaria','La clase del dia 9 ha sido cancelada',NULL);
-INSERT INTO `isavisos` VALUES (3,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (4,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (5,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (6,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (7,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (8,'12/04/06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (1,'25-04-06',NULL,'aviso automatico','Ha sido seleccionado para impartir un curso',NULL);
+INSERT INTO `isavisos` VALUES (2,'08-04-06',NULL,'aviso de secretaria','La clase del dia 9 ha sido cancelada',NULL);
+INSERT INTO `isavisos` VALUES (3,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (4,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (5,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (6,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (7,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (8,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
 
 
 
@@ -90,15 +90,15 @@ INSERT INTO `isnomina` VALUES (7,'236253456262','1300');
 
 
 
-INSERT INTO `iscurso` VALUES (1,'50000000',1,'Dreamweaver',10,'activo','01/08/06','15/02/07',300);
-INSERT INTO `iscurso` VALUES (2,'51111111',2,'Curso basico de internet',10,'activo','01/08/06','05/02/07',150);
-INSERT INTO `iscurso` VALUES (3,'52222222',8,'Introduccion a C',5,'activo','01/08/06','05/02/07',350);
-INSERT INTO `iscurso` VALUES (4,'53333333',8,'Introduccion a Java',20,'inactivo','01/08/06','05/02/07',350);
-INSERT INTO `iscurso` VALUES (5,'54444444',8,'Introduccion a C',5,'activo','01/08/06','05/02/07',350);
-INSERT INTO `iscurso` VALUES (6,'56666666',8,'Java avanzado',5,'activo','01/08/06','05/02/07',850);
-INSERT INTO `iscurso` VALUES (7,'57777777',8,'Java principiantes',5,'inactivo','01/08/05','05/02/06',850);
-INSERT INTO `iscurso` VALUES (8,'58888888',6,'Redes',5,'activo','01/08/06','05/02/07',250);
-INSERT INTO `iscurso` VALUES (9,'59999999',11,'Linux',5,'activo','01/08/06','05/02/07',180);
+INSERT INTO `iscurso` VALUES (1,'50000000',1,'Dreamweaver',10,'activo','01-08-06','15-02-07',300);
+INSERT INTO `iscurso` VALUES (2,'51111111',2,'Curso basico de internet',10,'activo','01-08-06','05-02-07',150);
+INSERT INTO `iscurso` VALUES (3,'52222222',8,'Introduccion a C',5,'activo','01-08-06','05-02-07',350);
+INSERT INTO `iscurso` VALUES (4,'53333333',8,'Introduccion a Java',20,'inactivo','01-08-06','05-02-07',350);
+INSERT INTO `iscurso` VALUES (5,'54444444',8,'Introduccion a C',5,'activo','01-08-06','05-02-07',350);
+INSERT INTO `iscurso` VALUES (6,'56666666',8,'Java avanzado',5,'activo','01-08-06','05-02-07',850);
+INSERT INTO `iscurso` VALUES (7,'57777777',8,'Java principiantes',5,'inactivo','01-08-05','05-02-06',850);
+INSERT INTO `iscurso` VALUES (8,'58888888',6,'Redes',5,'activo','01-08-06','05-02-07',250);
+INSERT INTO `iscurso` VALUES (9,'59999999',11,'Linux',5,'activo','01-08-06','05-02-07',180);
 
 
 INSERT INTO `iscurso_has_isalumno` VALUES (1,'00000000',10,NULL);
