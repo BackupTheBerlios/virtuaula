@@ -52,7 +52,7 @@
               </font>
             </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -70,7 +70,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el curso (paso 2/3)</b> 
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el curso (paso 2/3)</b></font>
     		</div>
     		<div style="position:relative; left:20px; top:15px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E">
