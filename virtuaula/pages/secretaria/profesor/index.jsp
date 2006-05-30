@@ -58,7 +58,7 @@
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
-    					<a href="JavaScript:lanzaFormulario('EDI_INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar datos';return true ">Modificar datos de profesor</a>
+    					<a href="JavaScript:lanzaFormulario('EDI_INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Modificar datos';return true ">Modificar datos de profesor</a>
       					  <a href="JavaScript:lanzaFormulario('INI_CONS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Consultar datos';return true ">Buscar profesor</a>
     				</div>
     		</div>
