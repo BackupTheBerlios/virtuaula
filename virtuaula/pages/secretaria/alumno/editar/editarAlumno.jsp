@@ -10,8 +10,8 @@
 
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
-            document.buscarAlumnoEditar.evento.value = evento;
-            document.buscarAlumnoEditar.submit();
+            document.formSubmenu.evento.value = evento;
+            document.formSubmenu.submit();
           };      
       </script> 
 
