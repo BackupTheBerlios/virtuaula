@@ -17,3 +17,4 @@ pendiente : en rrhh al contratar un profesor el campo de la cuenta bancaria debe
 pendiente : en rrhh al contratar un profesor al dar a contratar desde http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp da un null pointer
 solucionada: en secretaria al modificar un alumno en la pagina de editarAlumno.jsp los botones de la derecha no funcionaban
 solucionada: en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
+pendiente: en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
