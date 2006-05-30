@@ -28,3 +28,5 @@ solucionada : http://localhost:8080/virtuaula/pages/secretaria/profesor/consulta
 pendiente : en http://localhost:8080/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
 solucionada : en http://localhost:8080/virtuaula/pages/secretaria/curso/baja/seleccionarCurso.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
 solucionada : en http://localhost:8080/virtuaula/pages/secretaria/curso/consultar/seleccionarCurso.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
+solucionada : en http://localhost:8080/virtuaula/pages/secretaria/alumno/consultar/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
+solucionada : en http://localhost:8080/virtuaula/pages/secretaria/alumno/editar/seleccionarAlumnoEditar.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
