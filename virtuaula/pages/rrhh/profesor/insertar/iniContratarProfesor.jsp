@@ -121,7 +121,7 @@
         				</tr>
         				<tr>
         					<td class="FormLiteral">Cuenta Bancaria</td>
-        					<td><input type="text" class="FormTxt"  maxlength="9" name="CUENTA_INGRESOS" value="<%=nomina.dameValor("CUENTA_INGRESOS")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="30" name="CUENTA_INGRESOS" value="<%=nomina.dameValor("CUENTA_INGRESOS")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Sueldo</td>
         					<td><input type="text" class="FormTxt"  maxlength="50" name="CANTIDAD" value="<%=nomina.dameValor("CANTIDAD")%>"></td>
