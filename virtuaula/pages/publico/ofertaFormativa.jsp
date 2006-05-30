@@ -68,7 +68,7 @@
     		<div style="position:relative; top:20px; left:180px; z-index:-1;">
     		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Si desea usted matricularse en algunos de los cursos abajo ofertados,</b></font>
     		<br/>
-    		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>debe descargue el formulario y traerlo relleno a:</b></font>
+    		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>debe descargarse el formulario y traerlo relleno a:</b></font>
     		<br/>
     		<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>C\Friki nº 13</b></font>
 
