@@ -165,11 +165,14 @@
                     }
                     
 			else{
-			 out.println("<p><p>Este profesor no imparte ningún curso actualmente<p><p><p>");
+			 out.println("<p><p><p><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Este profesor no imparte ningún curso actualmente</b></font><p><p>");
 			}
-                %>                               
+			out.println("</table>");           
+
+           %>  
+                <table  width="90%" border="0" cellspacing="0" cellpadding="10" >                           
               	<tr>
-					         <td colspan="7" align="center">
+					         <td colspan="2" align="center">
 					          <input type="hidden" name="evento" value="menuPrincipalSec">
 						        <button type="submit" class="botonSimple">Aceptar</button>
 					         </td>
