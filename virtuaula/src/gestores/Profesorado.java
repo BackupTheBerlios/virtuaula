@@ -368,7 +368,7 @@ public class Profesorado {
 	 */
 	public ListaObjetoBean contratarProfesor(ObjetoBean profesor,ObjetoBean usuario,ObjetoBean nomina,ObjetoBean contrato)
 	{
-		BBDDFachada bdf = BBDDFachada.getInstance();
+	BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean creador=new CreadorBean();
 		ListaObjetoBean liserror = this.comprobar(profesor,nomina,contrato);
 		if (liserror.esVacio())
@@ -391,7 +391,12 @@ public class Profesorado {
 				GestorNominasyContratos GNC = new GestorNominasyContratos();
 				bdf.insertar(profesor);
 				nomina.cambiaValor(Constantes.ID_ISNOMINA,"1");
+				if (nomina.dameValor(Constantes.NOMINA_CANTIDAD).equals(""))
+				{
+					nomina.cambiaValor(Constantes.NOMINA_CANTIDAD,"0");
+				}
 				GNC.insertarNomina(nomina);
+				
 				nomina.cambiaValor(Constantes.ID_ISNOMINA,"");
 				//sacar isnomina-idisnomina
 				ListaObjetoBean lisnom=bdf.consultar(nomina);
