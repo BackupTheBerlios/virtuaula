@@ -58,6 +58,11 @@
             </b>
 		 </div> 		
  		</div>
+
+	  	<div style="position:relative; left:190px; top:-50px; z-index: 2">
+    		<font face="Trebuchet MS" color="#9dbfff" style="font-size: 50px"><b>Bienvenido a virtuaula</b></font>
+   		</div>
+ 		
          <div style="position:absolute; top:200px; left:150px; z-index:1; width : 329px; height : 117px;">
             <a href="JavaScript:lanzaFormulario('OFERTA_FORMATIVA');"" onmouseout="window.status=''" onmouseover="window.status='Pulse sobre la imagen para ver los cursos de la academia';return true ">
             <img border="0" src="img/platon.jpg" width="250" height="300" alt="Pulse sobre la imagen para ver los cursos de la academia"><p/>
