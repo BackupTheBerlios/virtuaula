@@ -151,7 +151,7 @@
 		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
 		                    out.println("</td>");
 		                    out.println("<td>");
-		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('DETERMINAR');\" class='botonSimple'>Enviar</button>");
+		                    out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('ENV_AVISO_INI_SEC');\" class='botonSimple'>Enviar</button>");
 
 		
 		                  }
