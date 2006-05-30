@@ -11,6 +11,12 @@
             document.formSubmenu.evento.value = evento;
             document.formSubmenu.submit();
           };      
+
+          function lanzaFormularioD (evento) {
+            document.formSubmenuD.evento.value = evento;
+            document.formSubmenuD.submit();
+          };  
+
       </script>        
 </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -59,12 +65,13 @@
             </b>
           </div>
 		 </div>
-		 <div align="right" style="position:relative; z-index:-1; top:-40px; left:30px;">
-    		      <input type="hidden" name="evento">
+		 <div align="right" style="position:relative; z-index:-1; top:-60px;">    		      
     	  			<div class="botonesSubMenu">
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
-    				  </div>
-    				</form>
+	    	  			<form method=post action="/virtuaula/ServletVisualizador" name="formSubmenuD">
+		    	  			<input type="hidden" name="evento">
+		      					<a href="JavaScript:lanzaFormularioD('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>    				  
+	    				</form>
+    				</div>
     		  </div>
 	  </div>
 	  <div style="position:relative; left:50px; top:50px; z-index:-1;">
@@ -79,12 +86,13 @@
 	  <div style="position:relative; left:350px; top:100px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">                
     		
-		<%
-		HttpSession sesion=request.getSession();
-		Integer numAvisos= (Integer) (sesion.getAttribute("numAvisos"));
-		int numeroAvisos= numAvisos.intValue();
-		out.println("<b>Tiene "+ numeroAvisos+ " mensajes nuevos.</b>");
-	  	%>
+				<%
+				HttpSession sesion=request.getSession();
+				Integer numAvisos= (Integer) (sesion.getAttribute("numAvisos"));
+				int numeroAvisos= numAvisos.intValue();
+				out.println("<b>Tiene "+ numeroAvisos+ " mensajes nuevos.</b>");
+			  	%>
+	  			</font>
 	  </div>
       <map name="map">
         <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;">
