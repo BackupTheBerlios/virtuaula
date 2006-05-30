@@ -210,10 +210,10 @@ var i = 0;
         				<tr>
                  
                   <td class="FormLiteral">Fecha inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('consultarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=445;ggPosY=300;show_calendar('consultarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
                   </td>
         					<td class="FormLiteral">Fecha finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('consultarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=765;ggPosY=300;show_calendar('consultarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
                      				 
               	<tr>
