@@ -52,14 +52,14 @@ INSERT INTO `isaula` VALUES (9,'aula9',15,'planta baja');
 INSERT INTO `isaula` VALUES (10,'aula10',25,'planta baja');
 
 
-INSERT INTO `isavisos` VALUES (1,'25-04-06',NULL,'aviso automatico','Ha sido seleccionado para impartir un curso',NULL);
-INSERT INTO `isavisos` VALUES (2,'08-04-06',NULL,'aviso de secretaria','La clase del dia 9 ha sido cancelada',NULL);
-INSERT INTO `isavisos` VALUES (3,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (4,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (5,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (6,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (7,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
-INSERT INTO `isavisos` VALUES (8,'12-04-06',NULL,'urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible',NULL);
+INSERT INTO `isavisos` VALUES (1,'25-04-06','','aviso automatico','Ha sido seleccionado para impartir un curso','S');
+INSERT INTO `isavisos` VALUES (2,'08-04-06','','aviso de secretaria','La clase del dia 9 ha sido cancelada','S');
+INSERT INTO `isavisos` VALUES (3,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','S');
+INSERT INTO `isavisos` VALUES (4,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','N');
+INSERT INTO `isavisos` VALUES (5,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','N');
+INSERT INTO `isavisos` VALUES (6,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','S');
+INSERT INTO `isavisos` VALUES (7,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','N');
+INSERT INTO `isavisos` VALUES (8,'12-04-06','','urgente','Pongase en contacto con la secretaria de la academia lo mas pronto posible','S');
 
 
 
