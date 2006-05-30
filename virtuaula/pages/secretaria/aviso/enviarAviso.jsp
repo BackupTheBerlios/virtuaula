@@ -107,10 +107,7 @@
                                         
                                     }                          
                                 }
-                             		
-                          
                           %>
-                          
                       </select> 
                   </td>
         				</tr>
@@ -118,7 +115,7 @@
         		<table border='0' cellspacing='0' cellpadding='10'>  		
                     <tr>
             					<td class="FormLiteral" width="100">Anotaciones</td>
-            					<td><textarea name="TEXTO" rows="15" cols="95" class="FormTxtArea" ></textarea></td>
+            					<td><textarea name="TEXTO" rows="15" cols="95" class="FormTxtArea"></textarea></td>
             					<td></td>
             				</tr>
                   	<tr>
@@ -136,15 +133,15 @@
                   ListaObjetoBean lista=(ListaObjetoBean)sesion2.getAttribute("error");
                
                   if (lista != null) 
-                  
+                  {
                       out.println("<table>");
                       int numeroElementos = lista.tamanio();
                       for (int i=0; i < numeroElementos; i++)
                       {
                           Error error = (Error) lista.dameObjeto(i);
-                          {
+                  
                           out.println("<tr class='error'>");            
-                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>"+ error.dameValor("CAUSA_ERROR")+" ");                  
+                          out.println("     <td width='34%' align='left' height='18' bordercolor='#800000' bgcolor='#FFFFFF'>"+error.dameValor("CAUSA_ERROR"+" "));                  
                                   error.dameValor("CAUSA_ERROR");
                           out.println("     </td>");
                           out.println("</tr>");                                                
