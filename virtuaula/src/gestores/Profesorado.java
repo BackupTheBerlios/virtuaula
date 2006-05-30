@@ -390,7 +390,14 @@ public class Profesorado {
 				
 				GestorNominasyContratos GNC = new GestorNominasyContratos();
 				bdf.insertar(profesor);
+				nomina.cambiaValor(Constantes.ID_ISNOMINA,"1");
 				GNC.insertarNomina(nomina);
+				nomina.cambiaValor(Constantes.ID_ISNOMINA,"");
+				//sacar isnomina-idisnomina
+				ListaObjetoBean lisnom=bdf.consultar(nomina);
+				//solo tendremos una nomina con un numero de ingresos y un sueldo
+				nomina=lisnom.dameObjeto(0);
+				contrato.cambiaValor(Constantes.CONTRATO_ISNOMINA_IDISNOMINA,nomina.dameValor(Constantes.ID_ISNOMINA));
 				GNC.insertarContrato(contrato);
 				
 				//mando los avisos a los secretarios y al contable
