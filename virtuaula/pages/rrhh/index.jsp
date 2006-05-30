@@ -11,7 +11,7 @@
             document.formSubmenu.submit();
           };      
 
-          function lanzaFormulario (evento) {
+          function lanzaFormularioD (evento) {
             document.formSubmenuD.evento.value = evento;
             document.formSubmenuD.submit();
           };  
