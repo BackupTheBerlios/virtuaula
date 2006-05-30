@@ -50,9 +50,10 @@
                 // -->
                 </script>
               </font>
-          </div>
           </b>
-    		  <div align="right" style="position:relative; z-index:-1;">
+          </div>
+          
+    		  <div align="right" style="position:relative; z-index:-1; top:5">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -126,5 +127,6 @@
     		</div>
 	  </div>
 	  	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
+	  	  </div>
    </body>
 </html>
