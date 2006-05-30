@@ -35,6 +35,8 @@ public class GestorEncapsuladores {
 			else{
 				encapResultado=new EncapsuladorVacio();
 			}
+			if(encapResultado==null)
+				throw new Exception();
 		}
 		catch (Exception e){
 			System.out.println("Ha habido un fallo proporcionando el encapsulador");

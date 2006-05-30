@@ -16,8 +16,19 @@ public class ControladorEditaProf extends ControladorEditarProf{
       	ObjetoBean profesor = (ObjetoBean)this.getSesion().getAttribute("beanProfesor");
 		Profesorado profesorado = new Profesorado();
 		profesorado.editar(profesor);
-		this.setResuladooperacion("OK");
-		this.getSesion().setAttribute("beanProfesor",profesor);
+		ListaObjetoBean errores= profesorado.editar(profesor);
+		if (errores.esVacio()){
+			this.setResuladooperacion("OK");
+			this.getSesion().setAttribute("beanProfesor",profesor);
+			
+		}
+		else{
+			this.setResuladooperacion("ERROR");
+			this.getSesion().setAttribute("error",errores);
+			
+		}
+		
+		
 		
 		
 	}

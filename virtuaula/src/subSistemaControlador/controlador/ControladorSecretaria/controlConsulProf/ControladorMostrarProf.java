@@ -40,6 +40,8 @@ public class ControladorMostrarProf extends ControladorConsProf{
 			this.setResuladooperacion("OK");
 			this.getSesion().setAttribute("listacurso",listacur);
 			this.getSesion().setAttribute("beanArea",are);
+			if(this.getSesion().getAttribute("error")!=null)
+				this.getSesion().removeAttribute("error");
 		}
 		
 		

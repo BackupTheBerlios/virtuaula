@@ -22,7 +22,7 @@ public class ControladorConfEditarAlum extends ControladorEditarAlumno{
 		ListaObjetoBean camposErroneos= GA.comprobar(alumnoEdicion);
 		if(claveAlumno!=null && camposErroneos.esVacio()){
 			this.setResuladooperacion("OK");
-			//this.getSesion().removeAttribute("claveAlumno");
+			
 		}
 		else{
 			this.getSesion().setAttribute("error",camposErroneos);

@@ -28,7 +28,8 @@ public class ControladorSelecEditarAlum extends ControladorEditarAlumno {
 		this.getSesion().setAttribute("claveAlumno",claveAlumno);
 		this.getSesion().setAttribute("beanAlumno",alumno);
 		if(alumno!=null){
-			
+			if(this.getSesion()!=null)
+				this.getSesion().removeAttribute("error");
 			this.setResuladooperacion("OK");
 		}
 		else{
