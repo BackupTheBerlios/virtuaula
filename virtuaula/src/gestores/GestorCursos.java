@@ -514,8 +514,8 @@ public class GestorCursos {
 	
 				Avisos aviso = (Avisos) cBean.crear(cBean.Avisos);
 				aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"Nuevo curso a impartir");
-				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido agignado el curso " + beanCurso.dameValor(Constantes.CURSO_NOMBRE)+". \n" +
-						"Aula donse se impartirá: "+beanAula.dameValor(Constantes.AULA_NOMBRE)+". \n" +
+				aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Le ha sido asignado el curso " + beanCurso.dameValor(Constantes.CURSO_NOMBRE)+". \n" +
+						"Aula donde se impartirá: "+beanAula.dameValor(Constantes.AULA_NOMBRE)+". \n" +
 						"Horario del curso: "+horario+" ");
 				aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");	
 				aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,this.dameFecha());
