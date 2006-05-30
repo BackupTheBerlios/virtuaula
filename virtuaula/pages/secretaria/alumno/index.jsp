@@ -11,6 +11,13 @@
             document.formSubmenu.submit();
           };      
       </script>  
+
+      <script language=JavaScript type="text/JavaScript">        
+          function lanzaFormularioD (evento) {
+            document.formSubmenuD.evento.value = evento;
+            document.formSubmenuD.submit();
+          };      
+      </script>  
       
   </head>
    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -45,25 +52,27 @@
                 </script>
               </font>
             </b>
-            <div align="right" style="position:relative; top:23px;style="position:relative; z-index:-1;">
-    		      <input type="hidden" name="evento">
-    	  			<div class="botonesSubMenu">
-    	  			     <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Menú principal</a>
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
-    				  </div>
+            <div align="right" style="position:relative; top:12px;">
+            	<div class="botonesSubMenu">
+            		<form method=post action="/virtuaula/ServletVisualizador" name="formSubmenuD">
+    		      		<input type="hidden" name="evento">    	  			
+    	  			     <a href="JavaScript:lanzaFormularioD('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Menú principal</a>
+      					<a href="JavaScript:lanzaFormularioD('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
     				</form>
+    			 </div>
     		  </div>
           </div>
-    		  <div style="position:relative; top:5px; z-index:-1;">
-    	  			<div class="botonesSubMenu">
-    				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
+    	  <div style="position:relative; top:-14px; z-index:-1;">
+    	  	 <div class="botonesSubMenu">
+    			 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
     					<a href="JavaScript:lanzaFormulario('MAT_ALUM_DOS');" onmouseout="window.status=''" onmouseover="window.status='Matricular alumno';return true ">Matricular alumno</a>
 							<a href="JavaScript:lanzaFormulario('EDITAR_ALUM_INI');" onmouseout="window.status=''" onmouseover="window.status='Buscar alumno';return true ">Modificar datos de alumno</a>
         					<a href="JavaScript:lanzaFormulario('CONS_ALUM');" onmouseout="window.status=''" onmouseover="window.status='Buscar alumno';return true ">Buscar alumno</a>
-    				</div>
+        			</form>
+    			</div>
     		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
+    		<div style="position:relative; top:-35px; z-index:-1;">
     			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
     		         <tr>
     				    <td class="lineaSep"></td>
@@ -80,10 +89,10 @@
     			  - Modificar los datos de un alumno matriculado en la academia<br>
     			  - Buscar un alumno de entre todos los matriculados
     			</font>
-     </div>
+     	</div>
 	  	  <map name="map">
-        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"></a>
+        <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"/>
       </map>
-      <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:100px; width:50px"></div>	    
+	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
 </html>
