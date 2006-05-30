@@ -35,17 +35,14 @@
       </table>
       <div id="lyComponentes" style="position:absolute; left:0px; top:75px; width:955px; z-index:1; overflow:inherit;">
       	  <div style="position:relative; top:12px;">
-			   <div class="botones">
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
 			      <input type="hidden" name="idBean" value="Usuario">
 			      <input type="hidden" name="DNI" value="anonimo">
 			      <input type="hidden" name="CONTRASENIA" value="anonimo">
-    	     <input type="hidden" name="evento">
-  				    <a href="JavaScript:lanzaFormulario('OFERTA_FORMATIVA');" onmouseout="window.status=''" onmouseover="window.status='Vea los cursos de la academia';return true ">Área de Conocimiento</a>
-  				    <a href="JavaScript:lanzaFormulario('ZONA_RESTRINGIDA');" onmouseout="window.status=''" onmouseover="window.status='Entre en la Zona Restringida';return true ">Zona Restringida</a>
+    	     	  <input type="hidden" name="evento">
   				  </form>
-		  	 </div>	
-		  <div align="right" style="position:relative; top:12px;">		  	 		  	              
+		 </div>	
+		  <div align="right" style="position:relative; top:15px;">		  	 		  	              
            <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
@@ -61,21 +58,19 @@
             </b>
 		 </div> 		
  		</div>
-         </div>
          <div style="position:absolute; top:200px; left:150px; z-index:1; width : 329px; height : 117px;">
             <a href="JavaScript:lanzaFormulario('OFERTA_FORMATIVA');"" onmouseout="window.status=''" onmouseover="window.status='Pulse sobre la imagen para ver los cursos de la academia';return true ">
-            <img border="0" src="img/platon.jpg" width="250" height="300" alt="Pulse sobre la imagen para ver los cursos de la academia"></p>
+            <img border="0" src="img/platon.jpg" width="250" height="300" alt="Pulse sobre la imagen para ver los cursos de la academia"><p/>
                 <div style="position:relative; left:40px; top:15px; z-index:-1;">
-    			    <font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Área de Conocimiento</b>                
-    			    </font>
+    			    <font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Área de Conocimiento</b></font>
     		    </div>
             </a>
         </div>
         <div style="position:absolute; top:200px; left:600px; z-index:1; width : 329px; height : 117px;">
-         	<a href="JavaScript:lanzaFormulario('ZONA_RESTRINGIDA');" onmouseout="window.status=''" onmouseover="window.status='Entre en la Zona Restringida';return true "</a>
-            <img border="0" src="img/edificio.jpg" width="250" height="300" alt="Pulse sobre la imagen para acceder a la Zona Restringida"></p>
+         	<a href="JavaScript:lanzaFormulario('ZONA_RESTRINGIDA');" onmouseout="window.status=''" onmouseover="window.status='Entre en la Zona Restringida';return true ">
+            <img border="0" src="img/edificio.jpg" width="250" height="300" alt="Pulse sobre la imagen para acceder a la Zona Restringida"><p/>
                <div style="position:relative; left:60px; top:15px; z-index:-1;">
-    			    <font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Zona Restringida</b>                
+    			    <font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Zona Restringida</b>   </font>             
     		   </div>
             </a>
         </div>
