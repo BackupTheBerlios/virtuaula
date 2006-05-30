@@ -9,7 +9,7 @@
       <link href="./../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="./../../../script/overlib_mini.js"></script>
       
-      <script language=JavaScript type="text/JavaScript">        
+      <script language=JavaScript type="text/JavaScript">        	      
           function lanzaFormulario (evento) {
             document.formSubmenu.evento.value = evento;
             document.formSubmenu.submit();
@@ -42,7 +42,8 @@
 		  	 <div align="left" style="position:relative; top:15px; left:15px">
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Seleccionar Curso</b></font>                
     	   </div> 
-         <div align="right" style="position:relative; top:-5px">               
+         <div align="right" style="position:relative; top:-5px">   
+         	<b>            
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
                 <script language=JavaScript type=text/JavaScript>
                 <!--   // Array ofmonth Names
@@ -54,6 +55,7 @@
                 // -->
                 </script>
               </font>
+			</b>              
           </div>
     		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
