@@ -14,3 +14,4 @@ Descripcion:
 
 pendiente : en rrhh al contratar un profesor los errores salen uno a uno en lugar de sacarlos en una lista como cuando matriculas el alumno. (http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp)
 pendiente : en rrhh al contratar un profesor el campo de la cuenta bancaria deberia tener un maxlength de 30 que es lo que tiene en la bbdd
+pendiente : en rrhh al contratar un profesor al dar a contratar desde http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp da un null pointer
