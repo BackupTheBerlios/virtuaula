@@ -19,7 +19,6 @@ solucionada : en secretaria al modificar un alumno en la pagina de editarAlumno.
 solucionada : en secretaria al modificar un alumno si pasabas de la paginas de confirmar la edicion a atras y volvias a buscar petaba.
 solucionada : en http://localhost:8080/virtuaula/pages/rrhh/index.jsp no funciona el boton de salir.
 solucionada : en http://localhost:8080/virtuaula/pages/profesor/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
-pendiente : en http://localhost:8080/virtuaula/pages/profesor/curso/seleccionarAlumno.jsp los mensajes deberían cambiar ya que si no tengo ningún alumno me dice que elija alguno cuando realmente no puedo.
 pendiente : en http://localhost:8080/virtuaula/pages/profesor/curso/confirmacionPublicarNotas.jsp si no hay ningún alumno deberia sacar el mensaje correspondiente y tampoco sacar la cabecera de la tabla
 solucionada : http://localhost:8080/virtuaula/pages/secretaria/aviso/confirmacionAvisoEnviado.jsp poner la confirmación como el resto de las páginas.
 solucionada : http://localhost:8080/virtuaula/pages/publico/ofertaFormativa.jsp Poner arriba el link del documento y una indicacion de que si se quiere matricular en cualquiera de los cursos abajo indicados debe de llevar el siguiente formulario a tal sitio y tal direccio (un poco de negocio)
