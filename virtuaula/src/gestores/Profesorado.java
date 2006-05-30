@@ -114,7 +114,7 @@ public class Profesorado {
 		GestorCursos gc = new GestorCursos();
 		return gc.consultaAlumnosDeCurso(beanCurso);
 	}
-	public boolean editar(ObjetoBean profesor)
+	public ListaObjetoBean editar(ObjetoBean profesor)
 	{
 		BBDDFachada bdf = BBDDFachada.getInstance();
 //		mandamos aviso al alumno diciendo que sus datos se han modificado
@@ -129,7 +129,18 @@ public class Profesorado {
 		lista.insertar(0,usu);
 		GestorAvisos gestAvisos = new GestorAvisos();
 		gestAvisos.avisoAGrupo(lista,aviso);
-		return bdf.editar(profesor);
+		ListaObjetoBean errores=this.comprobarDatosPersonales(profesor);
+		if (errores!=null && errores.esVacio()){
+			if (!bdf.editar(profesor)){
+				String mensaje = "Fallo de base de datos";
+				ObjetoBean error = (ObjetoBean) creador.crear(14);
+				error.cambiaValor("CAUSA_ERROR", mensaje);
+				errores.insertar(0, error);
+			}
+			
+		}
+		
+		return errores;
 	}
 	/**
 	 * Consulta los cursos activos en ese momento
@@ -203,6 +214,74 @@ public class Profesorado {
 		BBDDFachadaCurso bdfc= (BBDDFachadaCurso) (bdf.dameBBDDFachada(Constantes.FachadaCurso));
 		return bdfc.creaExpediente(curso);
 	}
+
+	private ListaObjetoBean comprobarDatosPersonales(ObjetoBean bean){
+		CreadorListaObjetoBean c = new CreadorListaObjetoBean();
+		CreadorBean cBean = new CreadorBean();
+		ListaObjetoBean listaerror = c.crear();
+		String mensaje = "";
+		int i = 0;
+		//		El DNI no debe ser un campo vacío
+		if (bean.dameValor(Constantes.ID_ISPROFESOR_ISUSUARIO_DNI).equals("")){
+			mensaje = "El campo DNI no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+		//		El nombre no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_NOMBRE).equals("")){
+			mensaje = "El campo Nombre no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+		//		El apellido no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO1).equals("")){
+			mensaje = "El campo Apellido1 no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+		//		El apellido no debe ser un campo vacío
+		else if (bean.dameValor(Constantes.PROFESOR_APELLIDO2).equals("")){
+			mensaje = "El campo Apellido2 no ha sido rellenado";
+			ObjetoBean error = (ObjetoBean) cBean.crear(14);
+			error.cambiaValor("CAUSA_ERROR", mensaje);
+			listaerror.insertar(i, error);
+			i++;
+		}
+		else if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
+			  try {
+					int telf = Integer.parseInt(bean.dameValor(Constantes.PROFESOR_TELEFONO));
+					if (telf < 0) {
+						System.out.println("Ha entrao ");
+						mensaje = "El campo Telefono tiene un valor incorrecto. Debe ser un" +
+								  "entero mayor que 0";
+						ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+						error.cambiaValor("CAUSA_ERROR", mensaje);
+						listaerror.insertar(i, error);
+						i++;
+					}
+				  } 
+				  catch (Exception e) {
+					// No es número
+					mensaje = "El campo Telefono tiene un valor incorrecto. Debe ser un " +
+							  "entero mayor que 0";
+					ObjetoBean error = (ObjetoBean) cBean.crear(cBean.Error);
+					error.cambiaValor("CAUSA_ERROR", mensaje);
+					listaerror.insertar(i, error);
+					i++;
+				  }
+				}
+			
+				return listaerror;
+
+
+		
+	}
 	/**
 	 * Comprueba que los datos del profesor,de su nomina y su contraro sean correctos para insertarlo
 	 * @param bean
@@ -226,7 +305,7 @@ public class Profesorado {
 			i++;
 		}
 		//El área no debe ser un campo vacío
-		if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("-1")){
+		else if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("-1"")){
 			mensaje = "El campo Area no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
@@ -331,7 +410,7 @@ public class Profesorado {
 		}
 		
 		//El telefono debe ser un entero mayor que 0
-	    if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
+		if (!bean.dameValor(Constantes.PROFESOR_TELEFONO).equals("")){
 		  try {
 			int telf = Integer.parseInt(bean.dameValor(Constantes.PROFESOR_TELEFONO));
 			if (telf < 0) {
@@ -368,7 +447,7 @@ public class Profesorado {
 	 */
 	public ListaObjetoBean contratarProfesor(ObjetoBean profesor,ObjetoBean usuario,ObjetoBean nomina,ObjetoBean contrato)
 	{
-	BBDDFachada bdf = BBDDFachada.getInstance();
+		BBDDFachada bdf = BBDDFachada.getInstance();
 		CreadorBean creador=new CreadorBean();
 		ListaObjetoBean liserror = this.comprobar(profesor,nomina,contrato);
 		if (liserror.esVacio())
@@ -396,7 +475,6 @@ public class Profesorado {
 					nomina.cambiaValor(Constantes.NOMINA_CANTIDAD,"0");
 				}
 				GNC.insertarNomina(nomina);
-				
 				nomina.cambiaValor(Constantes.ID_ISNOMINA,"");
 				//sacar isnomina-idisnomina
 				ListaObjetoBean lisnom=bdf.consultar(nomina);
