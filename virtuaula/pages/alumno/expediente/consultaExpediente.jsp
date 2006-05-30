@@ -80,94 +80,163 @@
     		<div style="position:relative; top:-20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
               	<font face="Trebuchet MS" color="#616D7E" point-size="5">
-			  <B>Cursos Activos</B><BR>
-				<p>
-              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
-        				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Curso</b></font></th>
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Fecha Inicio</b></font></th>
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Fecha Fin</b></font></th>
- 							<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Nota</b></font></th>       					
-        				</tr>	
+              	
+
+			  <B>Datos del Alumno</B><BR>
+				<p>					       					
+        					
         			<%
-                    HttpSession sesion=request.getSession();
-                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaexpedientealumno"));
-                    ObjetoBean expediente;	
-                    for(int i=0;i<listaObjetoBean.tamanio();i++){
-                  	expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
-                  	if (expediente.dameValor("ESTADO").equals("activo"))
-                  	{
-                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
-                  	%> <tr bgcolor="#dbecff">
-    	                  <%
-    	                  String Nota=String.valueOf(expediente.dameValor("NOTAFINAL"));
-    	                  if ((String.valueOf(expediente.dameValor("NOTAFINAL")).equals("null")) || (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-1")))
-    	                  {
-    	                	  Nota = "No presentado";
-    	                  }
-    	                  if (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-2"))
-    	                  {
-    	                	  Nota = "Curso Cancelado";
-    	                  }
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_INICIO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_FIN"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(Nota)+"</td>");
-    	                  out.println("</tr>");
-                      }
-                      }
-                    }
+	                    HttpSession sesion=request.getSession();
+	                    ObjetoBean alumno = ((ObjetoBean)sesion.getAttribute("beanAlumno"));;	
+						
+						if (alumno != null) {
+		                	out.println("<table  width='90%' border='0' cellspacing='0' cellpadding='10'>");
+		                	out.println("<tr bgcolor='#877fff'>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>DNI</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Nombre</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Primer Apellido</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Segundo Apellido</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Teléfono</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Email</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Dirección</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Fecha Nacimiento</b></font></th>");
+		                  	out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Sexo</b></font></th>");		                  	
+		                  	out.println("</tr>"); 
+	    	                out.println("<tr bgcolor='#dbecff'>");	
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("ISUSUARIO_DNI"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("NOMBRE"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO1"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("APELLIDO2"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("TELEFONO"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("EMAIL"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("DIRECCION"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("FECH_NACIMIENTO"))+"</td>");
+			    	        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(alumno.dameValor("SEXO"))+"</td>");			    	        			    	        
+			    	        out.println("</tr>");
+			    	        out.println("</table>");		                  	
+		                  	
+						}
+
                 %>  
-                </table>
-                <p>
+
+              	
+                <p></p> 
+                <B>Cursos Activos</B><BR>
+				<p></p> 
+              				       					        					
+        			<%
+	                    ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaexpedientealumno"));
+	                    ObjetoBean expediente;	
+	                    boolean hayCursosActivos = false;
+	                    int cabeceraCursosActivos = 0;
+	                    
+	                    if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+	                    	for(int i=0;i<listaObjetoBean.tamanio();i++){
+	                  			expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
+	                  			if (expediente.dameValor("ESTADO").equals("activo"))
+	                  			{
+	                  						                  					
+	                  					if (cabeceraCursosActivos == 0) {
+		                  					out.println("<table  width='90%' border='0' cellspacing='0' cellpadding='10'>");
+		                  					out.println("<tr bgcolor='#877fff'>");
+		                  					out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Curso</b></font></th>");
+		                  					out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Fecha Inicio</b></font></th>");
+		                  					out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Fecha Fin</b></font></th>");
+		                  					out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Nota</b></font></th>");
+		                  					out.println("</tr>");   
+											cabeceraCursosActivos ++;              				
+		                  					
+										}	                  				
+	                  				    
+	                  				    hayCursosActivos = true;
+	                  				     					
+	    	                  			
+	    	                  			String Nota=String.valueOf(expediente.dameValor("NOTAFINAL"));
+	    	                  			if ((String.valueOf(expediente.dameValor("NOTAFINAL")).equals("null")) || (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-1")))
+	    	                  			{
+	    	                	  			Nota = "No presentado";
+	    	                  			}
+	    	                  			if (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-2"))
+	    	                  			{
+	    	                	  			Nota = "Curso Cancelado";
+	    	                  			}
+	    	                  		  out.println("<tr bgcolor='#dbecff'>");	
+			    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
+			    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_INICIO"))+"</td>");
+			    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_FIN"))+"</td>");
+			    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(Nota)+"</td>");
+			    	                  out.println("</tr>");
+			    	                  			    	                   			    	                  
+	                      			}
+	                      		}
+	                      		if (cabeceraCursosActivos != 0) {out.println("</table>");}
+                    	}
+                    	
+                    	if (!hayCursosActivos) {out.println("No está matriculado actualmente en ningún curso.");} 
+                %>  
+                
+                <p></p> 
                 <B>Cursos Acabados</B><BR>
-				<p>
-              <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
-        				<tr bgcolor="#877fff">        					
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Curso</b></font></th>
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Fecha Inicio</b></font></th>
-        					<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Fecha Fin</b></font></th>
- 							<th class="FormLiteral"><font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Nota</b></font></th>       					
-        				</tr>	
+				<p></p>              								       					
+        					
         			<%
-                    //HttpSession sesion=request.getSession();
-                    //ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaexpedientealumno"));
-                    //ObjetoBean expediente;	
-                    for(int i=0;i<listaObjetoBean.tamanio();i++){
-                  	expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
-                  	if (expediente.dameValor("ESTADO").equals("inactivo"))
-                  	{
-                  	if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
-                  	%> <tr bgcolor="#dbecff">
-    	                  <%
-    	                  String Nota=String.valueOf(expediente.dameValor("NOTAFINAL"));
-    	                  if ((String.valueOf(expediente.dameValor("NOTAFINAL")).equals("null")) || (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-1")))
-    	                  {
-    	                	  Nota = "No presentado";
-    	                  }
-    	                  if (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-2"))
-    	                  {
-    	                	  Nota = "Curso Cancelado";
-    	                  }
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_INICIO"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_FIN"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(Nota)+"</td>");
-    	                  out.println("</tr>");
-                      }
-                      }
+					
+					boolean hayCursosAcabados = false;
+					int cabeceraCursosAcabados = 0;
+					
+					if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+					
+	                    for(int i=0;i<listaObjetoBean.tamanio();i++){
+	                  		expediente = (ObjetoBean) listaObjetoBean.dameObjeto(i);
+	                  		if (expediente.dameValor("ESTADO").equals("inactivo"))
+	                  		{	
+	                  			
+	                  			  if (cabeceraCursosAcabados == 0) {	
+	                  				    	                  	  
+			    	                  out.println("<table  width='90%' border='0' cellspacing='0' cellpadding='10' >");
+			    	                  out.println("<tr bgcolor='#877fff'>");
+			    	                  out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Curso</b></font></th>");
+			    	                  out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Fecha Inicio</b></font></th>");
+			    	                  out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Fecha Fin</b></font></th>");
+			    	                  out.println("<th class='FormLiteral'><font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Nota</b></font></th>");
+			    	                  out.println("</tr>");
+									  cabeceraCursosAcabados ++;
+								  }
+								  
+								  
+	    	                  	  hayCursosAcabados = true;		    	                  
+		    	                  String Nota=String.valueOf(expediente.dameValor("NOTAFINAL"));
+		    	                  if ((String.valueOf(expediente.dameValor("NOTAFINAL")).equals("null")) || (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-1")))
+		    	                  {
+		    	                	  Nota = "No presentado";
+		    	                  }
+		    	                  if (String.valueOf(expediente.dameValor("NOTAFINAL")).equals("-2"))
+		    	                  {
+		    	                	  Nota = "Curso Cancelado";
+		    	                  }
+		    	                  out.println("<tr bgcolor='#dbecff'>");
+		    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOMBRE"))+"</td>");
+		    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_INICIO"))+"</td>");
+		    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("FECHA_FIN"))+"</td>");
+		    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(Nota)+"</td>");
+		    	                  out.println("</tr>");
+	                      		
+	                      	} 
+                    	}
+                    	if (cabeceraCursosAcabados != 0) {out.println("</table>");}
                     }
+                    if (!hayCursosAcabados) {out.println("No ha cursado ningún curso anteriormente.");} 
                 %>  
-                </table>
+                
                 <BR><BR>
               <table border="0" align="center" cellspacing="0" cellpadding="5">                 	                      				                      				
-              	<tr >
-					         <td>
+              	<tr>
+					 <td>
                       <input type="hidden" name="evento" value="menuPrincipalAlum">
                       <button type="submit" class="botonSimple">Aceptar</button>
-					         </td>
-				        </tr>	                       				
-        			</table>
+					  </td>
+				</tr>	                       				
+        	  </table>
           </form>
     		</div>
 	  </div>
