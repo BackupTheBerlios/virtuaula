@@ -15,7 +15,7 @@ public class ControladorEditaProf extends ControladorEditarProf{
       	//ObjetoBean profesor=listaObjetoBean.dameObjeto(posi);
       	ObjetoBean profesor = (ObjetoBean)this.getSesion().getAttribute("beanProfesor");
 		Profesorado profesorado = new Profesorado();
-		profesorado.editar(profesor);
+		//profesorado.editar(profesor);
 		ListaObjetoBean errores= profesorado.editar(profesor);
 		if (errores.esVacio()){
 			this.setResuladooperacion("OK");
