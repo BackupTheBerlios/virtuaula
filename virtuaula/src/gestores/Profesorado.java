@@ -305,7 +305,7 @@ public class Profesorado {
 			i++;
 		}
 		//El área no debe ser un campo vacío
-		else if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("-1"")){
+		if (bean.dameValor(Constantes.PROFESOR_ISAREA_IDISAREA).equals("-1")){
 			mensaje = "El campo Area no ha sido rellenado";
 			ObjetoBean error = (ObjetoBean) cBean.crear(14);
 			error.cambiaValor("CAUSA_ERROR", mensaje);
