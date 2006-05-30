@@ -67,8 +67,14 @@
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
               	<tr>
-					         <td class="info">
-					           Aviso enviado correctamente
+					         <td>					           
+								<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Aviso enviado correctamente</b></font>
+				    			<br/>
+				    			<font face="Trebuchet MS" color="#616D7E">
+				    			
+								El destinatario ya lo tiene disponible en su bandeja de entrada.
+				    			</font>
+
 					         </td>
 				        </tr>	                       				
               	<tr>
