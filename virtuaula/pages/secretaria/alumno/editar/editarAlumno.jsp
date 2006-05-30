@@ -88,9 +88,10 @@
         %>
     		
     		<div style="position:relative; top:-20px; left:150px; z-index:-1;">
-    			<form method=post action="/virtuaula/ServletVisualizador">
+    			
 	
     		<div style="position:relative; top:55px; left:80px; z-index:1;">
+    		<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">Nombre</td>
@@ -144,8 +145,8 @@
 					         </td>
 				        </tr>	                       				
         			</table>
-				</div>              
-          </form>
+        			 </form>
+				</div>                       
           </div>    		
 	  </div>	  	  
     <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>	 
