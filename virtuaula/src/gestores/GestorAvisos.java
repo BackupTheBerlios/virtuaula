@@ -477,7 +477,7 @@ public class GestorAvisos {
 		
 		//Creamos el aviso		
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporaci´´on de personal. \nDatos personales: \nDNI:"+DNI+" " +nombre+" "+apellido+" "+apellido2+"." +
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporación de personal. \nDatos personales: \nDNI:"+DNI+" " +nombre+" "+apellido+" "+apellido2+"." +
 				"\nSueldo: "+nomina.dameValor(Constantes.NOMINA_CANTIDAD)+".\n" +
 				"Cuenta de ingresos: "+nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS)+". \n" +
 				"Tipo de contrato: "+contrato.dameValor(Constantes.CONTRATO_TIPO)+".");
