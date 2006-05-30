@@ -35,6 +35,7 @@
 			     <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     	     <input type="hidden" name="evento">
   				    <a href="JavaScript:lanzaFormulario('INI_INS_PROF');" onmouseout="window.status=''" onmouseover="window.status='Contratar nuevo profesor';return true ">Contratar nuevo profesor</a>
+  				    <a href="JavaScript:lanzaFormulario('AVIS_RRHH');" onmouseout="window.status=''" onmouseover="window.status='Avisos';return true ">Avisos</a>
   				    </form>
 		  	 </div>		  	 		  	
 		  	 <div align="right" style="position:relative; top:-35px">               
@@ -68,9 +69,19 @@
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">
     			  Desde esta pagina puede elegir qué desea hacer:<br><br>
     			  - Contratar nuevos profesores para que impartan cursos en la academia<br>
+    			  - Leer o borrar avisos enviados por otros usuarios
     			</font>
      </div>
-
+<div style="position:relative; left:350px; top:100px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5">                
+    		
+		<%
+		HttpSession sesion=request.getSession();
+		Integer numAvisos= (Integer) (sesion.getAttribute("numAvisos"));
+		int numeroAvisos= numAvisos.intValue();
+		out.println("<b>Tiene "+ numeroAvisos+ " mensajes nuevos.</b>");
+	  	%>
+	  </div>
       <map name="map">
         <area shape="rect" coords="450,0,510,50" href="JavaScript:lanzaFormulario('desconectar');"onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;">
       </map>
