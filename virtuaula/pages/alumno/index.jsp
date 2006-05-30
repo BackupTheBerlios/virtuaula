@@ -13,6 +13,12 @@
             document.formSubmenu.evento.value = evento;
             document.formSubmenu.submit();
           };      
+
+          function lanzaFormularioD (evento) {
+            document.formSubmenuD.evento.value = evento;
+            document.formSubmenuD.submit();
+          };   
+
       </script>      
       
 </head>
@@ -57,16 +63,14 @@
             </b>
           </div>
 	  </div>
-	  <div align="right" style="position:relative; z-index:-1;">
-    		      <input type="hidden" name="evento">
-    	  			<div class="botonesSubMenu">
-      					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
-    				  </div>
+	  <div align="right" style="position:relative; z-index:-1; top:-10px;">    		
+    	  	<div class="botonesSubMenu">
+					<form method=post action="/virtuaula/ServletVisualizador" name="formSubmenuD">    	  			
+					<input type="hidden" name="evento">
+      					<a href="JavaScript:lanzaFormularioD('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>    				  
     				</form>
-    		  </div>
-		<div style="position:relative; top:45px; z-index:-1;">
-	  		<!-- <img src="img/fondoMenu.jpg" height="98%" width="1003px"> -->
-		</div>
+			</div>    				
+    	</div>
 	  </div>
 	  <div style="position:relative; left:50px; top:50px; z-index:-1;">
     			<font face="Trebuchet MS" color="#616D7E" point-size="5">

@@ -56,7 +56,7 @@
                 </script>
               </font>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
