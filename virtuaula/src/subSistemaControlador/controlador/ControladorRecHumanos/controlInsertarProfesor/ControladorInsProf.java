@@ -45,8 +45,7 @@ public class ControladorInsProf extends ControladorRecHumanos{
 		{//si hay errores
 			this.setResuladooperacion("OK");
 			this.getSesion().removeAttribute("error");
-			this.getSesion().removeAttribute("beanNomina");
-			this.getSesion().removeAttribute("beanContrato");
+			
 		}
 		if (!listaerrores.esVacio())
 		{//hay errores
