@@ -108,9 +108,9 @@ public class GestorAvisos {
 		
 				
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha matriculado del  curso " + nombrecurso + "\n El" +
-				"Profesor es " + nombre +" "+apellido1+ " "+ apellido2+ ". \n El aula es "+ nombreaula +". \n " +
-						" El horario es "+ hor +"." );
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Se ha matriculado del curso " + nombrecurso + ".\nEl " +
+				"Profesor es " + nombre +" "+apellido1+ " "+ apellido2+ ". \nEl aula es "+ nombreaula +". \n" +
+						"El horario es "+ hor +"." );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_AVISO,GH.dameFecha());
 		aviso.cambiaValor(Constantes.AVISOS_FECHA_CADUCUDAD,"");
@@ -176,9 +176,9 @@ public class GestorAvisos {
 		
 		
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Bienvenido a Virtuaula "+nombre+" "+apellido+" "+apellido2+". \n " +
-				"Te indicamos a continuacion tus datos de acceso: \n" +
-				"Usuario: "+DNI+" \n " +
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Bienvenido a Virtuaula "+nombre+" "+apellido+" "+apellido2+". \n" +
+				"Te indicamos a continuación tus datos de acceso: \n" +
+				"Usuario: "+DNI+" \n" +
 				"Contraseña: "+password+" " );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
 		GestorHorarios GH =new GestorHorarios();
@@ -410,9 +410,9 @@ public class GestorAvisos {
 		//Date fecha = new Date();
 		
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Bienvenido a Virtuaula "+nombre+" "+apellido+" "+apellido2+". \n " +
-				"Te indicamos a continuacion tus datos de acceso: \n" +
-				"Usuario: "+DNI+" \n " +
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Bienvenido a Virtuaula "+nombre+" "+apellido+" "+apellido2+". \n" +
+				"Te indicamos a continuación tus datos de acceso: \n" +
+				"Usuario: "+DNI+" \n" +
 				"Contraseña: "+password+" " );
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
 		GestorHorarios GH =new GestorHorarios();
@@ -477,8 +477,8 @@ public class GestorAvisos {
 		
 		//Creamos el aviso		
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporacion de personal. \n Datos personales: \n DNI:"+DNI+" " +nombre+" "+apellido+" "+apellido2+"." +
-				"\n Sueldo: "+nomina.dameValor(Constantes.NOMINA_CANTIDAD)+".\n" +
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporaci´´on de personal. \nDatos personales: \nDNI:"+DNI+" " +nombre+" "+apellido+" "+apellido2+"." +
+				"\nSueldo: "+nomina.dameValor(Constantes.NOMINA_CANTIDAD)+".\n" +
 				"Cuenta de ingresos: "+nomina.dameValor(Constantes.NOMINA_CUENTA_INGRESOS)+". \n" +
 				"Tipo de contrato: "+contrato.dameValor(Constantes.CONTRATO_TIPO)+".");
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
@@ -567,8 +567,8 @@ public class GestorAvisos {
 		area=listarea.dameObjeto(0);
 		//Creamos el aviso		
 		aviso.cambiaValor(Constantes.AVISOS_ASUNTO,"esteesmiaviso");
-		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporacion de personal. \n Datos personales: \n DNI:"+DNI+" \n Nombre: " +nombre+" "+apellido+" "+apellido2+"." +
-		"\n Telefono: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+"\n " +
+		aviso.cambiaValor(Constantes.AVISOS_TEXTO,"Incorporación de personal. \nDatos personales: \nDNI:"+DNI+" \nNombre: " +nombre+" "+apellido+" "+apellido2+"." +
+		"\nTelefono: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+"\n" +
 		"Email: "+profesor.dameValor(Constantes.PROFESOR_TELEFONO)+". \n" +
 		"Area tecnológica:"+area.dameValor(Constantes.AREA_NOMBRE)+".");
 		aviso.cambiaValor(Constantes.AVISOS_ACTIVO,"S");
