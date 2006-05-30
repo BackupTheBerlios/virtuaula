@@ -68,17 +68,7 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione el profesor que desea buscar (paso 2/3)</b></font>                
-    		</div>
-    		<div style="position:relative; left:20px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E">
-    			   Estos son los profesores encontrados con los datos que introdujo<br>
-    			   Seleccione el profesor deseado y pulse "Seleccionar" en el botón del fondo de la página
-    			</font>
-    		</div>
-    		<div style="position:relative; top:20px; left:150px; z-index:-1;">
-    			<form method=post action="/virtuaula/ServletVisualizador">
+
         				
         				<%
 	
@@ -86,9 +76,22 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("RdoControlador"));
                   	Profesor profesor;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		                	
+		                	out.println("<div style='position:relative; left:10px; top:15px; z-index:-1;'>");
+		                	out.println("<font face='Trebuchet MS' color='#616D7E' point-size='5'><b>Seleccione el profesor que desea buscar (paso 2/3)</b></font>");
+		                	out.println("</div>");
+		                	out.println("<div style='position:relative; left:20px; top:15px; z-index:-1;'>");
+		                	out.println("<font face='Trebuchet MS' color='#616D7E'>");
+		                	out.println("Estos son los profesores encontrados con los datos que introdujo<br>");
+		                	out.println("Seleccione el profesor deseado y pulse 'Seleccionar' en el botón del fondo de la página");
+		                	out.println("</font>");
+		                	out.println("</div>");
+		                	out.println("<div style='position:relative; top:20px; left:150px; z-index:-1;'>");
+		                	out.println("<form method=post action='/virtuaula/ServletVisualizador'>");		                	
+		                	
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
-                        out.println("	<th class='FormLiteral'><b>Seleccion</th>");
+                        	out.println("	<th class='FormLiteral'><b>Seleccion</th>");
         		            out.println("	<th class='FormLiteral'><b>DNI</th>");  					
         		            out.println("	<th class='FormLiteral'><b>Nombre</th>");
         		            out.println("	<th class='FormLiteral'><b>Primer Apellido</th>");
@@ -119,24 +122,41 @@
 		                    out.println("			          <input type='hidden' name='evento' value='MOSTRAR_PROF'>");
 		                    out.println("			          <input type='hidden' name='idBean' value='listProf'>");
 		                    out.println("   			        <button type='submit' class='botonSimple'>Seleccionar</button>");
-		         
+		                    out.println("</td>");
+		                    out.println("</tr>");
+		                    out.println("</table>");
+		                	out.println("</div>");		                    
 		                  
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
-			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
-			                   out.println("<tr>");			 
-		      	             out.println("		         <td colspan='7' align='center'> ");
-		      	             out.println("			          <input type='hidden' name='evento' value='INI_CONS_PROF'>");
-		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
+		              else{	
+		                	out.println("<form method=post action='/virtuaula/ServletVisualizador'>");		                	
 
+		                	out.println("<div style='position:relative; left:10px; top:15px; z-index:-1;'>");
+		                	out.println("<font face='Trebuchet MS' color='#616D7E' point-size='5'><b>No se han encontrado profesores con los criterios introducidos.</b></font>");
+		                	out.println("</div>");
+		            	  
+		                	out.println("<div style='position:relative; left:20px; top:15px; z-index:-1;'>");
+		                	out.println("<font face='Trebuchet MS' color='#616D7E'>");
+		                	out.println("Pulse atrás para volver a introducir los datos<br>");
+		                	out.println("</font>");
+		                	out.println("</div>");
+
+		                	out.println("<div style='position:relative; top:20px; left:150px; z-index:-1;'>");
+
+		            	  	out.println("<table border='0' cellspacing='0' cellpadding='10'>");		
+			                out.println("<tr>");			 
+		      	            out.println("		         <td colspan='7' align='center'> ");
+		      	            out.println("			          <input type='hidden' name='evento' value='INI_CONS_PROF'>");
+		      	            out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
+		                    out.println("</td>");
+		                    out.println("</tr>");
+		                    out.println("</table>");
+		                    out.println("</div>");
 		
 		                  } 
-                  out.println("</td>");
-                  out.println("</tr>");
-                  out.println("</table>");		                  
+	
+              	out.println("</form>");
                 %>   
-          </form>
-    		</div>
 	  </div>
 	  <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>
    </body>
