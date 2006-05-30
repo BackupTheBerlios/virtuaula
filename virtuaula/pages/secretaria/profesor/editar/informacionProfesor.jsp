@@ -148,23 +148,21 @@
                   		out.println("<tr bgcolor='#877fff'>");
                   		out.println("<th class='FormLiteral'><b>Nombre Curso</th>");
                   		out.println("<th class='FormLiteral'><b>Número de plazas</th>");
-                  		out.println("<th class='FormLiteral'><b>Estado</th>");
                   		out.println("<th class='FormLiteral'><b>Fecha Inicio</th>");
                   		out.println("<th class='FormLiteral'><b>Fecha Fin</th>");
                   		out.println("<th class='FormLiteral'><b>Precio</th>");
-                  		out.println("<th class='FormLiteral'><b>Área</th>");
+                 		out.println("<th class='FormLiteral'><b>Estado</th>");
                   		out.println("</tr>");
                   	   for (int i=0; i<listaCursos.tamanio();i++) {
                     	
                         curso = (Curso) listaCursos.dameObjeto(i);
     	                  out.println("<tr bgcolor='dbecff'>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("IDISCURSO"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NOMBRE"))+"</td>");
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("NUMERO_PLAZAS"))+"</td>");
-    	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");    	                  
     	                  out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_INICIO"))+"</td>");
                         out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("FECHA_FIN"))+"</td>");
-                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	                    	                   	                    
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("PRECIO"))+"</td>");	
+                        out.println("<td class='FormLiteral' align='center'>"+String.valueOf(curso.dameValor("ESTADO"))+"</td>");    	                                	                   	                    
     	                  out.println("</tr>");
   	                  
                         }
