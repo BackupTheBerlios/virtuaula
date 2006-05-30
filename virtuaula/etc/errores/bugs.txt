@@ -7,3 +7,9 @@ Descripcion:
 	pendiente nada más crearla.
 	enProceso la pone el responsable de la solución.
 --------------------------------------------------------------------------
+
+*************************************************************************
+*								INCIDENCIAS:							*
+*************************************************************************
+
+pendiente : en rrhh al contratar un profesor los errores salen uno a uno en lugar de sacarlos en una lista como cuando matriculas el alumno. (http://localhost:8080/virtuaula/pages/rrhh/profesor/insertar/iniContratarProfesor.jsp)
