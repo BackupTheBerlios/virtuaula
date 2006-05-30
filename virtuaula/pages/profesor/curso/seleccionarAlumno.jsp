@@ -66,11 +66,6 @@
     		         </tr>
     			 </table>
     		</div>
-    		<div style="position:relative; left:10px; top:15px; z-index:-1;">
-    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un alumno (paso 2/3)</b><br>
-    			   Estos son los alumnos matriculado en el curso seleccionado<br>
-    			   Seleccione el alumno deseado y pulse "Ver ficha" en el botón del fondo de la página</font>
-    		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
         				
@@ -80,6 +75,13 @@
                     ListaObjetoBean listaObjetoBean =((ListaObjetoBean)sesion.getAttribute("listaalumno"));
                   	Alumno alumno;
 		                if (listaObjetoBean != null && !listaObjetoBean.esVacio()){
+		               %>
+		               <div style="position:relative; left:-50px; top:-40px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Seleccione un alumno (paso 2/3)</b><br>
+    			   Estos son los alumnos matriculado en el curso seleccionado<br>
+    			   Seleccione el alumno deseado y pulse "Ver ficha" en el botón del fondo de la página</font>
+    		</div>
+		               <%
         		            out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
         		            out.println("<tr>");
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");			
@@ -116,7 +118,14 @@
 		         
 		                  
 		              }
-		              else{	out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
+		              else{	
+		               %>
+		                <div style="position:relative; left:-50px; top:-40px; z-index:-1;">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>No se hay ningún alumno matriculado en este curso</b><br>      
+    			   Pulse "Atrás" para volver a la página anterior</font>
+    		</div>
+		                <%
+		              out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
