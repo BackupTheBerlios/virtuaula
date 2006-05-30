@@ -5,7 +5,8 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 import subSistemaControlador.controlador.*;
 import beans.ObjetoBean;
 import gestores.GestorAlumnos;
-import subSistemaBBDD.utils.*;
+import gestores.GestorAvisos;
+
 /**
  * 
  * @author JORGE SANCHEZ
@@ -20,6 +21,8 @@ public class ControladorFinEditarAlum extends ControladorEditarAlumno{
 		ObjetoBean alumnoEdicion= (ObjetoBean)(this.getSesion().getAttribute("beanAlumno"));
 		GestorAlumnos GA = new GestorAlumnos();
 		boolean exito = GA.editarAlumno(alumnoEdicion);
+		
+		
 		if(exito){
 			this.setResuladooperacion("OK");
 		}

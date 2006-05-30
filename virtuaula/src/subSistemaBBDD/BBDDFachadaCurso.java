@@ -410,7 +410,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				ListaObjetoBean cursosAlumno=this.consultar(curso);
 				if(cursosAlumno.tamanio()>0){
 					cursoAdentro= cursosAlumno.dameObjeto(0);
-					if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
+					//if(cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("activo") ||cursoAdentro.dameValor(Constantes.CURSO_ESTADO).equals("Activo"))
 						resultados.insertar(resultados.tamanio(),cursoAdentro);
 				}
 					
