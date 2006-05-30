@@ -10,6 +10,8 @@ var i = 0;
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
+      <script language="JavaScript" src="../../../../script/calendar.js"></script>
+
       
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -90,12 +92,27 @@ var i = 0;
         					<td><input type="text" class="FormTxt" maxlength="40" size="31" name="NUMERO_PLAZAS"></td>
         					<td></td>
         				</tr>
+
+        				<tr>
+ 			                <td class="FormLiteral">Precio</td>
+        					<td><input type="text" class="FormTxt" maxlength="40" size="31" name="PRECIO"></td>
+                 
+
+                  <td class="FormLiteral">Fecha inicio</td>
+        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=765;ggPosY=180;show_calendar('consultarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
+                  </td>
+                 </tr> 
+        				
         				<tr>
          					<td class="FormLiteral">Estado</td>
         					<td><input type="text" class="FormTxt" maxlength="40" size="31" name="ESTADO"></td>
- 			                <td class="FormLiteral">Precio</td>
-        					<td><input type="text" class="FormTxt" maxlength="40" size="31" name="PRECIO"></td>
+
+        					<td class="FormLiteral">Fecha finalización</td>
+        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=765;ggPosY=200;show_calendar('consultarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+                  			</td>
+
 						</tr>
+						
         				<tr>
  							
         					        					<td class="FormLiteral">Horario</td>
@@ -106,7 +123,7 @@ var i = 0;
                           if (listaHorarios != null && !listaHorarios.esVacio()) {
                 	            Horario horario;	
                 	            out.println("<select name='posHor' class='FormTxt'>");
-                	            out.println("<option value=''>Seleccione un horario &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un horario</option>");                	                            	            
                               for (int i = 0; i < listaHorarios.tamanio(); i++) {
                                   horario = (Horario) listaHorarios.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(i)+ "'>"); 
@@ -144,7 +161,7 @@ var i = 0;
                           if (listaAulas != null && !listaAulas.esVacio()) {
                 	            Aula aula;	
                 	            out.println("<select name='posAula' class='FormTxt'>");
-                	            out.println("<option value=''>Seleccione un aula &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un aula</option>");                	                            	            
                               for (int i = 0; i < listaAulas.tamanio(); i++) {
                                   aula = (Aula) listaAulas.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(i)+"'>"+String.valueOf(aula.dameValor("NOMBRE"))+"</option>");
@@ -166,7 +183,7 @@ var i = 0;
                           if (listaAreas != null && !listaAreas.esVacio()) {
                 	            Area area;	
                 	            out.println("<select name='ISAREA_IDISAREA' class='FormTxt'>");
-                	            out.println("<option value=''>Seleccione un area &#160;&#160;&#160;</option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un area</option>");                	                            	            
                               for (int i = 0; i < listaAreas.tamanio(); i++) {
                                   area = (Area) listaAreas.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(area.dameValor("IDISAREA"))+"'>"
@@ -190,7 +207,7 @@ var i = 0;
                           if (listaProfesores != null && !listaProfesores.esVacio()) {
                 	            Profesor profesor;	
                 	            out.println("<select name='ISPROFESOR_ISUSUARIO_DNI' class='FormTxt'>");
-                	            out.println("<option value=''>Seleccione un profesor &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</option>");                	                            	            
+                	            out.println("<option value=''>Seleccione un profesor</option>");                	                            	            
                               for (int i = 0; i < listaProfesores.tamanio(); i++) {
                                   profesor = (Profesor) listaProfesores.dameObjeto(i);
                                   out.println("<option value='"+String.valueOf(profesor.dameValor("ISUSUARIO_DNI"))+"'>"+String.valueOf(profesor.dameValor("NOMBRE"))+ " " +String.valueOf(profesor.dameValor("APELLIDO1"))+"</option>");
@@ -205,15 +222,7 @@ var i = 0;
         		
         		
         				</tr>  
-        				<tr>
-                 
-                  <td class="FormLiteral">Fecha inicio</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_INICIO">&nbsp;&nbsp;<a href="javascript:ggPosX=345;ggPosY=200;show_calendar('consultarCurso.FECHA_INICIO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>
-                  </td>
-        					<td class="FormLiteral">Fecha finalización</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" size="25" readonly="true" name="FECHA_FIN">&nbsp;&nbsp;<a href="javascript:ggPosX=752;ggPosY=200;show_calendar('consultarCurso.FECHA_FIN');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente.'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
-                  </td>
-                     				 
+   				 
               	<tr>
 					         <td colspan="7" align="center">
 						        <input type="hidden" name="evento" value="CONS_CUR">
