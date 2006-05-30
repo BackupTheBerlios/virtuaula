@@ -45,7 +45,7 @@
                 </script>
               </font>
             </b>
-            <div align="right" style="position:relative; top:23px;style="position:relative; z-index:-1;">
+            <div align="right" style="position:relative; top:31px; z-index:-1;">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
     	  			    <a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
@@ -54,7 +54,7 @@
     				</form>
     		  </div>
           </div>
-    		  <div style="position:relative; top:5px; z-index:-1;">
+    		  <div style="position:relative; top:4px; z-index:-1;">
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
