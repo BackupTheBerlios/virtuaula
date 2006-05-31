@@ -6,7 +6,11 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlEditarProf.ControladorEditaProf;
 import subSistemaControlador.gestorControlador.GestorControlador;
-
+/**
+ * Devuelve los controladores de la edicion de un profesor
+ * @author Alberto Macho y Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorEditarProfesor extends GestorControladorSecretaria{
 
 	

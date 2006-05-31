@@ -5,7 +5,8 @@ import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecret
 /**
  * 
  * @author Alberto Macho
- *
+ *Controlador del que herdan el resto de controladores
+ *para la operacion de matricular un alumno
  */
 abstract public class ControladorMatricular extends ControladorSecretaria {
 

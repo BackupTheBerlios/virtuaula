@@ -9,7 +9,9 @@ import subSistemaControlador.controlador.Controlador;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de una pagina a otra en la insercin de un profesor, en concreto
+ *para pasar a la pagina en la que se muestran los profesores disponibles para 
+ *impartir un curso
  */
 public class ControladorInsCurProf extends ControladorInsertarCursoAbs{
 

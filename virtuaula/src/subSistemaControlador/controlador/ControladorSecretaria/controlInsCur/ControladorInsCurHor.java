@@ -11,7 +11,9 @@ import beans.ObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de una pagina a otra en la insercion de un 
+ *curso, concretamente consulta los horarios disponibles para 
+ *mostrarlos
  */
 public class ControladorInsCurHor extends ControladorInsertarCursoAbs{
 

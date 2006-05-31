@@ -10,7 +10,10 @@ import beans.ObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *controla el paso de una pagina a otra en la insercion de 
+ *un curso nuevo. Ademas consuulta las ares de un curso
+ *para que eliga el area que va a tener el curso. DEpendiendo
+ *del exito o no de las operaciones devolvera una cosa u otra
  */
 public class ControladorInsCurArea extends ControladorInsertarCursoAbs{
 /**

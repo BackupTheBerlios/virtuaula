@@ -11,7 +11,9 @@ import subSistemaControlador.controlador.Controlador;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de un apagina a otra en la insercion de un curso.
+ *mas concretamente cuando en la pagina le da a insertar curso. es el que
+ *inserta el curso. 
  */
 public class ControladorInsertaCurso extends ControladorInsertarCursoAbs{
 

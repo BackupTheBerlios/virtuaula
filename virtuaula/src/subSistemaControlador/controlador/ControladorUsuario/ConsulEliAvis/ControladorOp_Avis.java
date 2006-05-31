@@ -12,8 +12,12 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorUsuario.ControladorUsuario;
-
-public class ControladorOp_Avis extends ControladorUsuario{
+/**
+ * Controla el paso de una pagina a otra, concretamente para pasar a la pagina en la que 
+ * se consultan todos los avisos de un profesor
+ * @author AL
+ *
+ */public class ControladorOp_Avis extends ControladorUsuario{
 /**
  * Con el idusuario que cogemos de la session buscamos los avisos de ese usuario
  * y metemos la lista resultante de avisos en la session.

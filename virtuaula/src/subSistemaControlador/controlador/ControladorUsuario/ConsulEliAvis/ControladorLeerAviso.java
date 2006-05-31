@@ -6,8 +6,12 @@ import subSistemaControlador.controlador.ControladorUsuario.ControladorUsuario;
 import beans.listaObjetoBeans.*;
 import beans.ObjetoBean;
 import gestores.GestorAvisos;;
-
-public class ControladorLeerAviso extends ControladorUsuario{
+/**
+ * Controal el paso de una pagina a otra en la operacion
+ * de leer un aviso en concreto
+ * @author AL
+ *
+ */public class ControladorLeerAviso extends ControladorUsuario{
 
 	public void procesarEvento() {
 		

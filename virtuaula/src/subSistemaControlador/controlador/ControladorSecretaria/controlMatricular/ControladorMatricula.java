@@ -11,7 +11,9 @@ import subSistemaBBDD.utils.*;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso concreto de una pagina a otra en la que se realiza realmetne la
+ *matriculacion de un alumno. Dependiendo del exito el resultado de la 
+ *operacion sera uno u otro.
  */
 public class ControladorMatricula extends ControladorMatricular{
 
