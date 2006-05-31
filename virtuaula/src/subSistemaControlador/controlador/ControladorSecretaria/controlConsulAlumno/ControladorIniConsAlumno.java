@@ -33,6 +33,7 @@ public class ControladorIniConsAlumno extends ControladorConsultaAlumno{
 			this.getSesion().removeAttribute("posAula");
 			this.getSesion().removeAttribute("posAlumno");
 			this.getSesion().removeAttribute("beanAlumno");
+			this.getSesion().removeAttribute("beanCurso");
 			
 			if (listaCursos!=null){
 				this.setResuladooperacion("OK");

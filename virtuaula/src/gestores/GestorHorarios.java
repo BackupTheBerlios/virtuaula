@@ -96,31 +96,31 @@ public class GestorHorarios {
 		String jueves = horario.dameValor(Constantes.HORARIO_JUEVES);
 		String viernes = horario.dameValor(Constantes.HORARIO_VIERNES);
 		String resul="";
-		if (lunes!=null)
+		if (lunes!=null && !lunes.equals("null"))
 		{
 			resul=resul+"L";
 			resul=resul+lunes;
 			resul=resul+"-";
 		}
-		if (martes!=null)
+		if (martes!=null &&!martes.equals("null"))
 		{
 			resul=resul+"M";
 			resul=resul+martes;
 			resul=resul+"-";
 		}
-		if (miercoles!=null)
+		if (miercoles!=null &&!miercoles.equals("null"))
 		{
 			resul=resul+"X";
 			resul=resul+miercoles;
 			resul=resul+"-";
 		}
-		if (jueves!=null)
+		if (jueves!=null &&!jueves.equals("null"))
 		{
 			resul=resul+"J";
 			resul=resul+jueves;
 			resul=resul+"-";
 		}
-		if (viernes!=null)
+		if (viernes!=null &&!viernes.equals("null"))
 		{
 			resul=resul+"V";
 			resul=resul+viernes;

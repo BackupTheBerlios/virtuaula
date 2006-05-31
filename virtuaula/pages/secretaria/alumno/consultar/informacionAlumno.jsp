@@ -183,7 +183,13 @@ out.println("              </tr>   ");
 	 else if(expediente.dameValor("NOTAFINAL")==null){
 	 	out.println("<td class='FormLiteral' align='center'>"+String.valueOf("No presentado")+"</td>");    	                    
 	 }
-	 
+	 else if(expediente.dameValor("NOTAFINAL").equals("-1")){
+		 	out.println("<td class='FormLiteral' align='center'>"+String.valueOf("No presentado")+"</td>");    	                    
+	}
+	 else if(expediente.dameValor("NOTAFINAL").equals("-2")){
+		 	out.println("<td class='FormLiteral' align='center'>"+String.valueOf("Curso cancelado")+"</td>");    	                    
+	}
+
 		else {out.println("<td class='FormLiteral' align='center'>"+String.valueOf(expediente.dameValor("NOTAFINAL"))+"</td>");    	                    
    }
     	                  out.println("</tr>");

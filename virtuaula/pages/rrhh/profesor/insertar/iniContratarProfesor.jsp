@@ -103,28 +103,28 @@
         					<td><input type="text" class="FormTxt"  maxlength="9" name="ISUSUARIO_DNI" value="<%=profesor.dameValor("ISUSUARIO_DNI")%>"></td>
         					<td width="100"></td>
         					<td class="FormLiteral">Nombre</td>
-        					<td><input type="text" class="FormTxt"  maxlength="40" name="NOMBRE" value="<%=profesor.dameValor("NOMBRE")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="20" name="NOMBRE" value="<%=profesor.dameValor("NOMBRE")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Primer Apellido</td>
-        					<td><input type="text" class="FormTxt"  maxlength="40" name="APELLIDO1" value="<%=profesor.dameValor("APELLIDO1")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="20" name="APELLIDO1" value="<%=profesor.dameValor("APELLIDO1")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Segundo Apellido</td>
-        					<td><input type="text" class="FormTxt"  maxlength="40" name="APELLIDO2" value="<%=profesor.dameValor("APELLIDO2")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="20" name="APELLIDO2" value="<%=profesor.dameValor("APELLIDO2")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Telefono</td>
         					<td><input type="text" class="FormTxt"  maxlength="9" name="TELEFONO" value="<%=profesor.dameValor("TELEFONO")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Correo electrónico</td>
-        					<td><input type="text" class="FormTxt"  maxlength="50" name="EMAIL" value="<%=profesor.dameValor("EMAIL")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="20" name="EMAIL" value="<%=profesor.dameValor("EMAIL")%>"></td>
         				</tr>
         				<tr>
         					<td class="FormLiteral">Cuenta Bancaria</td>
-        					<td><input type="text" class="FormTxt"  maxlength="30" name="CUENTA_INGRESOS" value="<%=nomina.dameValor("CUENTA_INGRESOS")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="9" name="CUENTA_INGRESOS" value="<%=nomina.dameValor("CUENTA_INGRESOS")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Sueldo</td>
-        					<td><input type="text" class="FormTxt"  maxlength="50" name="CANTIDAD" value="<%=nomina.dameValor("CANTIDAD")%>"></td>
+        					<td><input type="text" class="FormTxt"  maxlength="5" name="CANTIDAD" value="<%=nomina.dameValor("CANTIDAD")%>"></td>
         				</tr>
         			      <tr>
         					<td class="FormLiteral">Tipo de Contrato</td>
