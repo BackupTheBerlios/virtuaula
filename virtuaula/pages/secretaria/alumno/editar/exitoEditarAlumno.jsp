@@ -69,7 +69,7 @@
     			 </table>
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
-    	   	<font class="error">Modificacion realizada con exito.</font>  
+    	   	<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Aviso enviado correctamente</b></font>  
     	   	  
     			<form method=post action="/virtuaula/ServletVisualizador">
               <table border="0" cellspacing="0" cellpadding="10">
