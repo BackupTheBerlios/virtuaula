@@ -1,6 +1,4 @@
-
 <%@ page import="beans.*" %>
-<%@ page import="java.util.*" %>
 <%@ page import="beans.listaObjetoBeans.*" %>
 <html>
    <head>
@@ -53,7 +51,7 @@
               </font>
               </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -84,7 +82,7 @@
     		<font face="Trebuchet MS" color="#616D7E" point-size="5">
 			  <B>DATOS DEL ALUMNO</B><BR></font>
               <table  width="90%" border="0" cellspacing="0" cellpadding="10" >
-<font face="Trebuchet MS" color="#616D7E" point-size="5">       				
+       				
         				
         			<%
         						
@@ -128,7 +126,6 @@ out.print("              </tr>   ");
                 %>
               
               </table>
-            </tr>
               <p><p>
               <font face="Trebuchet MS" color="#616D7E" point-size="5">
 			  <B>NOTAS DEL ALUMNO</B><BR></font>
@@ -198,15 +195,16 @@ out.println("              </tr>   ");
 			else{
 			 out.println("<p><p>Este alumno no cursa ningún curso actualmente<p><p><p>");
 			}
+			out.println("</tr>");
+			out.println("<td colspan='7' align='center'>");
+			out.println("<input type='hidden' name='evento' value='menuPrincipalSec'>");
+			out.println("<button type='submit' class='botonSimple'>Aceptar</button>");
+			out.println(" </td>");						
+			out.println("</tr>");
+			out.println("</table>");
                 %>                               
-              	<tr>
-					         <td colspan="7" align="center">
-					          <input type="hidden" name="evento" value="menuPrincipalSec">
-						        <button type="submit" class="botonSimple">Aceptar</button>
-					         </td>
-				        </tr>	                       				
-        			</table>
-        			</font>
+			        	                       				
+        			
           </form>
     		</div>
 	  </div>
