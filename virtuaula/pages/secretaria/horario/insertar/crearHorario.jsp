@@ -15,8 +15,8 @@
       	
       	         
           function lanzaFormulario (evento) {
-            document.crearHorario.evento.value = evento;
-            document.crearHorario.submit();
+            document.formSubmenu.evento.value = evento;
+            document.formSubmenu.submit();
           };     
       </script> 
 
