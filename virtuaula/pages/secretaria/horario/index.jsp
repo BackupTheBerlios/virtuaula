@@ -34,14 +34,10 @@
 		<div align="left" style="position:relative; top:15px; left:15px">
           <font face="Trebuchet MS" color="#006699" point-size="5"><b>Gestión de horarios</b></font>                
     	   </div>   	 
-         <div align="right">               
+         <div align="right" style="position:relative; top:-5px">               
            <b>
     		  	 <font face="Verdana, Arial, Helvetica, sans-serif" color=#616D7E size=2>
-                <script language=JavaScript type=text/JavaScript>
-	   function lanzaFormulario (evento) {
-	            document.formSubmenu.evento.value = evento;
-	            document.formSubmenu.submit();
-	          };     
+                <script language=JavaScript type=text/JavaScript>    
                 <!--   // Array ofmonth Names
                 var monthNames = new Array( "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octuble","Noviembre","Diciembre");
                 var now = new Date();
@@ -52,8 +48,7 @@
                 </script>
               </font>
             </b>
-            <div align="right" style="position:relative; top:16px;style="position:relative; z-index:-1;">
-    		      <input type="hidden" name="evento">
+    		  <div align="right" style="position:relative; z-index:-1; top:30px;">
     	  			<div class="botonesSubMenu">
 	    	  			<a href="JavaScript:lanzaFormulario('menuPrincipalSec');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Volver al menú principal'; overlib('Pulse aquí si desea volver al menú principal'); return true;">Volver al menú principal</a>
       					<a href="JavaScript:lanzaFormulario('desconectar');" onmouseout="window.status=''; nd(); return true;" onmouseover="window.status='Salir'; overlib('Pulse aquí si desea salir de la aplicación'); return true;"><font color="#660000">Salir</font></a>
@@ -65,18 +60,12 @@
     	  			<div class="botonesSubMenu">
     				 <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     				     <input type="hidden" name="evento">
-    												<a href="JavaScript:lanzaFormulario('INS_HOR');" onmouseout="window.status=''" onmouseover="window.status='Crear Horario';return true ">Crear Horario</a>        					
+    						<a href="JavaScript:lanzaFormulario('INS_HOR');" onmouseout="window.status=''" onmouseover="window.status='Crear Horario';return true ">Crear Horario</a>        					
         					<a href="JavaScript:lanzaFormulario('CONS_HOR');" onmouseout="window.status=''" onmouseover="window.status='Consultar Horario';return true ">Consultar Horario</a>
         					<a href="JavaScript:lanzaFormulario('ELIM_HOR_PAS1');" onmouseout="window.status=''" onmouseover="window.status='Crear Horario';return true ">Borrar Horario</a>
         					</div>
     		</div>
-    		<div style="position:relative; top:43px; z-index:-1;">
-    			 <table width="983px" border="0" cellspacing="0" cellpadding="0">
-    		         <tr>
-    				    <td class="lineaSep"></td>
-    		         </tr>
-    			 </table>
-    		</div>
+
     		<div style="position:relative; top:90px; left:50px; z-index:-1;">
     		</div>
 	  </div>
