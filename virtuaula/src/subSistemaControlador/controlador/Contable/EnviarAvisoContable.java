@@ -8,6 +8,12 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+/**
+ * 
+ *  * Controla el paso de una pagina a otra devolviendo el resultado OK o ERROR dependiendo
+ * del exito de las acciones que tenga q realizar
+ *
+ */
 public class EnviarAvisoContable extends ControladorContable{
 
 	public void procesarEvento() {

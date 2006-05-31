@@ -8,6 +8,12 @@ import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
+/**
+ * Controla el paso de una pagina a otra, en este caso consulta los profesores y los contratos  
+ * y los mete en session
+ * 
+ *
+ */
 public class ControladorConContrato extends ControladorContable{
 
 	public void procesarEvento() {
