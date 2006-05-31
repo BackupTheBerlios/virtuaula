@@ -9,6 +9,8 @@
       <link href="../../../../styles/estilosBotones.css" rel="stylesheet" type="text/css"/>
       <link href="../../../../styles/application.css" rel="stylesheet" type="text/css"/>
       <script language="JavaScript" src="../../../../script/overlib_mini.js"></script>
+      <script language="JavaScript" src="../../../../script/calendar.js"></script>
+
 
       <script language=JavaScript type="text/JavaScript">        
           function lanzaFormulario (evento) {
@@ -116,7 +118,7 @@
         					<td><input type="text" class="FormTxt"  maxlength="100" name="DIRECCION" value="<%=alumno.dameValor("DIRECCION")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Fecha Nacimiento</td>
-        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=740;ggPosY=200;show_calendar('buscarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
+        					<td><input type="text" class="FormTxt" maxlength="10" readonly="true" name="FECH_NACIMIENTO" value="<%=alumno.dameValor("FECH_NACIMIENTO")%>">&nbsp;&nbsp;<a href="javascript:ggPosX=810;ggPosY=280;show_calendar('buscarAlumno.FECH_NACIMIENTO');" onMouseOver="window.status='Seleccione una fecha';  overlib('Pulsa para elegir fecha del mes en el calendario emergente'); return true;" onMouseOut="window.status=''; nd(); return true;"><img src="../../../../img/show-calendar.gif" width=24 height=22 border=0></a>    
                   </td>
         				</tr>
         				<tr>  
