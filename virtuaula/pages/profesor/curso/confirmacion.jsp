@@ -64,12 +64,9 @@
     		</div>
     		<div style="position:relative; top:100px; left:300px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Ficha insertada correctamente</b></font>
               <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
-              	<tr>
-					         <td class="info">
-					           Ficha insertada correctamente
-					         </td>
-				        </tr>	                       				
+	                       				
               	<tr>
 					         <td>
                       <input type="hidden" name="evento" value="ListarAlumnosCurso">
