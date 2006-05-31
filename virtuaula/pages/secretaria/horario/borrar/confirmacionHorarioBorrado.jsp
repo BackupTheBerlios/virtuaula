@@ -64,12 +64,9 @@
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
-              	<tr>
-					         <td class="info">
-					           Horario Borrado Correctamente
-					         </td>
-				        </tr>	                       				
+				<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Horario Borrado Correctamente</b></font>
+    			
+              <table border="0" cellspacing="0" cellpadding="5">                 	                      				                        				
               	<tr>
 					         <td>
                       <input type="hidden" name="evento" value="GES_HOR">
