@@ -114,8 +114,13 @@
         					<td><input type="text" class="FormTxt" disabled="true" maxlength="50" name="EMAIL" value="<%=profesor.dameValor("EMAIL")%>"></td>
         				</tr>
         				<tr>
+        				<% int posare=Integer.parseInt(profesor.dameValor("ISAREA_IDISAREA"))-1;
+        				sesion=request.getSession();
+        				ListaObjetoBean listaA=(ListaObjetoBean)sesion.getAttribute("listaarea");
+        				ObjetoBean area= listaA.dameObjeto(posare);
+        				%>
         					<td class="FormLiteral">Área</td>
-        					<td><input type="text" class="FormTxt" disabled="true" maxlength="100" name="ISAREA_IDISAREA" value="<%=profesor.dameValor("ISAREA_IDISAREA")%>"></td>
+        					<td><input type="text" class="FormTxt" disabled="true" maxlength="100" name="ISAREA_IDISAREA" value="<%=area.dameValor("NOMBRE")%>"></td>
         					<td></td>
         					<td class="FormLiteral">Tipo de contrato</td>
         					<td><input type="text" class="FormTxt" disabled="true" maxlength="100" value="<%=contrato.dameValor("TIPO")%>"></td>
