@@ -125,7 +125,6 @@
     			   Pulse "Atrás" para volver a la página anterior</font>
     		</div>
 		                <%
-		              out.println("<font class='error'>No se ha encontrado ninguna entrada bajo estas condiciones.</font>");
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
