@@ -11,8 +11,8 @@ import subSistemaControlador.controlador.Controlador;
  * @author Alberto Macho
  * 
  *Controla el paso de una pagina a otra en la insercion de 
- *un curso, en concreto  consulta las aulas disponilbes
- *para impartir el curso y mostrarlas en la siguiente pagina
+ *un curso, en concreto es el paso de consulta de las aulas disponilbes
+ *para impartir el curso
  */
 public class ControladorInsCurAula extends ControladorInsertarCursoAbs{
 
