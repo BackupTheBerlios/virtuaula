@@ -97,6 +97,8 @@
                         out.println("	<th class='FormLiteral'><b>Seleccion</th>");
         		             					
         		            out.println("	<th class='FormLiteral'><b>Nombre Alumno</th>");
+        		            out.println("	<th class='FormLiteral'><b>Primer Apellido</th>");
+        		            out.println("	<th class='FormLiteral'><b>Segundo Apellido</th>");
         		           
         		            out.println("</tr>");	
 	                        	                       	     
