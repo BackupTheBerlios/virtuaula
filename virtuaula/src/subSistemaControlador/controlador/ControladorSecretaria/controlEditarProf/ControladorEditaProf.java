@@ -4,6 +4,13 @@ import gestores.Profesorado;
 import subSistemaControlador.controlador.Controlador;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.*;
+/**
+ * Controla el paso de una pagina a otra en la edicion de un profesor. 
+ * la operacion que hace es la edicion del profesor con los datos
+ * que recoje de sesion. dependiendo del resultado realizara una accion u otra
+ * @author AL
+ *
+ */
 public class ControladorEditaProf extends ControladorEditarProf{
 
 	public void procesarEvento() {

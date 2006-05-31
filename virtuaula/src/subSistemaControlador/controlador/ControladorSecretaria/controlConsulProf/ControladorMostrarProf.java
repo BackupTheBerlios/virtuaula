@@ -7,6 +7,13 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import gestores.Profesorado;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
+/**
+ * Controla el paso de una pagina a otra en la operacion de consuta
+ * un profesor y tenemos que tenemos que sacar los cursos que imparte un profesor
+ * y el area al que pertenece
+ * @author AL
+ *
+ */
 public class ControladorMostrarProf extends ControladorConsProf{
 
 	public void procesarEvento() {

@@ -9,7 +9,8 @@ import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecret
 /**
  * 
  * @author Alberto Macho
- *
+ *Controlador del que heredan todos los controladores relacionados
+ *con la consulta de un profesor. Controla el acceso de una pagina a otra
  */
 abstract public class ControladorConsProf extends ControladorSecretaria {
 

@@ -7,6 +7,13 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*; 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorPublico.ControladorPublico;
+/**
+ * 
+ * Controla el acceso a la oferta formativa. Realizando las 
+ * operaciones correspondiente.
+ * Dependiendo del resultado se hara una cosa u otra
+ *
+ */
 public class ControladorOfertaFormativa extends ControladorPublico{
 	
 	public void procesarEvento() {

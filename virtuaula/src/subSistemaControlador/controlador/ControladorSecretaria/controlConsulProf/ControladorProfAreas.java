@@ -8,7 +8,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de una pagina a otra en la consulta de un profesor
+ *cuando tenemos que sacar las areas disponibles.
  */
 public class ControladorProfAreas extends ControladorConsProf{
 

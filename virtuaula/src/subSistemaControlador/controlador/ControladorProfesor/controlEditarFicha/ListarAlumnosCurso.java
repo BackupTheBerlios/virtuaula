@@ -11,7 +11,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de una pagina a otra , en este caso  al consultar
+ *los alumnos de un curso.
  */
 public class ListarAlumnosCurso extends ControladorProfesor{
 

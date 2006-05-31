@@ -11,6 +11,14 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+/**
+ * 
+ * @author AL
+ *Controla el paso de una pagina a otra en el envio de un aviso
+ *por parte de la secretaria.
+ *Realiza las operaciones pertinentes y pone un resultado de operacio
+ *segun el exito o el fracaso.
+ */
 public class IniEnviarAvisoSec extends ControladorAvisoSec{
 
 	public void procesarEvento() {

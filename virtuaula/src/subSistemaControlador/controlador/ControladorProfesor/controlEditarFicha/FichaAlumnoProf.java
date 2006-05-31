@@ -11,7 +11,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso de una pagina a otra en la consulta de la ficha de un alumno.
+ *Dependiendo del exito de las operaciones nos dara un resultado u otro
  */
 public class FichaAlumnoProf extends ControladorProfesor{
 

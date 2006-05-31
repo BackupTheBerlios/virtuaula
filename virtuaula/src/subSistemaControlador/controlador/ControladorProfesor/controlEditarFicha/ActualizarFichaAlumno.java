@@ -10,7 +10,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 /**
  * 
  * @author Alberto Macho
- *
+ *Controlador necesario para llevar el control entre las paginas
+ *de la actualizacion de la ficha de un alumno.
  */
 public class ActualizarFichaAlumno extends ControladorProfesor{
 /**

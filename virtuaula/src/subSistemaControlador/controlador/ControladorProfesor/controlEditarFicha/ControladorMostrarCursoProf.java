@@ -14,7 +14,9 @@ import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor
 /**
  * 
  * @author Alberto Macho
- *
+ *Controla el paso entre dos paginas dependiendo de si se han producido
+ *errores o no. Es este caso es para mostrar los cursos
+ *de un profesor
  */
 public class ControladorMostrarCursoProf extends ControladorProfesor{
 /**

@@ -8,6 +8,13 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorAlumnos.ControladorAlumnos;
+/**
+ * 
+ *   Controla el paso de una pagina a otra devolviendo el resultado OK o ERROR dependiendo
+ * del exito de las acciones que tenga q realizar
+ * Este controlador concreto es para controlar el paso de consultar un expediente del alumno 
+ *
+ */
 public class ControladorConExpAlum extends ControladorAlumnos{
 
 	public void procesarEvento() {

@@ -12,7 +12,14 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor;
-
+/**
+ * 
+ * Controla el paso de una pagina a otra ,haciendo ademas operaciones
+ *dependiendo del exito pasa a una pagina u otra mostrando erroes o no.
+ *En este caso es para consultar a quien puede enviar el aviso el 
+ *profesor. 
+ *
+ */
 public class IniEnviarAvisoProf extends ControladorProfesor{
 
 	public void procesarEvento() {
