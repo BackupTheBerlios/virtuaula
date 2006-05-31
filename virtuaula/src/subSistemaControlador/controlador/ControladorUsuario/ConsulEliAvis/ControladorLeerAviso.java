@@ -8,7 +8,7 @@ import beans.ObjetoBean;
 import gestores.GestorAvisos;;
 /**
  * Controal el paso de una pagina a otra en la operacion
- * de leer un aviso en concreto
+ * de leer un aviso.
  * @author AL
  *
  */public class ControladorLeerAviso extends ControladorUsuario{
