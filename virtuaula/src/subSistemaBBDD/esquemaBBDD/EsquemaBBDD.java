@@ -16,9 +16,8 @@ import subSistemaBBDD.utils.*;
 /**
  * Abstracción de una tabla de la BBDD dando el servicion de conexion 
  * y desconexión con una BBDD especificada
- * Forma parte de dos patrones:
+ * Forma parte de un patron:
  * 			-Patrón Prototype su rol es de Prototype
- * 			-Patrón Composite su rol es de Component
  * @author Fco Javier Pérez Escrivá
  *
  */

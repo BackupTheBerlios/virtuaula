@@ -5,7 +5,11 @@ package subSistemaControlador.gestorPaginas;
 
 import java.util.HashMap;
 
-
+/**
+ * Actua de tabla de transicion del automata entre pagina y pagina
+ * @author Daniel Ayuso y Fco Javier Pérez 
+ *
+ */
 public class GestorPaginas {
 
 	private HashMap mapSecretaria;

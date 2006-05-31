@@ -16,7 +16,7 @@ import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorOpAvisCont;
 /**
- * 
+ * Devuelve los controladores de la sesion de una secretaria
  * @author Fco Javier Pérez Escrivá
  *
  */

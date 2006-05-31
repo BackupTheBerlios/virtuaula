@@ -13,7 +13,10 @@ import subSistemaControlador.controlador.CreadorControlador;
 
 public class GestorControladorOpAvisCont extends GestorControladorContable{
 
-	
+/**
+ * Clase que devuelve los controladores de la operacion de ver los avisos del contable
+ *
+ */
 public GestorControladorOpAvisCont(){
 		
 	}

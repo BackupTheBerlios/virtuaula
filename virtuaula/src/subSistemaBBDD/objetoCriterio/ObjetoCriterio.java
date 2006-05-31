@@ -6,9 +6,8 @@ import subSistemaBBDD.objetoBaseDatos.*;
  * Abstracción de un ObjetoCriterio encapsulado de los datos que compone una
  * lista de campos seleccionados para marcar un criterio de consulta o de selección 
  * y su valor
- * Formando parte de dos patrones:
+ * Formando parte de un patron:
  * 			-Patrón Prototype su rol es de Prototype
- * 			-Patrón Composite su rol es de Component
  * @author Fco Javier Pérez Escrivá
  *
  */

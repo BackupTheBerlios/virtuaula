@@ -4,7 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import beans.beanEncapsulado.EncapsuladorCompuesto;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
-
+/**
+ * Encapsula los datos del formulario de consultar curso
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class EncapsuladorConsultaCurso extends EncapsuladorCompuesto{
 
 	public EncapsuladorConsultaCurso(HttpServletRequest request){

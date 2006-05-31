@@ -17,7 +17,7 @@ import subSistemaControlador.gestorControlador.GestorControlador;
 
 
 /**
- * 
+ * Devuelve los controladores de la consulta de cursos, alumnos, fichas(edicion) y publicar notas
  * @author Fco Javier Pérez Escrivá Alberto Macho
  *
  */

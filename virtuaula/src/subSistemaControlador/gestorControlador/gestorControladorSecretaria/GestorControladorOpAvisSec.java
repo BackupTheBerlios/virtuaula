@@ -10,7 +10,11 @@ import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.Contro
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
-
+/**
+ * Devuelve los controladores de la consulta y borrado de avisos de una secretaria
+ * @author Javi
+ *
+ */
 public class GestorControladorOpAvisSec extends GestorControladorSecretaria{
 
 	

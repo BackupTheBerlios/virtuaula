@@ -6,7 +6,7 @@ import beans.beanEncapsulado.encapsuladores.EncapsuladorPosicionBean;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
 
 /**
- * 
+ * Encapsula los datos desde el formulario de consula Alumno
  * @author JORGE SANCHEZ
  *
  */

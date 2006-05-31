@@ -13,7 +13,7 @@ import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
- * 
+ * Devuelve los controladores de la consulta y borrado de avisos de un profesor
  * @author Fco Javier Pérez Escrivá  Alberto Macho
  *
  */

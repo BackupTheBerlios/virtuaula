@@ -12,7 +12,7 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
- * 
+ * Devuelve los controladores para la consulta de un curso
  * @author Alberto Macho y Fco Javier Pérez Escrivá
  *
  */

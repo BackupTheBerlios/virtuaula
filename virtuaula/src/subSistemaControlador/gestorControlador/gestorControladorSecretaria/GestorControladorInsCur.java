@@ -15,7 +15,7 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.Con
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
- * 
+ * Devuelve los controladores de la insercion de un curso
  * @author Alberto Macho y Fco Javier Pérez Escrivá
  *
  */

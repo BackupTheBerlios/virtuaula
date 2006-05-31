@@ -13,7 +13,7 @@ import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
- * 
+ * Devuelve los controladores para la matriculacion de un alumno
  * @author Fco Javier Pérez Escrivá
  *
  */

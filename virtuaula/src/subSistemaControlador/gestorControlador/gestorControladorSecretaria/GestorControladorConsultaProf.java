@@ -8,7 +8,7 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
- * 
+ * Devuelve los controladores para consultar un profesor
  * @author Fco Javier Pérez Escrivá
  *
  */

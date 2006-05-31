@@ -11,7 +11,7 @@ import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 ;
 /**
- * 
+ * Devuelve los controladores de la zona publica
  * @author Fco Javier Pérez Escrivá
  *
  */

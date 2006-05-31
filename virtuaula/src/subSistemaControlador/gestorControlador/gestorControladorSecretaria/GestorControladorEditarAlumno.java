@@ -6,7 +6,7 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
- * 
+ * Devuelve los controladores para realizar la edicion de los datos de un alumno
  * @author JORGE SANCHEZ
  *
  */

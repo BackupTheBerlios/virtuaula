@@ -6,7 +6,11 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
-
+/**
+ * Devuelve los controladores de la sesion de un personal de RRHH
+ * @author Javi
+ *
+ */
 public class GestorControladorRRHH extends GestorControlador{
 	/**
 	 * tabla que guarda la relación entre una operación y su gestor

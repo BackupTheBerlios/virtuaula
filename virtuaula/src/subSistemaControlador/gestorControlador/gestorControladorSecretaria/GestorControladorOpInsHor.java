@@ -7,7 +7,11 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
-
+/**
+ * Devuelve los controladores de la insercion de un horario
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorOpInsHor extends GestorControladorSecretaria{
 
 	

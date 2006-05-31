@@ -10,7 +10,11 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur.Co
 import subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur.ControladorBajaMostrarCur;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
-
+/**
+ * Devuelve los controladores necesarios para la baja de un curso
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class GestorControladorBajaCurso extends GestorControladorSecretaria{
 	public GestorControladorBajaCurso(){}
 	

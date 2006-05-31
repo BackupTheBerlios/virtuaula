@@ -6,7 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import beans.beanEncapsulado.EncapsuladorCompuesto;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
 
-
+/**
+ * Realiza la encapsulacion necesaria desde el formulario de la insercion de un profesor
+ * @author Fco Javier Pérez Escrivá
+ *
+ */
 public class EncapsuladorInsertarProfesor  extends EncapsuladorCompuesto{
 	
 	public EncapsuladorInsertarProfesor(HttpServletRequest request){

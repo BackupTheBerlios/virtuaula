@@ -11,7 +11,7 @@ import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
- * 
+ * Devuelve los controladores necesarios para la consulta de un alumno
  * @author JORGE SANCHEZ MUSULIN
  *
  */
