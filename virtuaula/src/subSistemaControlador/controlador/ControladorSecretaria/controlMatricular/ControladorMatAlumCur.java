@@ -10,7 +10,10 @@ import gestores.GestorAlumnos;
 /**
  * 
  * @author Alberto Macho 
- *
+ * Controla el paso de una pagina a otra.
+ * cogera el curso metido en la session y consultara la clase, el profesor, 
+ * el horario y el precio de ese curso y lo metera en la session para mostrarlo 
+ * en la siguiente pagina.
  */
 public class ControladorMatAlumCur extends ControladorMatricular {
 /**
