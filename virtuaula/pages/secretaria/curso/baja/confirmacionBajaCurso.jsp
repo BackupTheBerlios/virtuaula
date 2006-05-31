@@ -48,7 +48,7 @@
               </font>
               </b>
           </div>
-    		  <div align="right" style="position:relative; z-index:-1;">
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -68,12 +68,8 @@
     		</div>
     		<div style="position:relative; top:20px; left:80px; z-index:-1;">
     			<form method=post action="/virtuaula/ServletVisualizador">
-              <table border="0" cellspacing="0" cellpadding="5">                 	                      				 
-              	<tr>
-					         <td class="info">
-					           Curso dado de baja correctamente
-					         </td>
-				        </tr>	                       				
+    			<font face="Trebuchet MS" color="#616D7E" point-size="5"><b>Curso dado de baja correctamente</b></font>
+              <table border="0" cellspacing="0" cellpadding="5">                 	                      				 	                       				
               	<tr>
 					         <td>
                       <input type="hidden" name="evento" value="GES_CUR">
