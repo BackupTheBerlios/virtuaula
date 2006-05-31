@@ -55,9 +55,10 @@
                 // -->
                 </script>
               </font>
-             </div>
-             </b>
-    		  <div align="right" style="position:relative; z-index:-1;">
+			</b>
+         </div>
+             
+    		  <div align="right" style="position:relative; z-index:-1; top:5px;">
     		    <form method=post action="/virtuaula/ServletVisualizador" name="formSubmenu">
     		      <input type="hidden" name="evento">
     	  			<div class="botonesSubMenu">
@@ -100,12 +101,14 @@
         					<option value=null>Seleccione un turno</option>
         					<option value='M'>Turno de Mañana</option>
         					<option value='T'>Turno de Tarde</option>
+        					</select>
         					</td>
         					<td class="FormLiteral">Martes</td>
         					<td><select class="FormTxt"  maxlength="9" name="M" value="">
         					<option value=null>Seleccione un turno</option>
         					<option value='M'>Turno de Mañana</option>
         					<option value='T'>Turno de Tarde</option>
+        					</select>
         					</td>
         				</tr>
         				<tr>
@@ -114,12 +117,14 @@
         					<option value=null>Seleccione un turno</option>
         					<option value='M'>Turno de Mañana</option>
         					<option value='T'>Turno de Tarde</option>
+        					</select>
         					</td>
         					<td class="FormLiteral">Jueves</td>
         					<td><select class="FormTxt"  maxlength="9" name="J" value="">
         					<option value=null>Seleccione un turno</option>
         					<option value='M'>Turno de Mañana</option>
         					<option value='T'>Turno de Tarde</option>
+        					</select>
         					</td>
         				</tr>
         				<tr>
@@ -128,13 +133,14 @@
         					<option value=null>Seleccione un turno</option>
         					<option value='M'>Turno de Mañana</option>
         					<option value='T'>Turno de Tarde</option>
+        					</select>
         					</td>
         					<td></td>
         				</tr>		
   				
               	</table >  
-              	<br>
-  				<br>
+              	<br/>
+  				<br/>
               	<table align="center">  
               	    	<tr align="center">
 					         <td colspan="7" align="center">     
@@ -145,7 +151,7 @@
 					         </td>
 				        </tr>	                       				
         			</table>
-        			<table>
+		
               <%
               
                   HttpSession sesion2=request.getSession();
@@ -170,9 +176,10 @@
                         out.println("</table>");
                     }
               %>         			      	
-          </form>
-    		</div>
+			</table>
+       	</form>               
 	  </div>	  	  
-    <div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>	 
+	<div id="overDiv" style="position:relative; visibility:hidden; z-index:1000; top:-100px; width:50px"></div>	 	  
+   </div>
    </body>
 </html>
