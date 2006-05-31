@@ -126,7 +126,25 @@
                       	if (posicionListaHorario != null) {
                       	
                           horario = (Horario) listaHorarios.dameObjeto(posicionListaHorario.intValue());
-                          out.println("<input type='text' class='FormTxt' name='horario' disabled='true' value='"+horario.dameValor("L")+"'>");                                                    
+							String horarioImprime = "";
+                          
+                          if (!(String.valueOf(horario.dameValor("L"))).equals("null")){
+								  horarioImprime = horarioImprime + ("L" + String.valueOf(horario.dameValor("L")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("M"))).equals("null")){
+								  horarioImprime = horarioImprime + ("M" + String.valueOf(horario.dameValor("M")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("X"))).equals("null")){
+								  horarioImprime = horarioImprime + ("X" + String.valueOf(horario.dameValor("X")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("J"))).equals("null")){
+								  horarioImprime = horarioImprime + ("J" + String.valueOf(horario.dameValor("J")) + " " );
+								  }
+								  if (!(String.valueOf(horario.dameValor("V"))).equals("null")){
+								  horarioImprime = horarioImprime + ("V" + String.valueOf(horario.dameValor("V")) );
+						}
+                      
+								  out.println("<input type='text' class='FormTxt' name='horario' disabled='true' value='"+horarioImprime+"'>");
                         }
                       }
                   %>        					        					        					
