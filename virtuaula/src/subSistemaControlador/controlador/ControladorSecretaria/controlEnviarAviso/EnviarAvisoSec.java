@@ -38,7 +38,7 @@ public class EnviarAvisoSec extends ControladorAvisoSec{
 			{//el aviso es para un grupo de contables(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
-			if (op.equals("Departamento RRHH"))
+			else if (op.equals("Departamento RRHH"))
 			{//el aviso es para un grupo de RRHH(usuarios)
 				 errores=GA.avisoAGrupo(destino,aviso);
 			}
@@ -59,6 +59,7 @@ public class EnviarAvisoSec extends ControladorAvisoSec{
 			}
 			else
 			{//el aviso es para un grupo de alumnos
+				System.out.println("Entra en alumnos");
 				int tamanio=destino.tamanio();
 				ListaObjetoBean desti = new ListaObjetoBean();
 				
