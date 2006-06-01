@@ -93,7 +93,7 @@
     			
 	
     		<div style="position:relative; top:55px; left:80px; z-index:1;">
-    		<form method=post action="/virtuaula/ServletVisualizador">
+    		<form method=post action="/virtuaula/ServletVisualizador" name="buscarAlumnoEditar">
               <table border="0" cellspacing="0" cellpadding="10">
         				<tr>
         					<td class="FormLiteral">Nombre</td>
