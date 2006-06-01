@@ -8,7 +8,7 @@ import gestores.GestorAlumnos;
 import gestores.GestorAvisos;
 
 /**
- * 
+ * Se encarga de hacer la edicion propiamente dicha del alumno seleccionado por un secretario.
  * @author JORGE SANCHEZ
  *
  */

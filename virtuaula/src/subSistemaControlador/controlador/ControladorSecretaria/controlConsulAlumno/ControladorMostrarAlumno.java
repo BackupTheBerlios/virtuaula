@@ -11,7 +11,8 @@ import gestores.GestorCursos;
 import gestores.GestorAlumnos;
 
 /**
- * 
+ * Se encarga de obtener los datos del alumno consultado y proporcionar en la variable 
+ * listexp la informacion de su expediente.
  * @author JORGE SANCHEZ
  *
  */

@@ -10,6 +10,8 @@ import gestores.GestorCursos;
  * 
  * @author JORGE SANCHEZ
  * Controla el paso de una pagina a otra al elegir una seretaria la opcion de consultar un alumno.
+ * Se encarga de borrar todos los atributos de la sesion que vaya a utilizar el caso de uso
+ * de consultar un alumno y de obtener los cursos activos.
  */
 public class ControladorIniConsAlumno extends ControladorConsultaAlumno{
 

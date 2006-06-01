@@ -4,7 +4,8 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 /**
- * 
+ * Controlador abstracto que implementarán todos los controladores que intervienen en
+ * la edicion de un alumno por parte de un secretario de la academia.
  * @author JORGE SANCHEZ
  *
  */

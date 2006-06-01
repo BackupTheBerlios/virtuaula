@@ -7,7 +7,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaControlador.controlador.*;
 
 /**
- * 
+ * Se encarga de obtener el alumno que el secretario quiere editar despues de una consulta y de
+ * que el secretario haya seleccionado de una lista el alumno a editar. 
  * @author JORGE SANCHEZ
  *
  */

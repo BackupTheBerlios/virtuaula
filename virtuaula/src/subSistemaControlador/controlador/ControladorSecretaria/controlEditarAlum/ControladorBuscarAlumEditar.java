@@ -6,7 +6,8 @@ import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlum
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 /**
- * 
+ * Se encarga de obtener los alumnos que coinciden con el criterio de busqueda 
+ * seleccionado por un secretario a la hora de editar un alumno.
  * @author JORGE SANCHEZ
  *
  */

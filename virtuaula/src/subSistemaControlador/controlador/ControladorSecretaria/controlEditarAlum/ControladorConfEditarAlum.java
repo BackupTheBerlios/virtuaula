@@ -5,7 +5,8 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaBBDD.utils.*;
 /**
- * 
+ * Se encarga de hacer una comprobacion sobre las datos editados de un alumno por parte 
+ * de un secretario para asegurar que estos tienen el formato correcto.
  * @author JORGE SANCHEZ
  *
  */

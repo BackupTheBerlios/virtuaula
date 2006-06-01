@@ -9,6 +9,9 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 /**
  * Controlador intermedio de consultar un alumno por parte de un secretario
+ * Se encarga de realizar la consulta propiamente dicha guiándose por el criterio alumno y 
+ * curso que el secretario haya introducido.
+ * 
  * @author JORGE SANCHEZ
  *
  */
@@ -20,7 +23,6 @@ public class ControladorConsAlumno extends ControladorConsultaAlumno {
 	 * tiene que pasar. 
 	 */
 		public void procesarEvento() {
-			System.out.println("entra en controlador cons alumno");
 			ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
 			GestorAlumnos GA = new GestorAlumnos();
 			ListaObjetoBean listaAlumnos;
