@@ -80,6 +80,7 @@
     			  - Gestionar profesores: Modificar o buscar los datos un profesor de la academia<br>
     			  - Gestionar alumnos: Matricular un nuevo alumno, modificar o buscar los datos de un alumno matriculado en la academia<br>
     			  - Gestionar cursos: Crear un nuevo curso, buscar los datos de un curso o dar de baja uno de los cursos impartidos por la academia<br>
+			  - Gestionar horarios: Crear un nuevo horario, buscar los datos o borrar uno de los horarios predefinidos de la academia<br>
     			  - Gestionar avisos: Leer avisos enviados por otros usuarios, borrar dichos avisos o enviar avisos a otros usuarios
     			</font>
      </div>
