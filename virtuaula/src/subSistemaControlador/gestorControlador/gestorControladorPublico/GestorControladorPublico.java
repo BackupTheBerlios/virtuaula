@@ -6,10 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorPublico.controlOfertaFormativa.ControladorOfertaFormativa;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
-;
+
 /**
  * Devuelve los controladores de la zona publica
  * @author Fco Javier Pérez Escrivá
@@ -27,13 +25,15 @@ public class GestorControladorPublico extends GestorControlador{
 			//añadimos a la tabla Operacion-Controlador los controladores comunes en secretaria
 			
 			tablaOperacionGestor= new Hashtable();
-		
-			
 
 		}
-		public void inicializa(){
-		
-		}
+		/**
+		 * Realiza la correspondencia entre una operacion y el gestorControlador que la recoge
+		 */
+		public void inicializa(){}
+		/**
+		 * Devuelve el Controlador adecuado para este perfil y esta operacion
+		 */
 		public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 			CreadorControlador c= new CreadorControlador();
 			GestorControlador.tablaOperacionControlador.put("OFERTA_FORMATIVA",c.crear(CreadorControlador.ControladorOfertaFormativa));

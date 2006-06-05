@@ -13,10 +13,16 @@ import subSistemaControlador.gestorControlador.GestorControlador;
  */
 public class GestorControladorEditarProfesor extends GestorControladorSecretaria{
 
-	
+	/**
+	 * Constructor
+	 *
+	 */
 	public GestorControladorEditarProfesor(){
 		
 	}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("EDI_CONS_PROF",creadorcont.crear(CreadorControlador.Cons_Prof));

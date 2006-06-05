@@ -8,7 +8,7 @@ import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
  * Devuelve los controladores de la sesion de un personal de RRHH
- * @author Javi
+ * @author Fco Javier Pérez Escrivá
  *
  */
 public class GestorControladorRRHH extends GestorControlador{
@@ -16,7 +16,10 @@ public class GestorControladorRRHH extends GestorControlador{
 	 * tabla que guarda la relación entre una operación y su gestor
 	 */
 	private Hashtable tablaOperacionGestor;
-	
+	/**
+	 * Constructor
+	 *
+	 */
 	public GestorControladorRRHH(){
 		
 		//añadimos a la tabla Operacion-Controlador los controladores necesarios para alumnos
@@ -26,9 +29,13 @@ public class GestorControladorRRHH extends GestorControlador{
 		
 
 	}
-	public void inicializa(){
-		
-	}
+	/**
+	 * Realiza la correspondencia entre una operacion y el gestorControlador que lo recoge
+	 */
+	public void inicializa(){}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalRRHH",c.crear(CreadorControlador.ControladorLogin));

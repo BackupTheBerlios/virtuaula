@@ -2,16 +2,11 @@ package subSistemaControlador.gestorControlador.gestorControladorAlumnos;
 
 
 import java.util.Hashtable;
-import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorAlumnos.controlConsultaExpAlum.ControladorConExpAlum;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
-import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
+
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 
@@ -35,9 +30,13 @@ public class GestorControladorAlumnos extends GestorControlador{
 		
 
 	}
-	public void inicializa(){
-		
-	}
+	/**
+	 * Realiza la correspondencia entre una operacion y el gestorControlador que lo recoge
+	 */
+	public void inicializa(){}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalAlum",c.crear(CreadorControlador.ControladorLogin));

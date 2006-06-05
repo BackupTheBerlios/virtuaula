@@ -6,10 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorConsCur;
-import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorIniConsCur;
-import subSistemaControlador.controlador.ControladorSecretaria.controlConsulCur.ControladorMostrarCur;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 /**
  * Devuelve los controladores para la consulta de un curso
@@ -18,9 +14,14 @@ import subSistemaControlador.gestorControlador.GestorControlador;
  */
 public class GestorControladorConsultaCurso extends GestorControladorSecretaria{
 	
-	
+	/**
+	 * Constructor
+	 *
+	 */
 	public GestorControladorConsultaCurso(){}
-	
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("GES_CUR",creadorcont.crear(CreadorControlador.ControladorPasaPag));

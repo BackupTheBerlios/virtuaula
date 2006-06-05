@@ -4,9 +4,6 @@ package subSistemaControlador.gestorControlador.gestorControladorContable;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 import subSistemaControlador.controlador.CreadorControlador;
 
@@ -17,9 +14,10 @@ public class GestorControladorOpAvisCont extends GestorControladorContable{
  * Clase que devuelve los controladores de la operacion de ver los avisos del contable
  *
  */
-public GestorControladorOpAvisCont(){
-		
-	}
+public GestorControladorOpAvisCont(){}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c= new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_CONT",c.crear(CreadorControlador.ControladorOp_Avis));

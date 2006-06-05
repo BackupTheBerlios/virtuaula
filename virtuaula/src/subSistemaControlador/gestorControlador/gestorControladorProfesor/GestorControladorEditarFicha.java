@@ -6,11 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha.ActualizarFichaAlumno;
-import subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha.ControladorMostrarCursoProf;
-import subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha.FichaAlumnoProf;
-import subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha.ListarAlumnosCurso;
-import subSistemaControlador.controlador.ControladorProfesor.controlEditarFicha.PublicarNotas;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 
@@ -23,11 +18,15 @@ import subSistemaControlador.gestorControlador.GestorControlador;
  */
 public class GestorControladorEditarFicha extends GestorControladorProfesor{
 	
-	
+	/**
+	 * Constructor
+	 */
 	public GestorControladorEditarFicha(){
 		
 	}
-	
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("OP_MOSTRAR_CURSO_PROF",c.crear(CreadorControlador.ControladorMostrarCursoProf));

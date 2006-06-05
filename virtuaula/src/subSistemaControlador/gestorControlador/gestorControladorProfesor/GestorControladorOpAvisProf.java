@@ -5,11 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorProfesor.controlEnviarAviso.EnviarAvisoProf;
-import subSistemaControlador.controlador.ControladorProfesor.controlEnviarAviso.IniEnviarAvisoProf;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.BorraAviso;
-import subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis.ControladorOp_Avis;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
@@ -19,10 +14,14 @@ import subSistemaControlador.gestorControlador.GestorControlador;
  */
 public class GestorControladorOpAvisProf extends GestorControladorProfesor{
 
-	
-public GestorControladorOpAvisProf(){
-		
-	}
+	/**
+	 * Constructor
+	 *
+	 */
+	public GestorControladorOpAvisProf(){}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("OP_AVIS_PROF",c.crear(CreadorControlador.ControladorOp_Avis));

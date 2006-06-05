@@ -11,7 +11,9 @@ import subSistemaControlador.gestorControlador.GestorControlador;
  *
  */
 public class GestorControladorEditarAlumno extends GestorControladorSecretaria {
-	
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("EDITAR_ALUM_INI",creadorcont.crear(CreadorControlador.ContEditarAlumnoIni));

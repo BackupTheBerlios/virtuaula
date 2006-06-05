@@ -5,11 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorInicioMatricula;
-import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlum;
 import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatAlumCur;
-import subSistemaControlador.controlador.ControladorSecretaria.controlMatricular.ControladorMatricula;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
+
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
@@ -20,9 +17,14 @@ import subSistemaControlador.gestorControlador.GestorControlador;
 public class GestorControladorMatricularAlumno extends GestorControladorSecretaria{
 
 	
-
+	/**
+	 * Constructor
+	 *
+	 */
 	public GestorControladorMatricularAlumno(){}
-	
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		
 		CreadorControlador creadorcont=new CreadorControlador();

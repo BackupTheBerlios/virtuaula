@@ -2,19 +2,13 @@ package subSistemaControlador.gestorControlador.gestorControladorSecretaria;
 
 
 import java.util.Hashtable;
-import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
-
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.*;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.ControladorSecretaria.controlConsulProf.ControladorMostrarProf;
 import subSistemaControlador.controlador.ControladorSecretaria.controlEditarProf.ControladorEditaProf;
-import subSistemaControlador.controlador.ControladorSecretaria.controlInsCur.ControladorIniInsCur;
-import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
-import subSistemaControlador.gestorControlador.gestorControladorContable.GestorControladorOpAvisCont;
+
 /**
  * Devuelve los controladores de la sesion de una secretaria
  * @author Fco Javier Pérez Escrivá
@@ -31,10 +25,12 @@ public class GestorControladorSecretaria extends GestorControlador{
 		//añadimos a la tabla Operacion-Controlador los controladores comunes en secretaria
 		
 		tablaOperacionGestor= new Hashtable();
-	
-		
+
 
 	}
+	/**
+	 * Inicializa la tabla de correspondencia entre una operacion y el gestorControlador que la recoge
+	 */
 	public void inicializa(){
 		
 		//consulta de profesor concretos
@@ -94,6 +90,9 @@ public class GestorControladorSecretaria extends GestorControlador{
 		
 	
 	}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		System.out.println("la operacion es " + operacion);
 		CreadorControlador c=new CreadorControlador();

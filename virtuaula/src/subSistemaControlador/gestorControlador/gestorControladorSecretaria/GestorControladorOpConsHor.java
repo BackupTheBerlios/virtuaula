@@ -15,9 +15,10 @@ import subSistemaControlador.gestorControlador.GestorControlador;
 public class GestorControladorOpConsHor extends GestorControladorSecretaria{
 
 	
-public GestorControladorOpConsHor(){
-		
-	}
+public GestorControladorOpConsHor(){}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador creadorcont=new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("CONS_HOR",creadorcont.crear(CreadorControlador.ControladorConsultarHorario));

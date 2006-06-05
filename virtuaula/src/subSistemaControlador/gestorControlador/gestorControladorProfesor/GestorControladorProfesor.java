@@ -2,13 +2,10 @@ package subSistemaControlador.gestorControlador.gestorControladorProfesor;
 
 
 import java.util.Hashtable;
-import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import javax.servlet.http.HttpSession;
 
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
-import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
-import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
 /**
@@ -32,6 +29,9 @@ public class GestorControladorProfesor extends GestorControlador{
 		
 
 	}
+	/**
+	 * Realiza la correspondencia entre una operacion y el gestorControlador que lo recoge
+	 */
 	public void inicializa(){
 		//		AVISOS
 		tablaOperacionGestor.put("OP_AVIS_PROF",new GestorControladorOpAvisProf());
@@ -46,6 +46,9 @@ public class GestorControladorProfesor extends GestorControlador{
 		tablaOperacionGestor.put("PUB_NOTAS",new GestorControladorEditarFicha());
 
 	}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c= new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalProf",c.crear(CreadorControlador.ControladorLogin));

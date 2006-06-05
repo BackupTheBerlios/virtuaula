@@ -4,15 +4,11 @@ package subSistemaControlador.gestorControlador.gestorControladorContable;
 import java.util.Hashtable;
 
 import javax.servlet.http.HttpSession;
-import subSistemaControlador.controlador.controlConexiones.ControladorLogin;
 import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.CreadorControlador;
 import subSistemaControlador.controlador.Contable.ControladorConContrato;
-import subSistemaControlador.controlador.Contable.ControladorConNomina;
-import subSistemaControlador.controlador.controlConexiones.ControladorDesconectar;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
-import subSistemaControlador.gestorControlador.gestorControladorProfesor.GestorControladorOpAvisProf;
 
 
 public class GestorControladorContable extends GestorControlador{
@@ -33,6 +29,9 @@ public class GestorControladorContable extends GestorControlador{
 		
 
 	}
+	/**
+	 * Realiza la correspondencia entre una operacion y el gestorControlador que lo recoge
+	 */
 	public void inicializa(){
 //		AVISOS
 		tablaOperacionGestor.put("OP_AVIS_CONT",new GestorControladorOpAvisCont());
@@ -41,6 +40,9 @@ public class GestorControladorContable extends GestorControlador{
 		tablaOperacionGestor.put("INI_AVI_CONT",new GestorControladorOpAvisCont());
 		tablaOperacionGestor.put("ENV_AVI_CONT",new GestorControladorOpAvisCont());
 	}
+	/**
+	 * Devuelve el Controlador adecuado para este perfil y esta operacion
+	 */
 	public Controlador dameControlador(String perfilUsuario, String operacion, HttpSession sesion){
 		CreadorControlador c = new CreadorControlador();
 		GestorControlador.tablaOperacionControlador.put("menuPrincipalCont",c.crear(CreadorControlador.ControladorLogin));
