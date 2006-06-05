@@ -12,7 +12,10 @@ import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
  *
  */
 public class EncapsuladorInsertarProfesor  extends EncapsuladorCompuesto{
-	
+	/**
+	 * Constructor
+	 * @param request Objeto de contencion de informacion
+	 */
 	public EncapsuladorInsertarProfesor(HttpServletRequest request){
 		super(request);
 		
@@ -27,6 +30,9 @@ public class EncapsuladorInsertarProfesor  extends EncapsuladorCompuesto{
 		tablaEncapsuladores.add(2,new EncapsuladorBean("Contrato",request));
 				
 	}
+	/**
+	 * Realiza una encapsulacion compuesta
+	 */
 	public void encapsular(){
 		super.encapsular();
 		

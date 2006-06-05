@@ -35,6 +35,9 @@ public class EncapsuladorListas extends Encapsulador{
 		tablaIdentificadores.put("listCurso","posCurso");
 		
 	}
+	/**
+	 * Realiza la accion de Encapsular y meter en sesion
+	 */
 	public void encapsular(){
 		HttpSession sesion=request.getSession();
 		if (!request.getParameter((String)tablaIdentificadores.get(this.tipo)).equals("")){

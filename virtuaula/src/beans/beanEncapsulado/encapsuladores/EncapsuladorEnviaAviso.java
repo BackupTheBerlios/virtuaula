@@ -11,16 +11,24 @@ import beans.beanEncapsulado.encapsuladores.EncapsuladorString;
  */
 public class EncapsuladorEnviaAviso extends EncapsuladorCompuesto{
 	
-	
+	/**
+	 * Constructor
+	 * @param request Objeto contenedor de informacion de la pagina anterior
+	 */
 	public EncapsuladorEnviaAviso(HttpServletRequest request){
 		super(request);
 		
 	}
+	/**
+	 * Inicializa la tabla que contiene todos los encapsuladores simples a ejecutar 
+	 */
 	protected void inicializarTabla(){
 		this.tablaEncapsuladores.add(0,new EncapsuladorBean("Avisos",request));
 		this.tablaEncapsuladores.add(1,new EncapsuladorString("claveaviso",request));
 	}
-	
+	/**
+	 * Realiza una encapsulación compuesta
+	 */
 	public void encapsular(){
 		super.encapsular();
 		

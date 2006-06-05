@@ -9,9 +9,15 @@ import beans.beanEncapsulado.Encapsulador;
  *
  */
 public class EncapsuladorVacio extends Encapsulador{
-	
+	/**
+	 * Contructor
+	 *
+	 */
 	public EncapsuladorVacio(){
 		super("",null);
 	}
+	/**
+	 *No realiza ninguna accion
+	 */
 	public void encapsular(){}
 }

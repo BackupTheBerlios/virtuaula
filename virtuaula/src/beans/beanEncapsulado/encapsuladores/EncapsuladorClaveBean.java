@@ -19,7 +19,11 @@ public class EncapsuladorClaveBean extends Encapsulador{
 	private Hashtable tablaIdListas;
 	private Hashtable tablaIdBeans;
 	private Hashtable tablaIdClaveBase;
-	
+	/**
+	 * Constructor
+	 * @param tipo clase de enscapsulacion claveBean se desea ejecutar
+	 * @param request objeto contenedor de la informacion de la pagina anterior
+	 */
 	public EncapsuladorClaveBean(String tipo,HttpServletRequest request){
 		super(tipo,request);
 		this.tablaIdListas=new Hashtable();
@@ -61,7 +65,9 @@ public class EncapsuladorClaveBean extends Encapsulador{
 		tablaIdClaveBase.put("ISAREA_IDISAREA","IDISAREA");
 		tablaIdClaveBase.put("ISCURSO_IDISCURSO","IDISCURSO");
 	}
-	
+	/**
+	 * Realiza la accion de encapsular y de insercion en la sesion
+	 */
 	public void encapsular(){
 		HttpSession sesion=request.getSession();
 		ListaObjetoBean lx;

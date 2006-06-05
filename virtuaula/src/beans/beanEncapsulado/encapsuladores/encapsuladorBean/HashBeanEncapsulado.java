@@ -3,7 +3,12 @@ package beans.beanEncapsulado.encapsuladores.encapsuladorBean;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import java.util.Hashtable;
-
+/**
+ * Clase que contiene la relaacion entre el identificador de los beans y la instanciacion de los
+ * objetosBean en si mismos
+ * @author Diego Cardiel
+ *
+ */
 public class HashBeanEncapsulado {
 
 	/**
@@ -38,7 +43,11 @@ public class HashBeanEncapsulado {
 		tabIdConstructor.put("Ficha", "13");
 		tabIdConstructor.put("Error", "14");
 	}
-
+	/**
+	 * Devuelve el bean adecuado segun el tipo solicitado
+	 * @param tipo tipo de bean
+	 * @return instanciacion del objetoBean solicitado
+	 */
 	public ObjetoBean dameBean(String tipo) {
 		CreadorBean c = new CreadorBean();
 		ObjetoBean result = null;

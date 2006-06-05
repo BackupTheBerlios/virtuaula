@@ -12,11 +12,17 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class EncapsuladorBean extends Encapsulador{
-	
+	/**
+	 * Constructor
+	 * @param tipo tipo de bean a encapsular
+	 * @param request Objeto contenedor de la informacion de la pagina anterior
+	 */
 	public EncapsuladorBean(String tipo,HttpServletRequest request){
 		super(tipo,request);
 	}
-	
+	/**
+	 * Realiza la accion de encapsular y lo mete en la sesion
+	 */
 	public void encapsular(){
 		HttpSession sesion=request.getSession();
 		RequestContextFactory test = new RequestContextFactory();

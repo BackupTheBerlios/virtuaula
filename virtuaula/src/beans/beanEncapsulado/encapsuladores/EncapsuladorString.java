@@ -27,10 +27,17 @@ public class EncapsuladorString extends Encapsulador{
 		
 		
 	}
+	/**
+	 * Inicializa la tabla que relaciona el nombre del parametro con el nombre que se quiere meter en la sesion
+	 *
+	 */
 	private void inicializarTablaIdListas(){
 		this.tablaIdString.put("claveaviso","claveaviso");
 		
 	}
+	/**
+	 * Accion de encapsular y meter en sesion
+	 */
 	public void encapsular (){
 		HttpSession sesion=request.getSession();
 		String cadena = request.getParameter(tipo);

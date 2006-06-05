@@ -10,7 +10,10 @@ import beans.beanEncapsulado.encapsuladores.encapsuladorBean.EncapsuladorBean;
  *
  */
 public class EncapsuladorConsultaCurso extends EncapsuladorCompuesto{
-
+	/**
+	 * Constructor
+	 * @param request Objeto que contiene tod al informcion de la pagina anterior
+	 */
 	public EncapsuladorConsultaCurso(HttpServletRequest request){
 		super(request);
 	}
@@ -25,6 +28,9 @@ public class EncapsuladorConsultaCurso extends EncapsuladorCompuesto{
 		tablaEncapsuladores.add(3,new EncapsuladorPosicionBean("posHor",request));
 		tablaEncapsuladores.add(4,new EncapsuladorBean("Curso",request));
 	}
+	/**
+	 * Realiza una encapsulacion compuesta
+	 */
 	public void encapsular(){
 		super.encapsular();
 		

@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 abstract public class EncapsuladorCompuesto extends Encapsulador{
 	
 	protected ArrayList tablaEncapsuladores;
-	
+	/**
+	 * Constructor
+	 * @param request Objeto que contiene la informacion de la pagina web anterior
+	 */
 	public EncapsuladorCompuesto (HttpServletRequest request){
 		super("",request);
 		tablaEncapsuladores=new ArrayList();
@@ -23,7 +26,9 @@ abstract public class EncapsuladorCompuesto extends Encapsulador{
 	 *
 	 */
 	abstract protected void inicializarTabla();
-	
+	/**
+	 * Realiza una encapsulacion compuesta
+	 */
 	public void encapsular(){
 		for (int i=0; i<tablaEncapsuladores.size();i++)
 			((Encapsulador)tablaEncapsuladores.get(i)).encapsular();

@@ -9,7 +9,11 @@ import beans.ObjetoBean;
 import beans.beanEncapsulado.encapsuladores.encapsuladorBean.RequestContextFactory;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
-
+/**
+ * Encapsula cualquier parametro de los especificados (clase en desuso)
+ * @author Diego Cardiel
+ *
+ */
 public class BeanEncapsulado extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -23,7 +27,10 @@ public class BeanEncapsulado extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Realiza la accion de encapsular
+	 * @param request objeto que contiene los parametros de la pag anterior
+	 */
 	static public void encapsular(HttpServletRequest request) {
 
 		String tipo = "";

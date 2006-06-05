@@ -1,6 +1,5 @@
 package beans.beanEncapsulado;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorPosicionBean;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorConsultaCurso;
 import beans.beanEncapsulado.encapsuladores.EncapsuladorInsertarProfesor;
@@ -17,11 +16,23 @@ import java.util.Hashtable;
  *
  */
 public class GestorEncapsuladores {
+	/**
+	 * Tabla que contiene la correspondencia entre el parametro q se pasa por la pagina web
+	 * y el encapsulador que realiza  su encapsulado
+	 */
 	private Hashtable tablaEncapsuladores;
-	
+	/**
+	 * Constructor
+	 *
+	 */
 	public GestorEncapsuladores(){
 		tablaEncapsuladores=new Hashtable();
 	}
+	/**
+	 * Devuelve el encapsulador adecuado en virtud del parametro idBean que contiene la pagina anterior
+	 * @param req Objeto contenedor de la informacion de la anterior pagina web
+	 * @return Encapsulador solicitado
+	 */
 	public Encapsulador dameEncapsulador(HttpServletRequest req){
 		String tipo = "";
 		Encapsulador encapResultado=null;
@@ -45,7 +56,10 @@ public class GestorEncapsuladores {
 		}
 		return encapResultado;
 	}
-	
+	/**
+	 * Inicializa  la tabla de correspondencia idbean-encapsulador
+	 * @param req
+	 */
 	public void inicializar(HttpServletRequest req){
 		tablaEncapsuladores.put("listCurso",new EncapsuladorListas("listCurso",req));
 		tablaEncapsuladores.put("listAviso",new EncapsuladorListas("listAviso",req));
