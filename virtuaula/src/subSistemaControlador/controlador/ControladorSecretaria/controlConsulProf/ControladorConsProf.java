@@ -3,7 +3,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulPro
 
 
 
-import subSistemaControlador.controlador.Controlador;
 import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 
 /**

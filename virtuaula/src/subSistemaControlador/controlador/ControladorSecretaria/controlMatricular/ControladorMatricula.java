@@ -4,7 +4,7 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlMatricula
 import gestores.GestorAlumnos;
 import sms.SMS;
 import beans.ObjetoBean;
-import beans.CreadorBean;
+
 import subSistemaControlador.controlador.Controlador;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.*;
@@ -22,7 +22,7 @@ public class ControladorMatricula extends ControladorMatricular{
 		ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
 		ObjetoBean curso = (ObjetoBean)this.getSesion().getAttribute("beanCurso");
 		GestorAlumnos GA = new GestorAlumnos();
-		CreadorBean creador = new CreadorBean();
+		//CreadorBean creador = new CreadorBean();
 		ObjetoBean usuario = (ObjetoBean)this.getSesion().getAttribute("usuario");
 		//System.out.println(curso.dameValor(Constantes.CURSO_NOMBRE));
 		

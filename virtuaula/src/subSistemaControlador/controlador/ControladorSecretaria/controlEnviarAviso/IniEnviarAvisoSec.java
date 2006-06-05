@@ -10,7 +10,7 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
+
 /**
  * 
  * @author AL

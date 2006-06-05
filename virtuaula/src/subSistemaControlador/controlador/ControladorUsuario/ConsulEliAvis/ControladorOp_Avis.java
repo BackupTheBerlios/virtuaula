@@ -3,11 +3,8 @@ package subSistemaControlador.controlador.ControladorUsuario.ConsulEliAvis;
 import gestores.GestorAvisos;
 
 
-import javax.servlet.http.HttpSession;
-
 import beans.CreadorBean;
 import beans.ObjetoBean;
-import beans.Usuario;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;

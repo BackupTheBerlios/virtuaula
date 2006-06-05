@@ -2,7 +2,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 
 import gestores.GestorAlumnos;
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlumno.ControladorConsAlumno;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 /**

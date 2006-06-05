@@ -2,7 +2,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlBajaCur;
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
 import gestores.GestorCursos;

@@ -1,7 +1,6 @@
 package subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor;
 
 import subSistemaControlador.controlador.Controlador;
-import gestores.GestorCursos;
 import gestores.GestorHorarios;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;

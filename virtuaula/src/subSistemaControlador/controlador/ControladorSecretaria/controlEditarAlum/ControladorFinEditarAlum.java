@@ -5,7 +5,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 import subSistemaControlador.controlador.*;
 import beans.ObjetoBean;
 import gestores.GestorAlumnos;
-import gestores.GestorAvisos;
 
 /**
  * Se encarga de hacer la edicion propiamente dicha del alumno seleccionado por un secretario.

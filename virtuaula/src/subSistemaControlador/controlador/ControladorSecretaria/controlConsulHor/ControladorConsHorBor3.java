@@ -2,7 +2,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulHor
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-import gestores.GestorCursos;
 import gestores.GestorHorarios;
 import beans.CreadorBean;
 import beans.ObjetoBean;

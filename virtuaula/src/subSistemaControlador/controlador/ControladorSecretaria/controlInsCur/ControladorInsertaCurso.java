@@ -3,7 +3,6 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlInsCur;
 //import java.awt.geom.Area;
 
 import gestores.GestorCursos;
-import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;

@@ -5,7 +5,6 @@ import gestores.GestorAvisos;
 
 import beans.CreadorBean;
 import beans.ObjetoBean;
-import beans.Usuario;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;

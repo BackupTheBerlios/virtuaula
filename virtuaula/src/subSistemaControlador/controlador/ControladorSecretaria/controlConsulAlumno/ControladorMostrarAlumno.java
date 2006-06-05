@@ -3,11 +3,9 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlConsulAlu
 
 import subSistemaBBDD.utils.Constantes;
 import subSistemaControlador.controlador.Controlador;
-import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecretaria;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import beans.*;
-import gestores.GestorCursos;
 import gestores.GestorAlumnos;
 
 /**
