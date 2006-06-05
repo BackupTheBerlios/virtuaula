@@ -139,9 +139,11 @@
 			                   out.println(" <table border='0' cellspacing='0' cellpadding='10'>");		
 			                   out.println("<tr>");			 
 		      	             out.println("		         <td colspan='7' align='center'> ");
-		      	             out.println("			          <input type='hidden' name='evento' value='menuPrincipalProf'>");
-		      	             out.println("   			        <button type='submit' class='botonSimple'>Atrás</button>");
-
+	                    out.println("			          <input type='hidden' name='idBean' value='Usuario'>");
+		                    out.println("					   <input type='hidden' name='DNI' value='anonimo'>");
+							out.println("				      <input type='hidden' name='CONTRASENIA' value='anonimo'>");
+							out.println("			            <input type='hidden' name='evento'>");		      	             
+                         out.println("   			        <button onClick=\"JavaScript:lanzaFormularioPrincipal('PRINCIPAL_PUBLICO');\" class='botonSimple'>Atrás</button>"); 
 		
 		                  } 
                   out.println("</td>");
