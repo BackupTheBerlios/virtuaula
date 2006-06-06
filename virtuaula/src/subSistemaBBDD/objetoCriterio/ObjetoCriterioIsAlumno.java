@@ -8,12 +8,16 @@ import java.util.Vector;
 import subSistemaBBDD.objetoBaseDatos.*;
 import subSistemaBBDD.utils.Constantes;
 
-
+/**
+ * Implementación de la clase abstracta ObjetoCriterio especializada
+ * en manejar objetos que definen un criterio de busqueda/consulta en la tabla isAlumno.
+ * 
+ */
 
 public class ObjetoCriterioIsAlumno extends ObjetoCriterio{
 	
 	/**
-	 * Número de cmapos introducidos en el objeto criterio.
+	 * Número de campos introducidos en el objeto criterio.
 	 */
 	private int numCampos; 
 	private List listaCampos;

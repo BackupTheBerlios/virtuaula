@@ -1,9 +1,9 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla contrato de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
  *
  */
 public class IsContrato extends ObjetoBBDD{
@@ -11,13 +11,17 @@ public class IsContrato extends ObjetoBBDD{
 	private String ISUSUARIO_DNI;
 	private String ISNOMINA_IDISNOMINA;
 	private String TIPO;
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla contrato a vacio.
+	 */
 	public IsContrato()
 	{
 		this.inicializar();		
 	}
 	/**
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * un contrato. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		// TODO Auto-generated method stub

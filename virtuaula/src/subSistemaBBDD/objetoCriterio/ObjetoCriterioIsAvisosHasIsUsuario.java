@@ -8,7 +8,11 @@ import java.util.Vector;
 import subSistemaBBDD.objetoBaseDatos.*;
 import subSistemaBBDD.utils.Constantes;
 
-
+/**
+ * Implementación de la clase abstracta ObjetoCriterio especializada
+ * en manejar objetos que definen un criterio de busqueda/consulta en la tabla isAvisosHasIsUsuario.
+ * 
+ */
 
 public class ObjetoCriterioIsAvisosHasIsUsuario extends ObjetoCriterio{
 	

@@ -1,9 +1,10 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho Gonzalez
- *Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla aula de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
+ *
  */
 public class IsAula extends ObjetoBBDD {
 
@@ -12,13 +13,16 @@ public class IsAula extends ObjetoBBDD {
 	private String NOMBRE;
 	private String CAPACIDAD;
 	private String LOCALIZACION;
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla aula a vacio.
+	 */
 	public IsAula()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Esta clase la usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
 	 * un Aula. Se asemeja a lo que podria ser un constructor de copia.
 	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
 	 * @return Nos devuelve un clon de los atributos de la propia clase. 
@@ -37,7 +41,7 @@ public class IsAula extends ObjetoBBDD {
 	 * Me devuelve el valor del atriburo de IsAula que le indique en 
 	 * el parametro campo
 	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
-	 * @param Le pasamos el campo que queremos obtener, este campo se puede obtener de la clase constantes
+	 * @param campo pasamos el campo que queremos obtener, este campo se puede obtener de la clase constantes
 	 * en la parte correspondiente a IsAula.
 	 * @return Nos devuelve un String con el valor del campo requerido.
 	 */
@@ -67,7 +71,8 @@ public class IsAula extends ObjetoBBDD {
      * Introducimos un campo de la tupla que queremos cambiar y el valor que le
      * queremos asignar y nos lo cambia.
      * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
-     * @param Le pasamos el campo que queremos cambiar de valor y su nuev valor
+     * @param campo Le pasamos el campo que queremos cambiar de valor 
+     * @param valor el nuevo valor
      */
 	public void cambiaValor(String campo, String valor) {
 		// TODO Auto-generated method stub

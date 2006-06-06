@@ -15,6 +15,12 @@ public final class ConversorBeanBBDD {
 	private ConversorBeanBBDD(){
 		
 	}
+	
+	/**
+	 * Dado un ObjetoBean alumno devuelve el ObjetoBBDD equivalente.
+	 * @param alumno  el alumno a convertir
+	 * @return un ObjetoBBDD alumno.
+	 */
 	private static ObjetoBBDD convierteAlumno(ObjetoBean alumno){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		//creo un objeto alumno de la BBDD
@@ -32,6 +38,11 @@ public final class ConversorBeanBBDD {
 		return isAlumno;
 		
 	}
+	/**
+	 * Dado un ObjetoBean area devuelve el ObjetoBBDD equivalente.
+	 * @param area  el alumno a convertir
+	 * @return un ObjetoBBDD area.
+	 */
 	private static ObjetoBBDD convierteArea(ObjetoBean area){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isArea = creador.crear(creador.Isarea);
@@ -39,6 +50,11 @@ public final class ConversorBeanBBDD {
 		isArea.cambiaValor(Constantes.AREA_NOMBRE,area.dameValor(Constantes.AREA_NOMBRE));
 		return isArea;
 	}
+	/**
+	 * Dado un ObjetoBean aula devuelve el ObjetoBBDD equivalente.
+	 * @param aula el aula a convertir
+	 * @return un ObjetoBBDD aula.
+	 */
 	private static ObjetoBBDD convierteAula(ObjetoBean aula){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isAula = creador.crear(creador.Isaula);
@@ -48,6 +64,11 @@ public final class ConversorBeanBBDD {
 		isAula.cambiaValor(Constantes.AULA_LOCALIZACION,aula.dameValor(Constantes.AULA_LOCALIZACION));
 		return isAula;
 	}
+	/**
+	 * Dado un ObjetoBean de tipo relación entre un aviso y un usuario devuelve el ObjetoBBDD equivalente.
+	 * @param avisoUsuario  el avisoUsuario a convertir
+	 * @return un ObjetoBBDD de relación entre un aviso y un usuario.
+	 */
 	private static ObjetoBBDD convierteAvisosUsuario(ObjetoBean avisoUsuario){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isAvisoUsuario = creador.crear(creador.IsavisosHasIsuario);
@@ -55,6 +76,11 @@ public final class ConversorBeanBBDD {
 		isAvisoUsuario.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,avisoUsuario.dameValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI));
 		return isAvisoUsuario;
 	}
+	/**
+	 * Dado un ObjetoBean aviso devuelve el ObjetoBBDD equivalente.
+	 * @param aviso el aviso a convertir
+	 * @return un ObjetoBBDD aviso.
+	 */
 	private static ObjetoBBDD convierteAvisos(ObjetoBean aviso){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isAvisos = creador.crear(creador.Isavisos);
@@ -66,6 +92,12 @@ public final class ConversorBeanBBDD {
 		isAvisos.cambiaValor(Constantes.ID_ISAVISOS,aviso.dameValor(Constantes.ID_ISAVISOS));
 		return isAvisos;
 	}
+	
+	/**
+	 * Dado un ObjetoBean contrato devuelve el ObjetoBBDD equivalente.
+	 * @param contrato el contrato a convertir
+	 * @return un ObjetoBBDD contrato.
+	 */
 	private static ObjetoBBDD convierteContrato(ObjetoBean contrato){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isContrato = creador.crear(creador.Iscontrato);
@@ -74,6 +106,12 @@ public final class ConversorBeanBBDD {
 		isContrato.cambiaValor(Constantes.CONTRATO_TIPO,contrato.dameValor(Constantes.CONTRATO_TIPO));
 		return isContrato;		
 	}
+	
+	/**
+	 * Dado un ObjetoBean de relación entre un curso y un alumno devuelve el ObjetoBBDD equivalente.
+	 * @param cursoAlumno el ObjetoBean a convertir
+	 * @return un ObjetoBBDD cursoAlumno.
+	 */
 	private static ObjetoBBDD convierteCursoAlumno(ObjetoBean cursoAlumno){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isCursoAlumno = creador.crear(creador.IscursoHasIsalumno);
@@ -84,6 +122,11 @@ public final class ConversorBeanBBDD {
 		return isCursoAlumno;
 	}
 
+	/**
+	 * Dado un ObjetoBean curso devuelve el ObjetoBBDD equivalente.
+	 * @param curso el curso a convertir
+	 * @return un ObjetoBBDD curso.
+	 */
 	private static ObjetoBBDD convierteCurso(ObjetoBean curso){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isCurso = creador.crear(creador.Iscurso);
@@ -99,7 +142,11 @@ public final class ConversorBeanBBDD {
 		return isCurso;
 	}
 	
-
+	/**
+	 * Dado un ObjetoBean ficha devuelve el ObjetoBBDD equivalente.
+	 * @param ficha la ficha a convertir
+	 * @return un ObjetoBBDD ficha.
+	 */
 	private static ObjetoBBDD convierteFicha(ObjetoBean ficha){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isFicha = creador.crear(creador.IsFicha);
@@ -109,6 +156,11 @@ public final class ConversorBeanBBDD {
 		isFicha.cambiaValor(Constantes.FICHA_NOTAS_EJERCICIOS,ficha.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
 		return isFicha;
 	}
+	/**
+	 * Dado un ObjetoBean de relación entre un horario y un aula devuelve el ObjetoBBDD equivalente.
+	 * @param horarioAula el objeto de relaciín a convertir
+	 * @return un ObjetoBBDD de relación entre un horario y un aula equivalente a horarioAula.
+	 */
 	private static ObjetoBBDD convierteHorarioAula(ObjetoBean horarioAula){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isHorarioAula = creador.crear(creador.IshorarioHasIsaula);
@@ -118,7 +170,11 @@ public final class ConversorBeanBBDD {
 		return isHorarioAula;
 	}
 
-	
+	/**
+	 * Dado un ObjetoBean horario devuelve el ObjetoBBDD equivalente.
+	 * @param horario el horario a convertir
+	 * @return un ObjetoBBDD horario.
+	 */
 	private static ObjetoBBDD convierteHorario(ObjetoBean horario){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isHorario = creador.crear(creador.Ishorario);
@@ -131,6 +187,11 @@ public final class ConversorBeanBBDD {
 		return isHorario;
 	}
 
+	/**
+	 * Dado un ObjetoBean nomina devuelve el ObjetoBBDD equivalente.
+	 * @param nomina la nomina a convertir
+	 * @return un ObjetoBBDD nomina.
+	 */
 	private static ObjetoBBDD convierteNomina(ObjetoBean nomina){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isNomina = creador.crear(creador.Isnomina);
@@ -140,7 +201,11 @@ public final class ConversorBeanBBDD {
 		return isNomina;
 	}
 	
-	
+	/**
+	 * Dado un ObjetoBean profesor devuelve el ObjetoBBDD equivalente.
+	 * @param profesor  el profesor a convertir
+	 * @return un ObjetoBBDD profesor.
+	 */
 	
 	private static ObjetoBBDD convierteProfesor(ObjetoBean profesor){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
@@ -155,7 +220,11 @@ public final class ConversorBeanBBDD {
 		return isProfesor;
 	}
 
-	
+	/**
+	 * Dado un ObjetoBean usuario devuelve el ObjetoBBDD equivalente.
+	 * @param usuario  el usuario a convertir
+	 * @return un ObjetoBBDD usuario.
+	 */
 	private static ObjetoBBDD convierteUsuario(ObjetoBean usuario){
 		CreadorObjetoBBDD creador= new CreadorObjetoBBDD();
 		ObjetoBBDD isUsuario = creador.crear(creador.Isusuario);
@@ -170,6 +239,12 @@ public final class ConversorBeanBBDD {
 	 * *******************************************************
 	 * *******************************************************
 	 * 
+	 */
+	
+	/**
+	 * Dado un ObjetoBBDD isAlumno devuelve el ObjetoBean equivalente.
+	 * @param isAlumno  el alumno a convertir
+	 * @return un ObjetoBean alumno.
 	 */
 	private static ObjetoBean convierteAlumno(ObjetoBBDD isAlumno){
 		CreadorBean creador= new CreadorBean();
@@ -186,6 +261,11 @@ public final class ConversorBeanBBDD {
 		return alumno;
 		
 	}
+	/**
+	 * Dado un ObjetoBBDD isArea devuelve el ObjetoBean equivalente.
+	 * @param isArea  el area a convertir
+	 * @return un ObjetoBean area.
+	 */
 	private static ObjetoBean convierteArea(ObjetoBBDD isArea){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean area = creador.crear(creador.Area);
@@ -193,6 +273,11 @@ public final class ConversorBeanBBDD {
 		area.cambiaValor(Constantes.AREA_NOMBRE,isArea.dameValor(Constantes.AREA_NOMBRE));
 		return area;
 	}
+	/**
+	 * Dado un ObjetoBBDD aula devuelve el ObjetoBean equivalente.
+	 * @param isAula  el aula a convertir
+	 * @return un ObjetoBean aula.
+	 */
 	private static ObjetoBean convierteAula(ObjetoBBDD isAula){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean aula = creador.crear(creador.Aula);
@@ -202,6 +287,12 @@ public final class ConversorBeanBBDD {
 		aula.cambiaValor(Constantes.AULA_LOCALIZACION,isAula.dameValor(Constantes.AULA_LOCALIZACION));
 		return aula;
 	}
+	
+	/**
+	 * Dado un ObjetoBBDD de tipo relación entre un aviso y un usuario devuelve el ObjetoBean equivalente.
+	 * @param isAvisoUsuario  el avisoUsuario a convertir
+	 * @return un ObjetoBean de relación entre un aviso y un usuario.
+	 */
 	private static ObjetoBean convierteAvisosUsuario(ObjetoBBDD isAvisoUsuario){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean avisoUsuario = creador.crear(creador.AvisosHasUario);
@@ -209,6 +300,11 @@ public final class ConversorBeanBBDD {
 		avisoUsuario.cambiaValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI,isAvisoUsuario.dameValor(Constantes.ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI));
 		return avisoUsuario;
 	}
+	/**
+	 * Dado un ObjetoBBDD aviso devuelve el ObjetoBean equivalente.
+	 * @param isAviso  el aviso a convertir
+	 * @return un ObjetoBean aviso.
+	 */
 	private static ObjetoBean convierteAvisos(ObjetoBBDD isAviso){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean avisos = creador.crear(creador.Avisos);
@@ -220,6 +316,11 @@ public final class ConversorBeanBBDD {
 		avisos.cambiaValor(Constantes.ID_ISAVISOS,isAviso.dameValor(Constantes.ID_ISAVISOS));
 		return avisos;
 	}
+	/**
+	 * Dado un ObjetoBBDD contrato devuelve el ObjetoBean equivalente.
+	 * @param isContrato  el contrato a convertir
+	 * @return un ObjetoBean contrato.
+	 */
 	private static ObjetoBean convierteContrato(ObjetoBBDD isContrato){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean contrato = creador.crear(creador.Contrato);
@@ -228,6 +329,11 @@ public final class ConversorBeanBBDD {
 		contrato.cambiaValor(Constantes.CONTRATO_TIPO,isContrato.dameValor(Constantes.CONTRATO_TIPO));
 		return contrato;		
 	}
+	/**
+	 * Dado un ObjetoBBDD de relación entre un curso y un alumno devuelve el ObjetoBean equivalente.
+	 * @param isCursoAlumno  el ObjetoBBDD a convertir
+	 * @return un ObjetoBean cursoAlumno.
+	 */
 	private static ObjetoBean convierteCursoAlumno(ObjetoBBDD isCursoAlumno){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean cursoAlumno = creador.crear(creador.CursoHasAlumno);
@@ -237,6 +343,11 @@ public final class ConversorBeanBBDD {
 		cursoAlumno.cambiaValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL,isCursoAlumno.dameValor(Constantes.ISCURSO_HAS_ISALUMNO_NOTA_FINAL));
 		return cursoAlumno;
 	}
+	/**
+	 * Dado un ObjetoBBDD curso devuelve el ObjetoBean equivalente.
+	 * @param isCurso  el curso a convertir
+	 * @return un ObjetoBean curso.
+	 */
 
 	private static ObjetoBean convierteCurso(ObjetoBBDD isCurso){
 		CreadorBean creador= new CreadorBean();
@@ -253,7 +364,11 @@ public final class ConversorBeanBBDD {
 		return curso;
 	}
 	
-
+	/**
+	 * Dado un ObjetoBBDD ficha devuelve el ObjetoBean equivalente.
+	 * @param isFicha  la ficha a convertir
+	 * @return un ObjetoBean ficha.
+	 */
 	private static ObjetoBean convierteFicha(ObjetoBBDD isFicha){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean ficha = creador.crear(creador.Ficha);
@@ -263,6 +378,12 @@ public final class ConversorBeanBBDD {
 		ficha.cambiaValor(Constantes.FICHA_NOTAS_EJERCICIOS,isFicha.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
 		return ficha;
 	}
+	
+	/**
+	 * Dado un ObjetoBBDD de relación entre un horario y un aula devuelve el ObjetoBean equivalente.
+	 * @param isHorarioAula  el objeto de relaciín a convertir
+	 * @return un ObjetoBean de relación entre un horario y un aula equivalente a horarioAula.
+	 */
 	private static ObjetoBean convierteHorarioAula(ObjetoBBDD isHorarioAula){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean horarioAula = creador.crear(creador.HorarioHasAula);
@@ -272,6 +393,11 @@ public final class ConversorBeanBBDD {
 		return horarioAula;
 	}
 
+	/**
+	 * Dado un ObjetoBBDD horario devuelve el ObjetoBean equivalente.
+	 * @param isHorario  el horario a convertir
+	 * @return un ObjetoBean horario.
+	 */
 	
 	private static ObjetoBean convierteHorario(ObjetoBBDD isHorario){
 		CreadorBean creador= new CreadorBean();
@@ -284,6 +410,11 @@ public final class ConversorBeanBBDD {
 		horario.cambiaValor(Constantes.HORARIO_VIERNES,isHorario.dameValor(Constantes.HORARIO_VIERNES));
 		return horario;
 	}
+	/**
+	 * Dado un ObjetoBBDD nomina devuelve el ObjetoBean equivalente.
+	 * @param isNomina  la nomina a convertir
+	 * @return un ObjetoBean nomina.
+	 */
 
 	private static ObjetoBean convierteNomina(ObjetoBBDD isNomina){
 		CreadorBean creador= new CreadorBean();
@@ -294,7 +425,11 @@ public final class ConversorBeanBBDD {
 		return nomina;
 	}
 	
-	
+	/**
+	 * Dado un ObjetoBBDD profesor devuelve el ObjetoBean equivalente.
+	 * @param isProfesor  el profesor a convertir
+	 * @return un ObjetoBean profesor.
+	 */
 	
 	private static ObjetoBean convierteProfesor(ObjetoBBDD isProfesor){
 		CreadorBean creador= new CreadorBean();
@@ -309,7 +444,11 @@ public final class ConversorBeanBBDD {
 		return profesor;
 	}
 
-	
+	/**
+	 * Dado un ObjetoBBDD usuario devuelve el ObjetoBean equivalente.
+	 * @param isUsuario el usuario a convertir
+	 * @return un ObjetoBean usuario.
+	 */
 	private static ObjetoBean convierteUsuario(ObjetoBBDD isUsuario){
 		CreadorBean creador= new CreadorBean();
 		ObjetoBean usuario = creador.crear(creador.Usuario);
@@ -322,9 +461,9 @@ public final class ConversorBeanBBDD {
 	/**
 	 * Convierte un ObjetoBBDD en un objetoBean equivalente,reconocible por los clientes
 	 * que solicitan peticiones a la fachada de la base de datos.
-	 * @param entidad
-	 * @return
-	 * @throws Exception
+	 * @param entidad  la cual queremos convertir de ObjetoBBDD a ObjetoBean
+	 * @return un ObjetoBean equivalente a la entidad pasada como parámetro
+	 * @throws Exception, si la entidad que se le pasa no es del tipo adecuado.
 	 */
 	public static ObjetoBean convierteBBDDABean(ObjetoBBDD entidad) throws Exception{
 		if (entidad instanceof IsAlumno){
@@ -376,9 +515,9 @@ public final class ConversorBeanBBDD {
 	/**
 	 * Convierte un objeto Bean en un ObjetoBBDD tratable por las clases en las que
 	 * la fachada delega las peticiones recibidas por los cliente
-	 * @param entidad
-	 * @return 
-	 * @throws Exception
+	 * @param entidad  la cual queremos pasar de ObjetoBean a ObjetoBBDD
+	 * @return un ObjetoBBDD equivalente a entidad.
+	 * @throws Exception, si el parametro entidad no es del tipo adecuado.
 	 */
 	public static ObjetoBBDD convierteBeanABBDD(ObjetoBean entidad) throws Exception{
 		if (entidad instanceof Alumno){
@@ -426,6 +565,11 @@ public final class ConversorBeanBBDD {
 		else throw new Exception("fallo en conversión a objetoBBDD");
 	
 	}
+	/**
+	 * Dada una lista de ObjetoBBDD devuelve una lista de ObjetoBean equivalente.
+	 * @param listaBBDD  la lista a convertir.
+	 * @return Una ListaObjetoBean equivalente a listaBBDD
+	 */
 	public static ListaObjetoBean convierteListaBBDD(ListaObjetoBBDD listaBBDD){
 		CreadorListaObjetoBean creador = new CreadorListaObjetoBean();
 		ListaObjetoBean listaBeans = creador.crear();

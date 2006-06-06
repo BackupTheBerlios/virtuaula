@@ -20,10 +20,18 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  *
  */
 public class BBDDFachadaProfesor extends BBDDFachada{
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaProfesor(){
 		
 	}
-	
+	/**
+	 * Dado un curso devuelve el profesor que imparte este curso.
+	 * @param curso del cual queremos saber su profesor asociado.
+	 * @return el profesor asociado al curso.
+	 */
 	public ObjetoBean dameProfesorCurso(ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();
 		ObjetoBean profesor= creadorBean.crear(creadorBean.Profesor);
@@ -49,8 +57,8 @@ public class BBDDFachadaProfesor extends BBDDFachada{
 	
 	/**
 	 * Sirve para obtener todas las profesores que están libres en un
-	 * horario dado, es decir que no tengan cursos en ese horario.
-	 * @param horario, el horario que fija los profesores que estoy buscando
+	 * horario dado es decir que no tengan cursos en ese horario.
+	 * @param horario el horario que fija los profesores que estoy buscando
 	 * @return una lista de profesores libres en el horario dado.
 	 */
 	public ListaObjetoBean dameProfesoresLibres(ObjetoBean horario){
@@ -106,7 +114,7 @@ public class BBDDFachadaProfesor extends BBDDFachada{
 	/**
 	 * Este método devuelve todos los profesores que imparten cursos de un area que se 
 	 * pasa como parámetro.
-	 * @param area, el area que guia la busqueda de profesores
+	 * @param area el area que guia la busqueda de profesores
 	 * @return una lista de profesores que impartan cursos del area determinada.
 	 */
 	

@@ -14,6 +14,11 @@ import beans.ObjetoBean;
  *
  */
 public class BBDDFachadaFicha extends BBDDFachada{
+	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaFicha(){
 		
 	}
@@ -21,7 +26,7 @@ public class BBDDFachadaFicha extends BBDDFachada{
 	 * Dado un alumno y un curso nos devuele la ficha correspondiente.
 	 * @param alumno que guia la busqueda
 	 * @param curso que guia la busqueda
-	 * @return
+	 * @return la ficha del alumno en cuestion.
 	 */
 	public ObjetoBean dameFichaAlumnoCurso(ObjetoBean alumno, ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();

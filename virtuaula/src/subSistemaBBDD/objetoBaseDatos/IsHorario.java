@@ -1,9 +1,10 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- *Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla horario de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
+ *
  */
 public class IsHorario extends ObjetoBBDD{
 
@@ -14,13 +15,17 @@ public class IsHorario extends ObjetoBBDD{
  	private String JUEVES;
 	private String VIERNES;
 
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla horario a vacio.
+	 */
 	public IsHorario()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * un horario. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		// TODO Auto-generated method stub

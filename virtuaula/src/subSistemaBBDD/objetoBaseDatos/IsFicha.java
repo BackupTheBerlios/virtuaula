@@ -1,26 +1,34 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla ficha 
+ * de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
  *
  */
 public class IsFicha extends ObjetoBBDD {
 
 	
-	//ESTO CREO QUE HAY QUE CAMBIARLO
+	
 	private String IDISFICHA;
 	private String NOTAS;
 	private String ANOTACIONES;
 	private String NOTAS_EJERCICIOS;
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla ficha a vacio.
+	 */
 	public IsFicha()
 	{
 		this.inicializar();
 	}
+	/**
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * una ficha. Se asemeja a lo que podria ser un constructor de copia.
+	 */
 	public ObjetoBBDD clonar() {
-		// TODO Auto-generated method stub
+		
 		IsFicha ficha=new IsFicha();
 		ficha.IDISFICHA=this.IDISFICHA;
 		ficha.NOTAS=ficha.NOTAS;

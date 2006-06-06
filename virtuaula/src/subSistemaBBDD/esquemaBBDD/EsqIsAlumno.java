@@ -11,7 +11,13 @@ import subSistemaBBDD.objetoCriterio.*;
 import org.apache.log4j.Logger;
 
 import subSistemaBBDD.utils.*;
-
+/**
+ * Clase que gestiona las tabla alumno de nuestra base de datos.
+ * Implementa las operaciones básicas de inserción,consulta,eliminación y edición de tuplas 
+ * de esta tabla.
+ * 
+ *
+ */
 public class EsqIsAlumno extends EsquemaBBDD {
 
 	//Declaramos el log de la clase

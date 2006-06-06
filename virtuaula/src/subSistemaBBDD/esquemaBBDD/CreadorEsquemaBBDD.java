@@ -84,7 +84,7 @@ public class CreadorEsquemaBBDD {
 	
 	/**
 	 * Genera una copia prototípica del tipo de EsquemaBBDD concreto especificado 
-	 * @param obj tipo de EsquemaBBDD a "clonar" (realizar la copia)
+	 * @param tipo tipo de EsquemaBBDD a "clonar" (realizar la copia)
 	 * @return objeto de la implementación concreta de la interfaz EsquemaBBDD especificada
 	 */
 
@@ -112,6 +112,10 @@ public class CreadorEsquemaBBDD {
 		return obj;
 	}
 
+	/**
+	 * Constructor de la clase donde se realiza inicializaciones de las distintas tablas de la base de datos.
+	 *
+	 */
 	public CreadorEsquemaBBDD() {
 
 		if (this.alumno == null) { 

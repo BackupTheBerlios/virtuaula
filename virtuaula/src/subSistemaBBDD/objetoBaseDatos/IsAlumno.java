@@ -2,10 +2,10 @@ package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 
 /**
- * Esta clase representa una tupla
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla alumno de nuestra Base de datos.
  *  
  *  * @author Alberto Macho González
- *Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ *
  */
 public class IsAlumno extends ObjetoBBDD{
 
@@ -21,7 +21,8 @@ public class IsAlumno extends ObjetoBBDD{
 	
 	
 	/**
-	 * 
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla alumno a vacio.
 	 */
 	public IsAlumno()
 	{
@@ -29,7 +30,7 @@ public class IsAlumno extends ObjetoBBDD{
 	}
 	
 	/**
-	 * Esta clase la usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * Este metodo lousamos para hacer copias de otro objetoBBDD que en este caso sera
 	 * un Alumno. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {

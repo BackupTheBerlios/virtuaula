@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import subSistemaBBDD.utils.*;
 
 /**
- * Abstracción de una tabla de la BBDD dando el servicion de conexion 
+ * Abstracción de una tabla de la BBDD dando el servicio de conexion 
  * y desconexión con una BBDD especificada
  * Forma parte de un patron:
  * 			-Patrón Prototype su rol es de Prototype
@@ -152,7 +152,7 @@ abstract public class EsquemaBBDD {
 	 * En el caso de fallo realizará un fichero .log donde mirar la excepcion sql
 	 * que produjo el fallo 
 	 * @param obj criterio de borrado
-	 * @returntrue si ha conseguido el borrado false en caso contrario
+	 * @return true si ha conseguido el borrado false en caso contrario
 	 */
 	abstract public boolean borrar(ObjetoCriterio obj);
 	/**

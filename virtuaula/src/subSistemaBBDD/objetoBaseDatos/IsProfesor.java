@@ -1,9 +1,9 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla profesor de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
  *
  */
 public class IsProfesor extends ObjetoBBDD {
@@ -16,7 +16,10 @@ public class IsProfesor extends ObjetoBBDD {
 	private String TELEFONO;
 	private String EMAIL;
 	
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla profesor a vacio.
+	 */
 	
 	public IsProfesor()
 	{
@@ -24,8 +27,8 @@ public class IsProfesor extends ObjetoBBDD {
 	}
 
 	/**
-	 * Nos devuelve un clon profesor inicializado
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * un profesor. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		

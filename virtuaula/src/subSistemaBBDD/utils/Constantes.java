@@ -1,18 +1,32 @@
 package subSistemaBBDD.utils;
-
+/**
+ * Esta clase define de forma estática todas las constantes necesarias en cuanto a los nombres
+ * de cada campo de cada tupla de nuestra base de datos, nombre de las distintas tablas,nombres de las distintas
+ * fachadas que dan acceso a operaciones de la BD, etc... .
+ * 
+ *
+ */
 public class Constantes {
 
-	//ERRORES GENERICOS
+	/**
+	 * ERRORES GENERICOS
+	 */
 	public static final String ERROR_CONEXION_BBDD = "Error al conectar con la Base de Datos";
 	public static final String ERROR_DESCONEXION_BBDD = "Se ha produciodo un error al desconectar de la BBDD";
 	
-	//ISAREA
+	/**
+	 * nombre de la tabla ISAREA
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoArea="subSistemaBBDD.objetoBaseDatos.IsArea";
 	public static final String TABLA_AREA = "isarea";
 	public static final String ID_ISAREA = "IDISAREA";
 	public static final String AREA_NOMBRE = "NOMBRE";
 	
-	//ISAULA
+	/**
+	 * nombre de la tabla ISAULA
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoAula="subSistemaBBDD.objetoBaseDatos.IsAula";
 	public static final String TABLA_AULA = "isaula";
 	public static final String ID_ISAULA = "IDISAULA";
@@ -20,7 +34,10 @@ public class Constantes {
 	public static final String AULA_CAPACIDAD = "CAPACIDAD";
 	public static final String AULA_LOCALIZACION = "LOCALIZACION";
 	
-	//ISAVISO
+	/**
+	 * nombre de la tabla ISAVISOS
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoAviso="subSistemaBBDD.objetoBaseDatos.IsAvisos";
 	public static final String TABLA_AVISOS = "isavisos";
 	public static final String ID_ISAVISOS = "IDISAVISOS";
@@ -30,14 +47,20 @@ public class Constantes {
 	public static final String AVISOS_TEXTO = "TEXTO";
 	public static final String AVISOS_ACTIVO = "ACTIVO";
 	
-	//ISNOMINA
+	/**
+	 * nombre de la tabla ISNOMINA
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoNomina="subSistemaBBDD.objetoBaseDatos.IsNomina";
 	public static final String TABLA_NOMINA = "isnomina";
 	public static final String ID_ISNOMINA = "IDISNOMINA";
 	public static final String NOMINA_CUENTA_INGRESOS = "CUENTA_INGRESOS";
 	public static final String NOMINA_CANTIDAD = "CANTIDAD";
 	
-	//ISHORARIO
+	/**
+	 * nombre de la tabla ISHORARIO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoHorario="subSistemaBBDD.objetoBaseDatos.IsHorario";
 	public static final String TABLA_HORARIO = "ishorario";
 	public static final String ID_ISHORARIO = "IDISHORARIO";
@@ -47,7 +70,10 @@ public class Constantes {
 	public static final String HORARIO_JUEVES = "J";
 	public static final String HORARIO_VIERNES = "V";
 	
-	//ISFICHA
+	/**
+	 * nombre de la tabla ISFICHA
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoFicha="subSistemaBBDD.objetoBaseDatos.IsFicha";
 	public static final String TABLA_FICHA = "isficha";
 	public static final String ID_ISFICHA = "IDISFICHA";
@@ -55,21 +81,34 @@ public class Constantes {
 	public static final String FICHA_ANOTACIONES = "ANOTACIONES";
 	public static final String FICHA_NOTAS_EJERCICIOS = "NOTAS_EJERCICIOS";
 		
-	//ISUSUARIO
+
+	
+	/**
+	 * nombre de la tabla ISUSUARIO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoUsuario="subSistemaBBDD.objetoBaseDatos.IsUsuario";
 	public static final String TABLA_USUARIO = "isusuario";
 	public static final String ID_ISUSUARIO_DNI = "DNI";
 	public static final String USUARIO_CONTRASENIA = "CONTRASENIA";
 	public static final String USUARIO_PERFIL = "PERFIL";
 	
-	//ISCONTRATO
+	
+	
+	/**
+	 * nombre de la tabla ISCONTRATO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoContrato="subSistemaBBDD.objetoBaseDatos.IsContrato";
 	public static final String TABLA_CONTRATO = "iscontrato";
 	public static final String ID_ISCONTRATO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
 	public static final String CONTRATO_ISNOMINA_IDISNOMINA = "ISNOMINA_IDISNOMINA";
 	public static final String CONTRATO_TIPO = "TIPO";
 	
-	//ISPROFESOR
+	/**
+	 * nombre de la tabla ISPROFESOR
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoProfesor="subSistemaBBDD.objetoBaseDatos.IsProfesor";
 	public static final String TABLA_PROFESOR = "isprofesor";
 	public static final String ID_ISPROFESOR_ISUSUARIO_DNI = "ISUSUARIO_DNI";
@@ -80,7 +119,11 @@ public class Constantes {
 	public static final String PROFESOR_TELEFONO = "TELEFONO";
 	public static final String PROFESOR_EMAIL = "EMAIL";
 	
-	//ISALUMNO
+
+	/**
+	 * nombre de la tabla ISALUMNO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoAlumno="subSistemaBBDD.objetoBaseDatos.IsAlumno";
 	public static final String TABLA_ALUMNO = "isalumno";
 	public static final String ID_ISALUMNO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
@@ -93,7 +136,11 @@ public class Constantes {
 	public static final String ALUMNO_FECH_NACIMIENTO = "FECH_NACIMIENTO";
 	public static final String ALUMNO_SEXO = "SEXO";
 	
-	//ISCURSO
+	
+	/**
+	 * nombre de la tabla ISCURSO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoCurso="subSistemaBBDD.objetoBaseDatos.IsCurso";
 	public static final String TABLA_CURSO = "iscurso";
 	public static final String ID_ISCURSO_IDISCURSO = "IDISCURSO";
@@ -106,14 +153,22 @@ public class Constantes {
 	public static final String CURSO_FECHA_FIN = "FECHA_FIN";
 	public static final String CURSO_PRECIO = "PRECIO";
 		
-	//ISAVISOS_HAS_ISUSUARIO
+
+	
+	/**
+	 * nombre de la tabla ISAVISOS_HAS_ISUSUARIO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoAvisoUsuario="subSistemaBBDD.objetoBaseDatos.IsAvisos_Has_IsUsuario";
 	public static final String TABLA_ISAVISOS_HAS_ISUSUARIO = "isavisos_has_isusuario";
 	public static final String ID_ISAVISOS_HAS_ISUSUARIO = "ISAVISOS_IDISAVISOS";
 	public static final String ID_ISAVISOS_HAS_ISUSUARIO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
 	public static final String ISAVISOS_HAS_ISUSUARIO_NUEVO= "NUEVO";
 	
-	//ISCURSO_HAS_ISALUMNO
+	/**
+	 * nombre de la tabla ISCURSO_HAS_ISALUMNO
+	 * Campos de una tupla de esta tabla.
+	 */
 	public static final String objetoCursoAlumno="subSistemaBBDD.objetoBaseDatos.IsCurso_Has_IsAlumno";
 	public static final String TABLA_ISCURSO_HAS_ISALUMNO = "iscurso_has_isalumno";
 	public static final String ID_HAS_ISCURSO_IDISCURSO = "ISCURSO_IDISCURSO";
@@ -121,7 +176,11 @@ public class Constantes {
 	public static final String ISCURSO_HAS_ISALUMNO_ISFICHA_IDISFICHA = "ISFICHA_IDISFICHA";
 	public static final String ISCURSO_HAS_ISALUMNO_NOTA_FINAL = "NOTA_FINAL";
 	
-	//ISHORARIO_HAS_ISAULA
+	
+	/**
+	 * Nombre de la tabla ISHORARIO_HAS_ISAULA
+	 * Campos de una tupla de la tabla ISHORARIO_HAS_ISAULA
+	 */
 	public static final String objetoHorarioAula="subSistemaBBDD.objetoBaseDatos.IsHorario_Has_IsAula";
 	public static final String TABLA_ISHORARIO_HAS_ISAULA = "ishorario_has_isaula";
 	public static final String ID_HAS_ISHORARIO_IDISHORARIO = "ISHORARIO_IDISHORARIO";
@@ -132,8 +191,10 @@ public class Constantes {
 	//ISERROR
 	public static final String CAUSA = "CAUSA_ERROR";
 	
-	//ISBEANEXPEDIENTECURSO
-
+	
+	/**
+	 * campos de un bean ISBEANEXPEDIENTECURSO 
+	 */
 	public static final String ID_EXPEDIENTECURSO_IDISCURSO = "IDISCURSO";
 	public static final String EXPEDIENTECURSO_ISPROFESOR_ISUSUARIO_DNI = "ISPROFESOR_ISUSUARIO_DNI";
 	public static final String EXPEDIENTECURSO_ISAREA_IDISAREA = "ISAREA_IDISAREA";
@@ -145,8 +206,10 @@ public class Constantes {
 	public static final String EXPEDIENTECURSO_PRECIO = "PRECIO";
 	public static final String EXPEDIENTECURSO_NOTAFINAL= "NOTAFINAL";
 	
-	//ISBEANEXPEDIENTEALUMNO
-	
+
+	/**
+	 * campos de un bean ISBEANEXPEDIENTEALUMNO 
+	 */
 	public static final String ID_EXPEDIENTEALUMNO_ISUSUARIO_DNI = "ISUSUARIO_DNI";
 	public static final String EXPEDIENTEALUMNO_NOMBRE = "NOMBRE";
 	public static final String EXPEDIENTEALUMNO_APELLIDO1 = "APELLIDO1";
@@ -158,8 +221,10 @@ public class Constantes {
 	public static final String EXPEDIENTEALUMNO_SEXO = "SEXO";
 	public static final String EXPEDIENTEALUMNO_NOTAFINAL="NOTAFINAL";
 	
+	/**
+	 * Nombres para obtener las distintas fachadas de la base de datos 
+	 */
 	
-	//Nombres para obtener las distintas fachadas de la base de datos
 	public static final String FachadaAlumno="fachadaAlumno";
 	public static final String FachadaArea="fachadaArea";
 	public static final String FachadaAula="fachadaAula";
@@ -170,7 +235,10 @@ public class Constantes {
 	public static final String FachadaProfesor="fachadaProfesor";
 	public static final String FachadaUsuario="fachadaUsuario";
 	
-	//Tipos de usuarios
+	/**
+	 *Tipos de usuarios 
+	 */
+
 	public static final String PERFILSECRETARIO="secretaria";
 	public static final String PERFILCONTABLE="contable";
 	public static final String PERFILRRHH="RRHH";

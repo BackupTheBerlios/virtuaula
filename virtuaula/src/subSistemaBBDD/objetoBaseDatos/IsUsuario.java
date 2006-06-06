@@ -1,22 +1,27 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- *Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla usuario de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
+ *
  */
 public class IsUsuario extends ObjetoBBDD {
 	
 	private String DNI;
 	private String CONTRASENIA;
 	private String PERFIL;
-
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla usuario a vacio.
+	 */
 	public IsUsuario()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * un usuario. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		// TODO Auto-generated method stub

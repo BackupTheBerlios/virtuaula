@@ -20,6 +20,11 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  *
  */
 public class BBDDFachadaCurso extends BBDDFachada{
+	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaCurso(){
 		
 	}
@@ -37,9 +42,9 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	 * pasada como parámetro en el horario dado y que cumplan 
 	 * los criterios del curso pasado como parámetro.
 	 * 
-	 * @param curso
-	 * @param aula
-	 * @param horario
+	 * @param curso  criterio de busqueda sobre curso
+	 * @param aula  critero de busqueda sobre aula en la cual se imparte el curso.
+	 * @param horario  criterio de busqueda sobre el horario en el cual se imparte el curso.
 	 * @return una lista de cursos que cumplen los criterios deseados.
 	 */
 	public ListaObjetoBean dameCursosCumplan(ObjetoBean curso,ObjetoBean aula,ObjetoBean horario ){
@@ -61,7 +66,6 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				horCursoAula.cambiaValor(Constantes.ID_HAS_ISCURSO_IDISCURSO,cursoActual.dameValor(Constantes.ID_ISCURSO_IDISCURSO));
 				
 				if(aula!=null){
-					System.out.println("ENTROOOOOOOOOOOO aula");
 					String idAula=aula.dameValor(Constantes.ID_ISAULA);
 					if(idAula!=null)
 						horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,idAula);
@@ -71,7 +75,6 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				else
 					horCursoAula.cambiaValor(Constantes.ID_HAS_ISAULA_IDISAULA,"");
 				if(horario!=null){
-					System.out.println("ENTROOOOOOOOOOOO   horario");
 					String idHorario= horario.dameValor(Constantes.ID_ISHORARIO);
 					if (idHorario!=null)
 						horCursoAula.cambiaValor(Constantes.ID_HAS_ISHORARIO_IDISHORARIO,idHorario);
@@ -119,7 +122,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	/**
 	 * Nos sirve para saber si el curso que pasamos como parámetro está ya en el sistema
 	 * @return true si el curso ya existe, false en caso contrario
-	 * @param curso, el curso del cual queremos saber si existe o no en el sistema.
+	 * @param curso  el curso del cual queremos saber si existe o no en el sistema.
 	 */
 	public boolean cursoYaExiste(ObjetoBean curso){
 		try{
@@ -142,7 +145,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	
 	/**
 	 * No sirve para hallar los cursos que imparte el profesor pasado como parámetro y que tienen estado activo.
-	 * @param profesor, el profesor en cuestion.
+	 * @param profesor  el profesor en cuestion.
 	 * @return una lista de todos los cursos activos que imparte profesor.
 	 */
 	public ListaObjetoBean dameCursosActivos(ObjetoBean profesor){
@@ -159,8 +162,8 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	}
 	/**
 	 * Da de baja el curso seleccionado que debe contener un valor en su campo clave.
-	 * @param curso
-	 * @return
+	 * @param curso  curso a dar de baja
+	 * @return true si exito, false e.o.c
 	 */
 	public boolean darBajaCurso(ObjetoBean curso){
 		boolean exito=true;
@@ -206,8 +209,8 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	
 	/**
 	 * Metodo que se utiliza cuando un profesor quiere publicar las notas del curso que se pasa como parámetro
-	 * @param curso, el curso del cual se quieren publicar las notas
-	 * @return, true si la publicación tiene exito, false e.o.c
+	 * @param curso  el curso del cual se quieren publicar las notas
+	 * @return  true si la publicación tiene exito, false e.o.c
 	 */
 	
 	
@@ -268,8 +271,8 @@ public class BBDDFachadaCurso extends BBDDFachada{
 
 	/**
 	 * Libera el horario y el aula asociados al curso que se pasa como parametro
-	 * @param curso
-	 * @return
+	 * @param curso  del cual queremos liberar su horario y su aula
+	 * @return true si exito false e.o.c
 	 */
 	public boolean liberarHorarioAulaDeCurso(ObjetoBean curso){
 		ObjetoBBDD iscurso;
@@ -292,7 +295,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	}
 	/**
 	 * Devuelve el numero de plazas libres de un curso.
-	 * @param curso, el curso a consultar
+	 * @param curso  el curso a consultar
 	 * @return Numero de plazas libres del curso si este existe, -1 en otro caso
 	 */
 	public int numPlazasEnCurso (ObjetoBean curso){
@@ -317,7 +320,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	/**
 	 * Genera y devuelve el expediente de un curso que se compone de los alumnos
 	 * de este curso y de sus notas finales correspondientes.
-	 * @param curso, del cual queremos hallar su expediente
+	 * @param curso  del cual queremos hallar su expediente
 	 * @return el expediente del curso deseado.
 	 */
 	public ListaObjetoBean creaExpediente (ObjetoBean curso){
@@ -367,7 +370,7 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	
 	/**
 	 * Devuelve una lista de beans con todos los cursos que imparte el profesor pasado como parámetro
-	 * @param profesor, profesor del cual queremos consultar sus cursos.
+	 * @param profesor  profesor del cual queremos consultar sus cursos.
 	 * @return una lista de todos los cursos del profesor consultado.
 	 */
 	public ListaObjetoBean dameCursosProfesor(ObjetoBean profesor){
@@ -388,8 +391,8 @@ public class BBDDFachadaCurso extends BBDDFachada{
 	}
 	/**
 	 * Dado un alumno devuelve una lista de sus cursos.
-	 * @param alumno
-	 * @return
+	 * @param alumno  del cual queremos sacar sus cursos.
+	 * @return lista de cursos del alumno.
 	 */
 	public ListaObjetoBean dameCursosAlumno(ObjetoBean alumno){
 		try{
@@ -422,14 +425,6 @@ public class BBDDFachadaCurso extends BBDDFachada{
 				return null;
 			}
 	}
-	//prueba de darbajacurso
-	/*public static void main(String[] args){
-		BBDDFachadaCurso mia= new BBDDFachadaCurso();
-		Curso curso= new Curso();
-		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
-		Curso dos=(Curso)mia.consultar(curso).dameObjeto(0);
-		mia.darBajaCurso(dos);
-		
-	}*/
+
 	
 }

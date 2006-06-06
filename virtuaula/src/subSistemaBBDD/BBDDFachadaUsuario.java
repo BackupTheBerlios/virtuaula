@@ -1,6 +1,5 @@
 package subSistemaBBDD;
 
-import subSistemaBBDD.esquemaBBDD.CreadorEsquemaBBDD;
 import subSistemaBBDD.esquemaBBDD.EsquemaBBDD;
 import subSistemaBBDD.listaObjeto.ListaObjetoBBDD;
 import subSistemaBBDD.objetoBaseDatos.ObjetoBBDD;
@@ -18,12 +17,17 @@ import beans.ObjetoBean;
  *
  */
 public class BBDDFachadaUsuario extends BBDDFachada{
+	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaUsuario(){
 		
 	}
 	/**
 	 * Devuelve una lista de usuarios segun el perfil especificado
-	 * @return
+	 * @return la lista mencionada.
 	 */
 	public ListaObjetoBean dameUsuariosPerfil(String perfil){
 		CreadorObjetoBBDD creadorObjetoBBDD=this.creador.getCreadorObjetoBBDD();
@@ -36,7 +40,11 @@ public class BBDDFachadaUsuario extends BBDDFachada{
 		
 	}
 
-	
+	/**
+	 * Nos sirve para saber si un usuario está ya dado de alta en el sistema.
+	 * @param usuario del cual queremos saber si ya existe en el sistema.
+	 * @return true si ya existe, false e.o.c
+	 */
 	public boolean usuarioYaExiste(ObjetoBean usuario){
 		try{
 			ObjetoBBDD isUsuario = ConversorBeanBBDD.convierteBeanABBDD(usuario);
@@ -95,7 +103,7 @@ public class BBDDFachadaUsuario extends BBDDFachada{
 	
 	/**
 	 * Este método devuelve el perfil asociado a un usuario
-	 * @param usuario, el usuario del cual buscar el perfil
+	 * @param usuario el usuario del cual buscar el perfil
 	 * @return el perfil del usuario si existe, si no la cadena vacía.
 	 */
 	
@@ -110,7 +118,6 @@ public class BBDDFachadaUsuario extends BBDDFachada{
 				return usuarioBBDD.dameValor(Constantes.USUARIO_PERFIL);
 			}
 			else{
-				System.out.println("El usuario no existe");
 				return "";
 			}
 		}
@@ -120,13 +127,6 @@ public class BBDDFachadaUsuario extends BBDDFachada{
 		}
 			
 	}
-	//prueba dameUsuariosPerfil
-	/*public static void main(String args[]){
-		BBDDFachadaUsuario mia= new BBDDFachadaUsuario();
-		ListaObjetoBean lista= mia.dameUsuariosPerfil("contable");
-		for (int i=0;i<lista.tamanio();i++){
-			System.out.println(lista.dameObjeto(i).dameValor(Constantes.USUARIO_PERFIL));
-		}
-	}*/
+
 
 }

@@ -11,6 +11,14 @@ import subSistemaBBDD.objetoCriterio.*;
 import org.apache.log4j.Logger;
 
 import subSistemaBBDD.utils.*;
+
+/**
+ * Clase que gestiona las tabla aviso de nuestra base de datos.
+ * Implementa las operaciones básicas de inserción,consulta,eliminación y edición de tuplas 
+ * de esta tabla.
+ * 
+ *
+ */
 public class EsqIsAviso extends EsquemaBBDD {
 
 	//Declaramos el log de la clase
@@ -182,6 +190,11 @@ public class EsqIsAviso extends EsquemaBBDD {
 		super.desconectar();					
 		return listaObjetoBBDDAbs;
 	}
+	/**
+	 * Edita los campos seleccionados de obj en la tabla aviso.
+	 * @param obj el ObjetoBBDD a editar.
+	 * @return true si la edición se realiza satisfactoriamente, false en caso contrario.
+	 */
 	//Las ediciones se realizan sobre entradas obtenidas a traves de una consulta con lo que
 	//el objetoCriterio obj siempre tendrá el campo identificador relleno (ID de cada fila de la tabla)
 	public boolean editar(ObjetoCriterio obj){

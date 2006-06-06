@@ -144,10 +144,7 @@ package subSistemaBBDD.objetoCriterio;
 		 }
 	}
 	
-	/**
-	 * Genera una copia prototípica del tipo de ObjetoCriterio concreto especificado 
-	 * @return objeto de la implementación concreta de la interfaz ObjetoCriterio especificada
-	 */
+
 	public CreadorObjetoCriterio(){
         if (alumno==null){alumno= new ObjetoCriterioIsAlumno();}
         if (area==null){area= new ObjetoCriterioIsArea();}

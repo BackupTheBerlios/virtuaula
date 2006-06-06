@@ -18,13 +18,20 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 public class BBDDFachadaArea extends BBDDFachada{
 
 	
-	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	
 	protected BBDDFachadaArea(){
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param curso  curso del cual se quiere hallar su area asociada.
+	 * @return un ObjetoBean area asociado al curso.
+	 */
 	
 	public ObjetoBean dameAreaCurso(ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();
@@ -32,7 +39,6 @@ public class BBDDFachadaArea extends BBDDFachada{
 		area.cambiaValor(Constantes.ID_ISAREA,curso.dameValor(Constantes.CURSO_ISAREA_IDISAREA));
 		ListaObjetoBean areasCurso=this.consultar(area);
 		ObjetoBean areaCurso = areasCurso.dameObjeto(0);
-		System.out.println("salen "+ areasCurso.tamanio());
 		return areaCurso;
 		
 	}
@@ -40,7 +46,7 @@ public class BBDDFachadaArea extends BBDDFachada{
 	 * Devuelve una lista de todas las areas existentes en el sistema, 
 	 * para por ejemplo a la hora de añadir un curso saber que areas están
 	 * abiertas para asociarle una al curso
-	 * @return, la lista de areas disponibles.
+	 * @return  la lista de areas disponibles.
 	 */
 	public ListaObjetoBean dameAreasDisponible(){
 		CreadorObjetoCriterio creadorCriterio=this.creador.getCreadorObjetoCriterio();

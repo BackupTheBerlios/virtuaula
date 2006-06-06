@@ -1,8 +1,9 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
- * @author AL
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla nomina de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
  *
  */
 public class IsNomina extends ObjetoBBDD{
@@ -10,13 +11,17 @@ public class IsNomina extends ObjetoBBDD{
 	private String IDISNOMINA;
 	private String CUENTA_INGRESOS;
 	private String CANTIDAD;
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla nomina a vacio.
+	 */
 	public IsNomina()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * una nomina. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		// TODO Auto-generated method stub

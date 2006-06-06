@@ -9,7 +9,11 @@ import subSistemaBBDD.objetoBaseDatos.*;
 import subSistemaBBDD.utils.Constantes;
 
 
-
+/**
+ * Implementación de la clase abstracta ObjetoCriterio especializada
+ * en manejar objetos que definen un criterio de busqueda/consulta en la tabla isFicha.
+ * 
+ */
 public class ObjetoCriterioIsFicha extends ObjetoCriterio{
 	
 	/**

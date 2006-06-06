@@ -20,6 +20,10 @@ import subSistemaBBDD.utils.*;
  */
 public class BBDDFachadaAula extends BBDDFachada {
 	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaAula(){
 		
 	}
@@ -28,7 +32,7 @@ public class BBDDFachadaAula extends BBDDFachada {
 	/**
 	 * Sirve para obtener todas las aulas que están libres en un
 	 * horario dado.
-	 * @param horario, el horario que fija las aula que estoy buscando
+	 * @param horario  el horario que fija las aula que estoy buscando
 	 * @return una lista de aulas libres en el horario dado.
 	 */
 	
@@ -89,6 +93,10 @@ public class BBDDFachadaAula extends BBDDFachada {
 		return libre;
 	}
 	
+	/**
+	 * 
+	 * @return una lista de todas las aula que existen en el sistema.
+	 */
 	public ListaObjetoBean dameAulasDisponible(){
 		CreadorObjetoCriterio creadorCriterio=this.creador.getCreadorObjetoCriterio();
 		ObjetoCriterio criterioAula = creadorCriterio.crear(creadorCriterio.ObjetoCriterioIsaula);
@@ -98,6 +106,11 @@ public class BBDDFachadaAula extends BBDDFachada {
 		return ConversorBeanBBDD.convierteListaBBDD(result);
 	}
 	
+	/**
+	 * Nos sirve para hallar el aula en el cual se imparte un curso.
+	 * @param curso  del cual queremos hallar su aula asociada
+	 * @return  el aula asociada al curso
+	 */
 	public ObjetoBean dameAulaCurso(ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();
 		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);

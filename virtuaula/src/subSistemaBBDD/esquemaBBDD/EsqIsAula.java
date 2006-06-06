@@ -12,6 +12,13 @@ import org.apache.log4j.Logger;
 
 import subSistemaBBDD.utils.*;
 
+/**
+ * Clase que gestiona las tabla aula de nuestra base de datos.
+ * Implementa las operaciones básicas de inserción,consulta,eliminación y edición de tuplas 
+ * de esta tabla.
+ * 
+ *
+ */
 public class EsqIsAula extends EsquemaBBDD {
 
 	//Declaramos el log de la clase
@@ -183,6 +190,11 @@ public class EsqIsAula extends EsquemaBBDD {
 		return listaObjetoBBDDAbs;
 
 	}
+	/**
+	 * Edita los campos seleccionados de obj en la tabla aula.
+	 * @param obj el ObjetoBBDD a editar.
+	 * @return true si la edición se realiza satisfactoriamente, false en caso contrario.
+	 */
 	public boolean editar(ObjetoCriterio obj){
 //		variables a utilizar
 		boolean bResultado = false;

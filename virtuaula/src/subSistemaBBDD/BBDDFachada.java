@@ -18,7 +18,7 @@ import subSistemaBBDD.utils.Constantes;
  * que necesiten acceder a la Base de Datos de la academia. De esta manera ofrecemos una 
  * interfaz sencilla para el subSistemaBBDD y ocultamos a los clientes los componentes 
  * del subsistema.
- * Se utiliza un patrón de creación Singleton para esta clase, y además utilizamos una tablas hash para
+ * Se utiliza un patrón de creación Singleton para esta clase, y además utilizamos una tabla hash para
  * crear exactamente una sola instancia de cada clase que hereda de esta.
  * 
  * @author JORGE SANCHEZ MUSULIN
@@ -26,21 +26,35 @@ import subSistemaBBDD.utils.Constantes;
  */
 public class BBDDFachada {
 	/**
-	 * 
+	 * Instancia única de la clase
 	 */
 	private static BBDDFachada ejemplar = null;
+	/**
+	 * Tabla que guarda una instancia de cada una de las fachadas que extienden esta clase
+	 */
 	private static Hashtable singletons= new Hashtable();
+	/**
+	 * Tabla que asocia a cada tipo de ObjetoBBDD un número y que nos será útil para la creación
+	 * de distintas instancias de objetos de este tipo. 
+	 */
 	private Hashtable entidadesBD= new Hashtable();
+	/**
+	 * creador que sirve para la creación de diferentes objetos propios del subSistemaBBDD 
+	 */
 	protected Creadores creador;
+	/**
+	 * Datos de configuración para acceder a nuestra BD
+	 */
 	private String nombreBD;
 	private String usuarioBD;
 	private String password;
 	private String url;
 	
-	/**
-	 * 
-	 *
-	 */
+/**
+ * Constructor de la clase,se inicializan los atributos de conexión a nuestra base de datos.
+ * También se rellena la tabla entidadesBD con los objetosBBDD presentes en nuestra BD.
+ * Es protegido para que solo pueda ser utilizado por los hijos de esta clase.(patron singleton)
+ */
 	protected BBDDFachada(){
 		this.creador = new Creadores();
 		this.nombreBD="prueba";
@@ -58,7 +72,10 @@ public class BBDDFachada {
 		
 		
 	}
-	
+	/**
+	 * Inicialización de la tabla entidadesBD
+	 *
+	 */
 	private void inicializaEntidadesBD(){
 		entidadesBD.put(Constantes.objetoAlumno,new Integer(0));
 		entidadesBD.put(Constantes.objetoArea,new Integer(1));
@@ -76,7 +93,14 @@ public class BBDDFachada {
 		entidadesBD.put(Constantes.objetoFicha,new Integer(13));
 		
 	}
-	
+	/**
+	 * Este método sirve para añadir una instancia única de una de las fachadas que extienden la clase BBDDFachada
+	 * a la tabla de singletons .
+	 * @param nombre  nombre de la clase de la cual se quiere crear una instancia en la tabla singletons
+	 * @param instanciaSubClase objeto de la clase que se incluirá en la tabla y que será único.
+	 * @throws Exception se lanza si ya existe una instancia de la clase en la tabla de singletons, con esto aseguramos
+	 * que solo habrá una instancia de cada una de las fachadas.
+	 */
 	private static void registraSingleton(String nombre,BBDDFachada instanciaSubClase)throws Exception{
 		if((singletons.get(nombre)==null))
 			singletons.put(nombre,instanciaSubClase);
@@ -86,13 +110,20 @@ public class BBDDFachada {
 		}
 	}
 	
+	/**
+	 * Devuelve la instancia unica de la fachada que se asocia al nombre pasado como parámetro.
+	 * @param nombre  nombre de la fachada de la cual queremos obtener la instancia única.
+	 * @return un objeto de la fachada adecuada.
+	 */
 	public BBDDFachada dameBBDDFachada(String nombre){
 		return (BBDDFachada)singletons.get(nombre);
 	}
 	/**
-	 * 
-	 * @return
+	 * Devuelve la única instancia de la clase BBDDFachada además registra en la tabla
+	 * de singletons un objeto de cada clase Fachada que hereda de esta.
+	 * @return  un objeto de la clase BBDDFachada que es único.
 	 */
+	
 	public static BBDDFachada getInstance() {
 		if ( ejemplar == null ) {
 			ejemplar = new BBDDFachada();
@@ -117,7 +148,11 @@ public class BBDDFachada {
 		return ejemplar;
 	}
 	
-	
+	/**
+	 * Crea un objeto de la clase EsquemaBBDD adecuado según el tipo ObjetoBBDD que le pasamos como parámetro.
+	 * @param entidadBBDD  objeto según el cual se identifica que tipo de EsquemaBBDD devolvemos.
+	 * @return la tabla adecuada para utilizar con el ObjetoBBDD
+	 */
 	protected EsquemaBBDD crearTablaAdecuada(ObjetoBBDD entidadBBDD){
 		EsquemaBBDD esquemaAdecuado= creador.getCreadorEsquema().crear
 		( ((Integer) this.entidadesBD.get(entidadBBDD.getClass().getName())).intValue());
@@ -126,7 +161,11 @@ public class BBDDFachada {
 	
 	
 	}
-	
+	/**
+	 * Crea un objeto de la clase ObjetoCriterio adecuado según el tipo ObjetoBBDD que le pasamos como parámetro.
+	 * @param entidadBBDD  objeto según el cual se identifica que tipo de ObjetoBBDD devolvemos.
+	 * @return un objeto de la clase ObjetoCriterio adecuado a entidadBBDD.
+	 */
 	protected ObjetoCriterio crearObjetoCriterioAdecuado(ObjetoBBDD entidadBBDD){
 		
 		
@@ -142,7 +181,7 @@ public class BBDDFachada {
 	 * Nos sirve para inicializar los valores de un EsquemaBBDD con el objetivo de poder
 	 * acceder a la base de datos que contiene el EsquemaBBDD, fijando el nombre de la BD, el login, contraseña...
 	 * 
-	 * @param tabla, la tabla que queremos inicializar
+	 * @param tabla la tabla que queremos inicializar
 	 * @return la tabla con sus atributos inicializados al valor adecuado para conectar a la BD.
 	 */
 	protected EsquemaBBDD inicializaTabla(EsquemaBBDD tabla){
@@ -151,7 +190,11 @@ public class BBDDFachada {
 		return tabla;
 	}
 	
-	
+	/**
+	 * Se trata de un método de edición/modificacion standard para cualquier tupla de cualquier tabla de nuestra Base de datos.
+	 * @param entidad la tupla a editar con los datos ya modificados
+	 * @return true si la edicion tiene exito, false e.o.c
+	 */
 	public boolean editar (ObjetoBean entidad){
 		try{
 			ObjetoBBDD entidadBBDD= ConversorBeanBBDD.convierteBeanABBDD(entidad);
@@ -165,6 +208,11 @@ public class BBDDFachada {
 			return false;
 		}
 	}
+	/**
+	 * Se trata de un método de inserción standard para cualquier tupla de cualquier tabla de nuestra Base de datos.
+	 * @param entidad la tupla a insertar en la tabla correspondiente.
+	 * @return true si la inserción tiene exito, false e.o.c
+	 */
 	public boolean insertar (ObjetoBean entidad){
 		try{		
 		ObjetoBBDD entidadBBDD=ConversorBeanBBDD.convierteBeanABBDD(entidad);
@@ -180,6 +228,11 @@ public class BBDDFachada {
 			
 		
 	}
+	/**
+	 * Se trata de un método de eliminación standard para cualquier tupla de cualquier tabla de nuestra Base de datos.
+	 * @param entidad  la tupla a eliminar en la tabla correspondiente.
+	 * @return true si la eliminación tiene exito, false e.o.c
+	 */
 	
 	public boolean eliminar(ObjetoBean entidad){
 		try{
@@ -196,7 +249,11 @@ public class BBDDFachada {
 			
 		
 	}
-	
+	/**
+	 * Se trata de un método de consulta standard para cualquier tupla de cualquier tabla de nuestra Base de datos.
+	 * @param entidad  la tupla que contiene alguno de los datos sobre los cuales queremos efectuar la consulta.
+	 * @return true si la consulta tiene exito, false e.o.c
+	 */
 	public ListaObjetoBean consultar(ObjetoBean entidad){
 		try{
 			ObjetoBBDD entidadBBDD= ConversorBeanBBDD.convierteBeanABBDD(entidad);

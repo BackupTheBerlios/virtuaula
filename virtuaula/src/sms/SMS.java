@@ -2,9 +2,21 @@ package sms;
 
 import java.io.*;
 import java.net.*;
-
+/**
+ * Esta clase utiliza el paquete java.net para implementar métodos de envio de mensajes cortos sms
+ * a télefonos móviles. Para que funcione correctamente se debe abrir una cuenta en www.peoplecall.com
+ * y rellenar los datos de usuario y contraseña en el método envia, si no no funcionará. 
+ * @author JORGE SANCHEZ
+ *
+ */
 public class SMS {
-
+ /**
+  * Establece una conexión por sockets con un servidor con soporte de envio sms
+  * @param host el host que nos dará el servicio de envio de sms
+  * @param puerto puerto de conexion al servidor
+  * @param output petición que se le manda al servidor
+  * 
+  */
  private String socket_envia(String host, int puerto, String output) {
 
         Socket smtpSocket = null;  
@@ -48,7 +60,12 @@ public class SMS {
     return(null);
 
     }          
-
+/**
+ * Envia un sms al numero de telefono numero.
+ * @param numero al cual queremos mandar el sms
+ * @param texto texto a enviar
+ * @return 0 en caso de exito, -1 si no
+ */
 public int envia(String numero, String texto) {
 
   String peticion=new String();

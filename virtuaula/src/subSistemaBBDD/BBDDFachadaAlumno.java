@@ -20,24 +20,21 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 public class BBDDFachadaAlumno extends BBDDFachada {
 	
 	
-	
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaAlumno(){
 		
 	}
 	
-	/*public static BBDDFachadaAlumno getInstance() {
-		if ( ejemplar == null ) {
-			ejemplar = new BBDDFachadaAlumno();
-	
-		}
-		return ejemplar;
-	}*/
+
 	
 	/**
 	 * Crea y devuelve el expediente de un alumno que consiste en todos sus cursos matriculados
 	 * y en la nota final que ha sacado en cada uno de ellos.
-	 * @param alumno
-	 * @return
+	 * @param alumno  del cual se quiere crear su expediente
+	 * @return una lista de cursos con sus correspondiente notas.
 	 */
 	public ListaObjetoBean creaExpedienteAlumno(ObjetoBean alumno){
 	    try{
@@ -89,7 +86,7 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 	
 	/**
 	 * Dado un curso te devuelve los alumnos que están matriculados en él.
-	 * @param curso, curso en cuestión.
+	 * @param curso  curso en cuestión.
 	 * @return lista de alumnos matriculados en el curso.
 	 */
 	
@@ -121,9 +118,10 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 	/**
 	 * Dado un curso y un alumno, devuelve una lista de alumnos que cumplen los criterios establecidos por
 	 * estos parámetros.
-	 * @param curso
-	 * @param alumno
-	 * @return
+	 * @param curso  criterio de consulta
+	 * @param alumno  criterio de consulta
+	 * @return una lista de alumnos que cumplen los criterios establecidos por
+	 * los parámetros que se pasan a este metodo.
 	 */
 	public ListaObjetoBean dameAlumnosCumplan(ObjetoBean curso,ObjetoBean alumno){
 		
@@ -171,14 +169,6 @@ public class BBDDFachadaAlumno extends BBDDFachada {
 		
 	}
 	
-	/*public static void main(String[] args){
-		BBDDFachadaAlumno mia= new BBDDFachadaAlumno();
-		ObjetoBean curso= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Curso);
-		ObjetoBean alumno= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Alumno);
-		curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"9");
-		//alumno.cambiaValor()
-		//curso.cambiaValor(Constantes.ID_ISCURSO_IDISCURSO,"2");
-		System.out.println(mia.dameAlumnosCumplan(null,null).tamanio());
-	}*/
+
 	
 }

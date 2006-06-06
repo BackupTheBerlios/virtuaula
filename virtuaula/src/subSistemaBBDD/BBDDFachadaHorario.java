@@ -20,13 +20,17 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  *
  */
 public class BBDDFachadaHorario extends BBDDFachada{
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaHorario(){
 		
 	} 
 	
 	/**
 	 * Dado un profesor devuelve una lista con sus horarios.
-	 * @param profesor, el profesor del cual queremos consultar sus horarios
+	 * @param profesor el profesor del cual queremos consultar sus horarios
 	 * @return una lista con los horarios del profesor.
 	 */
 	public ListaObjetoBean dameHorariosOcupadosProfesor(ObjetoBean profesor){
@@ -61,6 +65,11 @@ public class BBDDFachadaHorario extends BBDDFachada{
 			return null;
 		}
 	}
+	/**
+	 * Dado un curso nos devuelve su horario asociado.
+	 * @param curso del cual queremos hallar su horario
+	 * @return un objetoBean de tipo Horario con el horario asociado al curso pasado como paramtero.
+	 */
 	public ObjetoBean dameHorarioCurso(ObjetoBean curso){
 		CreadorBean creadorBean = new CreadorBean();
 		ObjetoBean horarioAula= creadorBean.crear(creadorBean.HorarioHasAula);
@@ -89,7 +98,7 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	 * Sirve para saber si dos horarios son compatibles, es decir si no tienen ninguna hora en comun.
 	 * @param horario1
 	 * @param horario2
-	 * @return
+	 * @return true si los horarios son compatibles, false e.o.c
 	 */
 	public boolean horariosCompatibles(ObjetoBean horario1,ObjetoBean horario2){
 		String valor1= horario1.dameValor(Constantes.ID_ISHORARIO);
@@ -110,6 +119,11 @@ public class BBDDFachadaHorario extends BBDDFachada{
 			return true;
 	}
 	
+	/**
+	 * Dado un aula nos devuelve una lista con los horarios en los cuales se encuentra ocupada.
+	 * @param aula del cual queremos obtener sus horarios ocupados.
+	 * @return la lista de horarios ocupados del aula.
+	 */
 	public ListaObjetoBean dameHorariosOcupadosAula(ObjetoBean aula){
 		
 		try{
@@ -142,8 +156,8 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	
 	/**
 	 * Nos dice si algun curso utiliza el horario pasado como parámetro
-	 * @param horario
-	 * @return
+	 * @param horario del cual queremos saber si algún curso se imparte en esas horas.
+	 * @return true si el horario es utilizado, false e.o.c
 	 */
 	public boolean horarioUtilizado(ObjetoBean horario){
 		boolean utilizada;
@@ -185,8 +199,8 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	}
 	/**
 	 * Dado un horario devuelve true si ya existe otro con el mismo nombre o contenido.
-	 * @param horario
-	 * @return
+	 * @param horario del cual queremos saber si ya existe otro con sus mismo datos.
+	 * @return true si ya existe un horario con las mismas horas dado de alta en el sistema.
 	 */
 	public boolean horarioYaExiste(ObjetoBean horario){
 		ListaObjetoBean horariosExistentes=	this.dameHorariosDisponibles();
@@ -219,22 +233,6 @@ public class BBDDFachadaHorario extends BBDDFachada{
 	}
 	
 	
-	/*public static void main(String[] args){
-		BBDDFachadaHorario mia= new BBDDFachadaHorario();
-		ObjetoBean horario= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Horario);
-		horario.cambiaValor(Constantes.ID_ISHORARIO,"1");
-		System.out.println(mia.horarioUtilizado(horario));
-		
-	}*/
-	
-	/*public static void main(String[] args){
-	BBDDFachadaHorario mia= new BBDDFachadaHorario();
-	ObjetoBean horario= mia.creador.getCreadorBean().crear(mia.creador.getCreadorBean().Horario);
-	horario.cambiaValor(Constantes.HORARIO_LUNES,"T");
-	horario.cambiaValor(Constantes.HORARIO_JUEVES,"M");
-	horario.cambiaValor(Constantes.HORARIO_MIERCOLES,"T");
-	System.out.println(mia.horarioYaExiste(horario));
-	
-	}*/
+
 	
 }

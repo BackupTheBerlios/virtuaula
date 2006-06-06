@@ -13,13 +13,17 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  *
  */
 public class BBDDFachadaAviso extends BBDDFachada{
+	/**
+	 * Creador protegido de la clase, solo lo utilizará su clase padre para crear una instancia de esta clase.
+	 *
+	 */
 	protected BBDDFachadaAviso(){
 		
 	}
 	/**
 	 * Devuelve una lista de avisos para el usuario que se pasa por parametro.
-	 * @param beanUsuario
-	 * @return
+	 * @param usuario
+	 * @return lista de avisos
 	 */
 	public ListaObjetoBean dameAvisosUsuario(ObjetoBean usuario){
 		CreadorBean creadorBean = new CreadorBean();
@@ -47,8 +51,8 @@ public class BBDDFachadaAviso extends BBDDFachada{
 	
 	/**
 	 * Devuelve una lista de avisos sin leer para el usuario que se pasa por parametro.
-	 * @param beanUsuario
-	 * @return
+	 * @param usuario
+	 * @return lista de avisos sin leer del usuario.
 	 */
 	public ListaObjetoBean dameAvisosNuevosUsuario(ObjetoBean usuario){
 		CreadorBean creadorBean = new CreadorBean();

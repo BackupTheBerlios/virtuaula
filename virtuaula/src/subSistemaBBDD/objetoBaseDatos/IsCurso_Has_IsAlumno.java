@@ -1,9 +1,11 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
- * 
- * @author Alberto Macho
- * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla de relación 
+ * entre un curso y un alumno de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
+ *
  */
 public class IsCurso_Has_IsAlumno extends ObjetoBBDD{
 	
@@ -11,13 +13,17 @@ public class IsCurso_Has_IsAlumno extends ObjetoBBDD{
 	private String ISALUMNO_ISUSUARIO_DNI;
 	private String ISFICHA_IDISFICHA;
 	private String NOTA_FINAL;
-
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla isCursoHasIsAlumno a vacio.
+	 */
 	public IsCurso_Has_IsAlumno()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * un objeto de relación entre un curso y un alumno. Se asemeja a lo que podria ser un constructor de copia.
 	 */
 	public ObjetoBBDD clonar() {
 		// TODO Auto-generated method stub

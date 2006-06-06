@@ -205,7 +205,7 @@ public class Profesorado {
 	/**
 	 * Genera y devuelve el expediente de un curso que se compone de los alumnos
 	 * de este curso y de sus notas finales correspondientes.
-	 * @param curso, del cual queremos hallar su expediente
+	 * @param curso del cual queremos hallar su expediente
 	 * @return el expediente del curso deseado.
 	 */
 	public ListaObjetoBean dameExpedienteCurso(ObjetoBean curso)

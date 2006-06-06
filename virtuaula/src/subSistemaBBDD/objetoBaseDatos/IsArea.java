@@ -1,24 +1,25 @@
 package subSistemaBBDD.objetoBaseDatos;
 import subSistemaBBDD.utils.*;
 /**
-/**
-* Esta clase representa una tupla para insertar el el esquema correspondiente
-* en este caso sera una tupla ObjetoBBDD que representa un area.
-*  
-*  * @author Alberto Macho González
-*Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
-*/
+ * Esta clase representa un objeto de acceso de datos a una tupla de la tabla area de nuestra Base de datos.
+ *  
+ * @author Alberto Macho González
+ *
+ */
 public class IsArea extends ObjetoBBDD {
 	
 	private String IDISAREA;
 	private String NOMBRE;
-	
+	/**
+	 * Constructor de la clase.Inicializa todos los campos de
+	 * la tupla area a vacio.
+	 */
 	public IsArea()
 	{
 		this.inicializar();
 	}
 	/**
-	 * Esta clase la usamos para hacer copias de otro objetoBBDD que en este caso sera
+	 * Este metodo lo usamos para hacer copias de otro objetoBBDD que en este caso sera
 	 * un Area. Se asemeja a lo que podria ser un constructor de copia.
 	 * Mirar documentacion de la clase de la que hereda(ObjetoBBDD)
 	 * @return nos devuelve un clon ObjetoBBDD, es decir una copia de la propia clase.
