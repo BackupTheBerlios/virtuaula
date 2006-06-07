@@ -123,7 +123,7 @@ public class GestorFichas {
 		// comprobar que los campos numericos no contienen letras
 		if (!bean.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS).equals("")) {
 			try {
-				int numerico = Integer.parseInt(bean
+				Integer.parseInt(bean
 						.dameValor(Constantes.FICHA_NOTAS_EJERCICIOS));
 			} catch (Exception e) {
 				// No es número
