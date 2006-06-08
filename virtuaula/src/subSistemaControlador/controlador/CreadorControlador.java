@@ -121,13 +121,23 @@ public class CreadorControlador {
 	static final public int ContEditarAlumnoIni=56;
 	static final public int ControladorInsertarHorario=57;
 	
-	
+	/**
+	 * tabla que va a contener todos los posibles controladores que necesitemos
+	 */
 	private ArrayList tablaControladoresPrototipos;
-	
+	/**
+	 * crea una nueva tablaControladores y la inicializa
+	 *
+	 */
 	public CreadorControlador(){
 		this.tablaControladoresPrototipos=new ArrayList();
 		this.inicializar();
 	}
+	/**
+	 * inicializa la tablaCOntroladoresPrototipos con todos los controladores
+	 * posibles
+	 *
+	 */
 	private void inicializar(){
 		
 		//introducimos todos los controladores
