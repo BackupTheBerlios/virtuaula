@@ -6,7 +6,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 
 /**
  * 
- * @author Sergio Piqueras Martínez
+ * 
  * Este controlador controla la navegación entre dos paginas
  * en la consulta horarios. En este paso consultará todos los horarios existentes 
  * en el sistema y los metera en sesion para poder mostrarlos en 
