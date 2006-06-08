@@ -6,8 +6,6 @@ import subSistemaBBDD.objetoBaseDatos.*;
 
 /**Clase que hereda de la clase abstracta ListaObjetoBBDDAbs. Adapta la clase ArrayList 
  * de java al interfaz ListaObjetoBBDDAbs.
- * @see La Clase 
- * <a href="../listaObjetoBBDD/ArrayList.html">ArrayList</a>
  * @author Fco Javier Pérez Escrivá & Sergio Piqueras Martínez
  */
 public class ListaObjetoBBDD extends ListaObjetoBBDDAbs{

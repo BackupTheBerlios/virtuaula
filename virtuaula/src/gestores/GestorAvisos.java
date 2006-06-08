@@ -89,7 +89,7 @@ public class GestorAvisos {
 	 * Manda un aviso a un alumno o profesor indicandole que sus datos se han
 	 * modificado bien
 	 * 
-	 * @param alumno
+	 * @param alumProf
 	 * @return boolean true si la operacion tiene exito. false en caso contrario
 	 */
 	public boolean enviarAvisoModificacionAlumno(ObjetoBean alumProf) {

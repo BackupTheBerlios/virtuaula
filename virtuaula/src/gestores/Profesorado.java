@@ -549,7 +549,7 @@ public class Profesorado {
 	/**
 	 * genere una contraseña aleatoria
 	 * 
-	 * @return
+	 * @return genera una contraseña aleatoria
 	 */
 	public int generaContrasenia() {
 		Random rnd = new Random();

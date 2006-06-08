@@ -30,7 +30,7 @@ public class Area extends ObjetoBean{
 	}
 	
 	/**
-	 * @param String que nos dice el campo que queremos que nos devuelva
+	 * @param campo String que nos dice el campo que queremos que nos devuelva
 	 * @return Nos da el valor del campo consultado
 	 * Mirar documentacion de la clase de la que hereda(ObjetoBean)
 	 * 

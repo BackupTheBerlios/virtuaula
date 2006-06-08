@@ -8,7 +8,7 @@ import subSistemaControlador.controlador.Controlador;
 /**
  * 
  * @author Alberto Macho
- * @Controlador nos sirve cuando el usuario se desconecta.
+ * nos sirve cuando el usuario se desconecta.
  */
 public class ControladorDesconectar extends ControladorConexiones{
 

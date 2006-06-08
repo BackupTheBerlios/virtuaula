@@ -53,7 +53,7 @@ public class Alumno extends ObjetoBean{
 	
 	
 	/**
-	 * @param Le pasamos  un String para saber el campo que queramos que nos devuelva
+	 * @param campo Le pasamos  un String para saber el campo que queramos que nos devuelva
 	 * @return Nos devuelve el valor del campo elegido
 	 * Me devuelve el valor del atriburo de IsAlumno que le indique en 
 	 * el parametro campo
@@ -104,7 +104,8 @@ public class Alumno extends ObjetoBean{
 	}
     /**
      * 
-     * @param Le pasamos el campo que queremos que nos cambie y el valor nuevo
+     * @param campo Le pasamos el campo que queremos que nos cambie 
+     * @param valor El valor nuevo
      * Introducimos un campo de la tupla que queremos cambiar y el valor que le
      * queremos asignar y nos lo cambia.
      * Mirar documentacion de la clase de la que hereda(ObjetoBean)
