@@ -86,7 +86,9 @@ public class BorraAviso extends ControladorUsuario{
 			
 		}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new BorraAviso();

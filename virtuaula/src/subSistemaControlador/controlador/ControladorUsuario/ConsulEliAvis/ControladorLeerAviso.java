@@ -34,7 +34,9 @@ import gestores.GestorAvisos;;
         this.setResuladooperacion("SIG");
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorLeerAviso();
