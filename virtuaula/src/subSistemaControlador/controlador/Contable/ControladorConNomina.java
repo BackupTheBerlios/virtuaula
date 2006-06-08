@@ -16,7 +16,11 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class ControladorConNomina extends ControladorContable{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el profesorado consulta los profesores, los contratos
+	 * y las nominas y las mete en sesion.
+	 */
 	public void procesarEvento() {
 		
 		CreadorBean creador =new CreadorBean();
@@ -74,7 +78,9 @@ public class ControladorConNomina extends ControladorContable{
 			
 		}
 	}
-
+/**
+ * @return Controlador , devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorConNomina();

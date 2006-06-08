@@ -12,10 +12,16 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * 
  * @author Alberto Macho
  *Controla el paso de una pagina a otra en la consulta de la ficha de un alumno.
- *Dependiendo del exito de las operaciones nos dara un resultado u otro
+ *Dependiendo del exito de las operaciones nos dara un resultado u otro.
+ *Consulta la ficha de un alumno y de un curso en concreto para meterla en sesion
+ *y poder mostrarla en la pagina siguiente
  */
 public class FichaAlumnoProf extends ControladorProfesor{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el profesorado consulta la ficha de un alumno y de un curso en concreto
+	 * y la mete en sesion
+	 */
 	public void procesarEvento() {
 		//CreadorBean creador = new CreadorBean();
 		HttpSession sesion = this.getSesion();
@@ -53,7 +59,9 @@ public class FichaAlumnoProf extends ControladorProfesor{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return  new FichaAlumnoProf();

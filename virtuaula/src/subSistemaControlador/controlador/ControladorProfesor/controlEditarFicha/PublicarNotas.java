@@ -10,15 +10,18 @@ import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor
 /**
  * 
  * @author Alberto Macho
- * Controla la operacion de publicar las notas, consulta la lista de cursos para
- * mostrarla en la sig pagina.
+ * Controla la operacion de publicar las notas, realiza la operacion
+ * de publicar las notas de un curso en concreto
  *
  */
 public class PublicarNotas extends ControladorProfesor{
+
 /**
- * Consuta la lista de cursos de ese profesor y la mete en la session
- * Si la lista devuelta es null sera un error de la base de datos.
- */
+* Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+* tiene que pasar. Ademas utilizando el profesorado publicamos las notas
+* de un curso que hemos obtenido de la sesion
+*/
+
 	public void procesarEvento() {
 	CreadorBean creador = new CreadorBean();
 	Profesorado GP = new Profesorado();	
@@ -67,7 +70,9 @@ public class PublicarNotas extends ControladorProfesor{
 		this.setResuladooperacion("ERROR");
 	}
 	}
-
+/**
+ * @return devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new PublicarNotas();

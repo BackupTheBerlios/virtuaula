@@ -16,7 +16,11 @@ import subSistemaControlador.controlador.ControladorAlumnos.ControladorAlumnos;
  *
  */
 public class ControladorConExpAlum extends ControladorAlumnos{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el gestor de alumnos obtenemos el expediente
+	 * de un alumno, que sera una lista con los cursos y la nota de cada uno.
+	 */
 	public void procesarEvento() {
 		
 		ObjetoBean usuario = (Usuario)this.getSesion().getAttribute("beanUsuario");
@@ -50,7 +54,9 @@ public class ControladorConExpAlum extends ControladorAlumnos{
 		}
 		
 	}
-
+/**
+ * @return devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorConExpAlum();

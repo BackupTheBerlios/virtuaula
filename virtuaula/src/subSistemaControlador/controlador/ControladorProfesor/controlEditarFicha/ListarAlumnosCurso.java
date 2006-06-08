@@ -12,10 +12,14 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * 
  * @author Alberto Macho
  *Controla el paso de una pagina a otra , en este caso  al consultar
- *los alumnos de un curso.
+ *los alumnos de un curso.Consulta los alumnos de un curso y los mete en sesion.
  */
 public class ListarAlumnosCurso extends ControladorProfesor{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el profesorado consulta los alumnos de un curso y los mete
+	 * en sesion.
+	 */
 	public void procesarEvento() {
 		
 		HttpSession sesion = this.getSesion();
@@ -48,7 +52,9 @@ public class ListarAlumnosCurso extends ControladorProfesor{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		return new ListarAlumnosCurso();
 	}

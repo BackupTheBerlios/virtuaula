@@ -23,6 +23,7 @@ public class ControladorMostrarCursoProf extends ControladorProfesor{
  * cogemos el dni del profesor de la session y buscamos con el gestor de profesores
  * todos los cursos que tiene ese profesor. Metemos la lista de cursos en la
  * session.
+ * Dependiendo del resultado de estas operaciones nos pasara a una pagina u a otra.
  */
 	public void procesarEvento() {
 	
@@ -53,7 +54,9 @@ public class ControladorMostrarCursoProf extends ControladorProfesor{
 	}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorMostrarCursoProf();

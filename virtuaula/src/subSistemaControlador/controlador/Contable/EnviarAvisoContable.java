@@ -15,7 +15,11 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class EnviarAvisoContable extends ControladorContable{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el Gestor de avisos manda los avisos correspondientes
+	 * al grupo elegido.
+	 */
 	public void procesarEvento() {
 		
 		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAvisos");
@@ -63,7 +67,9 @@ public class EnviarAvisoContable extends ControladorContable{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve Controlador de esta clase.
+ */
 	public Controlador clonar() {
 		
 		return new EnviarAvisoContable();

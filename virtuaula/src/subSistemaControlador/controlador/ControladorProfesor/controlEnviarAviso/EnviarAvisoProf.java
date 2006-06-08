@@ -19,7 +19,11 @@ import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor
  *En este caso es para enviar un aviso por parte del profesor
  */
 public class EnviarAvisoProf extends ControladorProfesor{
-
+	/**
+	* Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	* tiene que pasar. Ademas utilizando el GestorAvisos para enviar avisos al grupo
+	* correspondiente que hayamos elegido en la pagina anterior
+	*/
 	public void procesarEvento() {
 		
 		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAvisos");
@@ -91,7 +95,9 @@ public class EnviarAvisoProf extends ControladorProfesor{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new EnviarAvisoProf();

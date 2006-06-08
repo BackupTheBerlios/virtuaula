@@ -15,8 +15,11 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  */
 public class ActualizarFichaAlumno extends ControladorProfesor{
 /**
- * Actualiza la ficha del alumno con los datos que le han pasado del alumno cogiendolos
- * de la sesion.
+ * 
+ * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+ * tiene que pasar. Ademas utilizando el profesorado edita la ficha que le pasamos y que
+ * hemos obtenido de la sesion
+ *	
  */
 	public void procesarEvento() {
 		
@@ -42,7 +45,9 @@ public class ActualizarFichaAlumno extends ControladorProfesor{
 		}
 	
 	}
-
+/**
+ * @return devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ActualizarFichaAlumno();

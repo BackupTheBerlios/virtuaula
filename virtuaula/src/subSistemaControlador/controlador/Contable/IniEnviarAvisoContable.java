@@ -16,7 +16,13 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class IniEnviarAvisoContable extends ControladorContable{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el Gestor de usuarios obtenemos los usuarios
+	 * con un determindao perfil para meterlos en session y poder mandar avisos
+	 * a estos grupos en el siguiente controlador.
+	 */
+	
 	public void procesarEvento() {
 		HashMap mapGrupos=new HashMap();
 		ObjetoBean usuario=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");
@@ -55,7 +61,9 @@ public class IniEnviarAvisoContable extends ControladorContable{
 		}	
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase.
+ */
 	public Controlador clonar() {
 		
 		return new IniEnviarAvisoContable();
