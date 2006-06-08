@@ -4,7 +4,15 @@ import subSistemaControlador.controlador.Controlador;
 import gestores.GestorCursos;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
-
+/**
+ * 
+ * @author Sergio Piqueras Martínez
+ * Este controlador controla la navegación entre dos paginas
+ * en la consulta horarios. En este paso consultará todos los horarios existentes 
+ * en el sistema y los metera en sesion para poder mostrarlos en 
+ * la pagina siguiente
+ *
+ */
 public class ControladorConsHor extends ControladorConsultaHorario{
 
 	/**
@@ -13,7 +21,11 @@ public class ControladorConsHor extends ControladorConsultaHorario{
 	public ControladorConsHor() {
 		
 	}
-	
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el gestor de cursos consulta los horarios
+	 * existentes en el sistema.
+	 */
 		public void procesarEvento() {
 			
 			ListaObjetoBean	listahorario = new ListaObjetoBean();	
@@ -29,6 +41,9 @@ public class ControladorConsHor extends ControladorConsultaHorario{
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsHor();
 		}
