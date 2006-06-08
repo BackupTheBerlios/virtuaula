@@ -10,12 +10,16 @@ import subSistemaBBDD.utils.*;
 import subSistemaControlador.controlador.Controlador;
 /**
  * Controla el paso de una pagina a otra, en este caso consulta los profesores y los contratos  
- * y los mete en session
+ * y los mete en session para poder mostrarlos en la pagina siguiente
  * 
  *
  */
 public class ControladorConContrato extends ControladorContable{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el profesorado consulta los profesores y los contratos
+	 * de los mismos y los mete en sesion
+	 */
 	public void procesarEvento() {
 		
 		CreadorBean creador =new CreadorBean();
@@ -62,7 +66,9 @@ public class ControladorConContrato extends ControladorContable{
 			
 		}
 	}
-
+/**
+ * @return Controlador, nos devuelve un controlador de esta clase.
+ */
 	public Controlador clonar() {
 		
 		return new ControladorConContrato();
