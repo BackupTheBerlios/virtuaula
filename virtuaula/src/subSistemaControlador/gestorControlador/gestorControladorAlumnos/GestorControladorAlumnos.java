@@ -11,8 +11,7 @@ import subSistemaControlador.gestorControlador.GestorControlador;
 
 
 /**
- * Clase que mantiene la tabla relacion entre un perfil de usuario (alumno), una operación y un Controlador 
- * encargado de llevarla a cabo
+ * Devuelve los controladores de las sesion de un alumno
  * @author Alberto Macho
  *
  */
