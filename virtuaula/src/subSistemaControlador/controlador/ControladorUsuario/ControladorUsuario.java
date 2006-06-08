@@ -10,7 +10,10 @@ import subSistemaControlador.controlador.Controlador;
  */abstract public class ControladorUsuario  extends Controlador {
 
 
-
+	 /**
+		 * metodo que nos modifica el resultado operacion para saber cual sera
+		 * la pagina de destino
+		 */
 	abstract public void procesarEvento(); 
 
 	

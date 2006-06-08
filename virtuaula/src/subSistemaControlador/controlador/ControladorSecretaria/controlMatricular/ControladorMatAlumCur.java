@@ -17,8 +17,11 @@ import gestores.GestorAlumnos;
  */
 public class ControladorMatAlumCur extends ControladorMatricular {
 /**
- * Este metodo cogera el curso metido en la session y consultara la clase, el profesor
- * , el horario y el precio de ese curso y lo metera en la session para mostrarlo 
+ * 
+ * metodo que nos modifica el resultado operacion para saber cual sera
+ * la pagina de destino dependiendo del resultado de las operaciones.
+ * Este metodo cogerá el curso metido en la session y consultara la clase, el profesor,
+ * el horario y el precio de ese curso y lo metera en la sesion para mostrarlo 
  * en la siguiente pagina.
  */
 	public void procesarEvento() {
@@ -87,7 +90,9 @@ public class ControladorMatAlumCur extends ControladorMatricular {
 		
 	}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		return new ControladorMatAlumCur();
 	}

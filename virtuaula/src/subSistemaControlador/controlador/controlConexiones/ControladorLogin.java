@@ -12,6 +12,12 @@ import beans.Usuario;
  *
  */
 public class ControladorLogin extends Controlador{
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino.
+	 * Ademas con el gestor de avisos nos consulta el numero de 
+	 * avisos nuevos que tiene este usuario.
+	 */
 	public void procesarEvento(){
 		ObjetoBean usuario = (Usuario)this.getSesion().getAttribute("beanUsuario");
 		GestorAvisos GA= new GestorAvisos();
@@ -23,7 +29,9 @@ public class ControladorLogin extends Controlador{
 			numAvisos=new Integer(0);
 		this.getSesion().setAttribute("numAvisos",numAvisos);
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorLogin();

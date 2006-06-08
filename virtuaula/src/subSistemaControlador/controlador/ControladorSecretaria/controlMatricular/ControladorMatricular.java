@@ -11,7 +11,11 @@ import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecret
 abstract public class ControladorMatricular extends ControladorSecretaria {
 
 
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino
+	 * 
+	 */
 	abstract public void procesarEvento(); 
 
 	

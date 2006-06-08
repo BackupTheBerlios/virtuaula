@@ -16,7 +16,12 @@ import subSistemaBBDD.utils.*;
  *operacion sera uno u otro.
  */
 public class ControladorMatricula extends ControladorMatricular{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendo del resultado de las operaciones.
+	 * Ademas realiza la matriculación de un alumno con el gestor de Alumnos.
+	 * Tambien se le manda un sms al alumno con sus datos de su cuenta para entrar al sistema.
+	 */
 	public void procesarEvento() {
 		
 		ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
@@ -57,7 +62,9 @@ public class ControladorMatricula extends ControladorMatricular{
 		
 		
 	
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		return new ControladorMatricula();
 	}

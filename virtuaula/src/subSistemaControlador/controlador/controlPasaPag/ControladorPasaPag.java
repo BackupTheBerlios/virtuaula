@@ -20,7 +20,9 @@ public class ControladorPasaPag extends Controlador{
 		this.setResuladooperacion("SIG");
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase.
+ */
 	public Controlador clonar() {
 		// TODO Auto-generated method stub
 		return new ControladorPasaPag();

@@ -16,6 +16,9 @@ import subSistemaControlador.controlador.ControladorUsuario.ControladorUsuario;
  *
  */public class ControladorOp_Avis extends ControladorUsuario{
 /**
+ *
+ * metodo que nos modifica el resultado operacion para saber cual sera
+ * la pagina de destino dependiendo del resultado de las operaciones.
  * Con el idusuario que cogemos de la session buscamos los avisos de ese usuario
  * y metemos la lista resultante de avisos en la session.
  */
@@ -48,7 +51,9 @@ import subSistemaControlador.controlador.ControladorUsuario.ControladorUsuario;
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 
 		return new ControladorOp_Avis();

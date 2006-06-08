@@ -10,7 +10,11 @@ import subSistemaControlador.controlador.Contable.ControladorConContrato;
 import subSistemaControlador.controlador.controlPasaPag.ControladorPasaPag;
 import subSistemaControlador.gestorControlador.GestorControlador;
 
-
+/**
+ * Devuelve los controladores de las sesion de un contable
+ * @author AL
+ *
+ */
 public class GestorControladorContable extends GestorControlador{
 
 	/**
