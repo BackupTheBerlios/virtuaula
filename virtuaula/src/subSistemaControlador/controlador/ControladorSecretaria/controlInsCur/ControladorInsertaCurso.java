@@ -15,7 +15,14 @@ import subSistemaControlador.controlador.Controlador;
  *inserta el curso. 
  */
 public class ControladorInsertaCurso extends ControladorInsertarCursoAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendo del resultado de las operaciones realizadas.
+	 * Ademas obtiene el profesor, el area , el aula y el horario elegidos
+	 * para insertar el curso con ayuda del gestor de cursos.
+	 * Tambien metemos este curso en sesion para mostrarlo en la pagina siguiente
+	 * 
+	 */
 	public void procesarEvento() 
 	{
 		GestorCursos GC = new GestorCursos();
@@ -74,7 +81,9 @@ public class ControladorInsertaCurso extends ControladorInsertarCursoAbs{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsertaCurso();

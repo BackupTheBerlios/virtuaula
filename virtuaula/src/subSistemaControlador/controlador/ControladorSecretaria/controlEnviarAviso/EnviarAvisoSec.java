@@ -20,7 +20,13 @@ import subSistemaControlador.controlador.Controlador;
  *segun el exito o el fracaso.Es el que se encarga de enviar el aviso
  */
 public class EnviarAvisoSec extends ControladorAvisoSec{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino.
+	 * Ademas segun el usuriao que hayamos elegido en la pagina anterior
+	 * y con la ayuda del GestorAvisos mandamos el aviso
+	 * al grupo elegido.
+	 */
 	public void procesarEvento() {
 		ObjetoBean aviso= (ObjetoBean)this.getSesion().getAttribute("beanAvisos");
 		HashMap listaGrupos=(HashMap)this.getSesion().getAttribute("listagrupos");
@@ -96,7 +102,9 @@ public class EnviarAvisoSec extends ControladorAvisoSec{
 		}
 		
 	}
-
+/**
+ * nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new EnviarAvisoSec();

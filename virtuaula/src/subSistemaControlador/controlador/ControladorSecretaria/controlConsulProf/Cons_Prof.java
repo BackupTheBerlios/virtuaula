@@ -10,8 +10,8 @@ import beans.ObjetoBean;
  * 
  * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
- * en la consulta de un profesor. En este paso consultará las areas disponibles en
- * el sistema para poder mostrarlas en la pagina siguiente.
+ * en la consulta de un profesor. Consulta los profesores con las
+ * caracteristicas que le pasamos en un beanProfesor
  *
  */
 public class Cons_Prof extends ControladorConsProf{
@@ -55,6 +55,9 @@ public class Cons_Prof extends ControladorConsProf{
 		
 	
 	}
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 	public Controlador clonar()
 	{
 		return new Cons_Prof();

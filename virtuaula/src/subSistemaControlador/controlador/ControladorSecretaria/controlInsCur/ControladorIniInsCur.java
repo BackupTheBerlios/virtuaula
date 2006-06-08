@@ -10,14 +10,20 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class ControladorIniInsCur extends ControladorInsertarCursoAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino.
+	 * Ademas realiza tareas de limpieza de la sesion
+	 */
 	public void procesarEvento() {
 		
 		this.setResuladooperacion("SIG");
 		this.getSesion().removeAttribute("error");
 		this.getSesion().removeAttribute("beanCurso");
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorIniInsCur();

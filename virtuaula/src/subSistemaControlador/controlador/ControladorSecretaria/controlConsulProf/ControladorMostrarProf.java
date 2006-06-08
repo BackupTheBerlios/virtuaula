@@ -15,7 +15,11 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class ControladorMostrarProf extends ControladorConsProf{
-
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el profesorado consulta los cursos que tiene un profesor
+	 * en concreto y lo mete en sesion. tambien consultamos el area que tiene un profesor.
+	 */
 	public void procesarEvento() {
 		Integer posprof= (Integer)this.getSesion().getAttribute("posProf");
 		ListaObjetoBean listaprof =(ListaObjetoBean)this.getSesion().getAttribute("RdoControlador");
@@ -54,7 +58,9 @@ public class ControladorMostrarProf extends ControladorConsProf{
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar()
 	{
 		return new ControladorMostrarProf();

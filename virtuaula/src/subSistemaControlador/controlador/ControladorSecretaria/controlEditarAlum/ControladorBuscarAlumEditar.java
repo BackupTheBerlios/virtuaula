@@ -15,7 +15,8 @@ public class ControladorBuscarAlumEditar extends ControladorEditarAlumno {
 	
 	/**
 	 * Este metodo nos modifica el resultado operacion para indicar a la pagina que
-	 * tiene que pasar. 
+	 * tiene que pasar.  Ademas con el Gestor de alumnos consulta los alumnos con caracteristicas
+	 * que le pasamos en un beanAlumno
 	 */
 		public void procesarEvento() {
 			ObjetoBean alumno=(ObjetoBean)this.getSesion().getAttribute("beanAlumno");
@@ -33,7 +34,9 @@ public class ControladorBuscarAlumEditar extends ControladorEditarAlumno {
 				this.setResuladooperacion("ERROR");
 			}		
 		}
-	
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 		public Controlador clonar(){
 			return new ControladorBuscarAlumEditar();
 		}

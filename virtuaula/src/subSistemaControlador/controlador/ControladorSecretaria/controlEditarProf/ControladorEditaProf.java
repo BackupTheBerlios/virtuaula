@@ -12,7 +12,11 @@ import beans.listaObjetoBeans.*;
  *
  */
 public class ControladorEditaProf extends ControladorEditarProf{
-
+/**
+ * Metodo que nos modifica el resultado operacion para saber la pagina de destino.
+ * Ademas con el profesorado realizamos la edicion de un profesor que le pasamos con
+ * los datos cambiados.
+ */
 	public void procesarEvento() {
 		//cojo el beanProfesor de la sesion y edito el profesor
 		
@@ -39,7 +43,9 @@ public class ControladorEditaProf extends ControladorEditarProf{
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorEditaProf();

@@ -5,7 +5,14 @@ import gestores.GestorCursos;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
-
+/**
+ * 
+ * 
+ * Este controlador controla la navegación entre dos paginas
+ * en la consulta horarios. Obtendremos el horario seleccionado
+ * en la pagina anterior
+ *
+ */
 public class ControladorConsHorSel extends ControladorConsultaHorario{
 
 	/**
@@ -14,7 +21,11 @@ public class ControladorConsHorSel extends ControladorConsultaHorario{
 	public ControladorConsHorSel() {
 		
 	}
-	
+	/**
+	 * Este metodo nos modifica el resultado operacion para saber a que pagina tiene que 
+	 * dirigirse luego
+	 * Obtiene el horario seleccionado en la pagina anterior y lo mete en sesion
+	 */
 		public void procesarEvento() {
 			
 			ListaObjetoBean	listahorario = new ListaObjetoBean();	
@@ -39,6 +50,9 @@ public class ControladorConsHorSel extends ControladorConsultaHorario{
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsHorSel();
 		}

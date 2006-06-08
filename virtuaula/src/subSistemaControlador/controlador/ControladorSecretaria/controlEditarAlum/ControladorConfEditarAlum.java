@@ -12,7 +12,11 @@ import subSistemaBBDD.utils.*;
  */
 public class ControladorConfEditarAlum extends ControladorEditarAlumno{
 
-	
+	/**
+	 * Metodo que modifica el resultado operacion para indicar a que pagina tenemos que ir 
+	 * y ademas con el gestor de Alumnos comprueba que los datos que se van a editar tienen
+	 * el formato adecuado
+	 */
 	public void procesarEvento(){
 		
 		String claveAlumno= (String)this.getSesion().getAttribute("claveAlumno");
@@ -30,7 +34,9 @@ public class ControladorConfEditarAlum extends ControladorEditarAlumno{
 			this.setResuladooperacion("ERROR");
 		}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar(){
 		return new ControladorConfEditarAlum();
 	}

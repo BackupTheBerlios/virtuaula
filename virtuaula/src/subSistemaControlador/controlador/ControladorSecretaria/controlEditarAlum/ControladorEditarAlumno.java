@@ -12,7 +12,10 @@ import subSistemaControlador.controlador.ControladorSecretaria.ControladorSecret
 abstract public class ControladorEditarAlumno extends ControladorSecretaria {
 
 
-
+/**
+ * metodo para modificar el resultado operacion y saber a que pagina
+ * tenemos que ir
+ */
 	abstract public void procesarEvento(); 
 
 	

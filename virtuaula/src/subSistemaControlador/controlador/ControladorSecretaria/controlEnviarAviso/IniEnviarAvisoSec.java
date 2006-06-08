@@ -20,7 +20,12 @@ import subSistemaControlador.controlador.Controlador;
  *segun el exito o el fracaso.
  */
 public class IniEnviarAvisoSec extends ControladorAvisoSec{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino.
+	 * Ademas se encarga de meter en una tabla los grupos a los que podemos mandar avisos.
+	 * Esto lo hacemos con ayuda del Gestor de usuarios, el profesorado, el gestor de cursos
+	 */
 	public void procesarEvento() {
 		HashMap mapGrupos=new HashMap();
 		ObjetoBean usuario=(ObjetoBean)this.getSesion().getAttribute("beanUsuario");
@@ -76,7 +81,9 @@ public class IniEnviarAvisoSec extends ControladorAvisoSec{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new IniEnviarAvisoSec();

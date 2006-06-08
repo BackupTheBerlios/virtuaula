@@ -6,7 +6,15 @@ import gestores.GestorHorarios;
 import beans.CreadorBean;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
-
+/**
+ * 
+ * 
+ * Este controlador controla la navegación entre dos paginas
+ * en la eliminación de un horario.En este paso consultara si esta siendo 
+ * utilizado y si no esta siendo
+ * utilizado lo eliminara y si no dara error.
+ *
+ */
 
 public class ControladorConsHorBor3 extends ControladorConsultaHorario{
 
@@ -16,7 +24,11 @@ public class ControladorConsHorBor3 extends ControladorConsultaHorario{
 	public ControladorConsHorBor3() {
 		
 	}
-	
+	/**
+	 * Nos modifica el resultado de operacion entre una pagina y otra dependiendo
+	 * del exito de las operaciones que realiza. En este caso con el gestor de horarios
+	 * consultamos si el horario esta utilizado o no y si no esta utilizado lo eliminamos.
+	 */
 		public void procesarEvento() {
 			GestorHorarios gestor = new GestorHorarios();
 			ObjetoBean horario =(ObjetoBean ) this.getSesion().getAttribute("beanHorario");	
@@ -45,6 +57,9 @@ public class ControladorConsHorBor3 extends ControladorConsultaHorario{
 		
 			this.getSesion().removeAttribute("posHor");
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsHorBor3();
 		}

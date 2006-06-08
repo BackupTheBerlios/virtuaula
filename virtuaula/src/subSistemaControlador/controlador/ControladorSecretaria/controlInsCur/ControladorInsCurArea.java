@@ -17,7 +17,11 @@ import beans.ObjetoBean;
  */
 public class ControladorInsCurArea extends ControladorInsertarCursoAbs{
 /**
- * Consultamos las areas disponibles en el sistema y la metemos en la sesion.
+ * 
+ * metodo que nos modifica el resultado operacion para saber cual sera
+ * la pagina de destino segun el exito de las operaciones realizadas
+ *
+ * Consultamos las areas disponibles con el gestor de cursos y las metemoss en la sesion.
  */
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();
@@ -90,7 +94,9 @@ public class ControladorInsCurArea extends ControladorInsertarCursoAbs{
 		}
 	
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsCurArea();

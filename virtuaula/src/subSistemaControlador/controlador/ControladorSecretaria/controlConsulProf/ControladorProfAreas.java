@@ -9,12 +9,14 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * 
  * @author Alberto Macho
  *Controla el paso de una pagina a otra en la consulta de un profesor
- *cuando tenemos que sacar las areas disponibles.
+ *cuando tenemos que sacar las areas disponibles para mostrarlas en la pagina
+ *siguiente
  */
 public class ControladorProfAreas extends ControladorConsProf{
 
 	/**
-	 * Consulta las areas disponibles en el sistema para meterlas en la session 
+	 * Consulta las areas disponibles en el sistema para meterlas en la session y modfica el resultado 
+	 * operacion para saber a que pagina tenemos que ir.
 	 */
 	public void procesarEvento() 
 	{
@@ -35,7 +37,9 @@ public class ControladorProfAreas extends ControladorConsProf{
 		this.getSesion().removeAttribute("bean");
 		
 	}
-
+/**
+ * @return nos devulve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		return new ControladorProfAreas();
 	}

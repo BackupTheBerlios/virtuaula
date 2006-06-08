@@ -14,7 +14,10 @@ import gestores.GestorAlumnos;
 public class ControladorFinEditarAlum extends ControladorEditarAlumno{
 
 	
-	
+	/**
+	 * metodo que nos modifica el resultado operacion para saber a que pagina tenemos qu dirigirnos, 
+	 * ademas realiza la edicion de un alumno con el gestor de ALumnos.
+	 */
 	public void procesarEvento(){
 		
 		ObjetoBean alumnoEdicion= (ObjetoBean)(this.getSesion().getAttribute("beanAlumno"));
@@ -33,7 +36,9 @@ public class ControladorFinEditarAlum extends ControladorEditarAlumno{
 		this.getSesion().removeAttribute("posAlumno");
 		this.getSesion().removeAttribute("listAlumno");
 	}
-	
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 	public Controlador clonar(){
 		return new ControladorFinEditarAlum();
 	}

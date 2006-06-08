@@ -5,7 +5,15 @@ import gestores.GestorHorarios;
 import beans.ObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 
-
+/**
+ * 
+ * 
+ * Este controlador controla la navegación entre dos paginas
+ * en la consulta horarios. En este paso obtendremos en horario elegido en la
+ * pagina anteriro y lo meteremos en sesion para que lo pueda
+ * mostrar en la pagina seguiente
+ *
+ */
 public class ControladorConsHorBor2 extends ControladorConsultaHorario{
 
 	/**
@@ -14,7 +22,12 @@ public class ControladorConsHorBor2 extends ControladorConsultaHorario{
 	public ControladorConsHorBor2() {
 		
 	}
-	
+	/**
+	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	 * tiene que pasar. Ademas utilizando el gestor de horarios consulta los horarios
+	 * disponibles en el sistema. Tambien obtenemos el horario elegido en la
+	 * pagina anterior y lo metemos en sesion
+	 */
 		public void procesarEvento() {
 			ListaObjetoBean	listahorario = new ListaObjetoBean();	
 			GestorHorarios gestor = new GestorHorarios();
@@ -40,6 +53,9 @@ public class ControladorConsHorBor2 extends ControladorConsultaHorario{
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsHorBor2();
 		}

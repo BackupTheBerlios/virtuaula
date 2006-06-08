@@ -14,7 +14,12 @@ import subSistemaControlador.controlador.Controlador;
  *impartir un curso
  */
 public class ControladorInsCurProf extends ControladorInsertarCursoAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendo del resultado de las operaciones realizadas.
+	 * Ademas con ayuda del gestor de cursos consultamos los profesores que esten libres
+	 * en el horario que hemos seleccinado anteriormente
+	 */
 	public void procesarEvento() {
 		
 		CreadorBean creador = new CreadorBean();
@@ -82,7 +87,9 @@ public class ControladorInsCurProf extends ControladorInsertarCursoAbs{
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsCurProf();

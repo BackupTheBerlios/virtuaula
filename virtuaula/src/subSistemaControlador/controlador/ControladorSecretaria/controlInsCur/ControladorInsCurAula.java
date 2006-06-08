@@ -11,11 +11,16 @@ import subSistemaControlador.controlador.Controlador;
  * @author Alberto Macho
  * 
  *Controla el paso de una pagina a otra en la insercion de 
- *un curso, en concreto es el paso de consulta de las aulas disponilbes
- *para impartir el curso
+ *un curso, en concreto  consulta las aulas disponilbes
+ *para impartir el curso y mostrarlas en la siguiente pagina
  */
 public class ControladorInsCurAula extends ControladorInsertarCursoAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendo del resultado de las operaciondes realizadas.
+	 * Ademas consultamos las aulas disponibles en un horario libre y la metemos en 
+	 * sesion para poder mostrarlas en la siguiente pagina. 
+	 */
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();
 		Integer pos=(Integer)this.getSesion().getAttribute("posArea");
@@ -82,7 +87,9 @@ public class ControladorInsCurAula extends ControladorInsertarCursoAbs{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsCurAula();

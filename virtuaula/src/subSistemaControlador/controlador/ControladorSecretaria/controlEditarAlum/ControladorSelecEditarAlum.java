@@ -13,11 +13,18 @@ import subSistemaControlador.controlador.*;
  *
  */
 public class ControladorSelecEditarAlum extends ControladorEditarAlumno {
-	
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 	public Controlador clonar(){
 		return new ControladorSelecEditarAlum();
 	}
-	
+	/**
+	 * metodo que nos modifica el resultado operacion para saber la pagina a la que tenemos que ir.
+	 * Ademas obtenemos el alumno en concreto seleccionado para editar , cogiendo la lista
+	 * de alumnos y la posicion selecionada en la pagina anterior. Este alumno la mete
+	 * en la sesion
+	 */
 	public void procesarEvento(){
 		Integer posAlum= (Integer)this.getSesion().getAttribute("posAlumno");
 		

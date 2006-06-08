@@ -16,7 +16,14 @@ import beans.ObjetoBean;
  *mostrarlos
  */
 public class ControladorInsCurHor extends ControladorInsertarCursoAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendl del exito de las operaciones realizadas.
+	 * Ademas con el gestor de cursos consultamos los horarios existentes
+	 * y los metemos en sesion para poder mostrarlos en la pagina siguiente.
+	 * Tambien se realiza una comprobacion de los datos introducidos con el gtestor
+	 * de cursos
+	 */
 	public void procesarEvento() {
 		CreadorBean creador = new CreadorBean();
 		//Curso cur =(Curso)this.getSesion().getAttribute("idbean");
@@ -75,7 +82,9 @@ public class ControladorInsCurHor extends ControladorInsertarCursoAbs{
 			this.setResuladooperacion("ERROR");
 		}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsCurHor();

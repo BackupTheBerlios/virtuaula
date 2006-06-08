@@ -2,11 +2,17 @@ package subSistemaControlador.controlador.ControladorSecretaria.controlEditarAlu
 
 import subSistemaControlador.controlador.Controlador;
 
-
+/**
+ * 
+ * 
+ * Este controlador controla la navegación entre dos paginas
+ * en la edicion de un alumno. Realmente solo realiza tareas de limpieza
+ *
+ */
 public class ContEditarAlumnoIni extends ControladorEditarAlumno {
 	/**
 	 * Este metodo nos modifica el resultado operacion para indicar a la pagina que
-	 * tiene que pasar. 
+	 * tiene que pasar. y realiza tareas de limpieza de la sesion
 	 */
 		public void procesarEvento() {
 			this.getSesion().removeAttribute("listaalumno");
@@ -15,7 +21,9 @@ public class ContEditarAlumnoIni extends ControladorEditarAlumno {
 			this.getSesion().removeAttribute("claveAlumno");
 			this.setResuladooperacion("SIG");
 		}
-	
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 		public Controlador clonar(){
 			return new ContEditarAlumnoIni();
 		}
