@@ -14,6 +14,10 @@ import gestores.GestorAlumnos;
  */
 public class ControladorMatAlum extends ControladorMatricular{
 /**
+ * 
+ * metodo que nos modifica el resultado operacion para saber cual sera
+ * la pagina de destino dependiendo del resultado de las operaciones.
+ *
  * Esta funcion tiene que consultar los cursos activos de la base de datos
  * para meterlos en la session y que se puedan mostrar en la siguiente pagina
  */
@@ -69,7 +73,9 @@ public class ControladorMatAlum extends ControladorMatricular{
 			this.getSesion().setAttribute("error",listaer);
 		}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		return new ControladorMatAlum();
 	}

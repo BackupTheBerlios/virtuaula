@@ -8,9 +8,19 @@ import beans.ObjetoBean;
 import beans.listaObjetoBeans.CreadorListaObjetoBean;
 import beans.listaObjetoBeans.ListaObjetoBean;
 import subSistemaControlador.controlador.Controlador;
-
+/**
+ * 
+ * Este controlador controla la navegación entre dos paginas
+ * en la insercion de un horario. 
+ *
+ */
 public class ControladorInsertarHorario extends ControladorInsertarHorarioAbs{
-
+	/**
+	 * metodo que nos modifica el resultado operacion para saber cual sera
+	 * la pagina de destino dependiendo del exito de las operaciones realizadas.
+	 * Ademas comprueba con el gestor de horarios si este horario que obtenemos de sesion
+	 * existe o no y si no existe y los datos son correctos lo inserta con el gestor de horarios
+	 */
 	public void procesarEvento() 
 	{
 		GestorHorarios GH = new GestorHorarios();
@@ -54,7 +64,9 @@ public class ControladorInsertarHorario extends ControladorInsertarHorarioAbs{
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsertarHorario();
