@@ -9,7 +9,7 @@ import gestores.GestorCursos;
  * 
  * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
- * en la consulta de un curso. En este paso buscará el profesor, horario, aula y área
+ * en la baja de un curso. En este paso buscará el profesor, horario, aula y área
  * que tiene el curso seleccionado y los pasa a la session.
  *
  */
@@ -23,8 +23,8 @@ public class ControladorBajaMostrarCur extends ControladorBajaCurso{
 	}
 	/**
 	 * Este metodo nos modifica el resultadooperacion para indicar a la pagina que
-	 * tiene que pasar. Ademas utilizando el gestor de cursos consulta los cursos con
-	 * el bean que le pasamos por la session.
+	 * tiene que pasar. Ademas utilizando el gestor de cursos consulta el area, el aula
+	 * , el profesor y el horario del curso en concreto
 	 */
 		public void procesarEvento() {
 			
@@ -51,6 +51,9 @@ public class ControladorBajaMostrarCur extends ControladorBajaCurso{
 				this.setResuladooperacion("ERROR");
 			}
 			}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorBajaMostrarCur();
 		}

@@ -17,11 +17,17 @@ import subSistemaControlador.controlador.ControladorProfesor.ControladorProfesor
  * Controla el paso de una pagina a otra ,haciendo ademas operaciones
  *dependiendo del exito pasa a una pagina u otra mostrando erroes o no.
  *En este caso es para consultar a quien puede enviar el aviso el 
- *profesor. 
+ *profesor. Podra mandar avisos a todas las secretarias, al profesorado
+ *y a los alumnos de un curso que el imparta
  *
  */
 public class IniEnviarAvisoProf extends ControladorProfesor{
-
+	/**
+	* Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	* tiene que pasar. Ademas utilizando el Gestor usuarios obtenemos el grupo de usuarios
+	* a los que podemos mandar el mensaje. Con el profesorado,obtenemos todos los
+	* profesores y los cursos de un profesor en particular.
+	*/
 	public void procesarEvento() {
 	 
 		HashMap mapGrupos=new HashMap();
@@ -72,7 +78,9 @@ public class IniEnviarAvisoProf extends ControladorProfesor{
 			this.setResuladooperacion("ERROR");
 		}
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new IniEnviarAvisoProf();

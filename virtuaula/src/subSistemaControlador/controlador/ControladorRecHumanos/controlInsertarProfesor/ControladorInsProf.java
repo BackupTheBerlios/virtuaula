@@ -15,8 +15,9 @@ import beans.listaObjetoBeans.ListaObjetoBean;
 public class ControladorInsProf extends ControladorRecHumanos{
 /**
  * Procesa la informacion necesaria de la sesion y realiza
- * la insercion del profesor, dependiende del resultado, 
- * pondra en el resultadooperacion OK o ERROR
+ * la insercion del profesor usando el profesorado, dependiende del resultado, 
+ * pondra en el resultadooperacion OK o ERROR para indicar a la pagina que tiene
+ * que ir.
  */
 	public void procesarEvento() {
 		
@@ -55,7 +56,9 @@ public class ControladorInsProf extends ControladorRecHumanos{
 		
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorInsProf();

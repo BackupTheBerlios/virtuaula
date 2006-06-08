@@ -15,7 +15,11 @@ import subSistemaControlador.controlador.Controlador;
  *
  */
 public class ControladorBajaDefCurso extends ControladorBajaCurso{
-
+	/**
+	* Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	* tiene que pasar. Ademas utilizando GestorCursos damos de baja el curso que hayamos
+	* elegido y que obtenemos con la posicion y la lista de los cursos de sesion
+	*/
 	public void procesarEvento() {
 		
 		Integer poscur= (Integer)this.getSesion().getAttribute("posCurso");
@@ -42,7 +46,9 @@ public class ControladorBajaDefCurso extends ControladorBajaCurso{
 		}
 		
 	}
-
+/**
+ * @return nos devuelve un controlador de esta clase
+ */
 	public Controlador clonar() {
 		
 		return new ControladorBajaDefCurso();

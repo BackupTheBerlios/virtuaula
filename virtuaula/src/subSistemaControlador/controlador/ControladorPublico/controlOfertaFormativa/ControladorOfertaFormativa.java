@@ -15,7 +15,11 @@ import subSistemaControlador.controlador.ControladorPublico.ControladorPublico;
  *
  */
 public class ControladorOfertaFormativa extends ControladorPublico{
-	
+	/**
+	* Este metodo nos modifica el resultadooperacion para indicar a la pagina que
+	* tiene que pasar. Ademas utilizando el GestorCursos consulta los cursos activos
+	* para mostrar la lista de cursos que se imparten en la academia
+	*/
 	public void procesarEvento() {
 		
 		CreadorBean creador = new CreadorBean();	
@@ -44,7 +48,9 @@ public class ControladorOfertaFormativa extends ControladorPublico{
 		}
 			
 		}
-
+/**
+ * @return devuelve un controlador de esta clase
+ */
 		public Controlador clonar() {
 			
 			return new ControladorOfertaFormativa();

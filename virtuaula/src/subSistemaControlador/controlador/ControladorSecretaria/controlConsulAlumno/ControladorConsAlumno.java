@@ -41,6 +41,9 @@ public class ControladorConsAlumno extends ControladorConsultaAlumno {
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsAlumno();
 		}

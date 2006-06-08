@@ -55,6 +55,9 @@ public class ControladorIniConsCur extends ControladorConsultaCurso{
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorIniConsCur();
 		}

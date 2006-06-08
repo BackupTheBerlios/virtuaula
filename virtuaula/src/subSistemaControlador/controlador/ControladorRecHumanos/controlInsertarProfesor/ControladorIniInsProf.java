@@ -11,12 +11,16 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * 
  * @author Alberto Macho
  *Controlador para iniciar la insercion de un profesor.
+ *En concreto se encacarga de obtener las areas existentes
+ *y guardarlas en sesion para mostrarlas en la pagina
+ *siguiente
  *
  */
 public class ControladorIniInsProf extends ControladorRecHumanos{
 /**
  * Consulta las areas y las mete en sesion
- * El resultado de la operacion depende de esta consulta
+ * El resultado de la operacion depende de esta consulta, que realiza
+ * usando el profesorado
  */
 	public void procesarEvento() {
 //		consultamos las areas disponibles en la academis y las metemos en sesion
@@ -48,7 +52,9 @@ public class ControladorIniInsProf extends ControladorRecHumanos{
 			
 		}
 	}
-
+	/**
+	 * @return nos devuelve un controlador de esta clase
+	 */
 	public Controlador clonar() {
 		
 		return new ControladorIniInsProf();

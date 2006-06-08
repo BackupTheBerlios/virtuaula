@@ -8,7 +8,7 @@ import beans.listaObjetoBeans.ListaObjetoBean;
  * 
  * @author Alberto Macho
  * Este controlador controla la navegación entre dos paginas
- * en la consulta de un curso. En este paso consultará las areas, los horarios, 
+ * en la baja de un curso. En este paso consultará las areas, los horarios, 
  * los profesore y las aulas disponibles en el sistema para poder mostrarlas en 
  * la pagina siguiente.
  *
@@ -55,6 +55,9 @@ public class ControladorBajaIniConsCur extends ControladorBajaCurso{
 				this.setResuladooperacion("ERROR");
 			}		
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorBajaIniConsCur();
 		}

@@ -43,6 +43,9 @@ public class ControladorConsCur extends ControladorConsultaCurso{
 			if (listacurso!=null)this.setResuladooperacion("OK");
 			else if (listacurso==null)this.setResuladooperacion("ERROR");
 		}
+		/**
+		 * @return nos devuelve un controlador de esta clase
+		 */
 		public Controlador clonar(){
 			return new ControladorConsCur();
 		}
